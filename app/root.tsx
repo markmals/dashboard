@@ -3,7 +3,7 @@ import { HeadersFunction, LinksFunction, MetaFunction } from "@vercel/remix"
 import tailwind from "~/styles/style.css?url"
 import { StackedLayout, Navbar, NavbarItem, NavbarSection } from "@tailwindcss/catalyst"
 
-// export const config = { runtime: "edge" }
+export const config = { runtime: "edge" }
 
 // https://vercel.com/docs/edge-network/caching#limits
 // export const headers: HeadersFunction = () => ({
