@@ -1,0 +1,189 @@
+{
+    "movies": [
+        {
+            "title": "Godzilla Minus One",
+            "link": "https://www.themoviedb.org/movie/940721-1-0",
+            "year": "2023",
+            "genre": "Sci-Fi",
+            "runningTime": "2h 5m",
+            "trailer": "https://youtu.be/r7DqccP1Q_4",
+            "poster": "https://image.tmdb.org/t/p/original/hkxxMIGaiCTmrEArK7J56JTKUlB.jpg"
+        },
+        {
+            "title": "Dune: Part Two",
+            "link": "https://www.themoviedb.org/movie/693134-dune-part-two",
+            "year": "2024",
+            "genre": "Sci-Fi",
+            "runningTime": "2h 47m",
+            "trailer": "https://youtu.be/Way9Dexny3w",
+            "poster": "https://image.tmdb.org/t/p/original/7wjKein20OCNQaApLqA4UuvNcP4.jpg"
+        },
+        {
+            "title": "Oppenheimer",
+            "link": "https://www.themoviedb.org/movie/872585-oppenheimer",
+            "year": "2023",
+            "genre": "Drama",
+            "runningTime": "3h 1m",
+            "trailer": "https://youtu.be/bK6ldnjE3Y0",
+            "poster": "https://image.tmdb.org/t/p/original/ptpr0kGAckfQkJeJIt8st5dglvd.jpg"
+        },
+        {
+            "title": "The Zone of Interest",
+            "link": "https://www.themoviedb.org/movie/467244-the-zone-of-interest",
+            "year": "2023",
+            "genre": "Drama",
+            "runningTime": "1h 45m",
+            "trailer": "https://youtu.be/r-vfg3KkV54",
+            "poster": "https://image.tmdb.org/t/p/original/zYgopRlHlZdizDFjXb0I5T6iEPY.jpg"
+        },
+        {
+            "title": "Primer",
+            "link": "https://www.themoviedb.org/movie/14337-primer",
+            "year": "2004",
+            "genre": "Sci-Fi",
+            "runningTime": "1h 17m",
+            "trailer": "https://youtu.be/-vD-yj9o664",
+            "poster": "https://image.tmdb.org/t/p/original/xEoq2WmDzpzxhkHEsmOYOg6BPg6.jpg"
+        },
+        {
+            "title": "The Holdovers",
+            "link": "https://www.themoviedb.org/movie/840430-the-holdovers",
+            "year": "2023",
+            "genre": "Comedy, Drama",
+            "runningTime": "2h 13m",
+            "trailer": "https://youtu.be/AhKLpJmHhIg",
+            "poster": "https://image.tmdb.org/t/p/original/k6tGZZpJdGKz3Mpjfni4qJ9XaiE.jpg"
+        },
+        {
+            "title": "Anatomy of a Fall",
+            "link": "https://www.themoviedb.org/movie/915935-anatomie-d-une-chute",
+            "year": "2023",
+            "genre": "Thriller",
+            "runningTime": "2h 32m",
+            "trailer": "https://youtu.be/fTrsp5BMloA",
+            "poster": "https://image.tmdb.org/t/p/original/kQs6keheMwCxJxrzV83VUwFtHkB.jpg"
+        },
+        {
+            "title": "Road House",
+            "link": "https://www.themoviedb.org/movie/359410-road-house",
+            "year": "2024",
+            "genre": "Action",
+            "runningTime": "2h 1m",
+            "trailer": "https://youtu.be/Y0ZsLudtfjI",
+            "poster": "https://image.tmdb.org/t/p/original/dW6ReunjXpuqItSeTXSUJSLuFVR.jpg"
+        },
+        {
+            "title": "Civil War",
+            "link": "https://www.themoviedb.org/movie/929590-civil-war",
+            "year": "2024",
+            "genre": "Drama",
+            "runningTime": "1h 49m",
+            "trailer": "https://youtu.be/U7_0-Su-pus",
+            "poster": "https://image.tmdb.org/t/p/original/lhaVFq4WHhxpTOoBfzATiE5vSEG.jpg"
+        },
+        {
+            "title": "Don't Tell Mom the Babysitter's Dead",
+            "link": "https://www.themoviedb.org/movie/1251687-don-t-tell-mom-the-babysitter-s-dead",
+            "year": "2024",
+            "genre": "Comedy",
+            "runningTime": "1h 39m",
+            "trailer": "https://youtu.be/hBpyMNj_QI0",
+            "poster": "https://image.tmdb.org/t/p/original/etmcxYbebpYh2r3ClALrn6LOtFU.jpg"
+        },
+        {
+            "title": "The Fall Guy",
+            "link": "https://www.themoviedb.org/movie/746036-the-fall-guy",
+            "year": "2024",
+            "genre": "Action",
+            "runningTime": "2h 6m",
+            "trailer": "https://youtu.be/j7jPnwVGdZ8",
+            "poster": "https://image.tmdb.org/t/p/original/2mxxmqW1pfJKy00NYpuHnAHg7hC.jpg"
+        }
+    ],
+    "tvShows": [
+        {
+            "title": "Detroiters",
+            "link": "https://www.themoviedb.org/tv/69866-detroiters",
+            "description": "Best friends and fledgling ad men Sam and Tim may not have the money, connections or talent that the big guys do, but they have ambition out the wazoo. Together, they’re out to build a local advertising empire and restore their home city of Detroit to its former glory.",
+            "trailer": "https://youtu.be/ZJfK7BM0fWI",
+            "poster": "https://image.tmdb.org/t/p/original/fpLtpBMLhCg9pgYvJ3aBTx5asiz.jpg"
+        },
+        {
+            "title": "The Big Door Prize",
+            "link": "https://www.themoviedb.org/tv/194704-the-big-door-prize",
+            "description": "A small town is forever changed when a mysterious machine appears, promising to reveal everyone's true potential. Soon residents start changing jobs, rethinking relationships, and questioning long-held beliefs—all in pursuit of a better future.",
+            "trailer": "https://youtu.be/Mu-KfLd-d9U",
+            "poster": "https://image.tmdb.org/t/p/original/w9iG3waL71PGlabP8kZe5Io6Igj.jpg"
+        },
+        {
+            "title": "Shōgun",
+            "link": "https://www.themoviedb.org/tv/126308-shogun",
+            "description": "In Japan in the year 1600, at the dawn of a century-defining civil war, Lord Yoshii Toranaga is fighting for his life as his enemies on the Council of Regents unite against him, when a mysterious European ship is found marooned in a nearby fishing village.",
+            "trailer": "https://youtu.be/yAN5uspO_hk",
+            "poster": "https://www.themoviedb.org/t/p/w1280/7O4iVfOMQmdCSxhOg1WnzG1AgYT.jpg"
+        },
+        {
+            "title": "Shining Girls",
+            "link": "https://www.themoviedb.org/tv/106388-shining-girls",
+            "description": "Years after a brutal attack left her in a constantly shifting reality, Kirby Mazrachi learns that a recent murder is linked to her assault. She teams with veteran reporter Dan Velazquez to understand her ever-changing present—and confront her past.",
+            "trailer": "https://youtu.be/GiNCIA4kszw",
+            "poster": "https://image.tmdb.org/t/p/original/qmN97JxhZHgCThRqgzaiSF7C2mj.jpg"
+        },
+        {
+            "title": "Hacks",
+            "link": "https://www.themoviedb.org/tv/124101-hacks",
+            "description": "Explore a dark mentorship that forms between Deborah Vance, a legendary Las Vegas comedian, and an entitled, outcast 25-year-old.",
+            "trailer": "https://youtu.be/pJcfoJCCJ50",
+            "poster": "https://image.tmdb.org/t/p/original/3G5OwUxs25GdQjbhIp9ah4gSLgW.jpg"
+        },
+        {
+            "title": "Tokyo Vice",
+            "link": "https://www.themoviedb.org/tv/90296-tokyo-vice",
+            "description": "A first-hand account of the Tokyo Metropolitan Police beat following Jake Adelstein, an American journalist who embeds himself into the Tokyo Vice police squad to reveal corruption.",
+            "trailer": "https://youtu.be/l3oWrNQo_Ng",
+            "poster": "https://image.tmdb.org/t/p/original/4bdo3Y7nuZDqy7T1b6WeS5np62o.jpg"
+        },
+        {
+            "title": "3 Body Problem",
+            "link": "https://www.themoviedb.org/tv/108545-3-body-problem",
+            "description": "Across continents and decades, five brilliant friends make earth-shattering discoveries as the laws of science unravel and an existential threat emerges.",
+            "trailer": "https://youtu.be/mogSbMD6EcY",
+            "poster": "https://image.tmdb.org/t/p/original/sphnjjiYb50SbWMToW7fyGigH1n.jpg"
+        },
+        {
+            "title": "Bad Sisters",
+            "link": "https://www.themoviedb.org/tv/199318-bad-sisters",
+            "description": "The tight-knit Garvey sisters have always looked out for each other. When their brother-in-law winds up dead, his life insurers launch an investigation to prove malicious intent—and set their sights on the sisters, all of whom had ample reason to kill him.",
+            "trailer": "https://youtu.be/IZUrhfCl0Xc",
+            "poster": "https://image.tmdb.org/t/p/original/z63D1Y8udrrFOhLFCT9YElcTr0w.jpg"
+        },
+        {
+            "title": "Kevin Can F**K Himself",
+            "link": "https://www.themoviedb.org/tv/99652-kevin-can-f-himself",
+            "description": "Explore the secret life of a woman we all grew up watching: the sitcom wife. The series looks to break television convention and ask what the world looks like through her eyes. Alternating between single-camera realism and multi-camera zaniness, the formats will inform one another as we imagine what happens when the sitcom wife escapes her confines, and takes the lead in her own life.",
+            "trailer": "https://youtu.be/q2qGIsOkA64",
+            "poster": "https://image.tmdb.org/t/p/original/tZDI6RlWeoZsThbDSII3fSN7Yh1.jpg"
+        },
+        {
+            "title": "Party Down",
+            "link": "https://www.themoviedb.org/tv/17287-party-down",
+            "description": "A group of struggling actors and dysfunctional dreamers wait for their big break while they are stuck serving hors d'oeurves for a Hollywood catering company 'Party Down.'",
+            "trailer": "https://youtu.be/hogWgGjm-fM",
+            "poster": "https://image.tmdb.org/t/p/original/hbsoFctJ1dDPp3KUIuUgd2E1U4r.jpg"
+        },
+        {
+            "title": "Reservation Dogs",
+            "link": "https://www.themoviedb.org/tv/95215-reservation-dogs",
+            "description": "Four Indigenous teenagers in rural Oklahoma steal, rob and save in order to get to the exotic, mysterious and faraway land of California.",
+            "trailer": "https://youtu.be/YWYVTyhFAOU",
+            "poster": "https://image.tmdb.org/t/p/original/5wfU6fHWvUflO3M2IDO3UT4YEuh.jpg"
+        },
+        {
+            "title": "What We Do in the Shadows",
+            "link": "https://www.themoviedb.org/tv/83631-what-we-do-in-the-shadows",
+            "description": "A documentary-style look into the daily (or rather, nightly) lives of a group of vampires in Staten Island who have “lived” together for hundreds and hundreds of years.",
+            "trailer": "https://youtu.be/mfBbSwX6kEk",
+            "poster": "https://image.tmdb.org/t/p/original/voNhldmvVtyUOukhzqStY9b2aR2.jpg"
+        }
+    ]
+}
