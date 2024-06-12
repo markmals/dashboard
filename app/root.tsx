@@ -1,7 +1,18 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation } from "@remix-run/react"
 import { HeadersFunction, LinksFunction, MetaFunction } from "@vercel/remix"
 import tailwind from "~/styles/style.css?url"
-import { StackedLayout, Navbar, NavbarItem, NavbarSection } from "@tailwindcss/catalyst"
+import {
+    StackedLayout,
+    Navbar,
+    NavbarItem,
+    NavbarSection,
+    Sidebar,
+    SidebarBody,
+    SidebarItem,
+    SidebarLabel,
+    SidebarSection,
+} from "@tailwindcss/catalyst"
+import { FilmIcon, CodeBracketIcon } from "@heroicons/react/16/solid"
 
 export const config = { runtime: "edge" }
 
@@ -22,8 +33,8 @@ export const meta: MetaFunction = () => {
 
 const navItems = [
     // { label: "Home", url: "/" },
-    { label: "Movies & TV Shows", url: "/tv-movies" },
-    { label: "WWDC", url: "/wwdc" },
+    { label: "Movies & TV Shows", url: "/tv-movies", icon: FilmIcon },
+    { label: "WWDC", url: "/wwdc", icon: CodeBracketIcon },
     // { label: "In Theaters", url: "/in-theaters" },
     // { label: "Recipes", url: "/recipes" },
     // { label: "Restaurants", url: "/restaurants" },
@@ -58,7 +69,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
                             </NavbarSection>
                         </Navbar>
                     }
-                    sidebar={<div />}
+                    sidebar={
+                        <Sidebar>
+                            <SidebarBody>
+                                <SidebarSection>
+                                    {navItems.map(({ label, url, icon: Icon }) => (
+                                        <SidebarItem href={url} key={label}>
+                                            <Icon />
+                                            <SidebarLabel>{label}</SidebarLabel>
+                                        </SidebarItem>
+                                    ))}
+                                </SidebarSection>
+                            </SidebarBody>
+                        </Sidebar>
+                    }
                 >
                     {children}
                 </StackedLayout>

@@ -6,7 +6,7 @@ import { Link } from "./link"
 const styles = {
     base: [
         // Base
-        "relative isolate inline-flex items-center justify-center gap-x-2 rounded-lg border text-base/6 font-semibold",
+        "relative isolate inline-flex items-center justify-center gap-x-2 rounded-lg border text-base/6",
         // Sizing
         "px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing.3)-1px)] sm:py-[calc(theme(spacing[1.5])-1px)] sm:text-sm/6",
         // Focus
@@ -17,6 +17,8 @@ const styles = {
         "[&>[data-slot=icon]]:-mx-0.5 [&>[data-slot=icon]]:my-0.5 [&>[data-slot=icon]]:size-5 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-[--btn-icon] [&>[data-slot=icon]]:sm:my-1 [&>[data-slot=icon]]:sm:size-4 forced-colors:[--btn-icon:ButtonText] forced-colors:data-[hover]:[--btn-icon:ButtonText]",
     ],
     solid: [
+        // Semibold font
+        "font-semibold",
         // Optical border, implemented as the button background to avoid corner artifacts
         "border-transparent bg-[--btn-border]",
         // Dark mode: border is rendered on `after` so background is set to button background
@@ -43,6 +45,8 @@ const styles = {
     outline: [
         // Base
         "border-zinc-950/10 text-zinc-950 data-[active]:bg-zinc-950/[2.5%] data-[hover]:bg-zinc-950/[2.5%]",
+        // Semibold font
+        "font-semibold",
         // Dark mode
         "dark:border-white/15 dark:text-white dark:[--btn-bg:transparent] dark:data-[active]:bg-white/5 dark:data-[hover]:bg-white/5",
         // Icon
@@ -50,7 +54,9 @@ const styles = {
     ],
     plain: [
         // Base
-        "border-transparent text-zinc-950 data-[active]:bg-zinc-950/5 data-[hover]:bg-zinc-950/5",
+        "border-transparent data-[active]:bg-zinc-950/5 data-[hover]:bg-zinc-950/5",
+        // Normal font
+        "font-normal",
         // Dark mode
         "dark:text-white dark:data-[active]:bg-white/10 dark:data-[hover]:bg-white/10",
         // Icon
