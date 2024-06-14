@@ -1,4 +1,5 @@
 import tvMovies from "../data/movies-and-tv.json"
+import recipes from "../data/recipes.json"
 import { Button } from "@tailwindcss/ui"
 import { PlayCircleIcon, BookOpenIcon } from "@heroicons/react/24/outline"
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid"
@@ -28,6 +29,8 @@ export type Restaurant = {
     thumbnail: string
     menu?: string
 }
+
+export type Recipe = (typeof recipes.recipes)[number]
 
 export function TVShowCell({
     show: { title, link, description, trailer, poster },
@@ -198,6 +201,30 @@ export function RestaurantCell({
                             <BookOpenIcon className="stroke-blue-500 dark:stroke-blue-400" />
                         </Button>
                     )}
+                </div>
+            </div>
+        </li>
+    )
+}
+
+export function RecipeCell({
+    recipe: { title, description, thumbnail, source },
+}: {
+    recipe: Recipe
+}) {
+    return (
+        <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
+            <img src={thumbnail} className="w-full rounded-lg object-scale-down md:w-52" />
+            <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
+                <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-1">
+                        <a href={source}>
+                            <h2 className="text-xl font-medium text-black/95 hover:text-blue-500 md:truncate dark:text-white/95 hover:dark:text-blue-400">
+                                {title}
+                            </h2>
+                        </a>
+                    </div>
+                    <p className="text-sm text-black/70 dark:text-white/70">{description}</p>
                 </div>
             </div>
         </li>

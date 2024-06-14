@@ -4,7 +4,7 @@ import { type Restaurant, RestaurantCell } from "~/components/CollectionCells"
 import { mergeMeta } from "~/lib/merge-meta"
 import { nameSortComparator } from "~/lib/sort-comparators"
 
-export const meta = mergeMeta(({ parentTitle }) => [{ title: `WWDC • ${parentTitle}` }])
+export const meta = mergeMeta(({ parentTitle }) => [{ title: `Restaurants • ${parentTitle}` }])
 
 export function loader() {
     return restaurants as { restaurants: Restaurant[] }

@@ -1,24 +1,88 @@
 {
     "recipes": [
-        "https://www.bonappetit.com/recipe/grilled-chicken-sandwich-with-mustard-mayo",
-        "https://www.bonappetit.com/recipe/romesco-pasta-salad-with-basil-and-parmesan",
-
-        "https://www.bonappetit.com/recipe/chicken-burritos-poblano-chiles-corn",
-        "https://www.buzzfeed.com/clairenolan/this-pasta-salad-is-the-only-pasta-salad-that-matters-in-lif",
-        "https://www.thepioneerwoman.com/food-cooking/recipes/a9697/chicken-salad-the-way-i-like-it",
-        "https://mrgan.tumblr.com/post/618372067755196416/nevens-pan-pizza",
-        "https://www.bonappetit.com/recipe/sausage-meatball-sandwiches",
-        "https://www.bonappetit.com/recipe/spicy-sausage-patty-melt-recipe",
-        "https://www.bonappetit.com/recipe/low-commitment-wedding-soup",
-
-        "https://cooking.nytimes.com/recipes/1020139-garlic-ginger-chicken-breasts-with-cilantro-and-mint",
-        "https://www.seriouseats.com/serious-eats-halal-cart-style-chicken-and-rice-white-sauce-recipe",
-        "https://www.seriouseats.com/migas-tex-mex-scrambled-eggs-tortilla-recipe",
-        "https://www.bonappetit.com/recipe/pav-bhaji-recipe",
-
-        "https://www.bonappetit.com/recipe/gochujang-ranch-crispy-chicken-bowl",
-        "https://www.bonappetit.com/recipe/spicy-pork-bowl-with-greens-and-carrots",
-        "https://www.bonappetit.com/recipe/chicken-rice-soup",
-        "https://www.bonappetit.com/recipe/vegetarian-bean-chili-with-fritos"
+        {
+            "title": "Grilled Chicken Sandwich with Caesar-ish Dressing",
+            "description": "Deeply charred mustardy chicken thighs are paired with a crunchy and refreshing fennel-basil slaw for the ultimate summer-night chicken sandwich recipe.",
+            "source": "https://www.bonappetit.com/recipe/grilled-chicken-sandwich-with-mustard-mayo",
+            "thumbnail": "https://assets.bonappetit.com/photos/5b69f160dbdc967b93bc1c42/1:1/w_2240,c_limit/ba-grilled-chicken-sando.jpg"
+        },
+        {
+            "title": "Pasta Salad with Romesco Sauce",
+            "description": "The reason this pasta salad holds up so well at room temperature is because you dress it twice with a flavorful, punchy romesco sauce. Meet your new summer staple.",
+            "source": "https://www.bonappetit.com/recipe/romesco-pasta-salad-with-basil-and-parmesan",
+            "thumbnail": "https://assets.bonappetit.com/photos/5afb4b1d34e43f2ed88994a9/1:1/w_2240,c_limit/romesco-pasta-salad-with-basil-and-parmesan.jpg"
+        },
+        {
+            "title": "Chicken Burritos with Poblano Chiles and Corn",
+            "description": "The seasoning in this chicken burrito recipe is flavorful but not too spicy. It's a weeknight crowdpleaser. Now all you need is a margarita...",
+            "source": "https://www.bonappetit.com/recipe/chicken-burritos-poblano-chiles-corn",
+            "thumbnail": "https://assets.bonappetit.com/photos/57adfbeff1c801a1038bce75/1:1/w_2240,c_limit/chicken-burritos-with-poblano-chiles-640.jpg"
+        },
+        {
+            "title": "Sausage Meatball Sandwiches",
+            "description": "For this meatball sandwich, we like a combo of spicy and sweet Italian sausage, but use any uncooked sausage you like—merguez or chorizo would work.",
+            "source": "https://www.bonappetit.com/recipe/sausage-meatball-sandwiches",
+            "thumbnail": "https://assets.bonappetit.com/photos/57accbdd53e63daf11a4da13/1:1/w_2240,c_limit/sausage-meatball-sandwich.jpg"
+        },
+        {
+            "title": "Spicy Sausage Patty Melt",
+            "description": "Any ground meat can be a patty melt if it dreams big enough. This twist on the diner classic touts spiced chorizo, pickled jalapeños, and creamy Oaxaca cheese.",
+            "source": "https://www.bonappetit.com/recipe/spicy-sausage-patty-melt-recipe",
+            "thumbnail": "https://assets.bonappetit.com/photos/63223d145e971eea477b5935/1:1/w_2240,c_limit/0914-spicy-pepper-patty-melt-lede.jpg"
+        },
+        {
+            "title": "Wedding Soup",
+            "description": "This recipe takes all the right shortcuts and none of the wrong ones. We doctor up sweet Italian sausage for the meatballs, opt for adding canned beans instead of boiling pasta in a separate pot, and still manage to make an uber-flavorful soup without having to call for boxed chicken stock. It's one-pot, one-bowl magic.",
+            "source": "https://www.bonappetit.com/recipe/low-commitment-wedding-soup",
+            "thumbnail": "https://assets.bonappetit.com/photos/5ad51b40d63c0e2f9cf49236/1:1/w_2240,c_limit/italian-wedding-soup.jpg"
+        },
+        {
+            "title": "Garlic-Ginger Chicken Breasts with Cilantro and Mint",
+            "description": "This chicken, which is the brainchild of my aunt Sonia, is legendary among our cousins. Until recently, though, no one knew what, exactly, went into it. Whenever my aunt would make it on a family vacation, she’d disappear for a half-hour and reemerge with a Ziploc bag filled with the marinade and the chicken breasts. No one (not even her only daughter, Isha) was allowed to know the contents. The marinating chicken would smell so good, I’d legitimately have thoughts about eating it raw, carpaccio-style (which is disgusting, I know!). Well, folks, I am here to tell you that, after much negotiation, I have finally pried that chicken recipe out of Sonia’s hands. Both the marinade and the cooking method (low and sort of slow) feel ingenious to me, and the payoff is huge: Charred, spicy, slightly funky, juicy chicken that is equally wonderful by itself or rolled up in a roti, taco-style, and served with various salads and chutneys.",
+            "source": "https://cooking.nytimes.com/recipes/1020139-garlic-ginger-chicken-breasts-with-cilantro-and-mint",
+            "thumbnail": "https://static01.nyt.com/images/2020/07/05/dining/ml-garlic-ginger-chicken/merlin_152035974_1962c75f-a0c3-482b-8ad4-a9292cf6849c-articleLarge.jpg?width=1280&quality=75&auto=webp"
+        },
+        {
+            "title": "Halal Cart-Style Chicken and Rice with White Sauce",
+            "description": "This utterly faithful recipe perfectly recreates a New York City halal-cart classic: chicken and rice with white sauce. The chicken is marinated with herbs, lemon, and spices; the rice golden; the sauce, as white and creamy as ever.",
+            "source": "https://www.seriouseats.com/serious-eats-halal-cart-style-chicken-and-rice-white-sauce-recipe",
+            "thumbnail": "https://www.seriouseats.com/thmb/glW6wJHxJSeCHuyzbn1C8T82hio=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/20210710-halal-chicken-rice-diana-chistruga-seriouseats-1-a6e13a5ffd844e568d421aec70d8bb55.jpg"
+        },
+        {
+            "title": "Migas",
+            "description": "The Tex-Mex version of migas—scrambled eggs cooked with chili peppers, onion, and tortilla chips, then served on tortillas with hot sauce—is a hangover killer, but even if you haven't overindulged, it's still a killer breakfast option.",
+            "source": "https://www.seriouseats.com/migas-tex-mex-scrambled-eggs-tortilla-recipe",
+            "thumbnail": "https://www.seriouseats.com/thmb/Art8fwWEl80fwMfx0iQElUdFQ1c=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2014__09__20140916-migas-vicky-wasik-final-3-628db473ca8443bb9c3346f745a707c9.jpg"
+        },
+        {
+            "title": "Pav Bhaji",
+            "description": "The best pav bhaji are big in flavor, small in cost, short in effort, and long in payoff. This recipe for the beloved Indian street food is all that and more.",
+            "source": "https://www.bonappetit.com/recipe/pav-bhaji-recipe",
+            "thumbnail": "https://assets.bonappetit.com/photos/63cb14735125107865c0fe8f/1:1/w_2240,c_limit/012023-pav-bhaji-lede.jpg"
+        },
+        {
+            "title": "Gochujang-Ranch Crispy Chicken Bowl",
+            "description": "The most substantial lunch of your life. Together with avocado and toasted cashews, this bowl will keep you full for hours. Bonus: the spicy ranch dressing is also a great dip or a dressing.",
+            "source": "https://www.bonappetit.com/recipe/gochujang-ranch-crispy-chicken-bowl",
+            "thumbnail": "https://assets.bonappetit.com/photos/59aee0d01be36d2aa4ae09d5/1:1/w_2240,c_limit/gojuchang-ranch-crispy-chicken-bowl.jpg"
+        },
+        {
+            "title": "Spicy Pork Tenderloin Bowl",
+            "description": "Pork tenderloin is inexpensive and widely available. Giving it a bulgogi-influenced makeover makes it flavorful, fast-cooking, and weeknight-friendly.",
+            "source": "https://www.bonappetit.com/recipe/spicy-pork-bowl-with-greens-and-carrots",
+            "thumbnail": "https://assets.bonappetit.com/photos/5af458c94f78d863d390f4e4/1:1/w_2240,c_limit/spicy-pork-tenderloin-bowls-with-greens-and-carrots.jpg"
+        },
+        {
+            "title": "Chicken and Rice Soup",
+            "description": "If you want this take on classic chicken soup to have a similar consistency to congee, add 10–15 minutes to the cooking time so that it can become nice and thick.",
+            "source": "https://www.bonappetit.com/recipe/chicken-rice-soup",
+            "thumbnail": "https://assets.bonappetit.com/photos/5c1a6e3d545f2f2dd6233528/1:1/w_2240,c_limit/FGFP-Sweet-Potato-Rice-Soup-Horizontal.jpg"
+        },
+        {
+            "title": "Vegetarian Chili",
+            "description": "Quick, spicy, filling, and made mostly of pantry ingredients, this chili/tortilla soup/frito pie mash-up is calling your name. (Shhh. Listen closely.) Garnish it with the toppings of your choice: We like avocado, sour cream, and chopped white onion, but you can add shredded cheese, pickled or fresh jalapeños, and/or sliced scallions or radishes. You can use any tortilla chips you like—they add body and flavor to the soup itself and go on top for extra oomph. You could also fry or bake your own stale tortillas, cut into strips, but if we're being honest, salty, crunchy Fritos will probably taste better.",
+            "source": "https://www.bonappetit.com/recipe/vegetarian-bean-chili-with-fritos",
+            "thumbnail": "https://assets.bonappetit.com/photos/5e1793a8536b69000994e1bc/1:1/w_2240,c_limit/0120-BASICALLY-WEB3392.jpg"
+        }
     ]
 }

@@ -4,7 +4,7 @@ import { EventCell, type Event } from "~/components/CollectionCells"
 import { mergeMeta } from "~/lib/merge-meta"
 import { titleSortComparator } from "~/lib/sort-comparators"
 
-export const meta = mergeMeta(({ parentTitle }) => [{ title: `WWDC • ${parentTitle}` }])
+export const meta = mergeMeta(({ parentTitle }) => [{ title: `Events • ${parentTitle}` }])
 
 export function loader() {
     return events as { events: Event[] }

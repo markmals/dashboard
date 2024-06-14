@@ -38,7 +38,7 @@ const navItems = [
     { label: "In Theaters", url: "/in-theaters", icon: FilmIcon },
     { label: "Events", url: "/events", icon: CalendarDaysIcon },
     { label: "Restaurants", url: "/restaurants", icon: BuildingStorefrontIcon },
-    // { label: "Recipes", url: "/recipes", icon: BookOpenIcon },
+    { label: "Recipes", url: "/recipes", icon: BookOpenIcon },
     { label: "WWDC", url: "/wwdc", icon: CodeBracketIcon },
 ]
 
