@@ -1,8 +1,37 @@
 {
     "events": [
-        "https://nvmusa.org/",
-        "https://nvmusa.org/",
-        "https://nvmusa.org/",
-        "https://nvmusa.org/"
+        {
+            "title": "National Video Game Museum",
+            "link": "https://nvmusa.org/",
+            "thumbnail": "https://nvmusa.org/wp-content/uploads/2023/05/NVM-Statue1-scaled.jpg"
+        },
+        {
+            "title": "Rowlett Creek South Loop Hiking Trail",
+            "link": "https://www.alltrails.com/trail/us/texas/rowlett-creek-south-loop",
+            "thumbnail": "https://images.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvNzI2NDg4NjkvMGQ3YjE5YWUwYjVlNWYwYjI5ZTQ2YThkYjJmYmZhYTguanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJ3ZWJwIiwicmVzaXplIjp7IndpZHRoIjoyMDQ4LCJoZWlnaHQiOjIwNDgsImZpdCI6Imluc2lkZSJ9LCJyb3RhdGUiOm51bGwsImpwZWciOnsidHJlbGxpc1F1YW50aXNhdGlvbiI6dHJ1ZSwib3ZlcnNob290RGVyaW5naW5nIjp0cnVlLCJvcHRpbWlzZVNjYW5zIjp0cnVlLCJxdWFudGlzYXRpb25UYWJsZSI6M319fQ=="
+        },
+        {
+            "title": "MeowWolf Grapevine",
+            "link": "https://meowwolf.com/visit/grapevine",
+            "thumbnail": "https://cdn.prod.website-files.com/5dad7a19f43e6f31a9e92718/65ca58c23e79c8b4d73d5026_GVH_Brrrmuda_DesertTrailerRoom_KateRussell_06-28-23_print_A2A7968%20(1).jpg"
+        },
+        {
+            "title": "Play Pickleball",
+            "link": "https://playsandypickle.playbypoint.com/",
+            "thumbnail": "https://assets0.dostuffmedia.com/uploads/aws_asset/aws_asset/16537646/f3a2bff6-f575-4fc4-94e6-7699a46ae9d4.jpg"
+        },
+        {
+            "title": "Vision Pro Try-On",
+            "link": "https://www.apple.com/retail/northparkcenter/",
+            "thumbnail": "https://digitalassets-retail.cdn-apple.com/retail-image-server/5d6/a09/fc5/812/072/5c7/49d/3ab/6be/64e/e9f14353-d1ed-3e02-a560-0bf68767c9ae_aso_retail_sws_wide_card_large_2x_large_2x.png"
+        },
+        {
+            "title": "Set-Up a Home Gym",
+            "thumbnail": "https://i0.wp.com/ashleywinndesign.com/wp-content/uploads/2018/09/at-home-gym.jpg?fit=1200%2C850&ssl=1"
+        },
+        {
+            "title": "Buy Some Patio Furniture",
+            "thumbnail": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi5.walmartimages.com%2Fasr%2Fd22aafa5-8728-4143-b397-8b7f76888102.5293c6ee324a56e96744ecf84fa79c48.jpeg&f=1&nofb=1&ipt=fd80fb8bb45b5ece781f469b33bd5b40ecdbf175f159f9c75ade99431afa8609&ipo=images"
+        }
     ]
 }

@@ -22,25 +22,25 @@ export function loader() {
 
 function VideoCell({ video: { title, description, link, thumbnail } }: { video: WWDCVideo }) {
     return (
-        <li className="flex flex-col items-start gap-6 border-black/15 py-10 md:flex-row dark:border-white/15">
-            <img src={thumbnail} className="w-40 object-scale-down md:w-52" />
+        <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
+            <img src={thumbnail} className="w-full rounded-lg object-scale-down md:w-52" />
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
-                    <h2 className="truncate text-xl font-medium text-black/95 dark:text-white/95">
+                    <h2 className="text-xl font-medium text-black/95 md:truncate dark:text-white/95">
                         {title}
                     </h2>
                     <p className="text-sm text-black/70 dark:text-white/70">{description}</p>
                 </div>
                 <div>
                     {link !== undefined ? (
-                        <Button plain className="text-blue-500" href={link}>
+                        <Button plain className="text-blue-500 dark:text-blue-400" href={link}>
                             Watch
-                            <PlayCircleIcon className="stroke-blue-500" />
+                            <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
                         </Button>
                     ) : (
-                        <Button plain className="group text-blue-500" disabled>
+                        <Button plain className="group text-blue-500 dark:text-blue-400" disabled>
                             Watch
-                            <PlayCircleIcon className="stroke-blue-500 group-data-[disabled]:stroke-black/35" />
+                            <PlayCircleIcon className="stroke-blue-500 group-data-[disabled]:stroke-black/35 dark:stroke-blue-400" />
                         </Button>
                     )}
                 </div>

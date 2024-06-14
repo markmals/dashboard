@@ -4,6 +4,7 @@ import { Button } from "@tailwindcss/catalyst"
 import { PlayCircleIcon } from "@heroicons/react/24/outline"
 import { mergeMeta } from "~/lib/merge-meta"
 import { SectionHeader } from "~/components/SectionHeader"
+import { titleSortComparator } from "~/lib/title-sort-comparator"
 
 type TVShow = (typeof tvMovies.tvShows)[number]
 type Movie = (typeof tvMovies.movies)[number]
@@ -39,9 +40,13 @@ function TVShowCell({ show: { title, link, description, trailer, poster } }: { s
                 </div>
             </div>
             <div>
-                <Button plain className="font-normal text-blue-500" href={trailer}>
+                <Button
+                    plain
+                    className="font-normal text-blue-500 dark:text-blue-400"
+                    href={trailer}
+                >
                     Trailer
-                    <PlayCircleIcon className="stroke-blue-500" />
+                    <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
                 </Button>
             </div>
         </li>
@@ -75,30 +80,17 @@ function MovieCell({
                 </div>
             </div>
             <div>
-                <Button plain className="font-normal text-blue-500" href={trailer}>
+                <Button
+                    plain
+                    className="font-normal text-blue-500 dark:text-blue-400"
+                    href={trailer}
+                >
                     Trailer
-                    <PlayCircleIcon className="stroke-blue-500" />
+                    <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
                 </Button>
             </div>
         </li>
     )
-}
-
-const sortComparator = (lhs: { title: string }, rhs: { title: string }) => {
-    const articles = ["a", "an", "the"].join("|")
-    const regex = new RegExp("^(?:(" + articles + ") )(.*)$")
-    const replacer = (_: string, $1: string, $2: string) => {
-        console.log($1, $2)
-        return $2
-    }
-
-    return lhs.title
-        .replace(regex, replacer)
-        .localeCompare(rhs.title.replace(regex, replacer), undefined, {
-            ignorePunctuation: true,
-            numeric: true,
-            sensitivity: "base",
-        })
 }
 
 export default function Component() {
@@ -111,7 +103,7 @@ export default function Component() {
                 role="list"
                 className="grid grid-cols-2 gap-x-4 gap-y-8 pb-12 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
             >
-                {tvShows.toSorted(sortComparator).map(show => (
+                {tvShows.toSorted(titleSortComparator).map(show => (
                     <TVShowCell show={show} key={show.title} />
                 ))}
             </ul>
@@ -121,7 +113,7 @@ export default function Component() {
                 role="list"
                 className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
             >
-                {movies.toSorted(sortComparator).map(movie => (
+                {movies.toSorted(titleSortComparator).map(movie => (
                     <MovieCell movie={movie} key={movie.title} />
                 ))}
             </ul>

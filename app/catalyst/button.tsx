@@ -58,7 +58,7 @@ const styles = {
         // Normal font
         "font-normal",
         // Dark mode
-        "dark:text-white dark:data-[active]:bg-white/10 dark:data-[hover]:bg-white/10",
+        "dark:data-[active]:bg-white/10 dark:data-[hover]:bg-white/10",
         // Icon
         "[--btn-icon:theme(colors.zinc.500)] data-[active]:[--btn-icon:theme(colors.zinc.700)] data-[hover]:[--btn-icon:theme(colors.zinc.700)] dark:[--btn-icon:theme(colors.zinc.500)] dark:data-[active]:[--btn-icon:theme(colors.zinc.400)] dark:data-[hover]:[--btn-icon:theme(colors.zinc.400)]",
     ],

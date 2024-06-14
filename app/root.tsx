@@ -12,7 +12,8 @@ import {
     SidebarLabel,
     SidebarSection,
 } from "@tailwindcss/catalyst"
-import { FilmIcon, CodeBracketIcon } from "@heroicons/react/16/solid"
+import { FilmIcon, CodeBracketIcon, CalendarDaysIcon } from "@heroicons/react/16/solid"
+import { TvIcon, HomeIcon, BookOpenIcon, BuildingStorefrontIcon } from "@heroicons/react/24/solid"
 
 export const config = { runtime: "edge" }
 
@@ -32,13 +33,13 @@ export const meta: MetaFunction = () => {
 }
 
 const navItems = [
-    // { label: "Home", url: "/" },
-    { label: "Movies & TV Shows", url: "/tv-movies", icon: FilmIcon },
+    // { label: "Home", url: "/", icon: HomeIcon },
+    { label: "TV Shows & Movies", url: "/tv-movies", icon: TvIcon },
     { label: "WWDC", url: "/wwdc", icon: CodeBracketIcon },
-    // { label: "In Theaters", url: "/in-theaters" },
-    // { label: "Recipes", url: "/recipes" },
-    // { label: "Restaurants", url: "/restaurants" },
-    // { label: "Events", url: "/events" },
+    // { label: "In Theaters", url: "/in-theaters", icon: FilmIcon },
+    // { label: "Recipes", url: "/recipes", icon: BookOpenIcon },
+    // { label: "Restaurants", url: "/restaurants", icon: BuildingStorefrontIcon },
+    { label: "Events", url: "/events", icon: CalendarDaysIcon },
 ]
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -74,7 +75,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
                             <SidebarBody>
                                 <SidebarSection>
                                     {navItems.map(({ label, url, icon: Icon }) => (
-                                        <SidebarItem href={url} key={label}>
+                                        <SidebarItem
+                                            href={url}
+                                            key={label}
+                                            current={location.pathname === url}
+                                        >
                                             <Icon />
                                             <SidebarLabel>{label}</SidebarLabel>
                                         </SidebarItem>
