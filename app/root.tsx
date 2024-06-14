@@ -37,7 +37,7 @@ const navItems = [
     { label: "TV Shows & Movies", url: "/tv-movies", icon: TvIcon },
     { label: "In Theaters", url: "/in-theaters", icon: FilmIcon },
     { label: "Events", url: "/events", icon: CalendarDaysIcon },
-    // { label: "Restaurants", url: "/restaurants", icon: BuildingStorefrontIcon },
+    { label: "Restaurants", url: "/restaurants", icon: BuildingStorefrontIcon },
     // { label: "Recipes", url: "/recipes", icon: BookOpenIcon },
     { label: "WWDC", url: "/wwdc", icon: CodeBracketIcon },
 ]

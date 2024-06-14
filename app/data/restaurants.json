@@ -1,18 +1,102 @@
 {
     "restaurants": [
-        "https://dallas.eater.com/maps/dallas-best-new-restaurants-heatmap/article-3",
-        "https://dallas.eater.com/maps/dallas-best-new-restaurants-heatmap/article-4",
-        "https://dallas.eater.com/maps/dallas-best-cheap-eats-budget-friendly-restaurants-food/dairy-ette",
-        "https://dallas.eater.com/maps/dallas-best-cheap-eats-budget-friendly-restaurants-food/goodfriend-package",
-        "https://dallas.eater.com/maps/dallas-best-burgers/article",
-        "https://dallas.eater.com/maps/best-vietnamese-restaurants-dallas-pho-bun-bo-hue/pho-544",
-        "https://dallas.eater.com/maps/best-vietnamese-restaurants-dallas-pho-bun-bo-hue/saigon-block",
-        "https://dallas.eater.com/maps/best-vietnamese-restaurants-dallas-pho-bun-bo-hue/ph-tay-do",
-        "https://dallas.eater.com/maps/best-vietnamese-restaurants-dallas-pho-bun-bo-hue/article-3",
-        "https://dallas.eater.com/maps/dallas-best-tacos/resident-taqueria",
-        "https://dallas.eater.com/maps/dallas-best-fried-chicken/rickys-hot-chicken",
-        "https://dallas.eater.com/maps/dallas-best-tex-mex-restaurants/el-vecino-tex-mex",
-        "https://dallas.eater.com/maps/best-pizza-places-dallas-restaurants/thunderbird-pies",
-        "https://dallas.eater.com/maps/dallas-fort-worth-best-cajun-creole-gumbo-oysters-shrimp/article"
+        {
+            "name": "Fortunate Son",
+            "address": "500 Main Street, Garland, Texas 75040",
+            "cuisine": "Pizza",
+            "description": "New Haven-style pizza has made its way to Dallas. Head to this spot in Garland to try this thin crust, coal-fired pie. The clam pie, a New England favorite, is already earning raves, as are the meatballs and cannoli. Its potato and prosciutto pie is an instant classic.",
+            "thumbnail": "https://cdn.vox-cdn.com/thumbor/0ZRvjEUr_pgHxBq7Grxex89pK6c=/0x0:4032x3024/1620x1215/filters:focal(1694x1190:2338x1834):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/73322401/Fortunate_Son.0.jpg"
+        },
+        {
+            "name": "Goldie's",
+            "address": "9850 Walnut Hill Lane, Dallas, Texas 75238",
+            "cuisine": "Bistro",
+            "description": "Lake Highlands gets a much-needed neighborhood bistro with this opening. Its signature dish, the magic chicken thighs with mashed yams and mustard greens, is reason enough to get in ASAP but the carefully selected list of wines by the glass and natural wine options are a fine reason to make plans to linger.",
+            "thumbnail": "https://cdn.vox-cdn.com/thumbor/Wrik79hx_B2t1MDddY8SNNK5y7E=/0x0:4928x3280/1620x1215/filters:focal(2070x1246:2858x2034):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/73255226/Group_food_shot_2.0.jpg",
+            "menu": "https://www.goldiesdallas.com/_files/ugd/3098c7_2374c2bf9cba4ae98a882bd7d9d10ad6.pdf"
+        },
+        {
+            "name": "Dairy-Ette",
+            "address": "9785 Ferguson Rd, Dallas, TX 75228",
+            "cuisine": "Burgers",
+            "description": "Dairy-ette has been serving burgers, fries, and milkshakes to Dallas since 1956. Drive up or come in and order a basket. This good old-fashioned American food will make you nostalgic for car hops and these prices — burgers are $5.50. If it ain’t broke, don’t fix it.",
+            "thumbnail": "https://i.imgur.com/AYO8MZO.jpeg"
+        },
+        {
+            "name": "Bếp Nhà",
+            "address": "9780 Walnut St, Dallas, TX 75243",
+            "cuisine": "Vietnamese",
+            "description": "Bếp Nhà’s name, which means “home kitchen,” comes to life through its focus on Vietnamese comfort food. Start with the xôi goi du thįt heo (papaya salad served with sticky rice and pork jowl) then dive into a bowl of bó kho (Vietnamese beef stew served with a choice of baguette, rice, rice or egg noodles), or a plate of bánh ťâm bì (thick rice noodles topped with a coconut cream sauce.)",
+            "thumbnail": "https://imgur.com/W9feMLD.jpeg"
+        },
+        {
+            "name": "El Vecino Tex Mex",
+            "address": "718 N Buckner Blvd, Dallas, TX 75218",
+            "cuisine": "Tex-Mex",
+            "description": "Tex-Mex comes to Lake Highlands at this neighborhood spot owned by the McBride Family. Go for a family favorite plate for a combination of enchiladas and tacos in a wide variety of sauces and types of meat. The fajitas are also a great order.",
+            "thumbnail": "https://imgur.com/KIFDzvb.jpeg",
+            "menu": "https://www.elvecinotexmex.com/menu"
+        },
+        {
+            "name": "Jakes Burgers and Beer",
+            "address": "6606 Skillman St, Dallas, TX 75231",
+            "cuisine": "Burgers",
+            "description": "In Dallas, one likes Keller’s or one like’s Jake’s. Folks on the Jake’s side of the fence maybe don’t care about drive-ins, and prefer their burgers smothered in Thousand Island Dressing. The lettuce and tomatoes are always fresh, and all that dressing makes it a salad with a hamburger — right? Kinda? Anyway, it’s good.",
+            "thumbnail": "https://imgur.com/e6VgjVN.jpeg",
+            "menu": "https://jakesburgersandbeer.com/locations/"
+        },
+        {
+            "name": "Phở Tây Đô",
+            "address": "1403 E Campbell Rd, Richardson, TX 75081",
+            "mapLink": "",
+            "cuisine": "Vietnamese",
+            "description": "Bún bò Huế, or BBH or bun bo for short, is one of the best dishes here. This comfort food features fiery red oil floating on its surface, with generous portions of sliced beef, pork knuckles, and cubes of pork blood.",
+            "thumbnail": "https://imgur.com/88lgpsu.jpeg"
+        },
+        {
+            "name": "Resident Taqueria",
+            "address": "9661 Audelia Rd #112, Dallas, TX 75238",
+            "mapLink": "",
+            "cuisine": "Mexican",
+            "description": "Get your taco made to order and stuffed with options that can include pecan smoked chicken, house-made chorizo, and caramelized cauliflower. Throw in a side of the garlicky pinto beans if you know what’s good for you.",
+            "thumbnail": "https://scontent.cdninstagram.com/v/t39.30808-6/435480761_18423487672059067_756768010552536174_n.jpg?stp=dst-jpg_e35_s1080x1080_sh0.08&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMjU1eDEyNTUuc2RyLmYzMDgwOCJ9&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=5mRTc0PJenwQ7kNvgE9yVIE&edm=APs17CUAAAAA&ccb=7-5&oh=00_AYBZxmR1yjJdYN5OMbVSWXFkhRChllS2hLtlb7NPvR9nXA&oe=667273A6&_nc_sid=10d13b",
+            "menu": "https://order.incentivio.com/c/residenttaqueria"
+        },
+        {
+            "name": "Ricky's Hot Chicken",
+            "address": "100 S Central Expy #18, Richardson, TX 75080",
+            "mapLink": "",
+            "cuisine": "Chicken",
+            "description": "There are now a bounty of fried chicken spots slinging super-spicy, Nashville-style hot chicken, and Ricky’s is among the best. Halal chicken is fried to crunchy perfection, then offered in five different spice levels that range from “no heat” to “A-bomb.” Cool down with a side of vinegar slaw.",
+            "thumbnail": "https://imgur.com/nyDVjVb.jpeg",
+            "menu": "https://www.rickyshotchicken.com/menu-richardson"
+        },
+        {
+            "name": "Saigon Block",
+            "address": "2150 E Arapaho Rd #200, Richardson, TX 75081",
+            "mapLink": "",
+            "cuisine": "Vietnamese",
+            "description": "Saigon Block is most famous for its Cá Nướng Da Giòn, a whole baked catfish that is great for big groups. Butterflied, marinated, topped with peanuts, crispy shallots, and scallions, the catfish meat is wrapped in lettuce and filled with a choice of herbs and pickles.",
+            "thumbnail": "https://imgur.com/uZMLYBx.jpeg",
+            "menu": "https://www.saigon-block.com/restaurant/index.php/en/saigon-block-menu/all-menu-items"
+        },
+        {
+            "name": "Shell Shack",
+            "address": "2916 McKinney Ave, Dallas, TX 75204",
+            "mapLink": "",
+            "cuisine": "Cajun/Creole",
+            "description": "This local chain is a great stop for Cajun bites — it’s got all the classic plus unique inventions to it including crab stuffed tater tots, Mardi Gras pasta, and alligator tendies. It’s also the spot for by the pound boils of multiple varieties of crab, crawfish, mussels, and shrimp.",
+            "thumbnail": "https://scontent-dfw5-1.cdninstagram.com/v/t39.30808-6/434776339_829877342492715_2182718823361642091_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMzY2eDEzNjYuc2RyLmYzMDgwOCJ9&_nc_ht=scontent-dfw5-1.cdninstagram.com&_nc_cat=103&_nc_ohc=5IZTe5ogvqEQ7kNvgEuDA_j&edm=AFg4Q8wAAAAA&ccb=7-5&ig_cache_key=MzM0MTc4OTA1Njk5MDk1MDQ2MA%3D%3D.2-ccb7-5&oh=00_AYAk0MImvuHaZJltf6nB8-HNdUBLTPHQGK_zNgI2VlIqAg&oe=667282D9&_nc_sid=cf751b",
+            "menu": "https://www.shellshack.com/menus"
+        },
+        {
+            "name": "Thunderbird Pies",
+            "address": "7328 Gaston Ave #110, Dallas, TX 75214",
+            "mapLink": "",
+            "cuisine": "Pizza",
+            "description": "From the minds behind Cane Rosso and Zoli’s comes Thunderbird Pizza. It serves Detroit-style pies, which feature Wisconsin brick cheese layered edge-to-edge on the buttery, crispy, chewy crust. This spot has come down firmly in the pro-pineapple on pizza category, so try the Island Boi if that’s your jam. It’s also got Canadian bacon, red onions, jalapeno, bacon, and habanero honey.",
+            "thumbnail": "https://imgur.com/YjEFMFv.jpeg",
+            "menu": "https://www.thunderbirdpies.com/location"
+        }
     ]
 }

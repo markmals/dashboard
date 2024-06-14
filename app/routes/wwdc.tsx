@@ -4,6 +4,7 @@ import { mergeMeta } from "~/lib/merge-meta"
 import { SectionHeader } from "~/components/SectionHeader"
 import { Fragment } from "react"
 import { WWDCVideo, VideoCell } from "~/components/CollectionCells"
+import { titleSortComparator } from "~/lib/sort-comparators"
 
 export const meta = mergeMeta(({ parentTitle }) => [{ title: `WWDC • ${parentTitle}` }])
 
@@ -19,7 +20,7 @@ export default function Component() {
         <Fragment key={sectionTitle}>
             <SectionHeader className={idx === 0 ? "" : "mt-10"}>{sectionTitle}</SectionHeader>
             <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
-                {videos!.map(video => (
+                {videos!.toSorted(titleSortComparator).map(video => (
                     <VideoCell video={video} key={video.thumbnail} />
                 ))}
             </ul>

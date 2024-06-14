@@ -2,7 +2,7 @@ import inTheaters from "../data/in-theaters.json"
 import { useLoaderData } from "@remix-run/react"
 import { mergeMeta } from "~/lib/merge-meta"
 import { SectionHeader } from "~/components/SectionHeader"
-import { titleSortComparator } from "~/lib/title-sort-comparator"
+import { titleSortComparator } from "~/lib/sort-comparators"
 import { MovieCell } from "~/components/CollectionCells"
 
 export const meta = mergeMeta(({ parentTitle }) => [{ title: `In Theaters • ${parentTitle}` }])

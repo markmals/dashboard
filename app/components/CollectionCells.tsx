@@ -1,6 +1,6 @@
 import tvMovies from "../data/movies-and-tv.json"
 import { Button } from "@tailwindcss/ui"
-import { PlayCircleIcon } from "@heroicons/react/24/outline"
+import { PlayCircleIcon, BookOpenIcon } from "@heroicons/react/24/outline"
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid"
 
 export type TVShow = (typeof tvMovies.tvShows)[number]
@@ -18,6 +18,15 @@ export type Event = {
     title: string
     thumbnail: string
     link?: string
+}
+
+export type Restaurant = {
+    name: string
+    address: string
+    cuisine: string
+    description: string
+    thumbnail: string
+    menu?: string
 }
 
 export function TVShowCell({
@@ -148,6 +157,39 @@ export function VideoCell({
                         <Button plain className="group text-blue-500 dark:text-blue-400" disabled>
                             Watch
                             <PlayCircleIcon className="stroke-blue-500 group-data-[disabled]:stroke-black/35 dark:stroke-blue-400" />
+                        </Button>
+                    )}
+                </div>
+            </div>
+        </li>
+    )
+}
+
+export function RestaurantCell({
+    restaurant: { name, description, thumbnail, menu, address, cuisine },
+}: {
+    restaurant: Restaurant
+}) {
+    return (
+        <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
+            <img src={thumbnail} className="w-full rounded-lg object-scale-down md:w-52" />
+            <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
+                <div className="flex flex-col gap-2">
+                    <div className="flex flex-col">
+                        <h2 className="text-xl font-medium text-black/95 md:truncate dark:text-white/95">
+                            {name}
+                        </h2>
+                        <div className="flex flex-row items-center gap-2 text-sm text-black/70 dark:text-white/70">
+                            <a className="">{address}</a>•<p>{cuisine}</p>
+                        </div>
+                    </div>
+                    <p className="text-sm text-black/70 dark:text-white/70">{description}</p>
+                </div>
+                <div>
+                    {menu !== undefined && (
+                        <Button plain className="text-blue-500 dark:text-blue-400" href={menu}>
+                            Menu
+                            <BookOpenIcon className="stroke-blue-500 dark:stroke-blue-400" />
                         </Button>
                     )}
                 </div>

@@ -2,6 +2,7 @@ import events from "../data/events.json"
 import { useLoaderData } from "@remix-run/react"
 import { EventCell, type Event } from "~/components/CollectionCells"
 import { mergeMeta } from "~/lib/merge-meta"
+import { titleSortComparator } from "~/lib/sort-comparators"
 
 export const meta = mergeMeta(({ parentTitle }) => [{ title: `WWDC • ${parentTitle}` }])
 
@@ -14,7 +15,7 @@ export default function Component() {
 
     return (
         <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
-            {events.map(event => (
+            {events.toSorted(titleSortComparator).map(event => (
                 <EventCell event={event} key={event.thumbnail} />
             ))}
         </ul>
