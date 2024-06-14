@@ -1,7 +1,7 @@
 import wwdc from "../data/wwdc.json"
 import { useLoaderData } from "@remix-run/react"
 import { mergeMeta } from "~/lib/merge-meta"
-import { Button } from "@tailwindcss/catalyst"
+import { Button } from "~/tailwind-ui"
 import { PlayCircleIcon } from "@heroicons/react/24/outline"
 import { SectionHeader } from "~/components/SectionHeader"
 import { Fragment } from "react"

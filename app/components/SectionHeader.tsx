@@ -1,4 +1,4 @@
-import { Divider, Heading } from "@tailwindcss/catalyst"
+import { Divider, Heading } from "~/tailwind-ui"
 
 export function SectionHeader({ children, className }: { children: string; className?: string }) {
     return (

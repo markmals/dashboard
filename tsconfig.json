@@ -24,8 +24,8 @@
         "baseUrl": ".",
         "paths": {
             "~/*": ["./app/*"],
-            "@tailwindcss/catalyst": ["./app/catalyst/index.ts"],
-            "@tailwindcss/catalyst/*": ["./app/catalyst/*"]
+            "@tailwindcss/ui": ["app/tailwind-ui/index.ts"],
+            "@tailwindcss/ui/*": ["app/tailwind-ui/*"]
         },
 
         // Vite takes care of building everything, not tsc.

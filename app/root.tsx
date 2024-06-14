@@ -11,7 +11,7 @@ import {
     SidebarItem,
     SidebarLabel,
     SidebarSection,
-} from "@tailwindcss/catalyst"
+} from "~/tailwind-ui"
 import { FilmIcon, CodeBracketIcon, CalendarDaysIcon } from "@heroicons/react/16/solid"
 import { TvIcon, HomeIcon, BookOpenIcon, BuildingStorefrontIcon } from "@heroicons/react/24/solid"
 

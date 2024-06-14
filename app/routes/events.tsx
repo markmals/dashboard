@@ -1,7 +1,7 @@
 import events from "../data/events.json"
 import { useLoaderData } from "@remix-run/react"
 import { mergeMeta } from "~/lib/merge-meta"
-import { Button } from "@tailwindcss/catalyst"
+import { Button } from "~/tailwind-ui"
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid"
 
 export const meta = mergeMeta(({ parentTitle }) => [{ title: `WWDC • ${parentTitle}` }])
