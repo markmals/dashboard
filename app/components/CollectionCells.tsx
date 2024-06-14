@@ -175,12 +175,18 @@ export function RestaurantCell({
             <img src={thumbnail} className="w-full rounded-lg object-scale-down md:w-52" />
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col gap-1">
                         <h2 className="text-xl font-medium text-black/95 md:truncate dark:text-white/95">
                             {name}
                         </h2>
                         <div className="flex flex-row items-center gap-2 text-sm text-black/70 dark:text-white/70">
-                            <a className="">{address}</a>•<p>{cuisine}</p>
+                            <p>{cuisine}</p>•
+                            <a
+                                href={`http://maps.apple.com/?address=${address.split(" ").join("+")}`}
+                                className="underline hover:text-blue-500 hover:dark:text-blue-400"
+                            >
+                                {address}
+                            </a>
                         </div>
                     </div>
                     <p className="text-sm text-black/70 dark:text-white/70">{description}</p>
