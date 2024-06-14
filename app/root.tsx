@@ -35,11 +35,11 @@ export const meta: MetaFunction = () => {
 const navItems = [
     // { label: "Home", url: "/", icon: HomeIcon },
     { label: "TV Shows & Movies", url: "/tv-movies", icon: TvIcon },
-    { label: "WWDC", url: "/wwdc", icon: CodeBracketIcon },
-    // { label: "In Theaters", url: "/in-theaters", icon: FilmIcon },
-    // { label: "Recipes", url: "/recipes", icon: BookOpenIcon },
-    // { label: "Restaurants", url: "/restaurants", icon: BuildingStorefrontIcon },
+    { label: "In Theaters", url: "/in-theaters", icon: FilmIcon },
     { label: "Events", url: "/events", icon: CalendarDaysIcon },
+    // { label: "Restaurants", url: "/restaurants", icon: BuildingStorefrontIcon },
+    // { label: "Recipes", url: "/recipes", icon: BookOpenIcon },
+    { label: "WWDC", url: "/wwdc", icon: CodeBracketIcon },
 ]
 
 export function Layout({ children }: { children: React.ReactNode }) {
