@@ -129,18 +129,21 @@
         {
             "title": "Analyze heap memory",
             "description": "Dive into the basis for your app's dynamic memory: the heap! Explore how to use Instruments and Xcode to measure, analyze, and fix common heap issues. We'll also cover some techniques and best practices for diagnosing transient growth, persistent growth, and leaks in your app.",
+            "link": "https://developer.apple.com/videos/play/wwdc2024-10173",
             "thumbnail": "https://devimages-cdn.apple.com/wwdc-services/images/C03E6E6D-A32A-41D0-9E50-C3C6059820AA/9303/9303_wide_250x141_2x.jpg",
             "availableOn": "Thursday"
         },
         {
             "title": "Consume noncopyable types in Swift",
             "description": "Get started with noncopyable types in Swift. Discover what copying means in Swift, when you might want to use a noncopyable type, and how value ownership lets you state your intentions clearly.",
+            "link": "https://developer.apple.com/videos/play/wwdc2024-10170",
             "thumbnail": "https://devimages-cdn.apple.com/wwdc-services/images/C03E6E6D-A32A-41D0-9E50-C3C6059820AA/9300/9300_wide_250x141_2x.jpg",
             "availableOn": "Thursday"
         },
         {
             "title": "Explore Swift performance",
             "description": "Discover how Swift balances abstraction and performance. Learn what elements of performance to consider and how the Swift optimizer affects them. Explore the different features of Swift and how they're implemented to further understand the tradeoffs available that can impact performance.",
+            "link": "https://developer.apple.com/videos/play/wwdc2024-10217",
             "thumbnail": "https://devimages-cdn.apple.com/wwdc-services/images/C03E6E6D-A32A-41D0-9E50-C3C6059820AA/9363/9363_wide_250x141_2x.jpg",
             "availableOn": "Thursday"
         }
