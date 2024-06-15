@@ -115,7 +115,12 @@ export function MovieCell({
 export function EventCell({ event: { title, link, thumbnail } }: { event: Event }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
-            <img src={thumbnail} className="w-full rounded-lg object-scale-down md:w-52" />
+            <div className="relative w-full md:w-auto">
+                <div className="aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg bg-black/10 md:w-96 dark:bg-white/10">
+                    <img src={thumbnail} className="object-cover" />
+                </div>
+            </div>
+
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
                     <h2 className="text-xl font-medium text-black/95 md:truncate dark:text-white/95">
@@ -142,7 +147,12 @@ export function VideoCell({
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
-            <img src={thumbnail} className="w-full rounded-lg object-scale-down md:w-52" />
+            <div className="relative w-full md:w-auto">
+                <div className="aspect-h-9 aspect-w-16 block w-full overflow-hidden rounded-lg bg-black/10 md:w-72 dark:bg-white/10">
+                    <img src={thumbnail} className="object-cover" />
+                </div>
+            </div>
+
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
                     <h2 className="text-xl font-medium text-black/95 md:truncate dark:text-white/95">
@@ -175,7 +185,12 @@ export function RestaurantCell({
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
-            <img src={thumbnail} className="w-full rounded-lg object-scale-down md:w-52" />
+            <div className="relative w-full md:w-auto">
+                <div className="aspect-h-2 aspect-w-3 block w-full overflow-hidden rounded-lg bg-black/10 md:aspect-h-1 md:aspect-w-1 md:w-52 dark:bg-white/10">
+                    <img src={thumbnail} className="object-cover" />
+                </div>
+            </div>
+
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col gap-1">
@@ -214,7 +229,12 @@ export function RecipeCell({
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
-            <img src={thumbnail} className="w-full rounded-lg object-scale-down md:w-52" />
+            <div className="relative w-full md:w-auto">
+                <div className="aspect-h-2 aspect-w-3 block w-full overflow-hidden rounded-lg bg-black/10 md:w-72 dark:bg-white/10">
+                    <img src={thumbnail} className="object-cover" />
+                </div>
+            </div>
+
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col gap-1">
