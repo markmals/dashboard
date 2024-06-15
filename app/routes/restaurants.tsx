@@ -1,6 +1,7 @@
 import restaurants from "../data/restaurants.json"
 import { useLoaderData } from "@remix-run/react"
 import { type Restaurant, RestaurantCell } from "~/components/CollectionCells"
+import { SectionHeader } from "~/components/SectionHeader"
 import { mergeMeta } from "~/lib/merge-meta"
 import { nameSortComparator } from "~/lib/sort-comparators"
 
@@ -14,10 +15,13 @@ export default function Component() {
     const { restaurants } = useLoaderData<typeof loader>()
 
     return (
-        <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
-            {restaurants.toSorted(nameSortComparator).map(restaurant => (
-                <RestaurantCell restaurant={restaurant} key={restaurant.thumbnail} />
-            ))}
-        </ul>
+        <div className="flex flex-col gap-10">
+            <SectionHeader>Restaurants</SectionHeader>
+            <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
+                {restaurants.toSorted(nameSortComparator).map(restaurant => (
+                    <RestaurantCell restaurant={restaurant} key={restaurant.thumbnail} />
+                ))}
+            </ul>
+        </div>
     )
 }
