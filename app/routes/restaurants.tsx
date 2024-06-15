@@ -15,7 +15,7 @@ export default function Component() {
     const { restaurants } = useLoaderData<typeof loader>()
 
     return (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col">
             <SectionHeader>Restaurants</SectionHeader>
             <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
                 {restaurants.toSorted(nameSortComparator).map(restaurant => (
