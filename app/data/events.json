@@ -1,6 +1,11 @@
 {
     "events": [
         {
+            "title": "Get Photos Developed",
+            "link": "https://legacy-photolab.com",
+            "thumbnail": "https://legacy-photolab.com/cdn/shop/files/camera-4421040_1920_1920x750_crop_center.jpg?v=1613786360"
+        },
+        {
             "title": "National Video Game Museum",
             "link": "https://nvmusa.org/",
             "thumbnail": "https://nvmusa.org/wp-content/uploads/2023/05/NVM-Statue1-scaled.jpg"
