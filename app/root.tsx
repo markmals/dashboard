@@ -25,7 +25,8 @@ export const config = { runtime: "edge" }
 export const links: LinksFunction = () => [
     { rel: "stylesheet", href: tailwind },
     { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
-    // { rel: "icon", type: "image/png", href: "favicon.png" },
+    { rel: "icon", type: "image/svg+xml", href: "favicon.svg" },
+    { rel: "apple-touch-icon", href: "apple-touch-icon.png" },
 ]
 
 export const meta: MetaFunction = () => {
