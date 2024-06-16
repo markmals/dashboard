@@ -26,6 +26,15 @@
             "runningTime": "2h 25m",
             "trailer": "https://youtu.be/XtFI7SNtVpY",
             "poster": "https://image.tmdb.org/t/p/original/gKkl37BQuKTanygYQG1pyYgLVgf.jpg"
+        },
+        {
+            "title": "Kinds of Kindness",
+            "link": "https://www.themoviedb.org/movie/1029955-kinds-of-kindness",
+            "year": "2024",
+            "genre": "Drama, Comedy",
+            "runningTime": "2h 44m",
+            "trailer": "https://youtu.be/NGOL2_mI9Hw",
+            "poster": "https://image.tmdb.org/t/p/original/7veslS2zA0VakxahxPEQTySEjze.jpg"
         }
     ]
 }
