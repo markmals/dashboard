@@ -22,8 +22,18 @@
         },
         {
             "title": "October Remix Austin Meetup",
-            "link": "https://www.meetup.com/remix-austin/events/302872294/?eventOrigin=group_events_list",
+            "link": "https://www.meetup.com/remix-austin/events/302872294",
             "thumbnail": "https://remixaustin.com/build/_assets/hero-NCWZ3D7I.jpg"
+        },
+        {
+            "title": "See a Show at The Fallout",
+            "link": "https://www.eventbrite.com/d/tx--austin/fallout-theater/?page=1&start_date=2024-09-30&end_date=2024-10-06",
+            "thumbnail": "https://falloutcomedy.com/wp-content/uploads/2023/12/wewillmissyou-20-scaled.jpg"
+        },
+        {
+            "title": "Visit the 'Beyond Monet' and 'Beyond Van Gogh' Exhibit",
+            "link": "https://beyondexhibitions.com/experiences/austin-beyond-monet-and-van-gogh/",
+            "thumbnail": "https://beyondexhibitions.com/wp-content/uploads/2024/04/BVG-Press-Photos-01-600x600.jpg"
         },
         {
             "title": "Vision Pro Try-On",
