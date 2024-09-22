@@ -30,7 +30,7 @@ export type Restaurant = {
     menu?: string
 }
 
-export type Recipe = (typeof recipes.recipes)[number]
+export type Recipe = (typeof recipes)[number]
 
 export function TVShowCell({ show: { title, link, trailer, poster } }: { show: TVShow }) {
     return (
