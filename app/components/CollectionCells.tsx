@@ -32,11 +32,7 @@ export type Restaurant = {
 
 export type Recipe = (typeof recipes.recipes)[number]
 
-export function TVShowCell({
-    show: { title, link, description, trailer, poster },
-}: {
-    show: TVShow
-}) {
+export function TVShowCell({ show: { title, link, trailer, poster } }: { show: TVShow }) {
     return (
         <li className="flex w-full flex-col justify-between gap-4">
             <div className="flex flex-col gap-2">
@@ -46,17 +42,12 @@ export function TVShowCell({
                 >
                     <img src={poster} className="object-cover" />
                 </a>
-                <div>
-                    <a
-                        href={link}
-                        className="mt-2 truncate text-sm font-medium text-black/95 hover:text-blue-600 dark:text-white/95 dark:hover:text-blue-500"
-                    >
-                        {title}
-                    </a>
-                    {/* <p className="text-sm font-medium text-black/70 dark:text-white/70">
-                        {description}
-                    </p> */}
-                </div>
+                <a
+                    href={link}
+                    className="text-sm font-medium text-black/95 hover:text-blue-600 dark:text-white/95 dark:hover:text-blue-500"
+                >
+                    {title}
+                </a>
             </div>
             <div>
                 <Button
