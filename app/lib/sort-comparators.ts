@@ -1,47 +1,18 @@
-export const titleSortComparator = (lhs: { title: string }, rhs: { title: string }) => {
-    // const articles = ["a", "an", "the"].join("|")
-    // const regex = new RegExp("^(?:(" + articles + ") )(.*)$")
-    // const replacer = (_: string, $1: string, $2: string) => {
-    //     console.log($1, $2)
-    //     return $2
-    // }
+const articles = /^(a|an|the)\s+/i
+const removeArticles = (title: string) => title.replace(articles, "")
 
-    return (
-        lhs.title
-            // .replace(regex, replacer)
-            .localeCompare(
-                rhs.title,
-                // .replace(regex, replacer)
-                undefined,
-                {
-                    ignorePunctuation: true,
-                    numeric: true,
-                    sensitivity: "base",
-                },
-            )
-    )
+export const titleSortComparator = (lhs: { title: string }, rhs: { title: string }) => {
+    return removeArticles(lhs.title).localeCompare(removeArticles(rhs.title), undefined, {
+        ignorePunctuation: true,
+        numeric: true,
+        sensitivity: "base",
+    })
 }
 
 export const nameSortComparator = (lhs: { name: string }, rhs: { name: string }) => {
-    // const articles = ["a", "an", "the"].join("|")
-    // const regex = new RegExp("^(?:(" + articles + ") )(.*)$")
-    // const replacer = (_: string, $1: string, $2: string) => {
-    //     console.log($1, $2)
-    //     return $2
-    // }
-
-    return (
-        lhs.name
-            // .replace(regex, replacer)
-            .localeCompare(
-                rhs.name,
-                // .replace(regex, replacer)
-                undefined,
-                {
-                    ignorePunctuation: true,
-                    numeric: true,
-                    sensitivity: "base",
-                },
-            )
-    )
+    return removeArticles(lhs.name).localeCompare(removeArticles(rhs.name), undefined, {
+        ignorePunctuation: true,
+        numeric: true,
+        sensitivity: "base",
+    })
 }
