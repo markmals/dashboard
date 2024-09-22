@@ -1,4 +1,4 @@
-import wwdc from "../data/wwdc.json"
+import wwdc from "../data/dev-edu.json"
 import { useLoaderData } from "@remix-run/react"
 import { mergeMeta } from "~/lib/merge-meta"
 import { SectionHeader } from "~/components/SectionHeader"
