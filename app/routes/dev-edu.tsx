@@ -6,7 +6,9 @@ import { Fragment } from "react"
 import { WWDCVideo, VideoCell } from "~/components/CollectionCells"
 import { titleSortComparator } from "~/lib/sort-comparators"
 
-export const meta = mergeMeta(({ parentTitle }) => [{ title: `WWDC • ${parentTitle}` }])
+export const meta = mergeMeta(({ parentTitle }) => [
+    { title: `Developer Education • ${parentTitle}` },
+])
 
 export function loader() {
     return wwdc as { videos: WWDCVideo[] }

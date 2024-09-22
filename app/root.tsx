@@ -12,8 +12,8 @@ import {
     SidebarLabel,
     SidebarSection,
 } from "@tailwindcss/ui"
-import { FilmIcon, CodeBracketIcon, CalendarDaysIcon } from "@heroicons/react/16/solid"
-import { TvIcon, HomeIcon, BookOpenIcon, BuildingStorefrontIcon } from "@heroicons/react/24/solid"
+import { CodeBracketIcon, CalendarDaysIcon } from "@heroicons/react/16/solid"
+import { TvIcon, BookOpenIcon, BuildingStorefrontIcon } from "@heroicons/react/24/solid"
 
 export const config = { runtime: "edge" }
 
@@ -36,11 +36,10 @@ export const meta: MetaFunction = () => {
 const navItems = [
     // { label: "Home", url: "/", icon: HomeIcon },
     { label: "TV Shows & Movies", url: "/tv-movies", icon: TvIcon },
-    { label: "In Theaters", url: "/in-theaters", icon: FilmIcon },
     { label: "Events", url: "/events", icon: CalendarDaysIcon },
     { label: "Restaurants", url: "/restaurants", icon: BuildingStorefrontIcon },
     { label: "Recipes", url: "/recipes", icon: BookOpenIcon },
-    { label: "WWDC", url: "/wwdc", icon: CodeBracketIcon },
+    { label: "Developer Education", url: "/dev-edu", icon: CodeBracketIcon },
 ]
 
 export function Layout({ children }: { children: React.ReactNode }) {
