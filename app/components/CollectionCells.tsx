@@ -188,14 +188,16 @@ export function RestaurantCell({
                         <h2 className="text-xl font-medium text-black/95 md:truncate dark:text-white/95">
                             {name}
                         </h2>
-                        <div className="flex flex-row items-center gap-2 text-sm text-black/70 dark:text-white/70">
-                            <p>{cuisine}</p>•
-                            <a
-                                href={`http://maps.apple.com/?address=${address.split(" ").join("+")}`}
-                                className="underline hover:text-blue-500 hover:dark:text-blue-400"
-                            >
-                                {address}
-                            </a>
+                        <div className="text-sm text-black/70 dark:text-white/70">
+                            <span className="inline-block text-wrap">
+                                {cuisine} •{" "}
+                                <a
+                                    href={`http://maps.apple.com/?address=${address.split(" ").join("+")}`}
+                                    className="underline hover:text-blue-500 hover:dark:text-blue-400"
+                                >
+                                    {address}
+                                </a>
+                            </span>
                         </div>
                     </div>
                     <p className="text-sm text-black/70 dark:text-white/70">{description}</p>

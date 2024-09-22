@@ -8,11 +8,11 @@ import { nameSortComparator } from "~/lib/sort-comparators"
 export const meta = mergeMeta(({ parentTitle }) => [{ title: `Restaurants • ${parentTitle}` }])
 
 export function loader() {
-    return restaurants as { restaurants: Restaurant[] }
+    return restaurants as Restaurant[]
 }
 
 export default function Component() {
-    const { restaurants } = useLoaderData<typeof loader>()
+    const restaurants = useLoaderData<typeof loader>()
 
     return (
         <div className="flex flex-col">

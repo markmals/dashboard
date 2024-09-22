@@ -1,102 +1,185 @@
-{
-    "restaurants": [
-        {
-            "name": "Fortunate Son",
-            "address": "500 Main Street, Garland, Texas 75040",
-            "cuisine": "Pizza",
-            "description": "New Haven-style pizza has made its way to Dallas. Head to this spot in Garland to try this thin crust, coal-fired pie. The clam pie, a New England favorite, is already earning raves, as are the meatballs and cannoli. Its potato and prosciutto pie is an instant classic.",
-            "thumbnail": "https://cdn.vox-cdn.com/thumbor/0ZRvjEUr_pgHxBq7Grxex89pK6c=/0x0:4032x3024/1620x1215/filters:focal(1694x1190:2338x1834):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/73322401/Fortunate_Son.0.jpg"
-        },
-        {
-            "name": "Goldie's",
-            "address": "9850 Walnut Hill Lane, Dallas, Texas 75238",
-            "cuisine": "Bistro",
-            "description": "Lake Highlands gets a much-needed neighborhood bistro with this opening. Its signature dish, the magic chicken thighs with mashed yams and mustard greens, is reason enough to get in ASAP but the carefully selected list of wines by the glass and natural wine options are a fine reason to make plans to linger.",
-            "thumbnail": "https://cdn.vox-cdn.com/thumbor/Wrik79hx_B2t1MDddY8SNNK5y7E=/0x0:4928x3280/1620x1215/filters:focal(2070x1246:2858x2034):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/73255226/Group_food_shot_2.0.jpg",
-            "menu": "https://www.goldiesdallas.com/_files/ugd/3098c7_2374c2bf9cba4ae98a882bd7d9d10ad6.pdf"
-        },
-        {
-            "name": "Dairy-Ette",
-            "address": "9785 Ferguson Rd, Dallas, TX 75228",
-            "cuisine": "Burgers",
-            "description": "Dairy-ette has been serving burgers, fries, and milkshakes to Dallas since 1956. Drive up or come in and order a basket. This good old-fashioned American food will make you nostalgic for car hops and these prices — burgers are $5.50. If it ain’t broke, don’t fix it.",
-            "thumbnail": "https://i.imgur.com/AYO8MZO.jpeg"
-        },
-        {
-            "name": "Bếp Nhà",
-            "address": "9780 Walnut St, Dallas, TX 75243",
-            "cuisine": "Vietnamese",
-            "description": "Bếp Nhà’s name, which means “home kitchen,” comes to life through its focus on Vietnamese comfort food. Start with the xôi goi du thįt heo (papaya salad served with sticky rice and pork jowl) then dive into a bowl of bó kho (Vietnamese beef stew served with a choice of baguette, rice, rice or egg noodles), or a plate of bánh ťâm bì (thick rice noodles topped with a coconut cream sauce.)",
-            "thumbnail": "https://imgur.com/W9feMLD.jpeg"
-        },
-        {
-            "name": "El Vecino Tex Mex",
-            "address": "718 N Buckner Blvd, Dallas, TX 75218",
-            "cuisine": "Tex-Mex",
-            "description": "Tex-Mex comes to Lake Highlands at this neighborhood spot owned by the McBride Family. Go for a family favorite plate for a combination of enchiladas and tacos in a wide variety of sauces and types of meat. The fajitas are also a great order.",
-            "thumbnail": "https://imgur.com/KIFDzvb.jpeg",
-            "menu": "https://www.elvecinotexmex.com/menu"
-        },
-        {
-            "name": "Jakes Burgers and Beer",
-            "address": "6606 Skillman St, Dallas, TX 75231",
-            "cuisine": "Burgers",
-            "description": "In Dallas, one likes Keller’s or one like’s Jake’s. Folks on the Jake’s side of the fence maybe don’t care about drive-ins, and prefer their burgers smothered in Thousand Island Dressing. The lettuce and tomatoes are always fresh, and all that dressing makes it a salad with a hamburger — right? Kinda? Anyway, it’s good.",
-            "thumbnail": "https://imgur.com/e6VgjVN.jpeg",
-            "menu": "https://jakesburgersandbeer.com/locations/"
-        },
-        {
-            "name": "Phở Tây Đô",
-            "address": "1403 E Campbell Rd, Richardson, TX 75081",
-            "mapLink": "",
-            "cuisine": "Vietnamese",
-            "description": "Bún bò Huế, or BBH or bun bo for short, is one of the best dishes here. This comfort food features fiery red oil floating on its surface, with generous portions of sliced beef, pork knuckles, and cubes of pork blood.",
-            "thumbnail": "https://imgur.com/88lgpsu.jpeg"
-        },
-        {
-            "name": "Resident Taqueria",
-            "address": "9661 Audelia Rd #112, Dallas, TX 75238",
-            "mapLink": "",
-            "cuisine": "Mexican",
-            "description": "Get your taco made to order and stuffed with options that can include pecan smoked chicken, house-made chorizo, and caramelized cauliflower. Throw in a side of the garlicky pinto beans if you know what’s good for you.",
-            "thumbnail": "https://scontent.cdninstagram.com/v/t39.30808-6/435480761_18423487672059067_756768010552536174_n.jpg?stp=dst-jpg_e35_s1080x1080_sh0.08&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMjU1eDEyNTUuc2RyLmYzMDgwOCJ9&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=5mRTc0PJenwQ7kNvgE9yVIE&edm=APs17CUAAAAA&ccb=7-5&oh=00_AYBZxmR1yjJdYN5OMbVSWXFkhRChllS2hLtlb7NPvR9nXA&oe=667273A6&_nc_sid=10d13b",
-            "menu": "https://order.incentivio.com/c/residenttaqueria"
-        },
-        {
-            "name": "Ricky's Hot Chicken",
-            "address": "100 S Central Expy #18, Richardson, TX 75080",
-            "mapLink": "",
-            "cuisine": "Chicken",
-            "description": "There are now a bounty of fried chicken spots slinging super-spicy, Nashville-style hot chicken, and Ricky’s is among the best. Halal chicken is fried to crunchy perfection, then offered in five different spice levels that range from “no heat” to “A-bomb.” Cool down with a side of vinegar slaw.",
-            "thumbnail": "https://imgur.com/nyDVjVb.jpeg",
-            "menu": "https://www.rickyshotchicken.com/menu-richardson"
-        },
-        {
-            "name": "Saigon Block",
-            "address": "2150 E Arapaho Rd #200, Richardson, TX 75081",
-            "mapLink": "",
-            "cuisine": "Vietnamese",
-            "description": "Saigon Block is most famous for its Cá Nướng Da Giòn, a whole baked catfish that is great for big groups. Butterflied, marinated, topped with peanuts, crispy shallots, and scallions, the catfish meat is wrapped in lettuce and filled with a choice of herbs and pickles.",
-            "thumbnail": "https://imgur.com/uZMLYBx.jpeg",
-            "menu": "https://www.saigon-block.com/restaurant/index.php/en/saigon-block-menu/all-menu-items"
-        },
-        {
-            "name": "Shell Shack",
-            "address": "2916 McKinney Ave, Dallas, TX 75204",
-            "mapLink": "",
-            "cuisine": "Cajun/Creole",
-            "description": "This local chain is a great stop for Cajun bites — it’s got all the classic plus unique inventions to it including crab stuffed tater tots, Mardi Gras pasta, and alligator tendies. It’s also the spot for by the pound boils of multiple varieties of crab, crawfish, mussels, and shrimp.",
-            "thumbnail": "https://scontent-dfw5-1.cdninstagram.com/v/t39.30808-6/434776339_829877342492715_2182718823361642091_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMzY2eDEzNjYuc2RyLmYzMDgwOCJ9&_nc_ht=scontent-dfw5-1.cdninstagram.com&_nc_cat=103&_nc_ohc=5IZTe5ogvqEQ7kNvgEuDA_j&edm=AFg4Q8wAAAAA&ccb=7-5&ig_cache_key=MzM0MTc4OTA1Njk5MDk1MDQ2MA%3D%3D.2-ccb7-5&oh=00_AYAk0MImvuHaZJltf6nB8-HNdUBLTPHQGK_zNgI2VlIqAg&oe=667282D9&_nc_sid=cf751b",
-            "menu": "https://www.shellshack.com/menus"
-        },
-        {
-            "name": "Thunderbird Pies",
-            "address": "7328 Gaston Ave #110, Dallas, TX 75214",
-            "mapLink": "",
-            "cuisine": "Pizza",
-            "description": "From the minds behind Cane Rosso and Zoli’s comes Thunderbird Pizza. It serves Detroit-style pies, which feature Wisconsin brick cheese layered edge-to-edge on the buttery, crispy, chewy crust. This spot has come down firmly in the pro-pineapple on pizza category, so try the Island Boi if that’s your jam. It’s also got Canadian bacon, red onions, jalapeno, bacon, and habanero honey.",
-            "thumbnail": "https://imgur.com/YjEFMFv.jpeg",
-            "menu": "https://www.thunderbirdpies.com/location"
-        }
-    ]
-}
+[
+    {
+        "name": "Pedroso's Pizza",
+        "address": "2207 Justin Lane, Suite D, Austin, Texas",
+        "cuisine": "Pizza",
+        "menu": "https://www.pedrosospizza.com/",
+        "description": "Pedroso’s serves various-styled pizza pies, including its popular New York-style pie, as well as its Trenton tomato pie (aka New Jersey-style with no cheese), square pies like grandma-style and Sicilian with thicker crusts, and American-style (lots of cheese and sauce with a thicker-than-New York-style crust). Then there are also stombolis, calzones, and sub sandwiches.",
+        "thumbnail": "https://cdn.vox-cdn.com/thumbor/YsmaOIg6Y32gf5cD1WGtVmf6soU=/0x0:1280x804/1820x1213/filters:focal(538x300:742x504):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/73358858/s604248125301983302_p57_i2_w6554.0.jpeg"
+    },
+    {
+        "name": "Poeta",
+        "address": "1123 East 11th Street, Austin, Texas",
+        "cuisine": "Italian",
+        "menu": "https://www.poetarestaurant.com/menu",
+        "description": "Poeta server Italian fare for dinner, breakfast, and brunch. That means dishes like eggs benedict with gnocco fritto, prosciutto and bearnaise; gnocchi with braised lamb and tomato butter; grilled octopus; and the Wafflegato, a waffle topped with maple gelato and espresso.",
+        "thumbnail": "https://images.squarespace-cdn.com/content/v1/64893ee47d328276201cfc34/38816d9e-4e96-48a2-a5dd-5404e8d44c38/Poeta_+126.jpg"
+    },
+    {
+        "name": "Casino El Camino",
+        "address": "517 East 6th Street, Austin, Texas",
+        "cuisine": "Bar Food",
+        "menu": "https://www.casinoelcamino.net/food-menu/",
+        "description": "Sneak away to this dimly lit dive bar for giant burgers, savory sandwiches, easy beers, and cocktails. There are indoor and outdoor dine-in areas.",
+        "thumbnail": "https://res.cloudinary.com/the-infatuation/image/upload/c_fill,w_1200,ar_4:3,g_center,f_auto/images/CasinoElCamino_MealHoriz_TaylorHannan_Austin1_kvjirw"
+    },
+    {
+        "name": "Lin",
+        "address": "1203 West 6th Street, Austin, Texas",
+        "cuisine": "Chinese",
+        "menu": "https://www.linasianbar.com/menu/",
+        "description": "Chef Ling Qi Wu has grown into a bonafide restaurateur with multiple restaurants and more to come around the city. And it is through this somewhat casual Clarksville restaurant — her first — that diners can get a taste. of what she does best: simple yet high-quality Chinese and pan-Asian dishes, from her iconic soup dumplings to Hakka eggplants to salt-and-pepper lobster tails.",
+        "thumbnail": "https://www.linasianbar.com/wp-content/uploads/2024/01/Shanghai-Dumplings.jpg"
+    },
+    {
+        "name": "Himalaya Kosheli",
+        "address": "8650 Spicewood Springs Road, Suite #148, Austin, Texas",
+        "cuisine": "Nepali & Indian",
+        "menu": "https://www.himalayakosheli.com/menu",
+        "description": "Within Austin's South Asian food scene is a small but strong contingent of North Indian/Nepalese restaurants. Of those, this casual Barrington Oaks restaurant is quite marvelous, serving Indian subcontinent greatest hits like all sorts of momos, chow mein, chilis, dals, meats, and biryanis.",
+        "thumbnail": "/himalaya-kosheli.webp"
+    },
+    {
+        "name": "Julie's Noodles",
+        "address": "8557 Research Boulevard #110, Austin, Texas",
+        "cuisine": "Chinese",
+        "menu": "https://www.go2onlineorders.com/ordering/restaurant/menu?restaurant_uid=0d14de7d-27a7-4300-8ef7-c8b3da22bee6&return_url=https://juliesnoodletx.com/",
+        "description": "The North Austin Chinese restaurant has lots of dumplings and hand-made noodles. The extensive dumpling list makes it difficult to decide which one to order, from pork and chive to pan-fried beef and carrot. But lucky, there’s a mix-and-mach option. Bonus: Julie’s offered bags of 50 frozen dumplings too. Takeout orders can be placed online; there are indoor dine-in services.",
+        "thumbnail": "/julies-noodles.webp"
+    },
+    {
+        "name": "Dai Due",
+        "address": "2406 Manor Road, Austin, Texas",
+        "cuisine": "New Texan",
+        "menu": "https://www.daidue.com/home",
+        "description": "The Cherrywood New Texan restaurant — which is so regionally minded that even beer and wine are exclusively from the state — is equally satisfying for brunch or a blow-out meat fest at dinner. The restaurant version of this former farmers’ market stand/supper club from chef Jesse Griffiths is everything Austin could have hoped for. He even won a James Beard book award for his tome about wild hogs. The Texas-forever menu has heavier dishes like giant rib-eyes, fried chicken, and wild boar confit, as well as lighter fare, like mixed green salads and grilled marinated carrots. Takeout orders can be placed online. There are indoor and outdoor dine-in services.",
+        "thumbnail": "/dai-due.webp"
+    },
+    {
+        "name": "Lil’ Easy",
+        "address": "5000 East Cesar Chavez Street, Austin, Texas",
+        "cuisine": "Cajun & Creole",
+        "menu": "https://www.lileasyatx.com/",
+        "description": "The team behind Sawyer & Co. and De Nada grew with this new Louisianan Cajun restaurant in Govalle in May. This means homey fried seafood baskets, po’ boys, and daily specials like gumbo and red beans/rice/andouille sausage. And naturally, there are NOLA-ish cocktails like draft hurricanes and daiquiris. There are indoor and outdoor dine-in services.",
+        "thumbnail": "https://images.squarespace-cdn.com/content/v1/65f07fba2d7e4d61fb5d1a26/9c4cc07d-e05c-4bf8-8e20-100131de0408/Screenshot+2024-06-26+151436.png?format=1500w"
+    },
+    {
+        "name": "Sawyer & Co.",
+        "address": "4827 East Cesar Chavez Street, Austin, Texas",
+        "cuisine": "Southern Diner",
+        "menu": "https://www.sawyerand.co/#page-5edf93ffaf7bec4230684e43",
+        "description": "All-day diner breakfast can be found at New Orleans-leaning Govalle restaurant. There are breakfast plates, omelets, tacos, burritos, scrambles, and more. With a focus on Southern comfort food like fried chicken biscuits, New Orleans-style French toast, and Creole shrimp and grits, there’s also a great patio for sunny brunches. Takeout orders can be placed online; there are indoor and outdoor dine-in services.",
+        "thumbnail": "https://images.squarespace-cdn.com/content/v1/53df05cfe4b0e03ffbaf4fdd/1656803763604-HO1TFL9UVP0WQNSJ51SO/image+%281%29.jpg?format=2500w"
+    },
+    {
+        "name": "Bartlett's",
+        "address": "2408 West Anderson Lane, Austin, Texas",
+        "cuisine": "American",
+        "menu": "https://bartlettsaustin.com/menus",
+        "description": "The North Shoal Creek restaurant gives classic American food — burgers, sandwiches, grilled fish, amazing marinated steak, etc. — the attention it deserves in an upscale but casual setting that is great for dinner with family and friends. Takeout orders can be placed online; there are indoor and outdoor dine-in services.",
+        "thumbnail": "/bartletts.webp"
+    },
+    {
+        "name": "La Flor",
+        "address": "4901 South 1st Street, Austin, Texas",
+        "cuisine": "Mexican",
+        "description": "Corn tortillas are the move at this West Congress gas station taco truck, especially with its chicken fajitas, for breakfast and lunch. Takeout orders can be placed in person; there are outdoor dine-in areas.",
+        "thumbnail": "/la-flor.webp"
+    },
+    {
+        "name": "JewBoy Cantina",
+        "address": "2538 Guadalupe Street, Austin, Texas",
+        "cuisine": "Tex-Mex",
+        "menu": "https://jewboycantina.com/menu",
+        "description": "Chef Mo Pittle’s Austin restaurant realm continues to grow with the opening of his latest venture. This time, it’s a Mexican-border-Austin-El Paso-styled diner within West Campus dive bar Hole in the Wall as of April. There are tiny tacos with picadillo or Mexican-style potatoes (or both!), its signature sliders, and loads of burritos. Takeout orders can be placed online; there are indoor and outdoor dine-in areas.",
+        "thumbnail": "https://cdn.vox-cdn.com/thumbor/djX1rIMKgmNN9NfBLML0lQ_-UyI=/0x0:1131x1135/1820x1213/filters:focal(539x526:719x706):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/73201652/271169864_3037204669929999_8368405727699101441_n.0.jpg"
+    },
+    {
+        "name": "Otherside Deli",
+        "address": "1104 West 34th Street D, Austin, Texas",
+        "cuisine": "Delicatessen",
+        "menu": "https://othersidedeliatx.square.site/?location=11ea6a2dd6622ceba1470cc47a2aeaec",
+        "description": "Great pastrami and corned beef adorn several hefty sandwiches at the Heritage neighborhood deli. Go for a classic or indulge in the Rowdy Roddy turkey melt with cherry peppers. The restaurant is open from 11 a.m. to 3 p.m. Monday through Saturday and until 2 p.m. Sunday. Takeout and delivery orders can be placed online, and there are indoor dine-in areas.",
+        "thumbnail": "/otherside.webp"
+    },
+    {
+        "name": "Canje",
+        "address": "1914 East 6th Street, Suite C, Austin, Texas",
+        "cuisine": "Caribbean",
+        "menu": "https://canjeatx.com/menus",
+        "description": "The East Austin Caribbean restaurant, named Eater Austin’s best restaurant of 2022, pays tribute to executive chef Tavel Bristol-Joseph’s Guyanese roots with dishes like buttery roti, wild boar pepper pot, and jerk chicken. Since it’s a Bristol-Joseph project, don’t overlook the desserts, especially the tres leches cake. The restaurant has an upscale tropical vibe, with fruity but balanced cocktails, a large bar, and a small outdoor patio. There are indoor and outdoor dine-in services.",
+        "thumbnail": "https://static.spacecrafted.com/c15593a90b7e48f7a02b3a4f6d53d07d/i/e1b2270aa055446184f82110482695cd/1/GCuCv726vxAVM9sgguVj4g/canje_full_size-02.jpg?dpr=2"
+    },
+    {
+        "name": "Este",
+        "address": "2113 Manor Road, Austin, Texas",
+        "cuisine": "Mexican Seafood",
+        "menu": "https://www.esteatx.com/menus/",
+        "description": "From the team behind East Austin restaurant Suerte, this seafood-focused Cherrywood dining establishment is dishing up coastal Mexican fare, including aguachiles, ceviches, grilled shrimp, whole fish, and more. Do not skip the super crunchy peccadillos taco. Bonus: oysters are half off during happy hour Sunday through Thursday 5 to 6 p.m., with $25 off seafood platters and towers. There are indoor and outdoor dine-in services",
+        "thumbnail": "/este.webp"
+    },
+    {
+        "name": "Bar Toti",
+        "address": "2113 Manor Road, Austin, Texas",
+        "cuisine": "Mexican Bar Food",
+        "menu": "https://www.bartoti.com/menus",
+        "description": "I recently had the pleasure of visiting Bar Toti, which opened on Este’s grounds last month. My girlfriend and I shared the marinated olives, escargot, mussels, and fries and sipped on a mezcal margarita, paloma, sherry cobbler, tinto verano, and porto tonico. Everything was so good that we had to try more and more. The crown jewel here though is that hamburguesa. It’s made with a sesame seed bun, griddled ham, white American cheese, chipotle mayo, and a tart umami-packing escabeche relish that makes this one of the more unique sandwiches you’ll have the pleasure of eating in Austin.",
+        "thumbnail": "https://images.getbento.com/accounts/4e822417c5c893b0ae2bbb88a17b878b/media/images/59649045A9481-52.jpg?w=1200&fit=crop&auto=compress,format&cs=origin&crop=focalpoint&fp-x=0.5&fp-y=0.5"
+    },
+    {
+        "name": "Nixta",
+        "address": "2512 East 12th Street, Austin, Texas",
+        "cuisine": "Mexican",
+        "menu": "https://nixtataqueria.com/menu",
+        "description": "The funky little taqueria, from co-owners chef Edgar Rico (who is James Beard Awards’s emerging chef of 2022) and Sara Mardanbigi, has quickly become a taco darling for good reason. Rico works magic into every single one of the East Austin spot’s new-school tacos and tostadas. While the meatier items are terrific, the vegetarian options really showcase his inventive skills: the beet tartare is a pure work of art. The multiple patios are optimal for spreading out, and there is a natural wine list worth exploring. Curbside pickup orders are placed online. There are outdoor dine-in services.",
+        "thumbnail": "https://images.squarespace-cdn.com/content/v1/64d44de71358c050d2fdf5c6/deda3c08-1033-4c8a-8d10-3b3e15282682/kolenko_272_FW_BNC_Nixta_12019_final.jpg?format=2500w"
+    },
+    {
+        "name": "Suerte",
+        "address": "1800 East 6th Street, Austin, Texas",
+        "cuisine": "Interior Mexican",
+        "menu": "https://media-cdn.getbento.com/accounts/46b573b417efcee8f01c8bcf481af434/media/qwGcgl6MTTmVSAaATjVR_Suerte%20DINNER%2009.12.24%20.pdf",
+        "description": "The suadero tacos at the upscale Mexican restaurant in East Austin are pure magic, available for dinner and weekend brunch. Reservations are available, with room for walk-ins, and there’s both indoor and outdoor seating.",
+        "thumbnail": "https://images.getbento.com/accounts/46b573b417efcee8f01c8bcf481af434/media/images/65692photogallery_landingpage.jpg?w=1200&fit=max&auto=compress,format&cs=origin"
+    },
+    {
+        "name": "The Omelettry",
+        "address": "4631 Airport Boulevard, #131 A, Austin, Texas",
+        "cuisine": "Breakfast Diner",
+        "menu": "http://www.theomelettry.com/breakfast.html",
+        "description": "Old-fashioned service and gargantuan breakfast plates have made the North Loop restaurant an Austin icon (It’s also arguably one of the city’s original diners: owner Kenny Carpenter was previously business partners with the owners of Magnolia Cafe and Kerbey Lane Cafe). Of course try the omelets, but the lunch plates are also a great deal. Takeout orders can be placed online or over the phone; there are indoor dine-in services.",
+        "thumbnail": "http://www.theomelettry.com/img/hash3.jpg"
+    },
+    {
+        "name": "Veracruz Fonda",
+        "address": "1905 Aldrich Street, #125, Austin, Texas",
+        "cuisine": "Tacos",
+        "menu": "https://veracruzfonda.com/food-menu/",
+        "description": "Fantastic taco spot Veracruz opened its newest restaurant — Veracruz Fonda in Mueller — in April, and yes, its fantastic breakfast tacos are available for weekend brunch purposes. The all-day menu includes those migas as well as chilaquiles, picadas, and more. It’s open from 8 a.m. to 10 p.m. Saturday and Sunday. There are indoor and outdoor dine-in services.",
+        "thumbnail": "https://scontent.cdninstagram.com/v/t51.2885-15/439848360_1121628242418119_8628565258373386503_n.jpg?stp=dst-jpg_e35_s1080x1080&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDk2MC5zZHIuZjI4ODUuZGVmYXVsdF9pbWFnZSJ9&_nc_ht=scontent.cdninstagram.com&_nc_cat=111&_nc_ohc=VHZef74rg9YQ7kNvgHdKibx&_nc_gid=b4efcec946174b6d9e7e18e6530d52ad&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYCpLrBFZYItPwYzxkbazysC8ouW2AFwe7HyehQN7Z5ehA&oe=66F56A99&_nc_sid=10d13b"
+    },
+    {
+        "name": "De Nada",
+        "address": "4715 East Cesar Chavez Street, Austin, Texas",
+        "cuisine": "Mexican",
+        "menu": "https://static1.squarespace.com/static/6022a7b3a0e25e13bab53c8a/t/64a876e244462e67fa4ccc77/1688762082730/DeNada_3041_Menus-COMBINED-7.6.23.pdf",
+        "description": "De Nada serves a small menu of tacos, all served on blue corn tortillas: barbacoa, carnitas, grilled fish, shrimp, chicken, sweet potato, and one with mushrooms, zucchini, and beans. There are also sides like chips and queso or salsa, rice, and black beans, and there’s a kids menu as well.",
+        "thumbnail": "https://cdn.vox-cdn.com/thumbor/ejy7cnIq3TSazOG53oKqXnDP_4s=/0x0:1800x1800/1820x1213/filters:focal(756x756:1044x1044):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69373690/DeNada_May5_1140.0.jpg"
+    },
+    {
+        "name": "The Meteor",
+        "address": "2110 South Congress Avenue, Austin, Texas",
+        "cuisine": "Pizza",
+        "menu": "https://static1.squarespace.com/static/5f01de7240539d7d59aca95a/t/6464dcc1fc011466c515b526/1684331713749/TheMeteorMenu+05.16.23+Final.pdf",
+        "description": "A great vegetarian option is always meatless pizza. The Meteor has a handful of options including the Mediterraneanish with red sauce, mozzarella, kalamata olives, artichokes, feta, onions, and oregano. At this South Congress cafe and bar with a great natural wine selection you can also order a meatless burger or a sandwich with falafel and tahini slaw. Order can be placed online. There are indoor and outdoor dine-in services.",
+        "thumbnail": "https://images.squarespace-cdn.com/content/v1/5f01de7240539d7d59aca95a/1604505165242-SH1589ZLV2QD14CBOTH1/MAV06419.jpg?format=2500w"
+    },
+    {
+        "name": "daydreamer",
+        "address": "1708 East 6th Street, Austin, Texas",
+        "cuisine": "Cocktails",
+        "menu": "https://static1.squarespace.com/static/650890b64e4bb8434eb14a6a/t/6610b8608a344133e75603b8/1712371808879/2AprilMenu2024.pdf",
+        "description": "Daydreamer’s cocktail menu includes drinks like Ramos gin fizz; the Studio 54, a take on the gin martini with sherry; the Endless Summer with rum, a watermelon shrub, and Aperol; and the Night Market with vodka, coconut, lemongrass, like, and Thai bitters.",
+        "thumbnail": "https://images.squarespace-cdn.com/content/v1/650890b64e4bb8434eb14a6a/8a34f12d-9437-45ee-878e-9def8e2d857a/IMG_6769.jpg"
+    }
+]
