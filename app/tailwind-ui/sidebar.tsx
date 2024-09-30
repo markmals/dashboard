@@ -111,16 +111,16 @@ export const SidebarItem = React.forwardRef(function SidebarItem(
         // Avatar
         "data-[slot=avatar]:*:-m-0.5 data-[slot=avatar]:*:size-7 data-[slot=avatar]:*:[--ring-opacity:10%] sm:data-[slot=avatar]:*:size-6",
         // Hover
-        "data-[hover]:bg-zinc-950/5 data-[slot=icon]:*:data-[hover]:fill-zinc-950",
+        "data-[hover]:bg-blue-600/5 data-[slot=icon]:*:data-[hover]:fill-blue-600",
         // Active
-        "data-[active]:bg-zinc-950/5 data-[slot=icon]:*:data-[active]:fill-zinc-950",
+        "data-[active]:bg-blue-600/5 data-[slot=icon]:*:data-[active]:fill-blue-600",
         // Current
-        "data-[slot=icon]:*:data-[current]:fill-zinc-950",
+        "data-[slot=icon]:*:data-[current]:fill-blue-600",
         // Dark mode
         "dark:text-white dark:data-[slot=icon]:*:fill-zinc-400",
-        "dark:data-[hover]:bg-white/5 dark:data-[slot=icon]:*:data-[hover]:fill-white",
-        "dark:data-[active]:bg-white/5 dark:data-[slot=icon]:*:data-[active]:fill-white",
-        "dark:data-[slot=icon]:*:data-[current]:fill-white",
+        "dark:data-[hover]:bg-white/5 dark:data-[slot=icon]:*:data-[hover]:fill-blue-500",
+        "dark:data-[active]:bg-white/5 dark:data-[slot=icon]:*:data-[active]:fill-blue-500",
+        "dark:data-[slot=icon]:*:data-[current]:fill-blue-500",
     )
 
     return (
@@ -128,7 +128,7 @@ export const SidebarItem = React.forwardRef(function SidebarItem(
             {current && (
                 <motion.span
                     layoutId="current-indicator"
-                    className="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
+                    className="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-blue-600 dark:bg-blue-500"
                 />
             )}
             {"href" in props ? (
@@ -144,7 +144,7 @@ export const SidebarItem = React.forwardRef(function SidebarItem(
             ) : (
                 <Headless.Button
                     {...props}
-                    className={clsx("cursor-default", classes)}
+                    className={classes}
                     data-current={current ? "true" : undefined}
                     ref={ref}
                 >
