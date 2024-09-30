@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+code {
+    background-color: theme("colors.zinc.100");
+    border-color: theme("colors.zinc.300");
+
+    border-width: 1px;
+    border-radius: theme("borderRadius.md");
+    padding: 2px 5px;
+    font-size: 0.85rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    code {
+        color: theme("colors.zinc.300");
+        background-color: theme("colors.zinc.800");
+        border-color: theme("colors.zinc.950");
+    }
+}

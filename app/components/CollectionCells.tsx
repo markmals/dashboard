@@ -1,50 +1,29 @@
-import tvMovies from "../data/movies-and-tv.json"
-import recipes from "../data/recipes.json"
-import { Button } from "@tailwindcss/ui"
+import { Badge, Button } from "@tailwindcss/ui"
 import { PlayCircleIcon, BookOpenIcon } from "@heroicons/react/24/outline"
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid"
+import { CollectionEntry } from "~/lib/content.server"
 
-export type TVShow = (typeof tvMovies.tvShows)[number]
-export type Movie = (typeof tvMovies.movies)[number]
-
-export type WWDCVideo = {
-    title: string
-    description: string
-    thumbnail: string
-    availableOn: string
-    link?: string
-}
-
-export type Event = {
-    title: string
-    thumbnail: string
-    link?: string
-}
-
-export type Restaurant = {
-    name: string
-    address: string
-    cuisine: string
-    description: string
-    thumbnail: string
-    menu?: string
-}
-
-export type Recipe = (typeof recipes)[number]
-
-export function TVShowCell({ show: { title, link, trailer, poster } }: { show: TVShow }) {
+export function TVShowCell({
+    tvShow: {
+        data: { title, link, trailer, poster },
+    },
+}: {
+    tvShow: CollectionEntry<"television">
+}) {
     return (
         <li className="flex w-full flex-col justify-between gap-4">
             <div className="flex flex-col gap-2">
                 <a
                     href={link}
                     className="aspect-h-3 aspect-w-2 overflow-hidden rounded-lg bg-gray-100"
+                    target="_blank"
                 >
                     <img src={poster} className="object-cover" />
                 </a>
                 <a
                     href={link}
                     className="text-sm font-medium text-black/95 hover:text-blue-600 dark:text-white/95 dark:hover:text-blue-500"
+                    target="_blank"
                 >
                     {title}
                 </a>
@@ -54,6 +33,7 @@ export function TVShowCell({ show: { title, link, trailer, poster } }: { show: T
                     plain
                     className="font-normal text-blue-500 dark:text-blue-400"
                     href={trailer}
+                    target="_blank"
                 >
                     Trailer
                     <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
@@ -64,9 +44,11 @@ export function TVShowCell({ show: { title, link, trailer, poster } }: { show: T
 }
 
 export function MovieCell({
-    movie: { title, link, year, genre, runningTime, trailer, poster },
+    movie: {
+        data: { title, link, year, genre, runningTime, trailer, poster },
+    },
 }: {
-    movie: Movie
+    movie: CollectionEntry<"movies">
 }) {
     return (
         <li className="flex flex-col justify-between gap-4">
@@ -74,6 +56,7 @@ export function MovieCell({
                 <a
                     href={link}
                     className="aspect-h-3 aspect-w-2 overflow-hidden rounded-lg bg-gray-100"
+                    target="_blank"
                 >
                     <img src={poster} className="object-cover" />
                 </a>
@@ -81,6 +64,7 @@ export function MovieCell({
                     <a
                         href={link}
                         className="mt-2 truncate text-sm font-medium text-black/95 hover:text-blue-600 dark:text-white/95 dark:hover:text-blue-500"
+                        target="_blank"
                     >
                         {title}
                     </a>
@@ -94,6 +78,7 @@ export function MovieCell({
                     plain
                     className="font-normal text-blue-500 dark:text-blue-400"
                     href={trailer}
+                    target="_blank"
                 >
                     Trailer
                     <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
@@ -103,7 +88,13 @@ export function MovieCell({
     )
 }
 
-export function EventCell({ event: { title, link, thumbnail } }: { event: Event }) {
+export function EventCell({
+    event: {
+        data: { title, link, thumbnail },
+    },
+}: {
+    event: CollectionEntry<"events">
+}) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
             <div className="relative w-full md:w-auto">
@@ -120,7 +111,12 @@ export function EventCell({ event: { title, link, thumbnail } }: { event: Event 
                 </div>
                 <div>
                     {link !== undefined && (
-                        <Button plain className="text-blue-500 dark:text-blue-400" href={link}>
+                        <Button
+                            plain
+                            className="text-blue-500 dark:text-blue-400"
+                            href={link}
+                            target="_blank"
+                        >
                             Learn More
                             <ArrowTopRightOnSquareIcon className="fill-blue-500 dark:fill-blue-400" />
                         </Button>
@@ -132,9 +128,12 @@ export function EventCell({ event: { title, link, thumbnail } }: { event: Event 
 }
 
 export function VideoCell({
-    video: { title, description, link, thumbnail },
+    video: {
+        data: { title, link, thumbnail, year, tags },
+        body: description,
+    },
 }: {
-    video: WWDCVideo
+    video: CollectionEntry<"wwdc">
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
@@ -146,23 +145,27 @@ export function VideoCell({
 
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
-                    <h2 className="text-xl font-medium text-black/95 md:truncate dark:text-white/95">
-                        {title}
-                    </h2>
-                    <p className="text-sm text-black/70 dark:text-white/70">{description}</p>
+                    <div className="flex flex-row gap-2">
+                        <h2 className="text-xl font-medium text-black/95 md:truncate dark:text-white/95">
+                            {title}
+                        </h2>
+                        <Badge color="orange">{year}</Badge>
+                    </div>
+                    <p
+                        className="text-sm text-black/70 dark:text-white/70"
+                        dangerouslySetInnerHTML={{ __html: description }}
+                    />
                 </div>
                 <div>
-                    {link !== undefined ? (
-                        <Button plain className="text-blue-500 dark:text-blue-400" href={link}>
-                            Watch
-                            <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
-                        </Button>
-                    ) : (
-                        <Button plain className="group text-blue-500 dark:text-blue-400" disabled>
-                            Watch
-                            <PlayCircleIcon className="stroke-blue-500 group-data-[disabled]:stroke-black/35 dark:stroke-blue-400" />
-                        </Button>
-                    )}
+                    <Button
+                        plain
+                        className="text-blue-500 dark:text-blue-400"
+                        href={link}
+                        target="_blank"
+                    >
+                        Watch
+                        <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
+                    </Button>
                 </div>
             </div>
         </li>
@@ -170,9 +173,12 @@ export function VideoCell({
 }
 
 export function RestaurantCell({
-    restaurant: { name, description, thumbnail, menu, address, cuisine },
+    restaurant: {
+        data: { name, thumbnail, menu, address, cuisine },
+        body: description,
+    },
 }: {
-    restaurant: Restaurant
+    restaurant: CollectionEntry<"restaurants">
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
@@ -194,17 +200,26 @@ export function RestaurantCell({
                                 <a
                                     href={`http://maps.apple.com/?address=${address.split(" ").join("+")}`}
                                     className="underline hover:text-blue-500 hover:dark:text-blue-400"
+                                    target="_blank"
                                 >
                                     {address}
                                 </a>
                             </span>
                         </div>
                     </div>
-                    <p className="text-sm text-black/70 dark:text-white/70">{description}</p>
+                    <p
+                        className="text-sm text-black/70 dark:text-white/70"
+                        dangerouslySetInnerHTML={{ __html: description }}
+                    />
                 </div>
                 <div>
                     {menu !== undefined && (
-                        <Button plain className="text-blue-500 dark:text-blue-400" href={menu}>
+                        <Button
+                            plain
+                            className="text-blue-500 dark:text-blue-400"
+                            href={menu}
+                            target="_blank"
+                        >
                             Menu
                             <BookOpenIcon className="stroke-blue-500 dark:stroke-blue-400" />
                         </Button>
@@ -216,9 +231,12 @@ export function RestaurantCell({
 }
 
 export function RecipeCell({
-    recipe: { title, description, thumbnail, source },
+    recipe: {
+        data: { title, source, thumbnail },
+        body: description,
+    },
 }: {
-    recipe: Recipe
+    recipe: CollectionEntry<"recipes">
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
@@ -231,13 +249,16 @@ export function RecipeCell({
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col gap-1">
-                        <a href={source}>
+                        <a href={source} target="_blank">
                             <h2 className="text-xl font-medium text-black/95 hover:text-blue-500 md:truncate dark:text-white/95 hover:dark:text-blue-400">
                                 {title}
                             </h2>
                         </a>
                     </div>
-                    <p className="text-sm text-black/70 dark:text-white/70">{description}</p>
+                    <p
+                        className="text-sm text-black/70 dark:text-white/70"
+                        dangerouslySetInnerHTML={{ __html: description }}
+                    />
                 </div>
             </div>
         </li>

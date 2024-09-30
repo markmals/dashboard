@@ -1,14 +1,15 @@
-import restaurants from "../data/restaurants.json"
-import { useLoaderData } from "@remix-run/react"
-import { type Restaurant, RestaurantCell } from "~/components/CollectionCells"
+import { json, useLoaderData } from "@remix-run/react"
+import { RestaurantCell } from "~/components/CollectionCells"
 import { SectionHeader } from "~/components/SectionHeader"
+import { getCollection } from "~/lib/content.server"
 import { mergeMeta } from "~/lib/merge-meta"
-import { nameSortComparator } from "~/lib/sort-comparators"
+import { withContent, nameSortComparator } from "~/lib/sort-comparators"
 
 export const meta = mergeMeta(({ parentTitle }) => [{ title: `Restaurants • ${parentTitle}` }])
 
-export function loader() {
-    return restaurants as Restaurant[]
+export async function loader() {
+    const restaurants = await getCollection("restaurants")
+    return json(restaurants.toSorted(withContent(nameSortComparator)))
 }
 
 export default function Component() {
@@ -18,8 +19,8 @@ export default function Component() {
         <div className="flex flex-col">
             <SectionHeader>Restaurants</SectionHeader>
             <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
-                {restaurants.toSorted(nameSortComparator).map(restaurant => (
-                    <RestaurantCell restaurant={restaurant} key={restaurant.thumbnail} />
+                {restaurants.map(restaurant => (
+                    <RestaurantCell restaurant={restaurant} key={restaurant.data.thumbnail} />
                 ))}
             </ul>
         </div>

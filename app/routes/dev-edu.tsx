@@ -1,31 +1,39 @@
-import wwdc from "../data/dev-edu.json"
-import { useLoaderData } from "@remix-run/react"
+import { json, useLoaderData } from "@remix-run/react"
 import { mergeMeta } from "~/lib/merge-meta"
+import { VideoCell } from "~/components/CollectionCells"
+import {
+    combineComparators,
+    withContent,
+    titleSortComparator,
+    yearSortComparator,
+} from "~/lib/sort-comparators"
+import { getCollection } from "~/lib/content.server"
 import { SectionHeader } from "~/components/SectionHeader"
-import { Fragment } from "react"
-import { WWDCVideo, VideoCell } from "~/components/CollectionCells"
-import { titleSortComparator } from "~/lib/sort-comparators"
 
 export const meta = mergeMeta(({ parentTitle }) => [
     { title: `Developer Education • ${parentTitle}` },
 ])
 
-export function loader() {
-    return wwdc as { videos: WWDCVideo[] }
+export async function loader() {
+    const wwdc = await getCollection("wwdc")
+    return json(
+        wwdc.toSorted(
+            combineComparators(withContent(yearSortComparator), withContent(titleSortComparator)),
+        ),
+    )
 }
 
 export default function Component() {
-    const { videos } = useLoaderData<typeof loader>()
-    const sections = Object.entries(Object.groupBy(videos, ({ availableOn }) => availableOn))
+    const wwdc = useLoaderData<typeof loader>()
 
-    return sections.map(([sectionTitle, videos], idx) => (
-        <Fragment key={sectionTitle}>
-            <SectionHeader className={idx === 0 ? "" : "mt-10"}>{sectionTitle}</SectionHeader>
+    return (
+        <div className="flex flex-col">
+            <SectionHeader> WWDC</SectionHeader>
             <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
-                {videos!.toSorted(titleSortComparator).map(video => (
-                    <VideoCell video={video} key={video.thumbnail} />
+                {wwdc.map(video => (
+                    <VideoCell video={video} key={video.data.thumbnail} />
                 ))}
             </ul>
-        </Fragment>
-    ))
+        </div>
+    )
 }
