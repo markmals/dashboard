@@ -127,13 +127,26 @@ export function EventCell({
     )
 }
 
+export type Video = {
+    id: string
+    slug: string
+    data: {
+        title: string
+        link: string
+        year?: number
+        thumbnail: string
+        tags: string[]
+    }
+    body: string
+}
+
 export function VideoCell({
     video: {
         data: { title, link, thumbnail, year, tags },
         body: description,
     },
 }: {
-    video: CollectionEntry<"wwdc">
+    video: Video
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
@@ -147,9 +160,11 @@ export function VideoCell({
                 <div className="flex flex-col gap-2">
                     <h2 className="inline-block text-wrap text-xl font-medium text-black/95 md:truncate dark:text-white/95">
                         {title}{" "}
-                        <Badge color="orange" className="align-text-top">
-                            {year}
-                        </Badge>
+                        {year && (
+                            <Badge color="blue" className="align-text-top">
+                                {year}
+                            </Badge>
+                        )}
                     </h2>
                     <p
                         className="text-sm text-black/70 dark:text-white/70"

@@ -64,11 +64,22 @@ const wwdc = defineCollection({
     }),
 })
 
+const pointFree = defineCollection({
+    type: "content",
+    schema: z.object({
+        title: z.string(),
+        link: z.string().url(),
+        thumbnail: partialURL(),
+        tags: z.array(z.string()).default([]),
+    }),
+})
+
 export const collections = {
     movies,
     television,
     events,
     wwdc,
+    pointFree,
     recipes,
     restaurants,
 }

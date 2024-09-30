@@ -29,6 +29,12 @@ export const yearSortComparator = (lhs: Year, rhs: Year) => {
     return lhs.year - rhs.year
 }
 
+type Identifiable = { id: string }
+
+export const idSortComparator = (lhs: Identifiable, rhs: Identifiable) => {
+    return parseInt(lhs.id) - parseInt(rhs.id)
+}
+
 export const withContent = <T>(comparator: (lhs: T, rhs: T) => number) => {
     return (lhs: CollectionEntry<any>, rhs: CollectionEntry<any>) => {
         return comparator(lhs.data, rhs.data)

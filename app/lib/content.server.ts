@@ -1,83 +1,113 @@
 import { Frontmatter } from "./frontmatter.server"
-import { marked as parseMarkdown } from "marked"
+import { marked as parseMarkdown, Renderer as MarkdownRenderer, Tokens } from "marked"
 import * as path from "@std/path"
 import * as YAML from "@std/yaml"
 import { z } from "zod"
 import { collections } from "~/content/config.server"
 
+class ParagraphStripper extends MarkdownRenderer {
+    override paragraph({ tokens }: Tokens.Paragraph): string {
+        return this.parser.parseInline(tokens)
+    }
+}
+
 export type Collecitons = typeof collections
 export type CollectionKey = keyof Collecitons
-export type CollectionEntry<C extends CollectionKey> = Collecitons[C]["type"] extends "content"
+export type CollectionEntry<Key extends CollectionKey> = Collecitons[Key]["type"] extends "content"
     ? {
+          id: string
           slug: string
-          data: z.infer<Collecitons[C]["schema"]>
+          data: z.infer<Collecitons[Key]["schema"]>
           body: string
-          collection: C
+          collection: Key
       }
     : {
-          data: z.infer<Collecitons[C]["schema"]>
-          collection: C
+          id?: string
+          data: z.infer<Collecitons[Key]["schema"]>
+          collection: Key
       }
 
-const collectionFiles = import.meta.glob<true, string, { default: string }>(
+const content = import.meta.glob<false, string, { default: string }>(
     "/app/content/**/*.{md,json,yaml}",
-    { eager: true, query: "?raw" },
+    { query: "?raw" },
 )
 
-export async function getCollection<C extends CollectionKey>(
-    key: C,
-): Promise<CollectionEntry<C>[]> {
+export async function getCollection<Key extends CollectionKey>(
+    key: Key,
+    filter?: (entry: CollectionEntry<Key>) => boolean,
+): Promise<CollectionEntry<Key>[]> {
     const collection = collections[key]
+    const allDirs = [...new Set(Object.keys(content).map(filePath => path.dirname(filePath)))]
+    const kebabCaseKey = key.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase()
 
-    const allDirs = [
-        ...new Set(Object.keys(collectionFiles).map(filePath => path.dirname(filePath))),
-    ]
-
-    const filteredFiles = Object.entries(collectionFiles).filter(([filePath]) => {
-        const parsedPath = path.parse(filePath)
-        const contentDir = path.parse(parsedPath.dir).name
-        const camelCasedContentDir = contentDir.replace(/-([a-z])/g, (_, letter) =>
-            letter.toUpperCase(),
-        )
-        const fileName = parsedPath.name
-        if (allDirs.includes(fileName)) {
-            throw new Error(
-                `Cannot have top level file and directory in /app/content/. Found: ${fileName}${parsedPath.ext.toLowerCase()} and /app/content/${fileName}/`,
+    const filteredContent = Object.entries(content)
+        .filter(([filePath]) => {
+            const parsedPath = path.parse(filePath)
+            const contentDir = path.parse(parsedPath.dir).name
+            const camelCasedContentDir = contentDir.replace(/-([a-z])/g, (_, letter) =>
+                letter.toUpperCase(),
             )
-        }
-        return camelCasedContentDir === key || fileName === key
-    })
+            const fileName = parsedPath.name
+            if (allDirs.includes(fileName)) {
+                throw new Error(
+                    `Cannot have top level file and directory in /app/content/. Found: ${fileName}${parsedPath.ext.toLowerCase()} and /app/content/${fileName}/`,
+                )
+            }
+            return (
+                camelCasedContentDir === key ||
+                fileName === key ||
+                filePath.includes(`/content/${kebabCaseKey}/`)
+            )
+        })
+        .map(([filePath, file]) => [filePath, file().then(f => f.default)] as const)
 
-    return (
-        collection.type === "data"
-            ? filteredFiles
-                  .map(([filePath, file]) => {
-                      const ext = path.extname(filePath).toLowerCase()
-                      const parsed =
-                          ext === ".json" ? JSON.parse(file.default) : YAML.parse(file.default)
-                      const data = Array.isArray(parsed) ? parsed : [parsed]
-                      return data.map(item => ({
-                          data: collection.schema.parse(item),
-                          collection: key,
-                      }))
-                  })
-                  .flat()
-            : await Promise.all(
-                  filteredFiles.map(async ([filePath, file]) => {
+    function getId(filePath: string): string | undefined {
+        return filePath.split(`content/${kebabCaseKey}/`)[1]?.replace(/\.(md|json|yaml)$/, "")
+    }
+
+    const entries = (
+        await Promise.all(
+            collection.type === "data"
+                ? filteredContent
+                      .map(async ([filePath, file]) => {
+                          const ext = path.extname(filePath).toLowerCase()
+                          const contents = await file
+                          const parsed =
+                              ext === ".json" ? JSON.parse(contents) : YAML.parse(contents)
+                          const data = Array.isArray(parsed) ? parsed : [parsed]
+                          return data.map(item => ({
+                              id: getId(filePath),
+                              data: collection.schema.parse(item),
+                              collection: key,
+                          }))
+                      })
+                      // This could be multiple files or
+                      // it could be one file with a top level array full of objects
+                      .flat()
+                : filteredContent.map(async ([filePath, file]) => {
                       try {
-                          const frontmatter = new Frontmatter(file.default)
-                          const body = await parseMarkdown(frontmatter.content)
+                          const contents = await file
+                          const frontmatter = new Frontmatter(contents)
+                          const body = await parseMarkdown(frontmatter.content, {
+                              renderer: new ParagraphStripper(),
+                          })
                           const data = collection.schema.parse(frontmatter.data)
+                          const id = getId(filePath)!
+                          const slug = path.basename(id)
                           return {
-                              slug: path.parse(filePath).name,
+                              id,
+                              slug,
                               body,
                               data,
                               collection: key,
                           }
                       } catch (error: any) {
-                          throw new Error(`${filePath}\nZod: ${error.message}`)
+                          // TODO: Handle Zod errors better
+                          throw new Error(`${filePath}\n${error.message}`)
                       }
                   }),
-              )
-    ) as CollectionEntry<C>[]
+        )
+    ).flat() as CollectionEntry<Key>[]
+
+    return filter ? entries.filter(filter) : entries
 }
