@@ -145,12 +145,12 @@ export function VideoCell({
 
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
-                    <div className="flex flex-row gap-2">
-                        <h2 className="text-xl font-medium text-black/95 md:truncate dark:text-white/95">
-                            {title}
-                        </h2>
-                        <Badge color="orange">{year}</Badge>
-                    </div>
+                    <h2 className="inline-block text-wrap text-xl font-medium text-black/95 md:truncate dark:text-white/95">
+                        {title}{" "}
+                        <Badge color="orange" className="align-text-top">
+                            {year}
+                        </Badge>
+                    </h2>
                     <p
                         className="text-sm text-black/70 dark:text-white/70"
                         dangerouslySetInnerHTML={{ __html: description }}
