@@ -150,9 +150,10 @@ export class Frontmatter<T> {
      */
     private getContent(linesProps: DataProps): string {
         const { lines, metaIndices } = linesProps
-        return metaIndices.length > 0
-            ? lines.slice(metaIndices[1] + 1).join("\n")
-            : lines.join("\n")
+        const content =
+            metaIndices.length > 0 ? lines.slice(metaIndices[1] + 1).join("\n") : lines.join("\n")
+
+        return content.trim() === "undefined" ? "" : content.trim()
     }
     /**
      * Get YAML data
