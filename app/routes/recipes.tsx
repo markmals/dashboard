@@ -18,7 +18,7 @@ export default function Component() {
     return (
         <div className="flex flex-col">
             <SectionHeader>Recipes</SectionHeader>
-            <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
+            <ul className="flex flex-col border-black/15 *:border-b *:last:border-none dark:border-white/15">
                 {recipes.map(recipe => (
                     <RecipeCell recipe={recipe} key={recipe.data.source} />
                 ))}

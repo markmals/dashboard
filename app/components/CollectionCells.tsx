@@ -214,7 +214,7 @@ export function RestaurantCell({
                                 {cuisine} •{" "}
                                 <a
                                     href={`http://maps.apple.com/?address=${address.split(" ").join("+")}`}
-                                    className="underline hover:text-blue-500 hover:dark:text-blue-400"
+                                    className="underline hover:text-blue-500 dark:hover:text-blue-400"
                                     target="_blank"
                                 >
                                     {address}
@@ -265,7 +265,7 @@ export function RecipeCell({
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col gap-1">
                         <a href={source} target="_blank">
-                            <h2 className="text-xl font-medium text-black/95 hover:text-blue-500 md:truncate dark:text-white/95 hover:dark:text-blue-400">
+                            <h2 className="text-xl font-medium text-black/95 hover:text-blue-500 md:truncate dark:text-white/95 dark:hover:text-blue-400">
                                 {title}
                             </h2>
                         </a>

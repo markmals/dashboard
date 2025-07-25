@@ -49,7 +49,7 @@ export default function Component() {
         <div className="flex flex-col gap-10">
             <div>
                 <SectionHeader> WWDC Essentials</SectionHeader>
-                <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
+                <ul className="flex flex-col border-black/15 *:border-b *:last:border-none dark:border-white/15">
                     {wwdc.essentials.map(video => (
                         <VideoCell video={video} key={video.data.link} />
                     ))}
@@ -57,7 +57,7 @@ export default function Component() {
             </div>
             <div>
                 <SectionHeader>Point-Free: Observation</SectionHeader>
-                <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
+                <ul className="flex flex-col border-black/15 *:border-b *:last:border-none dark:border-white/15">
                     {pointFree.observation.map(video => (
                         <VideoCell video={video} key={video.data.link} />
                     ))}
@@ -65,7 +65,7 @@ export default function Component() {
             </div>
             <div>
                 <SectionHeader>Point-Free: Concurrency</SectionHeader>
-                <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
+                <ul className="flex flex-col border-black/15 *:border-b *:last:border-none dark:border-white/15">
                     {pointFree.concurrency.map(video => (
                         <VideoCell video={video} key={video.data.link} />
                     ))}
@@ -73,7 +73,7 @@ export default function Component() {
             </div>
             <div>
                 <SectionHeader>Point-Free: Combine</SectionHeader>
-                <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
+                <ul className="flex flex-col border-black/15 *:border-b *:last:border-none dark:border-white/15">
                     {pointFree.combine.map(video => (
                         <VideoCell video={video} key={video.data.link} />
                     ))}
@@ -81,7 +81,7 @@ export default function Component() {
             </div>
             <div>
                 <SectionHeader> WWDC What's New</SectionHeader>
-                <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
+                <ul className="flex flex-col border-black/15 *:border-b *:last:border-none dark:border-white/15">
                     {wwdc.new.map(video => (
                         <VideoCell video={video} key={video.data.link} />
                     ))}
@@ -89,7 +89,7 @@ export default function Component() {
             </div>
             <div>
                 <SectionHeader> WWDC Deep Dive</SectionHeader>
-                <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
+                <ul className="flex flex-col border-black/15 *:border-b *:last:border-none dark:border-white/15">
                     {wwdc.advanced.map(video => (
                         <VideoCell video={video} key={video.data.link} />
                     ))}

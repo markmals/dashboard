@@ -18,7 +18,7 @@ export default function Component() {
     return (
         <div className="flex flex-col">
             <SectionHeader>Events</SectionHeader>
-            <ul className="flex flex-col border-black/15 *:border-b last:*:border-none dark:border-white/15">
+            <ul className="flex flex-col border-black/15 *:border-b *:last:border-none dark:border-white/15">
                 {events.map(event => (
                     <EventCell event={event} key={event.data.thumbnail} />
                 ))}
