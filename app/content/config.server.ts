@@ -19,7 +19,7 @@ const television = defineCollection({
     schema: z.object({
         title: z.string(),
         link: z.string().url(),
-        trailer: z.string().url(),
+        trailer: z.string().url().optional(),
         poster: z.string().url(),
     }),
 })
@@ -30,6 +30,19 @@ const events = defineCollection({
         title: z.string(),
         link: z.string().url(),
         thumbnail: partialURL(),
+    }),
+})
+
+const theaters = defineCollection({
+    type: "data",
+    schema: z.object({
+        title: z.string(),
+        link: z.string().url(),
+        year: z.string(),
+        genre: z.string(),
+        runningTime: z.string(),
+        trailer: z.string().url(),
+        poster: z.string().url(),
     }),
 })
 
@@ -59,4 +72,5 @@ export const collections = {
     events,
     recipes,
     restaurants,
+    theaters,
 }

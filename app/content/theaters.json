@@ -1,0 +1,47 @@
+[
+    {
+        "title": "The Fantastic Four: First Steps",
+        "link": "https://www.themoviedb.org/movie/617126-the-fantastic-four-first-steps",
+        "year": "2025",
+        "genre": "Sci-Fi, Adventure",
+        "runningTime": "1h 55m",
+        "trailer": "https://youtu.be/b-WdRqzSJ9w",
+        "poster": "https://image.tmdb.org/t/p/original/9nI2DKz1BXKH0DK55r3rgCqB4tB.jpg"
+    },
+    {
+        "title": "Superman",
+        "link": "https://www.themoviedb.org/movie/1061474-superman",
+        "year": "2025",
+        "genre": "Sci-Fi, Adventure",
+        "runningTime": "2h 10m",
+        "trailer": "https://youtu.be/nZTgJy8ym34",
+        "poster": "https://image.tmdb.org/t/p/original/9dRUAOU1HyxnyLmCcMMD9FMzGj.jpg"
+    },
+    {
+        "title": "Jurassic World Rebirth",
+        "link": "https://www.themoviedb.org/movie/1234821-jurassic-world-rebirth",
+        "year": "2025",
+        "genre": "Sci-Fi, Adventure",
+        "runningTime": "2h 14m",
+        "trailer": "https://youtu.be/2ZhB-YO5Tnk",
+        "poster": "https://image.tmdb.org/t/p/original/qwOwDHUPCcDRmdQu8dWCzIVMEgu.jpg"
+    },
+    {
+        "title": "F1",
+        "link": "https://www.themoviedb.org/movie/911430-f1",
+        "year": "2025",
+        "genre": "Action, Drama",
+        "runningTime": "2h 36m",
+        "trailer": "https://youtu.be/ge_ABjtYx88",
+        "poster": "https://image.tmdb.org/t/p/original/tLMG65ZpCbC64aPaXGoCgPPLwb4.jpg"
+    },
+    {
+        "title": "Oh, Hi!",
+        "link": "https://www.themoviedb.org/movie/1339658-oh-hi",
+        "year": "2025",
+        "genre": "Comedy, Romance",
+        "runningTime": "1h 34m",
+        "trailer": "https://youtu.be/s_IEVF0GQPk",
+        "poster": "https://image.tmdb.org/t/p/original/XBC1Oi5pXmlmvE1n2KqaS1qm7B.jpg"
+    }
+]

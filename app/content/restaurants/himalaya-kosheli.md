@@ -2,7 +2,7 @@
 name: Himalaya Kosheli
 address: "8650 Spicewood Springs Road, Suite #148, Austin, Texas"
 cuisine: Nepali & Indian
-menu: "https://www.himalayakosheli.com/menu"
+menu: "https://www.himalayakosheli.com/menu-1"
 thumbnail: /himalaya-kosheli.webp
 ---
 

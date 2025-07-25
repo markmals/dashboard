@@ -1,14 +1,14 @@
-import { Badge, Button } from "@tailwindcss/ui"
-import { PlayCircleIcon, BookOpenIcon } from "@heroicons/react/24/outline"
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid"
-import type { CollectionEntry } from "~/lib/content.server"
+import { Badge, Button } from "@tailwindcss/ui";
+import { BookOpenIcon, PlayCircleIcon } from "@heroicons/react/24/outline";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
+import type { CollectionEntry } from "~/lib/content.server";
 
 export function TVShowCell({
     tvShow: {
         data: { title, link, trailer, poster },
     },
 }: {
-    tvShow: CollectionEntry<"television">
+    tvShow: CollectionEntry<"television">;
 }) {
     return (
         <li className="flex w-full flex-col justify-between gap-4">
@@ -28,19 +28,21 @@ export function TVShowCell({
                     {title}
                 </a>
             </div>
-            <div>
-                <Button
-                    plain
-                    className="font-normal text-blue-500 dark:text-blue-400"
-                    href={trailer}
-                    target="_blank"
-                >
-                    Trailer
-                    <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
-                </Button>
-            </div>
+            {trailer && (
+                <div>
+                    <Button
+                        plain
+                        className="font-normal text-blue-500 dark:text-blue-400"
+                        href={trailer}
+                        target="_blank"
+                    >
+                        Trailer
+                        <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
+                    </Button>
+                </div>
+            )}
         </li>
-    )
+    );
 }
 
 export function MovieCell({
@@ -48,7 +50,7 @@ export function MovieCell({
         data: { title, link, year, genre, runningTime, trailer, poster },
     },
 }: {
-    movie: CollectionEntry<"movies">
+    movie: Omit<CollectionEntry<"movies">, "collection">;
 }) {
     return (
         <li className="flex flex-col justify-between gap-4">
@@ -85,7 +87,7 @@ export function MovieCell({
                 </Button>
             </div>
         </li>
-    )
+    );
 }
 
 export function EventCell({
@@ -93,7 +95,7 @@ export function EventCell({
         data: { title, link, thumbnail },
     },
 }: {
-    event: CollectionEntry<"events">
+    event: CollectionEntry<"events">;
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
@@ -124,21 +126,21 @@ export function EventCell({
                 </div>
             </div>
         </li>
-    )
+    );
 }
 
 export type Video = {
-    id: string
-    slug: string
+    id: string;
+    slug: string;
     data: {
-        title: string
-        link: string
-        year?: number
-        thumbnail: string
-        tags: string[]
-    }
-    body: string
-}
+        title: string;
+        link: string;
+        year?: number;
+        thumbnail: string;
+        tags: string[];
+    };
+    body: string;
+};
 
 export function VideoCell({
     video: {
@@ -146,7 +148,7 @@ export function VideoCell({
         body: description,
     },
 }: {
-    video: Video
+    video: Video;
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
@@ -184,7 +186,7 @@ export function VideoCell({
                 </div>
             </div>
         </li>
-    )
+    );
 }
 
 export function RestaurantCell({
@@ -193,7 +195,7 @@ export function RestaurantCell({
         body: description,
     },
 }: {
-    restaurant: CollectionEntry<"restaurants">
+    restaurant: CollectionEntry<"restaurants">;
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
@@ -213,7 +215,9 @@ export function RestaurantCell({
                             <span className="inline-block text-wrap">
                                 {cuisine} •{" "}
                                 <a
-                                    href={`http://maps.apple.com/?address=${address.split(" ").join("+")}`}
+                                    href={`http://maps.apple.com/?address=${
+                                        address.split(" ").join("+")
+                                    }`}
                                     className="underline hover:text-blue-500 dark:hover:text-blue-400"
                                     target="_blank"
                                 >
@@ -242,7 +246,7 @@ export function RestaurantCell({
                 </div>
             </div>
         </li>
-    )
+    );
 }
 
 export function RecipeCell({
@@ -251,7 +255,7 @@ export function RecipeCell({
         body: description,
     },
 }: {
-    recipe: CollectionEntry<"recipes">
+    recipe: CollectionEntry<"recipes">;
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pb-6 pt-10 md:flex-row dark:border-white/15">
@@ -277,5 +281,5 @@ export function RecipeCell({
                 </div>
             </div>
         </li>
-    )
+    );
 }
