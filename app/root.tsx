@@ -1,5 +1,5 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation } from "@remix-run/react"
-import { HeadersFunction, LinksFunction, MetaFunction } from "@vercel/remix"
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation } from "react-router"
+import type { LinksFunction, MetaFunction } from "react-router"
 import tailwind from "~/styles/style.css?url"
 import {
     StackedLayout,
@@ -15,12 +15,6 @@ import {
 import { CodeBracketIcon, CalendarDaysIcon } from "@heroicons/react/16/solid"
 import { TvIcon, BookOpenIcon, BuildingStorefrontIcon } from "@heroicons/react/24/solid"
 
-export const config = { runtime: "edge" }
-
-// https://vercel.com/docs/edge-network/caching#limits
-// export const headers: HeadersFunction = () => ({
-//     "Cache-Control": "s-maxage=1, stale-while-revalidate=59",
-// })
 
 export const links: LinksFunction = () => [
     { rel: "stylesheet", href: tailwind },

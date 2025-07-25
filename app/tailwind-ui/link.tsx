@@ -5,7 +5,7 @@ import {
     Link as RemixLink,
     NavLink as RemixNavLink,
     type NavLinkProps,
-} from "@remix-run/react"
+} from "react-router"
 
 export const Link = React.forwardRef(function Link(
     props: { href: string | LinkProps["to"] } & React.ComponentPropsWithoutRef<"a">,

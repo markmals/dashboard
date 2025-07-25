@@ -1,4 +1,4 @@
-import { json, useLoaderData } from "@remix-run/react"
+import { useLoaderData } from "react-router"
 import { RecipeCell } from "~/components/CollectionCells"
 import { SectionHeader } from "~/components/SectionHeader"
 import { getCollection } from "~/lib/content.server"
@@ -9,7 +9,7 @@ export const meta = mergeMeta(({ parentTitle }) => [{ title: `Recipes • ${pare
 
 export async function loader() {
     const recipes = await getCollection("recipes")
-    return json(recipes.toSorted(withContent(titleSortComparator)))
+    return recipes.toSorted(withContent(titleSortComparator))
 }
 
 export default function Component() {

@@ -1,4 +1,4 @@
-import { json, useLoaderData } from "@remix-run/react"
+import { useLoaderData } from "react-router"
 import { EventCell } from "~/components/CollectionCells"
 import { SectionHeader } from "~/components/SectionHeader"
 import { getCollection } from "~/lib/content.server"
@@ -9,7 +9,7 @@ export const meta = mergeMeta(({ parentTitle }) => [{ title: `Events • ${paren
 
 export async function loader() {
     const events = await getCollection("events")
-    return json(events.toSorted(withContent(titleSortComparator)))
+    return events.toSorted(withContent(titleSortComparator))
 }
 
 export default function Component() {

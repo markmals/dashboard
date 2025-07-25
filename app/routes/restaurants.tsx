@@ -1,4 +1,4 @@
-import { json, useLoaderData } from "@remix-run/react"
+import { useLoaderData } from "react-router"
 import { RestaurantCell } from "~/components/CollectionCells"
 import { SectionHeader } from "~/components/SectionHeader"
 import { getCollection } from "~/lib/content.server"
@@ -9,7 +9,7 @@ export const meta = mergeMeta(({ parentTitle }) => [{ title: `Restaurants • ${
 
 export async function loader() {
     const restaurants = await getCollection("restaurants")
-    return json(restaurants.toSorted(withContent(nameSortComparator)))
+    return restaurants.toSorted(withContent(nameSortComparator))
 }
 
 export default function Component() {

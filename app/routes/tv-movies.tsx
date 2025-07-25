@@ -1,4 +1,4 @@
-import { json, useLoaderData } from "@remix-run/react"
+import { useLoaderData } from "react-router"
 import { mergeMeta } from "~/lib/merge-meta"
 import { SectionHeader } from "~/components/SectionHeader"
 import { withContent, titleSortComparator } from "~/lib/sort-comparators"
@@ -13,10 +13,10 @@ export async function loader() {
     const tvShows = await getCollection("television")
     const movies = await getCollection("movies")
 
-    return json({
+    return {
         tvShows: tvShows.toSorted(withContent(titleSortComparator)),
         movies: movies.toSorted(withContent(titleSortComparator)),
-    })
+    }
 }
 
 export default function Component() {

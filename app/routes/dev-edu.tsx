@@ -1,4 +1,4 @@
-import { json, useLoaderData } from "@remix-run/react"
+import { useLoaderData } from "react-router"
 import { mergeMeta } from "~/lib/merge-meta"
 import { VideoCell } from "~/components/CollectionCells"
 import {
@@ -28,7 +28,7 @@ export async function loader() {
     const wwdc = await getCollection("wwdc")
     const pointFree = await getCollection("pointFree")
 
-    return json({
+    return {
         wwdc: {
             essentials: getNestedCollection(wwdc, "essentials").toSorted(comparators),
             advanced: getNestedCollection(wwdc, "advanced").toSorted(comparators),
@@ -39,7 +39,7 @@ export async function loader() {
             combine: getNestedCollection(pointFree, "combine").toSorted(idSortComparator),
             concurrency: getNestedCollection(pointFree, "concurrency").toSorted(idSortComparator),
         },
-    })
+    }
 }
 
 export default function Component() {

@@ -1,7 +1,7 @@
 import { Badge, Button } from "@tailwindcss/ui"
 import { PlayCircleIcon, BookOpenIcon } from "@heroicons/react/24/outline"
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid"
-import { CollectionEntry } from "~/lib/content.server"
+import type { CollectionEntry } from "~/lib/content.server"
 
 export function TVShowCell({
     tvShow: {
