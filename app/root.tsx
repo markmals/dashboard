@@ -33,7 +33,7 @@ const navItems = [
     { label: "Events", url: "/events", icon: CalendarDaysIcon },
     { label: "Restaurants", url: "/restaurants", icon: BuildingStorefrontIcon },
     { label: "Recipes", url: "/recipes", icon: BookOpenIcon },
-    { label: "Developer Education", url: "/dev-edu", icon: CodeBracketIcon },
+    // { label: "Developer Education", url: "/dev-edu", icon: CodeBracketIcon },
 ]
 
 export function Layout({ children }: { children: React.ReactNode }) {
