@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to Cloudflare Workers
 
 on:
   push:
@@ -25,11 +25,8 @@ jobs:
       - name: Build
         run: node --run build
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3.14.1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: |
-            pages deploy /build --project-name=${{ env.PROJECT_NAME }} --branch=main --commit-dirty=true
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: deploy
