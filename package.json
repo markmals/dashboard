@@ -3,15 +3,7 @@
     "sideEffects": false,
     "type": "module",
     "scripts": {
-        "dev": "react-router dev --host",
-        "format": "prettier -w .",
-        "build": "react-router build",
-        "preview": "npm run build && vite preview",
-        "deploy": "npm run build && wrangler deploy",
-        "cf-typegen": "wrangler types",
-        "typecheck": "npm run cf-typegen && react-router typegen && tsgo --noEmit",
-        "postinstall": "npm run cf-typegen",
-        "create-markdown": "tsx ./scripts/createMarkdownFiles.ts"
+        "postinstall": "mise run 'typegen:*'"
     },
     "dependencies": {
         "@cloudflare/vite-plugin": "^1.0.0",
@@ -58,8 +50,5 @@
         "plugins": [
             "prettier-plugin-tailwindcss"
         ]
-    },
-    "engines": {
-        "node": ">=20.0.0"
     }
 }
