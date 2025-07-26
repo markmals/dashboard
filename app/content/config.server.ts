@@ -1,16 +1,16 @@
-import { defineCollection, numericalYear, partialURL } from "~/lib/define-collection.server"
+import { defineCollection, partialURL } from "~/lib/define-collection.server"
 import { z } from "zod"
 
 const movies = defineCollection({
     type: "data",
     schema: z.object({
         title: z.string(),
-        link: z.string().url(),
+        link: z.url(),
         year: z.string(),
         genre: z.string(),
         runningTime: z.string(),
-        trailer: z.string().url(),
-        poster: z.string().url(),
+        trailer: z.url(),
+        poster: z.url(),
     }),
 })
 
@@ -18,9 +18,9 @@ const television = defineCollection({
     type: "data",
     schema: z.object({
         title: z.string(),
-        link: z.string().url(),
-        trailer: z.string().url().optional(),
-        poster: z.string().url(),
+        link: z.url(),
+        trailer: z.url().optional(),
+        poster: z.url(),
     }),
 })
 
@@ -28,7 +28,7 @@ const events = defineCollection({
     type: "data",
     schema: z.object({
         title: z.string(),
-        link: z.string().url(),
+        link: z.url(),
         thumbnail: partialURL(),
     }),
 })
@@ -37,12 +37,12 @@ const theaters = defineCollection({
     type: "data",
     schema: z.object({
         title: z.string(),
-        link: z.string().url(),
+        link: z.url(),
         year: z.string(),
         genre: z.string(),
         runningTime: z.string(),
-        trailer: z.string().url(),
-        poster: z.string().url(),
+        trailer: z.url(),
+        poster: z.url(),
     }),
 })
 
@@ -50,7 +50,7 @@ const recipes = defineCollection({
     type: "content",
     schema: z.object({
         title: z.string(),
-        source: z.string().url(),
+        source: z.url(),
         thumbnail: partialURL(),
     }),
 })
@@ -61,7 +61,7 @@ const restaurants = defineCollection({
         name: z.string(),
         address: z.string(),
         cuisine: z.string(),
-        menu: z.string().url().optional(),
+        menu: z.url().optional(),
         thumbnail: partialURL(),
     }),
 })

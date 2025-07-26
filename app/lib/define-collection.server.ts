@@ -1,12 +1,12 @@
 import { z } from "zod"
 
 type BaseSchemaWithoutEffects =
-    | z.AnyZodObject
-    | z.ZodUnion<[BaseSchemaWithoutEffects, ...BaseSchemaWithoutEffects[]]>
-    | z.ZodDiscriminatedUnion<string, z.AnyZodObject[]>
-    | z.ZodIntersection<BaseSchemaWithoutEffects, BaseSchemaWithoutEffects>
+    | z.ZodObject<any>
+    | z.ZodUnion<any>
+    | z.ZodDiscriminatedUnion<any>
+    | z.ZodIntersection<any, any>
 
-export type BaseSchema = BaseSchemaWithoutEffects | z.ZodEffects<BaseSchemaWithoutEffects>
+export type BaseSchema = BaseSchemaWithoutEffects | z.ZodTransform<BaseSchemaWithoutEffects, any>
 
 type DataCollectionConfig<S extends BaseSchema> = {
     type: "data"
