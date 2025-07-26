@@ -28,7 +28,7 @@ export function Avatar({
                 className,
                 // Basic layout
                 "inline-grid shrink-0 align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1",
-                "outline-solid outline-1 -outline-offset-1 outline-black/(--ring-opacity) dark:outline-white/(--ring-opacity)",
+                "outline-1 -outline-offset-1 outline-black/(--ring-opacity) outline-solid dark:outline-white/(--ring-opacity)",
                 // Add the correct border radius
                 square
                     ? "rounded-(--avatar-radius) *:rounded-(--avatar-radius)"
@@ -37,7 +37,7 @@ export function Avatar({
         >
             {initials && (
                 <svg
-                    className="size-full select-none fill-current p-[5%] text-[48px] font-medium uppercase"
+                    className="size-full fill-current p-[5%] text-[48px] font-medium uppercase select-none"
                     viewBox="0 0 100 100"
                     aria-hidden={alt ? undefined : "true"}
                 >

@@ -9,6 +9,6 @@ export default defineConfig({
         cloudflare({ viteEnvironment: { name: "ssr" } }),
         reactRouter(),
         tsconfigPaths(),
-        tailwindcss()
+        tailwindcss(),
     ],
 })

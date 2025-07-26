@@ -112,7 +112,7 @@ export function PaginationGap({
             {...props}
             className={clsx(
                 className,
-                "w-9 select-none text-center text-sm/6 font-semibold text-zinc-950 dark:text-white",
+                "w-9 text-center text-sm/6 font-semibold text-zinc-950 select-none dark:text-white",
             )}
         >
             {children}

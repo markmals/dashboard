@@ -9,7 +9,7 @@ export function Fieldset({
     return (
         <Headless.Fieldset
             {...props}
-            className={clsx(className, "[&>*+[data-slot=control]]:mt-6 *:data-[slot=text]:mt-1")}
+            className={clsx(className, "*:data-[slot=text]:mt-1 [&>*+[data-slot=control]]:mt-6")}
         />
     )
 }
@@ -64,7 +64,7 @@ export function Label({
             {...props}
             className={clsx(
                 className,
-                "select-none text-base/6 text-zinc-950 data-disabled:opacity-50 sm:text-sm/6 dark:text-white",
+                "text-base/6 text-zinc-950 select-none data-disabled:opacity-50 sm:text-sm/6 dark:text-white",
             )}
         />
     )

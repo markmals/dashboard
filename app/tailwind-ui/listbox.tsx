@@ -35,7 +35,7 @@ export function Listbox<T>({
                     // Hide default focus styles
                     "focus:outline-hidden",
                     // Focus ring
-                    "after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent data-focus:after:ring-2 data-focus:after:ring-blue-500",
+                    "after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-transparent after:ring-inset data-focus:after:ring-2 data-focus:after:ring-blue-500",
                     // Disabled state
                     "data-disabled:opacity-50 data-disabled:before:bg-zinc-950/5 data-disabled:before:shadow-none",
                 ])}
@@ -54,7 +54,7 @@ export function Listbox<T>({
                         // Set minimum height for when no value is selected
                         "min-h-11 sm:min-h-9",
                         // Horizontal padding
-                        "pl-[calc(--spacing(3.5)-1px)] pr-[calc(--spacing(7)-1px)] sm:pl-[calc(--spacing(3)-1px)]",
+                        "pr-[calc(--spacing(7)-1px)] pl-[calc(--spacing(3.5)-1px)] sm:pl-[calc(--spacing(3)-1px)]",
                         // Typography
                         "text-left text-base/6 text-zinc-950 placeholder:text-zinc-500 sm:text-sm/6 dark:text-white forced-colors:text-[CanvasText]",
                         // Border
@@ -100,15 +100,15 @@ export function Listbox<T>({
                         // Anchor positioning
                         "[--anchor-offset:-1.625rem] [--anchor-padding:--spacing(4)] sm:[--anchor-offset:-1.375rem]",
                         // Base styles
-                        "isolate w-max min-w-[calc(var(--button-width)+1.75rem)] select-none scroll-py-1 rounded-xl p-1",
+                        "isolate w-max min-w-[calc(var(--button-width)+1.75rem)] scroll-py-1 rounded-xl p-1 select-none",
                         // Invisible border that is only visible in `forced-colors` mode for accessibility purposes
-                        "outline-solid outline-1 outline-transparent focus:outline-hidden",
+                        "outline-1 outline-transparent outline-solid focus:outline-hidden",
                         // Handle scrolling when menu won't fit in viewport
                         "overflow-y-scroll overscroll-contain",
                         // Popover background
                         "bg-white/75 backdrop-blur-xl dark:bg-zinc-800/75",
                         // Shadows
-                        "shadow-lg ring-1 ring-zinc-950/10 dark:ring-inset dark:ring-white/10",
+                        "shadow-lg ring-1 ring-zinc-950/10 dark:ring-white/10 dark:ring-inset",
                     )}
                 >
                     {options}
@@ -148,7 +148,7 @@ export function ListboxOption<T>({
                     <div
                         className={clsx(
                             // Basic layout
-                            "group/option grid cursor-default grid-cols-[--spacing(5)_1fr] items-baseline gap-x-2 rounded-lg py-2.5 pl-2 pr-3.5 sm:grid-cols-[--spacing(4)_1fr] sm:py-1.5 sm:pl-1.5 sm:pr-3",
+                            "group/option grid cursor-default grid-cols-[--spacing(5)_1fr] items-baseline gap-x-2 rounded-lg py-2.5 pr-3.5 pl-2 sm:grid-cols-[--spacing(4)_1fr] sm:py-1.5 sm:pr-3 sm:pl-1.5",
                             // Typography
                             "text-base/6 text-zinc-950 sm:text-sm/6 dark:text-white forced-colors:text-[CanvasText]",
                             // Focus
@@ -201,7 +201,7 @@ export function ListboxDescription({
             {...props}
             className={clsx(
                 className,
-                "flex flex-1 overflow-hidden text-zinc-500 before:w-2 before:min-w-0 before:shrink group-data-focus/option:text-white dark:text-zinc-400",
+                "flex flex-1 overflow-hidden text-zinc-500 group-data-focus/option:text-white before:w-2 before:min-w-0 before:shrink dark:text-zinc-400",
             )}
         >
             <span className="flex-1 truncate">{children}</span>
