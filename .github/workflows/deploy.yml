@@ -13,17 +13,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
+      - name: Setup Mise
+        uses: jdx/mise-action@v2
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build
-        run: node --run build
+        run: mise run build
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3.14.1
