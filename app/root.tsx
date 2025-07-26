@@ -1,12 +1,4 @@
-import {
-    Links,
-    Meta,
-    Outlet,
-    Scripts,
-    ScrollRestoration,
-    useLocation,
-} from "react-router";
-import type { LinksFunction, MetaFunction } from "react-router";
+import { Outlet, Scripts, ScrollRestoration } from "react-router";
 import tailwind from "~/styles/style.css?url";
 import {
     Navbar,
@@ -24,19 +16,9 @@ import {
     BookOpenIcon,
     BuildingStorefrontIcon,
     FilmIcon,
+    HomeIcon,
     TvIcon,
 } from "@heroicons/react/24/solid";
-
-export const links: LinksFunction = () => [
-    { rel: "stylesheet", href: tailwind },
-    { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
-    { rel: "icon", type: "image/svg+xml", href: "favicon.svg" },
-    { rel: "apple-touch-icon", href: "apple-touch-icon.png" },
-];
-
-export const meta: MetaFunction = () => {
-    return [{ title: "Summer Dashboard" }];
-};
 
 const navItems = [
     // { label: "Home", url: "/", icon: HomeIcon },
@@ -49,8 +31,6 @@ const navItems = [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
-    const location = useLocation();
-
     return (
         <html
             lang="en"
@@ -62,8 +42,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <Meta />
-                <Links />
+                <link rel="stylesheet" href={tailwind} />
+                <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+                <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+                <link rel="apple-touch-icon" href="apple-touch-icon.png" />
             </head>
             <body>
                 <StackedLayout
@@ -71,11 +53,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                         <Navbar>
                             <NavbarSection className="max-lg:hidden">
                                 {navItems.map(({ label, url }) => (
-                                    <NavbarItem
-                                        key={label}
-                                        href={url}
-                                        current={location.pathname === url}
-                                    >
+                                    <NavbarItem key={label} href={url}>
                                         {label}
                                     </NavbarItem>
                                 ))}
@@ -89,11 +67,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                                     {navItems.map((
                                         { label, url, icon: Icon },
                                     ) => (
-                                        <SidebarItem
-                                            href={url}
-                                            key={label}
-                                            current={location.pathname === url}
-                                        >
+                                        <SidebarItem href={url} key={label}>
                                             <Icon />
                                             <SidebarLabel>{label}</SidebarLabel>
                                         </SidebarItem>
