@@ -1,19 +1,37 @@
 [tools]
 node = "lts"
 
-[tasks]
-dev.run = "npx react-router dev --host"
-build.run = "npx react-router build"
-preview.depends = "build"
-preview.run = "npx vite preview"
+[tasks.dev]
+description = "Run the Vite development server"
+run = "./node_modules/.bin/vite dev --host"
 
-deploy.depends = "build"
-deploy.run = "npx wrangler deploy"
+[tasks.build]
+description = "Build the app using Vite"
+run = "./node_modules/.bin/vite build"
 
-fmt.run = "npx prettier -w ."
+[tasks.preview]
+description = "Preview the built application"
+depends = "build"
+run = "./node_modules/.bin/vite preview"
 
-"typegen:cloudflare".run = "npx wrangler types"
-"typegen:react-router".run = "npx react-router typegen"
+[tasks.deploy]
+description = "Deploy to Cloudflare Workers"
+depends = "build"
+run = "./node_modules/.bin/wrangler deploy"
 
-typecheck.depends = "typegen:*"
-typecheck.run = "npx tsgo --noEmit"
+[tasks.fmt]
+description = "Format the entire project using Prettier"
+run = "./node_modules/.bin/prettier -w ."
+
+[tasks."typegen:cloudflare"]
+description = "Generate types for Cloudflare bindings"
+run = "./node_modules/.bin/wrangler types"
+
+[tasks."typegen:react-router"]
+description = "Generate types for React Router routes"
+run = "./node_modules/.bin/react-router typegen"
+
+[tasks.typecheck]
+description = "Typecheck the entire project using tsgo"
+depends = "typegen:*"
+run = "./node_modules/.bin/tsgo --noEmit"
