@@ -1,8 +1,8 @@
 ---
 name: Olive Garden
-address: "12827 Ranch Rd 620 N, Austin, TX 78750"
+address: "3940 S Lamar Blvd, Austin, TX 78704"
 cuisine: Fake Italian
-menu: "https://www.olivegarden.com/menu/classic-entrees?setRestaurant=1537&cmpid=br:og_ag:ie_ch:loc_ca:OGGMB_sn:gmb_gt:austin-tx-1537_pl:menu_rd:1407"
+menu: "https://www.olivegarden.com/menu/classic-entrees?setRestaurant=1046&cmpid=br:og_ag:ie_ch:loc_ca:OGGMB_sn:gmb_gt:austin-tx-1046_pl:menu_rd:1024"
 thumbnail: "https://eu-images.contentstack.com/v3/assets/bltea7aee2fca050a19/blt2fdd87657f3c57fe/6724d28ec29b082c272c30db/olive-garden-never-ending-pasta-bowl-2024.jpg"
 ---
 
