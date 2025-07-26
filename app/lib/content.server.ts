@@ -1,5 +1,6 @@
 import { Frontmatter } from "./frontmatter.server"
-import { marked as parseMarkdown, Renderer as MarkdownRenderer, Tokens } from "marked"
+import { marked as parseMarkdown, Renderer as MarkdownRenderer } from "marked"
+import type { Tokens } from "marked"
 import * as path from "@std/path"
 import * as YAML from "@std/yaml"
 import { z } from "zod"

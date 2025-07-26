@@ -1,4 +1,4 @@
-import { CollectionEntry } from "./content.server"
+import type { CollectionEntry } from "./content.server"
 
 const articles = /^(a|an|the)\s+/i
 const removeArticles = (title: string) => title.replace(articles, "")
