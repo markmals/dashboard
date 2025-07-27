@@ -1,5 +1,5 @@
-import { defineCollection, partialURL } from "~/lib/define-collection.server"
 import { z } from "zod"
+import { defineCollection, partialURL } from "~/lib/define-collection.server"
 
 const movies = defineCollection({
     type: "data",

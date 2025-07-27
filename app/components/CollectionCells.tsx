@@ -1,6 +1,6 @@
-import { Badge, Button } from "@tailwindcss/ui"
-import { BookOpenIcon, PlayCircleIcon } from "@heroicons/react/24/outline"
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid"
+import { BookOpenIcon, PlayCircleIcon } from "@heroicons/react/24/outline"
+import { Badge, Button } from "@tailwindcss/ui"
 import type { CollectionEntry } from "~/lib/content.server"
 
 export function TVShowCell({
@@ -161,8 +161,7 @@ export function VideoCell({
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
                     <h2 className="inline-block text-xl font-medium text-wrap text-black/95 md:truncate dark:text-white/95">
-                        {title}{" "}
-                        {year && (
+                        {title} {year && (
                             <Badge color="blue" className="align-text-top">
                                 {year}
                             </Badge>
@@ -215,9 +214,11 @@ export function RestaurantCell({
                             <span className="inline-block text-wrap">
                                 {cuisine} •{" "}
                                 <a
-                                    href={`http://maps.apple.com/?address=${address
-                                        .split(" ")
-                                        .join("+")}`}
+                                    href={`http://maps.apple.com/?address=${
+                                        address
+                                            .split(" ")
+                                            .join("+")
+                                    }`}
                                     className="underline hover:text-blue-500 dark:hover:text-blue-400"
                                     target="_blank"
                                 >

@@ -4,9 +4,9 @@ import * as Headless from "@headlessui/react"
 import clsx from "clsx"
 import { LayoutGroup, motion } from "framer-motion"
 import React, { useId } from "react"
+import { useLocation } from "react-router"
 import { TouchTarget } from "./button"
 import { Link } from "./link"
-import { useLocation } from "react-router"
 
 export function Navbar({ className, ...props }: React.ComponentPropsWithoutRef<"nav">) {
     return <nav {...props} className={clsx(className, "flex flex-1 items-center gap-4 py-2.5")} />
@@ -41,10 +41,12 @@ export const NavbarItem = React.forwardRef(function NavbarItem(
         className,
         children,
         ...props
-    }: { className?: string; children: React.ReactNode } & (
-        | Omit<Headless.ButtonProps, "className">
-        | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
-    ),
+    }:
+        & { className?: string; children: React.ReactNode }
+        & (
+            | Omit<Headless.ButtonProps, "className">
+            | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
+        ),
     ref: React.ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
 ) {
     let classes = clsx(
@@ -77,25 +79,27 @@ export const NavbarItem = React.forwardRef(function NavbarItem(
                     className="absolute inset-x-2 -bottom-2.5 h-0.5 rounded-full bg-blue-600 dark:bg-blue-500"
                 />
             )}
-            {"href" in props ? (
-                <Link
-                    {...props}
-                    className={classes}
-                    data-current={current ? "true" : undefined}
-                    ref={ref as React.ForwardedRef<HTMLAnchorElement>}
-                >
-                    <TouchTarget>{children}</TouchTarget>
-                </Link>
-            ) : (
-                <Headless.Button
-                    {...props}
-                    className={clsx("cursor-default", classes)}
-                    data-current={current ? "true" : undefined}
-                    ref={ref}
-                >
-                    <TouchTarget>{children}</TouchTarget>
-                </Headless.Button>
-            )}
+            {"href" in props
+                ? (
+                    <Link
+                        {...props}
+                        className={classes}
+                        data-current={current ? "true" : undefined}
+                        ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+                    >
+                        <TouchTarget>{children}</TouchTarget>
+                    </Link>
+                )
+                : (
+                    <Headless.Button
+                        {...props}
+                        className={clsx("cursor-default", classes)}
+                        data-current={current ? "true" : undefined}
+                        ref={ref}
+                    >
+                        <TouchTarget>{children}</TouchTarget>
+                    </Headless.Button>
+                )}
         </span>
     )
 })

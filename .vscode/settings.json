@@ -1,0 +1,75 @@
+{
+    "typescript.updateImportsOnFileMove.enabled": "always",
+
+    "editor.stickyScroll.enabled": true,
+
+    "dprint.experimentalLsp": true,
+    "eslint.enable": true,
+
+    "biome.enabled": false,
+    "deno.enable": false,
+    "prettier.enable": false,
+
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.fixAll.eslint": "never"
+    },
+
+    "editor.defaultFormatter": "dprint.dprint",
+    "editor.formatOnSave": true,
+
+    "[typescript]": {
+        "editor.defaultFormatter": "dprint.dprint"
+    },
+    "[tsx]": {
+        "editor.defaultFormatter": "dprint.dprint"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "dprint.dprint"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "dprint.dprint"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "dprint.dprint"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "dprint.dprint"
+    },
+
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
+        "*.css": "$(capture).css.map, $(capture).*.css",
+        ".env": "*.env, .env.*, .envrc, env.d.ts",
+        "package.json": ".bun-version, .github*, .npmrc, .vscode*, biome*, bun.lock, dprint.json, mise.toml, tsconfig.*, worker-configuration.*, wrangler.toml, wrangler.json*, workspace.json",
+        "readme*": "authors, backers*, changelog*, citation*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
+        "vite.config.*": "drizzle.config.*, react-router.config.*, vitest.config.*, *.plugin.ts"
+    },
+    "files.exclude": {
+        "**/.DS_Store": true,
+        ".react-router": true,
+        ".wrangler": true,
+        ".claude": true
+    },
+
+    "tailwindCSS.classAttributes": ["className"],
+    "tailwindCSS.classFunctions": ["cva", "cx", "clsx"],
+
+    "todohighlight.keywords": [
+        "MARK:",
+        {
+            "text": "FIXME:",
+            "backgroundColor": "#F14848"
+        },
+        {
+            "text": "TODO:",
+            "backgroundColor": "#3593FF"
+        }
+    ],
+    "todohighlight.defaultStyle": {
+        "backgroundColor": "#434B54",
+        "color": "#fff",
+        "borderRadius": "2px"
+    }
+}

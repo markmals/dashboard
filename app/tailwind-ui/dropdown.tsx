@@ -52,10 +52,13 @@ export function DropdownMenu({
 export function DropdownItem({
     className,
     ...props
-}: { className?: string } & (
-    | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
-    | Omit<React.ComponentPropsWithoutRef<"button">, "className">
-)) {
+}:
+    & { className?: string }
+    & (
+        | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
+        | Omit<React.ComponentPropsWithoutRef<"button">, "className">
+    ))
+{
     let classes = clsx(
         className,
         // Base styles
@@ -79,11 +82,9 @@ export function DropdownItem({
 
     return (
         <Headless.MenuItem>
-            {"href" in props ? (
-                <Link {...props} className={classes} />
-            ) : (
-                <button type="button" {...props} className={classes} />
-            )}
+            {"href" in props
+                ? <Link {...props} className={classes} />
+                : <button type="button" {...props} className={classes} />}
         </Headless.MenuItem>
     )
 }
@@ -172,10 +173,13 @@ export function DropdownShortcut({
     keys,
     className,
     ...props
-}: { keys: string | string[]; className?: string } & Omit<
-    Headless.DescriptionProps<"kbd">,
-    "className"
->) {
+}:
+    & { keys: string | string[]; className?: string }
+    & Omit<
+        Headless.DescriptionProps<"kbd">,
+        "className"
+    >)
+{
     return (
         <Headless.Description
             as="kbd"

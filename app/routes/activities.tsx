@@ -16,9 +16,7 @@ export default function Component({ loaderData: events }: Route.ComponentProps) 
             <div className="flex flex-col">
                 <SectionHeader>Activities</SectionHeader>
                 <ul className="flex flex-col border-black/15 *:border-b *:last:border-none dark:border-white/15">
-                    {events.map(event => (
-                        <EventCell event={event} key={event.data.thumbnail} />
-                    ))}
+                    {events.map(event => <EventCell event={event} key={event.data.thumbnail} />)}
                 </ul>
             </div>
         </>

@@ -1,5 +1,11 @@
-import { Outlet, Scripts, ScrollRestoration } from "react-router"
-import tailwind from "~/styles/style.css?url"
+import { CalendarDaysIcon, CodeBracketIcon } from "@heroicons/react/16/solid"
+import {
+    BookOpenIcon,
+    BuildingStorefrontIcon,
+    FilmIcon,
+    HomeIcon,
+    TvIcon,
+} from "@heroicons/react/24/solid"
 import {
     Navbar,
     NavbarItem,
@@ -11,14 +17,8 @@ import {
     SidebarSection,
     StackedLayout,
 } from "@tailwindcss/ui"
-import { CalendarDaysIcon, CodeBracketIcon } from "@heroicons/react/16/solid"
-import {
-    BookOpenIcon,
-    BuildingStorefrontIcon,
-    FilmIcon,
-    HomeIcon,
-    TvIcon,
-} from "@heroicons/react/24/solid"
+import { Outlet, Scripts, ScrollRestoration } from "react-router"
+import tailwind from "~/styles/style.css?url"
 
 const navItems = [
     // { label: "Home", url: "/", icon: HomeIcon },

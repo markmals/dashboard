@@ -1,10 +1,10 @@
-import { Frontmatter } from "./frontmatter.server"
-import { marked as parseMarkdown, Renderer as MarkdownRenderer } from "marked"
-import type { Tokens } from "marked"
 import * as path from "@std/path"
 import * as YAML from "@std/yaml"
+import { marked as parseMarkdown, Renderer as MarkdownRenderer } from "marked"
+import type { Tokens } from "marked"
 import { z } from "zod"
 import { collections } from "~/content/config.server"
+import { Frontmatter } from "./frontmatter.server"
 
 class ParagraphStripper extends MarkdownRenderer {
     override paragraph({ tokens }: Tokens.Paragraph): string {
@@ -16,17 +16,17 @@ export type Collecitons = typeof collections
 export type CollectionKey = keyof Collecitons
 export type CollectionEntry<Key extends CollectionKey> = Collecitons[Key]["type"] extends "content"
     ? {
-          id: string
-          slug: string
-          data: z.infer<Collecitons[Key]["schema"]>
-          body: string
-          collection: Key
-      }
+        id: string
+        slug: string
+        data: z.infer<Collecitons[Key]["schema"]>
+        body: string
+        collection: Key
+    }
     : {
-          id?: string
-          data: z.infer<Collecitons[Key]["schema"]>
-          collection: Key
-      }
+        id?: string
+        data: z.infer<Collecitons[Key]["schema"]>
+        collection: Key
+    }
 
 const content = import.meta.glob<false, string, { default: string }>(
     "/app/content/**/*.{md,json,yaml}",
@@ -45,8 +45,9 @@ export async function getCollection<Key extends CollectionKey>(
         .filter(([filePath]) => {
             const parsedPath = path.parse(filePath)
             const contentDir = path.parse(parsedPath.dir).name
-            const camelCasedContentDir = contentDir.replace(/-([a-z])/g, (_, letter) =>
-                letter.toUpperCase(),
+            const camelCasedContentDir = contentDir.replace(
+                /-([a-z])/g,
+                (_, letter) => letter.toUpperCase(),
             )
             const fileName = parsedPath.name
             if (allDirs.includes(fileName)) {
@@ -55,9 +56,9 @@ export async function getCollection<Key extends CollectionKey>(
                 )
             }
             return (
-                camelCasedContentDir === key ||
-                fileName === key ||
-                filePath.includes(`/content/${kebabCaseKey}/`)
+                camelCasedContentDir === key
+                || fileName === key
+                || filePath.includes(`/content/${kebabCaseKey}/`)
             )
         })
         .map(([filePath, file]) => [filePath, file().then(f => f.default)] as const)
@@ -70,43 +71,42 @@ export async function getCollection<Key extends CollectionKey>(
         await Promise.all(
             collection.type === "data"
                 ? filteredContent
-                      .map(async ([filePath, file]) => {
-                          const ext = path.extname(filePath).toLowerCase()
-                          const contents = await file
-                          const parsed =
-                              ext === ".json" ? JSON.parse(contents) : YAML.parse(contents)
-                          const data = Array.isArray(parsed) ? parsed : [parsed]
-                          return data.map(item => ({
-                              id: getId(filePath),
-                              data: collection.schema.parse(item),
-                              collection: key,
-                          }))
-                      })
-                      // This could be multiple files or
-                      // it could be one file with a top level array full of objects
-                      .flat()
+                    .map(async ([filePath, file]) => {
+                        const ext = path.extname(filePath).toLowerCase()
+                        const contents = await file
+                        const parsed = ext === ".json" ? JSON.parse(contents) : YAML.parse(contents)
+                        const data = Array.isArray(parsed) ? parsed : [parsed]
+                        return data.map(item => ({
+                            id: getId(filePath),
+                            data: collection.schema.parse(item),
+                            collection: key,
+                        }))
+                    })
+                    // This could be multiple files or
+                    // it could be one file with a top level array full of objects
+                    .flat()
                 : filteredContent.map(async ([filePath, file]) => {
-                      try {
-                          const contents = await file
-                          const frontmatter = new Frontmatter(contents)
-                          const body = await parseMarkdown(frontmatter.content, {
-                              renderer: new ParagraphStripper(),
-                          })
-                          const data = collection.schema.parse(frontmatter.data)
-                          const id = getId(filePath)!
-                          const slug = path.basename(id)
-                          return {
-                              id,
-                              slug,
-                              body,
-                              data,
-                              collection: key,
-                          }
-                      } catch (error: any) {
-                          // TODO: Handle Zod errors better
-                          throw new Error(`${filePath}\n${error.message}`)
-                      }
-                  }),
+                    try {
+                        const contents = await file
+                        const frontmatter = new Frontmatter(contents)
+                        const body = await parseMarkdown(frontmatter.content, {
+                            renderer: new ParagraphStripper(),
+                        })
+                        const data = collection.schema.parse(frontmatter.data)
+                        const id = getId(filePath)!
+                        const slug = path.basename(id)
+                        return {
+                            id,
+                            slug,
+                            body,
+                            data,
+                            collection: key,
+                        }
+                    } catch (error: any) {
+                        // TODO: Handle Zod errors better
+                        throw new Error(`${filePath}\n${error.message}`)
+                    }
+                }),
         )
     ).flat() as CollectionEntry<Key>[]
 

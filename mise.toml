@@ -32,8 +32,8 @@ confirm = "Are you sure you want to deploy this app to Cloudflare Workers?"
 run = "bun x wrangler deploy"
 
 [tasks.fmt]
-description = "Format the entire project using Prettier"
-run = "bun x prettier -w ."
+description = "Format the entire project using dprint"
+run = "bun x dprint fmt"
 
 [tasks."typegen:cloudflare"]
 description = "Generate types for Cloudflare bindings"

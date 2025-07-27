@@ -1,7 +1,7 @@
-import { SectionHeader } from "~/components/SectionHeader"
-import { titleSortComparator, withContent } from "~/lib/sort-comparators"
 import { MovieCell, TVShowCell } from "~/components/CollectionCells"
+import { SectionHeader } from "~/components/SectionHeader"
 import { getCollection } from "~/lib/content.server"
+import { titleSortComparator, withContent } from "~/lib/sort-comparators"
 import type { Route } from "./+types/tv-movies"
 
 export async function loader() {
@@ -26,9 +26,7 @@ export default function Component({ loaderData }: Route.ComponentProps) {
                     role="list"
                     className="grid grid-cols-2 gap-x-4 gap-y-8 pb-12 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
                 >
-                    {tvShows.map(show => (
-                        <TVShowCell tvShow={show} key={show.data.title} />
-                    ))}
+                    {tvShows.map(show => <TVShowCell tvShow={show} key={show.data.title} />)}
                 </ul>
 
                 <SectionHeader>Movies</SectionHeader>
@@ -36,9 +34,7 @@ export default function Component({ loaderData }: Route.ComponentProps) {
                     role="list"
                     className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
                 >
-                    {movies.map(movie => (
-                        <MovieCell movie={movie} key={movie.data.title} />
-                    ))}
+                    {movies.map(movie => <MovieCell movie={movie} key={movie.data.title} />)}
                 </ul>
             </div>
         </>

@@ -22,10 +22,13 @@ export function Dialog({
     className,
     children,
     ...props
-}: { size?: keyof typeof sizes; className?: string; children: React.ReactNode } & Omit<
-    Headless.DialogProps,
-    "className"
->) {
+}:
+    & { size?: keyof typeof sizes; className?: string; children: React.ReactNode }
+    & Omit<
+        Headless.DialogProps,
+        "className"
+    >)
+{
     return (
         <Headless.Transition appear show={open} {...props}>
             <Headless.Dialog onClose={onClose}>

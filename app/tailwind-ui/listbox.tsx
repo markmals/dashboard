@@ -43,11 +43,9 @@ export function Listbox<T>({
                 <Headless.ListboxSelectedOption
                     as="span"
                     options={options}
-                    placeholder={
-                        placeholder && (
-                            <span className="block truncate text-zinc-500">{placeholder}</span>
-                        )
-                    }
+                    placeholder={placeholder && (
+                        <span className="block truncate text-zinc-500">{placeholder}</span>
+                    )}
                     className={clsx([
                         // Basic layout
                         "relative block w-full appearance-none rounded-lg py-[calc(--spacing(2.5)-1px)] sm:py-[calc(--spacing(1.5)-1px)]",
@@ -122,10 +120,13 @@ export function ListboxOption<T>({
     children,
     className,
     ...props
-}: { className?: string; children?: React.ReactNode } & Omit<
-    Headless.ListboxOptionProps<"div", T>,
-    "className"
->) {
+}:
+    & { className?: string; children?: React.ReactNode }
+    & Omit<
+        Headless.ListboxOptionProps<"div", T>,
+        "className"
+    >)
+{
     const sharedClasses = clsx(
         // Base
         "flex min-w-0 items-center",

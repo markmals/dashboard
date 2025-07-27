@@ -37,7 +37,6 @@ export type FrontmatterResult<T> = {
  *
  *   2. content: The content of the file.
  *
- *
  * @example
  *
  * `example.md`
@@ -52,8 +51,7 @@ export type FrontmatterResult<T> = {
  *
  * `NODE-JS`
  *
- *
- *`index.ts`
+ * `index.ts`
  *
  * ```ts
  * import Frontmatter from "@burmajs/frontmatter";
@@ -71,12 +69,9 @@ export type FrontmatterResult<T> = {
  * console.log(foo.content); // ## Hello
  * ```
  *
- *
- *
  * `DENO`
  *
  * `mod.ts`
- *
  *
  * ```ts
  * import { Frontmatter } from "@burmajs/frontmatter";
@@ -89,13 +84,10 @@ export type FrontmatterResult<T> = {
  * const mdcontent = Deno.readTextFileSync("example.md");
  * const foo = new Frontmatter<MyType>(mdcontent);
  *
- *
  * console.log(foo.json); // { data: { type: 'post', title: 'Hello World' }, content: '\n\n## Hello\n'}
  * console.log(foo.data); // { type: 'post', title: 'Hello World' }
  * console.log(foo.content); // ## Hello
  * ```
- *
- *
  */
 export class Frontmatter<T> {
     private _mdcontent: string
@@ -150,8 +142,9 @@ export class Frontmatter<T> {
      */
     private getContent(linesProps: DataProps): string {
         const { lines, metaIndices } = linesProps
-        const content =
-            metaIndices.length > 0 ? lines.slice(metaIndices[1] + 1).join("\n") : lines.join("\n")
+        const content = metaIndices.length > 0
+            ? lines.slice(metaIndices[1] + 1).join("\n")
+            : lines.join("\n")
 
         return content.trim() === "undefined" ? "" : content.trim()
     }
