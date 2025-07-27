@@ -12,8 +12,14 @@
         "indentWidth": 4
     },
     "markdown": {
-        "lineWidth": 100,
         "textWrap": "never"
+    },
+    "malva": {
+        "printWidth": 100,
+        "indentWidth": 4,
+        "hexCase": "upper",
+        "trailingComma": true,
+        "formatComments": true
     },
     "includes": [
         "**/*.{ts,tsx,js,jsx,json,md,css}"
@@ -22,11 +28,13 @@
         "**/node_modules",
         "**/.git",
         "**/dist",
-        "**/build"
+        "**/build",
+        "**/.react-router"
     ],
     "plugins": [
         "https://plugins.dprint.dev/typescript-0.95.0.wasm",
         "https://plugins.dprint.dev/json-0.19.3.wasm",
-        "https://plugins.dprint.dev/markdown-0.17.8.wasm"
+        "https://plugins.dprint.dev/markdown-0.17.8.wasm",
+        "https://plugins.dprint.dev/g-plane/malva-v0.14.1.wasm"
     ]
 }
