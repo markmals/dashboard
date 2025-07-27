@@ -18,39 +18,39 @@ sources = [
   "app/**/*.{ts,tsx,css,json,md}",
 ]
 outputs = ["build"]
-run = "bun x vite build"
+run = "bun x --bun vite build"
 
 [tasks.preview]
 description = "Preview the built application"
 depends = "build"
-run = "bun x vite preview"
+run = "bun x --bun vite preview"
 
 [tasks.deploy]
 description = "Deploy to Cloudflare Workers"
 depends = "build"
 confirm = "Are you sure you want to deploy this app to Cloudflare Workers?"
-run = "bun x wrangler deploy"
+run = "bun x --bun wrangler deploy"
 
 [tasks.fmt]
 description = "Format the entire project using dprint"
-run = "bun x dprint fmt"
+run = "bun x --bun dprint fmt"
 
 [tasks."typegen:cloudflare"]
 description = "Generate types for Cloudflare bindings"
 sources = ["wrangler.jsonc"]
 outputs = ["worker-configuration.d.ts"]
-run = "bun x wrangler types"
+run = "bun x --bun wrangler types"
 
 [tasks."typegen:react-router"]
 description = "Generate types for React Router routes"
 sources = ["react-router.config.ts", "vite.config.ts", "app/**/*.{ts,tsx}"]
 outputs = [".react-router"]
-run = "bun x react-router typegen"
+run = "bun x --bun react-router typegen"
 
 [tasks.typecheck]
 description = "Typecheck the entire project using tsgo"
 depends = "typegen:*"
-run = "bun x tsgo --noEmit"
+run = "bun x --bun tsgo --noEmit"
 
 [tasks.postinstall]
 description = "Generate types after npm installation"
