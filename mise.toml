@@ -50,3 +50,13 @@ run = "node_modules/.bin/react-router typegen"
 description = "Typecheck the entire project using tsgo"
 depends = "typegen:*"
 run = "node_modules/.bin/tsgo --noEmit"
+
+[tasks.postinstall]
+description = "Generate types after npm installation"
+run = """
+  if [ -z \"$GITHUB_ACTIONS\" ]; then
+    mise run typegen:*
+  else
+    echo '✅ Skipping typegen in CI'
+  fi
+"""

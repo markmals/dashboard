@@ -3,7 +3,7 @@
     "sideEffects": false,
     "type": "module",
     "scripts": {
-        "postinstall": "mise run 'typegen:*'"
+        "postinstall": "mise run postinstall"
     },
     "dependencies": {
         "@cloudflare/vite-plugin": "^1.10.1",
