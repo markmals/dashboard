@@ -9,7 +9,7 @@ run = "bun x vite dev --host"
 [tasks.build]
 description = "Build the app using Vite"
 sources = [
-  "package-lock.json",
+  "bun.lock",
   "react-router.config.ts",
   "vite.config.ts",
   "tsconfig.ts",
