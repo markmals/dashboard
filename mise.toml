@@ -42,11 +42,7 @@ run = "node_modules/.bin/wrangler types"
 
 [tasks."typegen:react-router"]
 description = "Generate types for React Router routes"
-sources = [
-  "react-router.config.ts",
-  "vite.config.ts",
-  "app/**/*.{ts,tsx}",
-]
+sources = ["react-router.config.ts", "vite.config.ts", "app/**/*.{ts,tsx}"]
 outputs = [".react-router"]
 run = "node_modules/.bin/react-router typegen"
 

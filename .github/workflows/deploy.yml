@@ -19,6 +19,14 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
+            - name: Cache node_modules
+              uses: actions/cache@v3
+              with:
+                path: ~/.cache/node
+                key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+                restore-keys: |
+                  ${{ runner.os }}-node-
+
             - name: Build
               run: mise run build
 
