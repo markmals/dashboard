@@ -3,35 +3,54 @@ node = "lts"
 
 [tasks.dev]
 description = "Run the Vite development server"
-run = "./node_modules/.bin/vite dev --host"
+run = "node_modules/.bin/vite dev --host"
 
 [tasks.build]
 description = "Build the app using Vite"
-run = "./node_modules/.bin/vite build"
+sources = [
+  "package-lock.json",
+  "react-router.config.ts",
+  "vite.config.ts",
+  "tsconfig.ts",
+  "tsconfig.*.ts",
+  "worker-configuration.d.ts",
+  "app/**/*.{ts,tsx,css,json,md}",
+]
+outputs = ["build"]
+run = "node_modules/.bin/vite build"
 
 [tasks.preview]
 description = "Preview the built application"
 depends = "build"
-run = "./node_modules/.bin/vite preview"
+run = "node_modules/.bin/vite preview"
 
 [tasks.deploy]
 description = "Deploy to Cloudflare Workers"
 depends = "build"
-run = "./node_modules/.bin/wrangler deploy"
+confirm = "Are you sure you want to deploy this app to Cloudflare Workers?"
+run = "node_modules/.bin/wrangler deploy"
 
 [tasks.fmt]
 description = "Format the entire project using Prettier"
-run = "./node_modules/.bin/prettier -w ."
+run = "node_modules/.bin/prettier -w ."
 
 [tasks."typegen:cloudflare"]
 description = "Generate types for Cloudflare bindings"
-run = "./node_modules/.bin/wrangler types"
+sources = ["wrangler.jsonc"]
+outputs = ["worker-configuration.d.ts"]
+run = "node_modules/.bin/wrangler types"
 
 [tasks."typegen:react-router"]
 description = "Generate types for React Router routes"
-run = "./node_modules/.bin/react-router typegen"
+sources = [
+  "react-router.config.ts",
+  "vite.config.ts",
+  "app/**/*.{ts,tsx}",
+]
+outputs = [".react-router"]
+run = "node_modules/.bin/react-router typegen"
 
 [tasks.typecheck]
 description = "Typecheck the entire project using tsgo"
 depends = "typegen:*"
-run = "./node_modules/.bin/tsgo --noEmit"
+run = "node_modules/.bin/tsgo --noEmit"
