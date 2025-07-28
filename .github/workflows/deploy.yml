@@ -63,5 +63,4 @@ jobs:
               uses: cloudflare/wrangler-action@v3.14.1
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                  workingDirectory: build/server
-                  command: deploy
+                  command: deploy --config build/server/wrangler.json
