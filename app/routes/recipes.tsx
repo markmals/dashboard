@@ -1,12 +1,12 @@
-import { RecipeCell } from "~/components/CollectionCells"
-import { SectionHeader } from "~/components/SectionHeader"
-import { getCollection } from "~/lib/content.server"
-import { titleSortComparator, withContent } from "~/lib/sort-comparators"
-import type { Route } from "./+types/recipes"
+import { RecipeCell } from "~/components/CollectionCells";
+import { SectionHeader } from "~/components/SectionHeader";
+import { getCollection } from "~/lib/content.server";
+import { titleSortComparator, withContent } from "~/lib/sort-comparators";
+import type { Route } from "./+types/recipes";
 
 export async function loader() {
-    const recipes = await getCollection("recipes")
-    return recipes.toSorted(withContent(titleSortComparator))
+    const recipes = await getCollection("recipes");
+    return recipes.toSorted(withContent(titleSortComparator));
 }
 
 export default function Component({ loaderData: recipes }: Route.ComponentProps) {
@@ -20,5 +20,5 @@ export default function Component({ loaderData: recipes }: Route.ComponentProps)
                 </ul>
             </div>
         </>
-    )
+    );
 }

@@ -1,5 +1,5 @@
-import { z } from "zod"
-import { defineCollection, partialURL } from "~/lib/define-collection.server"
+import { z } from "zod";
+import { defineCollection, partialURL } from "~/lib/define-collection.server";
 
 const movies = defineCollection({
     type: "data",
@@ -12,7 +12,7 @@ const movies = defineCollection({
         trailer: z.url(),
         poster: z.url(),
     }),
-})
+});
 
 const television = defineCollection({
     type: "data",
@@ -22,7 +22,7 @@ const television = defineCollection({
         trailer: z.url().optional(),
         poster: z.url(),
     }),
-})
+});
 
 const events = defineCollection({
     type: "data",
@@ -31,7 +31,7 @@ const events = defineCollection({
         link: z.url(),
         thumbnail: partialURL(),
     }),
-})
+});
 
 const theaters = defineCollection({
     type: "data",
@@ -44,7 +44,7 @@ const theaters = defineCollection({
         trailer: z.url(),
         poster: z.url(),
     }),
-})
+});
 
 const recipes = defineCollection({
     type: "content",
@@ -53,7 +53,7 @@ const recipes = defineCollection({
         source: z.url(),
         thumbnail: partialURL(),
     }),
-})
+});
 
 const restaurants = defineCollection({
     type: "content",
@@ -64,7 +64,7 @@ const restaurants = defineCollection({
         menu: z.url().optional(),
         thumbnail: partialURL(),
     }),
-})
+});
 
 export const collections = {
     movies,
@@ -73,4 +73,4 @@ export const collections = {
     recipes,
     restaurants,
     theaters,
-}
+};

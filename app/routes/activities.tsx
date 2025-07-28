@@ -1,12 +1,12 @@
-import { EventCell } from "~/components/CollectionCells"
-import { SectionHeader } from "~/components/SectionHeader"
-import { getCollection } from "~/lib/content.server"
-import { titleSortComparator, withContent } from "~/lib/sort-comparators"
-import type { Route } from "./+types/activities"
+import { EventCell } from "~/components/CollectionCells";
+import { SectionHeader } from "~/components/SectionHeader";
+import { getCollection } from "~/lib/content.server";
+import { titleSortComparator, withContent } from "~/lib/sort-comparators";
+import type { Route } from "./+types/activities";
 
 export async function loader() {
-    const events = await getCollection("events")
-    return events.toSorted(withContent(titleSortComparator))
+    const events = await getCollection("events");
+    return events.toSorted(withContent(titleSortComparator));
 }
 
 export default function Component({ loaderData: events }: Route.ComponentProps) {
@@ -20,5 +20,5 @@ export default function Component({ loaderData: events }: Route.ComponentProps) 
                 </ul>
             </div>
         </>
-    )
+    );
 }

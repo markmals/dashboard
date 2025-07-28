@@ -1,21 +1,21 @@
-import { MovieCell, TVShowCell } from "~/components/CollectionCells"
-import { SectionHeader } from "~/components/SectionHeader"
-import { getCollection } from "~/lib/content.server"
-import { titleSortComparator, withContent } from "~/lib/sort-comparators"
-import type { Route } from "./+types/tv-movies"
+import { MovieCell, TVShowCell } from "~/components/CollectionCells";
+import { SectionHeader } from "~/components/SectionHeader";
+import { getCollection } from "~/lib/content.server";
+import { titleSortComparator, withContent } from "~/lib/sort-comparators";
+import type { Route } from "./+types/tv-movies";
 
 export async function loader() {
-    const tvShows = await getCollection("television")
-    const movies = await getCollection("movies")
+    const tvShows = await getCollection("television");
+    const movies = await getCollection("movies");
 
     return {
         tvShows: tvShows.toSorted(withContent(titleSortComparator)),
         movies: movies.toSorted(withContent(titleSortComparator)),
-    }
+    };
 }
 
 export default function Component({ loaderData }: Route.ComponentProps) {
-    const { tvShows, movies } = loaderData
+    const { tvShows, movies } = loaderData;
 
     return (
         <>
@@ -38,5 +38,5 @@ export default function Component({ loaderData }: Route.ComponentProps) {
                 </ul>
             </div>
         </>
-    )
+    );
 }

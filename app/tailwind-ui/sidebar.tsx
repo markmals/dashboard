@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import * as Headless from "@headlessui/react"
-import clsx from "clsx"
-import { LayoutGroup, motion } from "framer-motion"
-import React, { Fragment, useId } from "react"
-import { useLocation } from "react-router"
-import { TouchTarget } from "./button"
-import { Link } from "./link"
+import * as Headless from "@headlessui/react";
+import clsx from "clsx";
+import { LayoutGroup, motion } from "framer-motion";
+import React, { Fragment, useId } from "react";
+import { useLocation } from "react-router";
+import { TouchTarget } from "./button";
+import { Link } from "./link";
 
 export function Sidebar({ className, ...props }: React.ComponentPropsWithoutRef<"nav">) {
-    return <nav {...props} className={clsx(className, "flex h-full flex-col")} />
+    return <nav {...props} className={clsx(className, "flex h-full flex-col")} />;
 }
 
 export function SidebarHeader({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
@@ -21,7 +21,7 @@ export function SidebarHeader({ className, ...props }: React.ComponentPropsWitho
                 "flex flex-col border-b border-zinc-950/5 p-4 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5",
             )}
         />
-    )
+    );
 }
 
 export function SidebarBody({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
@@ -33,7 +33,7 @@ export function SidebarBody({ className, ...props }: React.ComponentPropsWithout
                 "flex flex-1 flex-col overflow-y-auto p-4 [&>[data-slot=section]+[data-slot=section]]:mt-8",
             )}
         />
-    )
+    );
 }
 
 export function SidebarFooter({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
@@ -45,11 +45,11 @@ export function SidebarFooter({ className, ...props }: React.ComponentPropsWitho
                 "flex flex-col border-t border-zinc-950/5 p-4 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5",
             )}
         />
-    )
+    );
 }
 
 export function SidebarSection({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
-    let id = useId()
+    let id = useId();
 
     return (
         <LayoutGroup id={id}>
@@ -59,7 +59,7 @@ export function SidebarSection({ className, ...props }: React.ComponentPropsWith
                 className={clsx(className, "flex flex-col gap-0.5")}
             />
         </LayoutGroup>
-    )
+    );
 }
 
 export function SidebarDivider({ className, ...props }: React.ComponentPropsWithoutRef<"hr">) {
@@ -71,11 +71,11 @@ export function SidebarDivider({ className, ...props }: React.ComponentPropsWith
                 "my-4 border-t border-zinc-950/5 lg:-mx-4 dark:border-white/5",
             )}
         />
-    )
+    );
 }
 
 export function SidebarSpacer({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
-    return <div aria-hidden="true" {...props} className={clsx(className, "mt-8 flex-1")} />
+    return <div aria-hidden="true" {...props} className={clsx(className, "mt-8 flex-1")} />;
 }
 
 export function SidebarHeading({ className, ...props }: React.ComponentPropsWithoutRef<"h3">) {
@@ -87,7 +87,7 @@ export function SidebarHeading({ className, ...props }: React.ComponentPropsWith
                 "mb-1 px-2 text-xs/6 font-medium text-zinc-500 dark:text-zinc-400",
             )}
         />
-    )
+    );
 }
 
 export const SidebarItem = React.forwardRef(function SidebarItem(
@@ -96,7 +96,7 @@ export const SidebarItem = React.forwardRef(function SidebarItem(
         children,
         ...props
     }:
-        & { className?: string; children: React.ReactNode }
+        & { className?: string; children: React.ReactNode; }
         & (
             | Omit<Headless.ButtonProps, "className">
             | Omit<React.ComponentPropsWithoutRef<typeof Link>, "type" | "className">
@@ -123,10 +123,10 @@ export const SidebarItem = React.forwardRef(function SidebarItem(
         "dark:data-hover:bg-white/5 dark:data-hover:*:data-[slot=icon]:fill-blue-500",
         "dark:data-active:bg-white/5 dark:data-active:*:data-[slot=icon]:fill-blue-500",
         "dark:data-current:*:data-[slot=icon]:fill-blue-500",
-    )
+    );
 
-    const location = useLocation()
-    const current = "href" in props && location.pathname === props.href
+    const location = useLocation();
+    const current = "href" in props && location.pathname === props.href;
 
     return (
         <span className={clsx(className, "relative")}>
@@ -159,9 +159,9 @@ export const SidebarItem = React.forwardRef(function SidebarItem(
                     </Headless.Button>
                 )}
         </span>
-    )
-})
+    );
+});
 
 export function SidebarLabel({ className, ...props }: React.ComponentPropsWithoutRef<"span">) {
-    return <span {...props} className={clsx(className, "truncate")} />
+    return <span {...props} className={clsx(className, "truncate")} />;
 }

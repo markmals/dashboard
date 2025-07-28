@@ -1,14 +1,14 @@
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid"
-import { BookOpenIcon, PlayCircleIcon } from "@heroicons/react/24/outline"
-import { Badge, Button } from "@tailwindcss/ui"
-import type { CollectionEntry } from "~/lib/content.server"
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
+import { BookOpenIcon, PlayCircleIcon } from "@heroicons/react/24/outline";
+import { Badge, Button } from "@tailwindcss/ui";
+import type { CollectionEntry } from "~/lib/content.server";
 
 export function TVShowCell({
     tvShow: {
         data: { title, link, trailer, poster },
     },
 }: {
-    tvShow: CollectionEntry<"television">
+    tvShow: CollectionEntry<"television">;
 }) {
     return (
         <li className="flex w-full flex-col justify-between gap-4">
@@ -42,7 +42,7 @@ export function TVShowCell({
                 </div>
             )}
         </li>
-    )
+    );
 }
 
 export function MovieCell({
@@ -50,7 +50,7 @@ export function MovieCell({
         data: { title, link, year, genre, runningTime, trailer, poster },
     },
 }: {
-    movie: Omit<CollectionEntry<"movies">, "collection">
+    movie: Omit<CollectionEntry<"movies">, "collection">;
 }) {
     return (
         <li className="flex flex-col justify-between gap-4">
@@ -87,7 +87,7 @@ export function MovieCell({
                 </Button>
             </div>
         </li>
-    )
+    );
 }
 
 export function EventCell({
@@ -95,7 +95,7 @@ export function EventCell({
         data: { title, link, thumbnail },
     },
 }: {
-    event: CollectionEntry<"events">
+    event: CollectionEntry<"events">;
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
@@ -126,21 +126,21 @@ export function EventCell({
                 </div>
             </div>
         </li>
-    )
+    );
 }
 
 export type Video = {
-    id: string
-    slug: string
+    id: string;
+    slug: string;
     data: {
-        title: string
-        link: string
-        year?: number
-        thumbnail: string
-        tags: string[]
-    }
-    body: string
-}
+        title: string;
+        link: string;
+        year?: number;
+        thumbnail: string;
+        tags: string[];
+    };
+    body: string;
+};
 
 export function VideoCell({
     video: {
@@ -148,7 +148,7 @@ export function VideoCell({
         body: description,
     },
 }: {
-    video: Video
+    video: Video;
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
@@ -185,7 +185,7 @@ export function VideoCell({
                 </div>
             </div>
         </li>
-    )
+    );
 }
 
 export function RestaurantCell({
@@ -194,7 +194,7 @@ export function RestaurantCell({
         body: description,
     },
 }: {
-    restaurant: CollectionEntry<"restaurants">
+    restaurant: CollectionEntry<"restaurants">;
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
@@ -247,7 +247,7 @@ export function RestaurantCell({
                 </div>
             </div>
         </li>
-    )
+    );
 }
 
 export function RecipeCell({
@@ -256,7 +256,7 @@ export function RecipeCell({
         body: description,
     },
 }: {
-    recipe: CollectionEntry<"recipes">
+    recipe: CollectionEntry<"recipes">;
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
@@ -282,5 +282,5 @@ export function RecipeCell({
                 </div>
             </div>
         </li>
-    )
+    );
 }

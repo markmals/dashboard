@@ -1,9 +1,9 @@
-import { parse } from "@std/yaml"
+import { parse } from "@std/yaml";
 
 type DataProps = {
-    lines: string[]
-    metaIndices: number[]
-}
+    lines: string[];
+    metaIndices: number[];
+};
 /**
  * Type definition for Front matter result
  */
@@ -11,12 +11,12 @@ export type FrontmatterResult<T> = {
     /**
      *  Yaml data form a markdown files
      */
-    data: T
+    data: T;
     /**
      * Body content of markdown file
      */
-    content: string
-}
+    content: string;
+};
 
 /**
  * ### Retrieves the frontmatter data and content from markdown contents.
@@ -90,13 +90,13 @@ export type FrontmatterResult<T> = {
  * ```
  */
 export class Frontmatter<T> {
-    private _mdcontent: string
-    private _lines: string[]
-    private _metaIndices: number[]
+    private _mdcontent: string;
+    private _lines: string[];
+    private _metaIndices: number[];
     constructor(mdcontent: string) {
-        this._mdcontent = mdcontent
-        this._lines = this._mdcontent.split("\n")
-        this._metaIndices = this._lines.reduce(this.findMetaIndices, [] as number[])
+        this._mdcontent = mdcontent;
+        this._lines = this._mdcontent.split("\n");
+        this._metaIndices = this._lines.reduce(this.findMetaIndices, [] as number[]);
     }
     /**
      * Finds and returns the indices of lines starting with '---' in the given array.
@@ -110,10 +110,10 @@ export class Frontmatter<T> {
         // If the line starts with ---, it's a metadata delimiter
         if (/^---/.test(item)) {
             // Add the index of the line to the array of indices
-            mem.push(i)
+            mem.push(i);
         }
 
-        return mem
+        return mem;
     }
     /**
      * Retrieves and parses the data from the provided 'linesProps' based on the metadata indices.
@@ -123,13 +123,13 @@ export class Frontmatter<T> {
      * @returns The parsed data of type T extracted from the specified lines, or an empty object if no metadata indices are found.
      */
     private getData<T>(linesProps: DataProps): FrontmatterResult<T>["data"] {
-        const { lines, metaIndices } = linesProps
+        const { lines, metaIndices } = linesProps;
         if (metaIndices.length > 0) {
-            const data = lines.slice(metaIndices[0] + 1, metaIndices[1])
+            const data = lines.slice(metaIndices[0] + 1, metaIndices[1]);
 
-            return parse(data.join("\n")) as T
+            return parse(data.join("\n")) as T;
         }
-        return {} as T
+        return {} as T;
     }
     /**
      * Retrieves frontmatter data and content from the provided markdown content.
@@ -141,12 +141,12 @@ export class Frontmatter<T> {
      *   - content: The content of the markdown file.
      */
     private getContent(linesProps: DataProps): string {
-        const { lines, metaIndices } = linesProps
+        const { lines, metaIndices } = linesProps;
         const content = metaIndices.length > 0
             ? lines.slice(metaIndices[1] + 1).join("\n")
-            : lines.join("\n")
+            : lines.join("\n");
 
-        return content.trim() === "undefined" ? "" : content.trim()
+        return content.trim() === "undefined" ? "" : content.trim();
     }
     /**
      * Get YAML data
@@ -154,7 +154,7 @@ export class Frontmatter<T> {
      * @returns data: The parsed front matter data of type T.
      */
     get data(): T {
-        return this.getData({ lines: this._lines, metaIndices: this._metaIndices })
+        return this.getData({ lines: this._lines, metaIndices: this._metaIndices });
     }
     /**
      * Get Markdown contents
@@ -165,7 +165,7 @@ export class Frontmatter<T> {
         return this.getContent({
             lines: this._lines,
             metaIndices: this._metaIndices,
-        })
+        });
     }
     /**
      * Extracted front matter data and content from the markdown content.
@@ -179,6 +179,6 @@ export class Frontmatter<T> {
         return {
             data: this.data,
             content: this.content,
-        }
+        };
     }
 }

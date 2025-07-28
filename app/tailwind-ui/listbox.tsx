@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import * as Headless from "@headlessui/react"
-import clsx from "clsx"
-import { Fragment } from "react"
+import * as Headless from "@headlessui/react";
+import clsx from "clsx";
+import { Fragment } from "react";
 
 export function Listbox<T>({
     className,
@@ -12,11 +12,11 @@ export function Listbox<T>({
     children: options,
     ...props
 }: {
-    className?: string
-    placeholder?: React.ReactNode
-    autoFocus?: boolean
-    "aria-label"?: string
-    children?: React.ReactNode
+    className?: string;
+    placeholder?: React.ReactNode;
+    autoFocus?: boolean;
+    "aria-label"?: string;
+    children?: React.ReactNode;
 } & Omit<Headless.ListboxProps<typeof Fragment, T>, "multiple">) {
     return (
         <Headless.Listbox {...props} multiple={false}>
@@ -113,7 +113,7 @@ export function Listbox<T>({
                 </Headless.ListboxOptions>
             </Headless.Transition>
         </Headless.Listbox>
-    )
+    );
 }
 
 export function ListboxOption<T>({
@@ -121,7 +121,7 @@ export function ListboxOption<T>({
     className,
     ...props
 }:
-    & { className?: string; children?: React.ReactNode }
+    & { className?: string; children?: React.ReactNode; }
     & Omit<
         Headless.ListboxOptionProps<"div", T>,
         "className"
@@ -136,13 +136,13 @@ export function ListboxOption<T>({
         "forced-colors:*:data-[slot=icon]:text-[CanvasText] forced-colors:group-data-focus/option:*:data-[slot=icon]:text-[Canvas]",
         // Avatars
         "*:data-[slot=avatar]:-mx-0.5 *:data-[slot=avatar]:size-6 sm:*:data-[slot=avatar]:size-5",
-    )
+    );
 
     return (
         <Headless.ListboxOption as={Fragment} {...props}>
             {({ selectedOption }) => {
                 if (selectedOption) {
-                    return <div className={clsx(className, sharedClasses)}>{children}</div>
+                    return <div className={clsx(className, sharedClasses)}>{children}</div>;
                 }
 
                 return (
@@ -177,10 +177,10 @@ export function ListboxOption<T>({
                             {children}
                         </span>
                     </div>
-                )
+                );
             }}
         </Headless.ListboxOption>
-    )
+    );
 }
 
 export function ListboxLabel({ className, ...props }: React.ComponentPropsWithoutRef<"span">) {
@@ -189,7 +189,7 @@ export function ListboxLabel({ className, ...props }: React.ComponentPropsWithou
             {...props}
             className={clsx(className, "ml-2.5 truncate first:ml-0 sm:ml-2 sm:first:ml-0")}
         />
-    )
+    );
 }
 
 export function ListboxDescription({
@@ -207,5 +207,5 @@ export function ListboxDescription({
         >
             <span className="flex-1 truncate">{children}</span>
         </span>
-    )
+    );
 }

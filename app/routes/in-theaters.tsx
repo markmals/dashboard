@@ -1,12 +1,12 @@
-import { MovieCell } from "~/components/CollectionCells"
-import { SectionHeader } from "~/components/SectionHeader"
-import { getCollection } from "~/lib/content.server"
-import { titleSortComparator, withContent } from "~/lib/sort-comparators"
-import type { Route } from "./+types/in-theaters"
+import { MovieCell } from "~/components/CollectionCells";
+import { SectionHeader } from "~/components/SectionHeader";
+import { getCollection } from "~/lib/content.server";
+import { titleSortComparator, withContent } from "~/lib/sort-comparators";
+import type { Route } from "./+types/in-theaters";
 
 export async function loader() {
-    const movies = await getCollection("theaters")
-    return movies.toSorted(withContent(titleSortComparator))
+    const movies = await getCollection("theaters");
+    return movies.toSorted(withContent(titleSortComparator));
 }
 
 export default function Component({ loaderData: movies }: Route.ComponentProps) {
@@ -23,5 +23,5 @@ export default function Component({ loaderData: movies }: Route.ComponentProps) 
                 </ul>
             </div>
         </>
-    )
+    );
 }

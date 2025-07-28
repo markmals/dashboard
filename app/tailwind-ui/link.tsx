@@ -1,26 +1,26 @@
-import * as Headless from "@headlessui/react"
-import React from "react"
+import * as Headless from "@headlessui/react";
+import React from "react";
 import {
     Link as RemixLink,
     type LinkProps,
     NavLink as RemixNavLink,
     type NavLinkProps,
-} from "react-router"
+} from "react-router";
 
 export const Link = React.forwardRef(function Link(
-    props: { href: string | LinkProps["to"] } & React.ComponentPropsWithoutRef<"a">,
+    props: { href: string | LinkProps["to"]; } & React.ComponentPropsWithoutRef<"a">,
     ref: React.ForwardedRef<HTMLAnchorElement>,
 ) {
     return (
         <Headless.DataInteractive>
             <RemixLink {...props} to={props.href} ref={ref} />
         </Headless.DataInteractive>
-    )
-})
+    );
+});
 
 export const NavLink = React.forwardRef(function Link(
     props:
-        & { href: string | NavLinkProps["to"] }
+        & { href: string | NavLinkProps["to"]; }
         & Pick<NavLinkProps, "className" | "style">
         & Omit<React.ComponentPropsWithoutRef<"a">, "className" | "style">,
     ref: React.ForwardedRef<HTMLAnchorElement>,
@@ -29,5 +29,5 @@ export const NavLink = React.forwardRef(function Link(
         <Headless.DataInteractive>
             <RemixNavLink {...props} to={props.href} ref={ref} />
         </Headless.DataInteractive>
-    )
-})
+    );
+});

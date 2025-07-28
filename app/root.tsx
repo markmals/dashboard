@@ -1,11 +1,11 @@
-import { CalendarDaysIcon, CodeBracketIcon } from "@heroicons/react/16/solid"
+import { CalendarDaysIcon, CodeBracketIcon } from "@heroicons/react/16/solid";
 import {
     BookOpenIcon,
     BuildingStorefrontIcon,
     FilmIcon,
     HomeIcon,
     TvIcon,
-} from "@heroicons/react/24/solid"
+} from "@heroicons/react/24/solid";
 import {
     Navbar,
     NavbarItem,
@@ -16,9 +16,9 @@ import {
     SidebarLabel,
     SidebarSection,
     StackedLayout,
-} from "@tailwindcss/ui"
-import { Outlet, Scripts, ScrollRestoration } from "react-router"
-import tailwind from "~/styles/style.css?url"
+} from "@tailwindcss/ui";
+import { Outlet, Scripts, ScrollRestoration } from "react-router";
+import tailwind from "~/styles/style.css?url";
 
 const navItems = [
     // { label: "Home", url: "/", icon: HomeIcon },
@@ -28,9 +28,9 @@ const navItems = [
     { label: "Restaurants", url: "/restaurants", icon: BuildingStorefrontIcon },
     // { label: "Recipes", url: "/recipes", icon: BookOpenIcon },
     // { label: "Developer Education", url: "/dev-edu", icon: CodeBracketIcon },
-]
+];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: React.ReactNode; }) {
     return (
         <html lang="en" className="bg-white lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950">
             <head>
@@ -75,9 +75,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Scripts />
             </body>
         </html>
-    )
+    );
 }
 
 export default function App() {
-    return <Outlet />
+    return <Outlet />;
 }
