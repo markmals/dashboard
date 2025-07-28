@@ -35,7 +35,7 @@ jobs:
               with:
                 path: build
                 key: >-
-                  "${{ runner.os }}-vite-build-${{ hashFiles(
+                  "${{ runner.os }}-build-${{ hashFiles(
                     'bun.lock',
                     'react-router.config.ts',
                     'vite.config.ts',
