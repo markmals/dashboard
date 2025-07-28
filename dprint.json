@@ -3,7 +3,7 @@
     "typescript": {
         "lineWidth": 100,
         "indentWidth": 4,
-        "semiColons": "asi",
+        "semiColons": "always",
         "quoteStyle": "preferDouble",
         "arrowFunction.useParentheses": "preferNone"
     },
