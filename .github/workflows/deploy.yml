@@ -50,7 +50,11 @@ jobs:
                   ) }}"
 
             - name: Bump build output timestamps
-              run: find build -exec touch {} +
+              run: |
+                if [ -d build ]; then
+                  touch build
+                  find build -exec touch {} +
+                fi
 
             - name: Build
               run: mise run build
