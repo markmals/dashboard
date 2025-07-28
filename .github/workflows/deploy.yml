@@ -48,8 +48,6 @@ jobs:
                     'app/**/*.json',
                     'app/**/*.md'
                   ) }}"
-                restore-keys: |
-                  ${{ runner.os }}-build-
 
             - name: Bump build output timestamps
               run: |
