@@ -34,7 +34,20 @@ jobs:
               uses: actions/cache@v3
               with:
                 path: build
-                key: "${{ runner.os }}-build-${{ hashFiles('bun.lock','react-router.config.ts','vite.config.ts','tsconfig.ts','tsconfig.*.ts','worker-configuration.d.ts','app/**/*.ts','app/**/*.tsx','app/**/*.css','app/**/*.json','app/**/*.md') }}"
+                key: >-
+                  "${{ runner.os }}-vite-build-${{ hashFiles(
+                    'bun.lock',
+                    'react-router.config.ts',
+                    'vite.config.ts',
+                    'tsconfig.ts',
+                    'tsconfig.*.ts',
+                    'worker-configuration.d.ts',
+                    'app/**/*.ts',
+                    'app/**/*.tsx',
+                    'app/**/*.css',
+                    'app/**/*.json',
+                    'app/**/*.md'
+                  ) }}"
                 restore-keys: |
                   ${{ runner.os }}-build-
 
