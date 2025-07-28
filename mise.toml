@@ -1,10 +1,14 @@
 [tools]
 node = "lts"
 bun = "latest"
-"ubi:dprint/dprint" = "latest"
-"npm:wrangler" = "^4.26.0"
+dprint = "latest"
+claude = "latest"
+"npm:wrangler" = "latest"
 "npm:@typescript/native-preview" = "latest"
 "npm:rolldown-vite" = "latest"
+
+[settings.npm]
+bun = true
 
 [tasks.dev]
 description = "Run the Vite development server"
