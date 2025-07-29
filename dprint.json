@@ -37,7 +37,8 @@
         "**/.git",
         "**/dist",
         "**/build",
-        "**/.react-router"
+        "**/.react-router",
+        "**/worker-configuration.d.ts"
     ],
     "plugins": [
         "https://plugins.dprint.dev/typescript-0.95.0.wasm",

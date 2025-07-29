@@ -1,11 +1,11 @@
 [tools]
-node = "lts"
 bun = "latest"
-dprint = "latest"
 claude = "latest"
-"npm:wrangler" = "latest"
+dprint = "latest"
+node = "lts"
 "npm:@typescript/native-preview" = "latest"
 "npm:rolldown-vite" = "latest"
+"npm:wrangler" = "latest"
 
 [settings.npm]
 bun = true
@@ -45,7 +45,7 @@ run = "dprint fmt"
 
 [tasks.lint]
 description = "Lint the entire project"
-# run = "eslint"
+run = "bunx eslint --cache --cache-location './node_modules/eslint/.eslintcache/' --fix"
 
 [tasks."typegen:cloudflare"]
 description = "Generate types for Cloudflare bindings"

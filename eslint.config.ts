@@ -1,0 +1,52 @@
+import {
+    codeStyle,
+    comments,
+    defineConfig,
+    ignores,
+    imports,
+    javaScript,
+    jsDoc,
+    jsonc,
+    jsx,
+    markdown,
+    react,
+    regexp,
+    tailwindcss,
+    toml,
+    typeScript,
+    // vitest,
+    yaml,
+} from "@withsprinkles/eslint-config";
+
+export default defineConfig({
+    plugins: [
+        codeStyle(),
+        comments(),
+        ignores([
+            "eslint.config.ts",
+            "worker-configurtion.d.ts",
+            "vite.config.ts",
+            "react-router.config.ts",
+        ]),
+        imports(),
+        javaScript(),
+        typeScript({ tsconfigPath: "./tsconfig.cloudflare.json" }),
+        jsDoc(),
+        jsonc(),
+        jsx(),
+        markdown(),
+        react({
+            useReactCompiler: false, 
+            tsconfigPath: "./tsconfig.cloudflare.json" 
+        }),
+        regexp(),
+        tailwindcss({
+            stylesheet: "./app/styles/style.css",
+            // functions: ["cva", "cx", "clsx"],
+            // attributes: ["className", "class"],
+        }),
+        toml(),
+        // await vitest(),
+        yaml(),
+    ],
+});

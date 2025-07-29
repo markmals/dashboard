@@ -28,6 +28,8 @@
         "@types/node": "^24",
         "@types/react": "^19.1.8",
         "@types/react-dom": "^19.1.6",
+        "@withsprinkles/eslint-config": "0.2.0",
+        "eslint": "^9.32.0",
         "tailwindcss": "^4.1.11",
         "vite": "npm:rolldown-vite@latest",
         "vite-tsconfig-paths": "^5.1.4"
