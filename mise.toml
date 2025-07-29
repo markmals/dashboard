@@ -11,11 +11,11 @@ claude = "latest"
 bun = true
 
 [tasks.dev]
-description = "Run the Vite development server"
+description = "Run the development server"
 run = "vite dev --host"
 
 [tasks.build]
-description = "Build the app using Vite"
+description = "Build the app"
 sources = [
     "bun.lock",
     "react-router.config.ts",
@@ -40,8 +40,12 @@ confirm = "Are you sure you want to deploy this app to Cloudflare Workers?"
 run = "wrangler deploy"
 
 [tasks.fmt]
-description = "Format the entire project using dprint"
+description = "Format the entire project"
 run = "dprint fmt"
+
+[tasks.lint]
+description = "Lint the entire project"
+# run = "eslint"
 
 [tasks."typegen:cloudflare"]
 description = "Generate types for Cloudflare bindings"
@@ -56,12 +60,12 @@ outputs = [".react-router"]
 run = "bunx react-router typegen"
 
 [tasks.typecheck]
-description = "Typecheck the entire project using tsgo"
+description = "Typecheck the entire project"
 depends = "typegen:*"
 run = "tsgo --noEmit"
 
 [tasks.postinstall]
-description = "Generate types after npm installation"
+description = "Generate types after npm package installation"
 run = """
   if [ -z \"$GITHUB_ACTIONS\" ]; then
     mise run typegen:*
