@@ -27,6 +27,15 @@
         "poster": "https://image.tmdb.org/t/p/original/qwOwDHUPCcDRmdQu8dWCzIVMEgu.jpg"
     },
     {
+        "title": "The Naked Gun",
+        "link": "https://www.fandango.com/the-naked-gun-2025-240147/movie-overview",
+        "year": "2025",
+        "genre": "Comedy, Crime",
+        "runningTime": "1h 25m",
+        "trailer": "https://youtu.be/uLguU7WLreA",
+        "poster": "https://image.tmdb.org/t/p/original/uk39lPU6kP4y0pKvOIlM9zAI53U.jpg"
+    },
+    {
         "title": "Oh, Hi!",
         "link": "https://www.fandango.com/oh-hi-2025-240921/movie-overview",
         "year": "2025",

@@ -5,7 +5,11 @@
         "indentWidth": 4,
         "semiColons": "always",
         "quoteStyle": "preferDouble",
-        "arrowFunction.useParentheses": "preferNone"
+        "arrowFunction.useParentheses": "preferNone",
+        "module.sortImportDeclarations": "maintain",
+        "module.sortExportDeclarations": "maintain",
+        "exportDeclaration.sortNamedExports": "maintain",
+        "importDeclaration.sortNamedImports": "maintain"
     },
     "json": {
         "lineWidth": 100,

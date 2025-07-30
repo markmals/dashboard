@@ -36,8 +36,8 @@ export default defineConfig({
         jsx(),
         markdown(),
         react({
-            useReactCompiler: false, 
-            tsconfigPath: "./tsconfig.cloudflare.json" 
+            useReactCompiler: false,
+            tsconfigPath: "./tsconfig.cloudflare.json",
         }),
         regexp(),
         tailwindcss({
