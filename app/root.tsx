@@ -1,9 +1,7 @@
-import { CalendarDaysIcon, CodeBracketIcon } from "@heroicons/react/16/solid";
+import { CalendarDaysIcon } from "@heroicons/react/16/solid";
 import {
-    BookOpenIcon,
     BuildingStorefrontIcon,
     FilmIcon,
-    HomeIcon,
     TvIcon,
 } from "@heroicons/react/24/solid";
 import {
@@ -32,14 +30,14 @@ const navItems = [
 
 export function Layout({ children }: { children: React.ReactNode; }) {
     return (
-        <html lang="en" className="bg-white lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950">
+        <html className="bg-white lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950" lang="en">
             <head>
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="stylesheet" href={tailwind} />
-                <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-                <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-                <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+                <link href={tailwind} rel="stylesheet" />
+                <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+                <link href="favicon.svg" rel="icon" type="image/svg+xml" />
+                <link href="apple-touch-icon.png" rel="apple-touch-icon" />
             </head>
             <body>
                 <StackedLayout
@@ -59,7 +57,7 @@ export function Layout({ children }: { children: React.ReactNode; }) {
                             <SidebarBody>
                                 <SidebarSection>
                                     {navItems.map(({ label, url, icon: Icon }) => (
-                                        <SidebarItem href={url} key={label}>
+                                        <SidebarItem key={label} href={url}>
                                             <Icon />
                                             <SidebarLabel>{label}</SidebarLabel>
                                         </SidebarItem>

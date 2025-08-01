@@ -49,14 +49,14 @@ export function SidebarFooter({ className, ...props }: React.ComponentPropsWitho
 }
 
 export function SidebarSection({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
-    let id = useId();
+    const id = useId();
 
     return (
         <LayoutGroup id={id}>
             <div
                 {...props}
-                data-slot="section"
                 className={clsx(className, "flex flex-col gap-0.5")}
+                data-slot="section"
             />
         </LayoutGroup>
     );
@@ -90,20 +90,10 @@ export function SidebarHeading({ className, ...props }: React.ComponentPropsWith
     );
 }
 
-export const SidebarItem = React.forwardRef(function SidebarItem(
-    {
-        className,
-        children,
-        ...props
-    }:
-        & { className?: string; children: React.ReactNode; }
-        & (
-            | Omit<Headless.ButtonProps, "className">
-            | Omit<React.ComponentPropsWithoutRef<typeof Link>, "type" | "className">
-        ),
-    ref: React.ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
+export const SidebarItem = function SidebarItem(
+    { ref, className, children, ...props },
 ) {
-    let classes = clsx(
+    const classes = clsx(
         // Base
         "flex w-full items-center gap-3 rounded-lg px-2 py-2.5 text-left text-base/6 font-medium text-zinc-950 sm:py-2 sm:text-sm/5",
         // Leading icon/icon-only
@@ -132,13 +122,13 @@ export const SidebarItem = React.forwardRef(function SidebarItem(
         <span className={clsx(className, "relative")}>
             {current && (
                 <motion.span
-                    layoutId="current-indicator"
                     className="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-blue-600 dark:bg-blue-500"
+                    layoutId="current-indicator"
                 />
             )}
             {"href" in props
                 ? (
-                    <Headless.CloseButton as={Fragment} ref={ref}>
+                    <Headless.CloseButton ref={ref} as={Fragment}>
                         <Link
                             className={classes}
                             {...props}
@@ -151,16 +141,16 @@ export const SidebarItem = React.forwardRef(function SidebarItem(
                 : (
                     <Headless.Button
                         {...props}
+                        ref={ref}
                         className={classes}
                         data-current={current ? "true" : undefined}
-                        ref={ref}
                     >
                         <TouchTarget>{children}</TouchTarget>
                     </Headless.Button>
                 )}
         </span>
     );
-});
+};
 
 export function SidebarLabel({ className, ...props }: React.ComponentPropsWithoutRef<"span">) {
     return <span {...props} className={clsx(className, "truncate")} />;

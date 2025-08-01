@@ -2,32 +2,25 @@ import * as Headless from "@headlessui/react";
 import React from "react";
 import {
     Link as RemixLink,
-    type LinkProps,
     NavLink as RemixNavLink,
-    type NavLinkProps,
 } from "react-router";
 
-export const Link = React.forwardRef(function Link(
-    props: { href: string | LinkProps["to"]; } & React.ComponentPropsWithoutRef<"a">,
-    ref: React.ForwardedRef<HTMLAnchorElement>,
+export const Link = function Link(
+    { ref, ...props },
 ) {
     return (
         <Headless.DataInteractive>
-            <RemixLink {...props} to={props.href} ref={ref} />
+            <RemixLink {...props} ref={ref} to={props.href} />
         </Headless.DataInteractive>
     );
-});
+};
 
-export const NavLink = React.forwardRef(function Link(
-    props:
-        & { href: string | NavLinkProps["to"]; }
-        & Pick<NavLinkProps, "className" | "style">
-        & Omit<React.ComponentPropsWithoutRef<"a">, "className" | "style">,
-    ref: React.ForwardedRef<HTMLAnchorElement>,
+export const NavLink = function Link(
+    { ref, ...props },
 ) {
     return (
         <Headless.DataInteractive>
-            <RemixNavLink {...props} to={props.href} ref={ref} />
+            <RemixNavLink {...props} ref={ref} to={props.href} />
         </Headless.DataInteractive>
     );
-});
+};

@@ -1,8 +1,8 @@
+import type { Tokens } from "marked";
+import type { z } from "zod";
 import * as path from "@std/path";
 import * as YAML from "@std/yaml";
-import { marked as parseMarkdown, Renderer as MarkdownRenderer } from "marked";
-import type { Tokens } from "marked";
-import { z } from "zod";
+import { Renderer as MarkdownRenderer, marked as parseMarkdown } from "marked";
 import { collections } from "~/content/config.server";
 import { Frontmatter } from "./frontmatter.server";
 

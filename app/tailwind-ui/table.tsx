@@ -1,8 +1,8 @@
 "use client";
 
-import { clsx } from "clsx";
 import type React from "react";
-import { createContext, useContext, useState } from "react";
+import { clsx } from "clsx";
+import { createContext, useState } from "react";
 import { Link } from "./link";
 
 const TableContext = createContext<{
@@ -32,7 +32,7 @@ export function Table({
     striped?: boolean;
 } & React.ComponentPropsWithoutRef<"div">) {
     return (
-        <TableContext.Provider
+        <TableContext
             value={{ bleed, dense, grid, striped } as React.ContextType<typeof TableContext>}
         >
             <div className="flow-root">
@@ -52,7 +52,7 @@ export function Table({
                     </div>
                 </div>
             </div>
-        </TableContext.Provider>
+        </TableContext>
     );
 }
 
@@ -77,10 +77,10 @@ export function TableRow({
     className,
     ...props
 }: { href?: string; target?: string; title?: string; } & React.ComponentPropsWithoutRef<"tr">) {
-    let { striped } = useContext(TableContext);
+    const { striped } = use(TableContext);
 
     return (
-        <TableRowContext.Provider
+        <TableRowContext
             value={{ href, target, title } as React.ContextType<typeof TableRowContext>}
         >
             <tr
@@ -94,12 +94,12 @@ export function TableRow({
                     href && !striped && "hover:bg-zinc-950/2.5 dark:hover:bg-white/2.5",
                 )}
             />
-        </TableRowContext.Provider>
+        </TableRowContext>
     );
 }
 
 export function TableHeader({ className, ...props }: React.ComponentPropsWithoutRef<"th">) {
-    let { bleed, grid } = useContext(TableContext);
+    const { bleed, grid } = use(TableContext);
 
     return (
         <th
@@ -115,9 +115,9 @@ export function TableHeader({ className, ...props }: React.ComponentPropsWithout
 }
 
 export function TableCell({ className, children, ...props }: React.ComponentPropsWithoutRef<"td">) {
-    let { bleed, dense, grid, striped } = useContext(TableContext);
-    let { href, target, title } = useContext(TableRowContext);
-    let [cellRef, setCellRef] = useState<HTMLElement | null>(null);
+    const { bleed, dense, grid, striped } = use(TableContext);
+    const { href, target, title } = use(TableRowContext);
+    const [cellRef, setCellRef] = useState<HTMLElement | null>(null);
 
     return (
         <td
@@ -134,12 +134,12 @@ export function TableCell({ className, children, ...props }: React.ComponentProp
         >
             {href && (
                 <Link
-                    data-row-link
                     href={href}
-                    target={target}
                     aria-label={title}
-                    tabIndex={cellRef?.previousElementSibling === null ? 0 : -1}
                     className="absolute inset-0 focus:outline-hidden"
+                    tabIndex={cellRef?.previousElementSibling === null ? 0 : -1}
+                    target={target}
+                    data-row-link
                 />
             )}
             {children}

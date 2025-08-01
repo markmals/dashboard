@@ -8,15 +8,15 @@ type BaseSchemaWithoutEffects =
 
 export type BaseSchema = BaseSchemaWithoutEffects | z.ZodTransform<BaseSchemaWithoutEffects, any>;
 
-type DataCollectionConfig<S extends BaseSchema> = {
+interface DataCollectionConfig<S extends BaseSchema> {
     type: "data";
     schema: S;
-};
+}
 
-type ContentCollectionConfig<S extends BaseSchema> = {
+interface ContentCollectionConfig<S extends BaseSchema> {
     type: "content";
     schema: S;
-};
+}
 
 export type CollectionConfig<S extends BaseSchema> =
     | ContentCollectionConfig<S>

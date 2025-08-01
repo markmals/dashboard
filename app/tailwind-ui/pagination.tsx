@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import type React from "react";
+import clsx from "clsx";
 import { Button } from "./button";
 
 export function Pagination({
@@ -23,17 +23,17 @@ export function PaginationPrevious({
                 aria-label="Previous page"
             >
                 <svg
-                    className="stroke-current"
-                    data-slot="icon"
-                    viewBox="0 0 16 16"
-                    fill="none"
                     aria-hidden="true"
+                    className="stroke-current"
+                    fill="none"
+                    viewBox="0 0 16 16"
+                    data-slot="icon"
                 >
                     <path
                         d="M2.75 8H13.25M2.75 8L5.25 5.5M2.75 8L5.25 10.5"
-                        strokeWidth={1.5}
                         strokeLinecap="round"
                         strokeLinejoin="round"
+                        strokeWidth={1.5}
                     />
                 </svg>
                 {children}
@@ -56,17 +56,17 @@ export function PaginationNext({
             >
                 {children}
                 <svg
-                    className="stroke-current"
-                    data-slot="icon"
-                    viewBox="0 0 16 16"
-                    fill="none"
                     aria-hidden="true"
+                    className="stroke-current"
+                    fill="none"
+                    viewBox="0 0 16 16"
+                    data-slot="icon"
                 >
                     <path
                         d="M13.25 8L2.75 8M13.25 8L10.75 10.5M13.25 8L10.75 5.5"
-                        strokeWidth={1.5}
                         strokeLinecap="round"
                         strokeLinejoin="round"
+                        strokeWidth={1.5}
                     />
                 </svg>
             </Button>
@@ -86,10 +86,10 @@ export function PaginationPage({
 }: React.PropsWithChildren<{ href: string; className?: string; current?: boolean; }>) {
     return (
         <Button
-            href={href}
             plain
-            aria-label={`Page ${children}`}
+            href={href}
             aria-current={current ? "page" : undefined}
+            aria-label={`Page ${children}`}
             className={clsx(
                 className,
                 "min-w-9 before:absolute before:-inset-px before:rounded-lg",

@@ -1,8 +1,8 @@
 "use client";
 
+import type React from "react";
 import * as Headless from "@headlessui/react";
 import clsx from "clsx";
-import type React from "react";
 import { Button } from "./button";
 import { Link } from "./link";
 
@@ -59,7 +59,7 @@ export function DropdownItem({
         | Omit<React.ComponentPropsWithoutRef<"button">, "className">
     ))
 {
-    let classes = clsx(
+    const classes = clsx(
         className,
         // Base styles
         "group cursor-default rounded-lg px-3.5 py-2.5 focus:outline-hidden sm:px-3 sm:py-1.5",
@@ -74,10 +74,10 @@ export function DropdownItem({
         // Use subgrid when available but fallback to an explicit grid layout if not
         "col-span-full grid grid-cols-[auto_1fr_1.5rem_0.5rem_auto] items-center supports-[grid-template-columns:subgrid]:grid-cols-subgrid",
         // Icons
-        "*:data-[slot=icon]:col-start-1 *:data-[slot=icon]:row-start-1 *:data-[slot=icon]:-ml-0.5 *:data-[slot=icon]:mr-2.5 *:data-[slot=icon]:size-5 sm:*:data-[slot=icon]:mr-2 sm:*:data-[slot=icon]:size-4",
+        "*:data-[slot=icon]:col-start-1 *:data-[slot=icon]:row-start-1 *:data-[slot=icon]:mr-2.5 *:data-[slot=icon]:-ml-0.5 *:data-[slot=icon]:size-5 sm:*:data-[slot=icon]:mr-2 sm:*:data-[slot=icon]:size-4",
         "*:data-[slot=icon]:text-zinc-500 data-focus:*:data-[slot=icon]:text-white dark:*:data-[slot=icon]:text-zinc-400 dark:data-focus:*:data-[slot=icon]:text-white",
         // Avatar
-        "*:data-[slot=avatar]:-ml-1 *:data-[slot=avatar]:mr-2.5 *:data-[slot=avatar]:size-6 sm:*:data-[slot=avatar]:mr-2 sm:*:data-[slot=avatar]:size-5",
+        "*:data-[slot=avatar]:mr-2.5 *:data-[slot=avatar]:-ml-1 *:data-[slot=avatar]:size-6 sm:*:data-[slot=avatar]:mr-2 sm:*:data-[slot=avatar]:size-5",
     );
 
     return (
@@ -146,8 +146,8 @@ export function DropdownLabel({
     return (
         <Headless.Label
             {...props}
-            data-slot="label"
             className={clsx(className, "col-start-2 row-start-1")}
+            data-slot="label"
             {...props}
         />
     );

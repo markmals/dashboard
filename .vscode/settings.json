@@ -4,14 +4,19 @@
     "editor.stickyScroll.enabled": true,
 
     "dprint.experimentalLsp": true,
+
     "eslint.enable": true,
+    "eslint.codeActionsOnSave.mode": "problems",
+    "eslint.options": {
+        "cache": true,
+        "cacheLocation": "node_modules/eslint/.eslintcache"
+    },
 
     "biome.enabled": false,
     "deno.enable": false,
     "prettier.enable": false,
 
     "editor.codeActionsOnSave": {
-        "source.fixAll": "explicit",
         "source.fixAll.eslint": "explicit"
     },
 
@@ -42,7 +47,7 @@
     "explorer.fileNesting.patterns": {
         "*.css": "$(capture).css.map, $(capture).*.css",
         ".env": "*.env, .env.*, .envrc, env.d.ts",
-        "package.json": ".bun-version, .github*, .npmrc, .vscode*, biome*, bun.lock, dprint.json, mise.toml, tsconfig.*, worker-configuration.*, wrangler.toml, wrangler.json*, workspace.json",
+        "package.json": ".bun-version, .github*, .npmrc, .vscode*, biome*, bun.lock, dprint.json, eslint.config.*, mise.toml, tsconfig.*, worker-configuration.*, wrangler.toml, wrangler.json*, workspace.json",
         "readme*": "authors, backers*, changelog*, citation*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
         "vite.config.*": "drizzle.config.*, react-router.config.*, vitest.config.*, *.plugin.ts"
     },
@@ -71,5 +76,9 @@
         "backgroundColor": "#434B54",
         "color": "#fff",
         "borderRadius": "2px"
+    },
+
+    "symbols.files.associations": {
+        "eslint.config.ts": "eslint"
     }
 }

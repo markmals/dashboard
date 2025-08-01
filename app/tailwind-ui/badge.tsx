@@ -41,7 +41,7 @@ const colors = {
         "bg-zinc-600/10 text-zinc-700 group-data-hover:bg-zinc-600/20 dark:bg-white/5 dark:text-zinc-400 dark:group-data-hover:bg-white/10",
 };
 
-type BadgeProps = { color?: keyof typeof colors; };
+interface BadgeProps { color?: keyof typeof colors; }
 
 export function Badge({
     color = "zinc",
@@ -60,39 +60,27 @@ export function Badge({
     );
 }
 
-export const BadgeButton = React.forwardRef(function BadgeButton(
-    {
-        color = "zinc",
-        className,
-        children,
-        ...props
-    }:
-        & BadgeProps
-        & { className?: string; children: React.ReactNode; }
-        & (
-            | Omit<Headless.ButtonProps, "className">
-            | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
-        ),
-    ref: React.ForwardedRef<HTMLElement>,
+export const BadgeButton = function BadgeButton(
+    { ref, color = "zinc", className, children, ...props },
 ) {
-    let classes = clsx(
+    const classes = clsx(
         className,
-        "group relative inline-flex rounded-md focus:outline-hidden data-focus:outline-solid data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-blue-500",
+        "group relative inline-flex rounded-md focus:outline-hidden data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-blue-500 data-focus:outline-solid",
     );
 
     return "href" in props
         ? (
-            <Link {...props} className={classes} ref={ref as React.ForwardedRef<HTMLAnchorElement>}>
+            <Link {...props} ref={ref as React.ForwardedRef<HTMLAnchorElement>} className={classes}>
                 <TouchTarget>
                     <Badge color={color}>{children}</Badge>
                 </TouchTarget>
             </Link>
         )
         : (
-            <Headless.Button {...props} className={classes} ref={ref}>
+            <Headless.Button {...props} ref={ref} className={classes}>
                 <TouchTarget>
                     <Badge color={color}>{children}</Badge>
                 </TouchTarget>
             </Headless.Button>
         );
-});
+};

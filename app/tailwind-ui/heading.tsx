@@ -7,7 +7,7 @@ type HeadingProps =
     >;
 
 export function Heading({ className, level = 1, ...props }: HeadingProps) {
-    let Element: `h${typeof level}` = `h${level}`;
+    const Element: `h${typeof level}` = `h${level}`;
 
     return (
         <Element
@@ -18,7 +18,7 @@ export function Heading({ className, level = 1, ...props }: HeadingProps) {
 }
 
 export function Subheading({ className, level = 2, ...props }: HeadingProps) {
-    let Element: `h${typeof level}` = `h${level}`;
+    const Element: `h${typeof level}` = `h${level}`;
 
     return (
         <Element

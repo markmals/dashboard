@@ -1,13 +1,13 @@
 import { parse } from "@std/yaml";
 
-type DataProps = {
+interface DataProps {
     lines: string[];
     metaIndices: number[];
-};
+}
 /**
  * Type definition for Front matter result
  */
-export type FrontmatterResult<T> = {
+export interface FrontmatterResult<T> {
     /**
      *  Yaml data form a markdown files
      */
@@ -16,7 +16,7 @@ export type FrontmatterResult<T> = {
      * Body content of markdown file
      */
     content: string;
-};
+}
 
 /**
  * ### Retrieves the frontmatter data and content from markdown contents.

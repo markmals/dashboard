@@ -23,7 +23,7 @@ export function NavbarDivider({ className, ...props }: React.ComponentPropsWitho
 }
 
 export function NavbarSection({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
-    let id = useId();
+    const id = useId();
 
     return (
         <LayoutGroup id={id}>
@@ -36,20 +36,10 @@ export function NavbarSpacer({ className, ...props }: React.ComponentPropsWithou
     return <div aria-hidden="true" {...props} className={clsx(className, "-ml-4 flex-1")} />;
 }
 
-export const NavbarItem = React.forwardRef(function NavbarItem(
-    {
-        className,
-        children,
-        ...props
-    }:
-        & { className?: string; children: React.ReactNode; }
-        & (
-            | Omit<Headless.ButtonProps, "className">
-            | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
-        ),
-    ref: React.ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
+export const NavbarItem = function NavbarItem(
+    { ref, className, children, ...props },
 ) {
-    let classes = clsx(
+    const classes = clsx(
         // Base
         "relative flex min-w-0 items-center gap-3 rounded-lg p-2 text-left text-base/6 font-medium text-zinc-950 sm:text-sm/5",
         // Leading icon/icon-only
@@ -75,17 +65,17 @@ export const NavbarItem = React.forwardRef(function NavbarItem(
         <span className={clsx(className, "relative")}>
             {current && (
                 <motion.span
-                    layoutId="current-indicator"
                     className="absolute inset-x-2 -bottom-2.5 h-0.5 rounded-full bg-blue-600 dark:bg-blue-500"
+                    layoutId="current-indicator"
                 />
             )}
             {"href" in props
                 ? (
                     <Link
                         {...props}
+                        ref={ref as React.ForwardedRef<HTMLAnchorElement>}
                         className={classes}
                         data-current={current ? "true" : undefined}
-                        ref={ref as React.ForwardedRef<HTMLAnchorElement>}
                     >
                         <TouchTarget>{children}</TouchTarget>
                     </Link>
@@ -93,16 +83,16 @@ export const NavbarItem = React.forwardRef(function NavbarItem(
                 : (
                     <Headless.Button
                         {...props}
+                        ref={ref}
                         className={clsx("cursor-default", classes)}
                         data-current={current ? "true" : undefined}
-                        ref={ref}
                     >
                         <TouchTarget>{children}</TouchTarget>
                     </Headless.Button>
                 )}
         </span>
     );
-});
+};
 
 export function NavbarLabel({ className, ...props }: React.ComponentPropsWithoutRef<"span">) {
     return <span {...props} className={clsx(className, "truncate")} />;

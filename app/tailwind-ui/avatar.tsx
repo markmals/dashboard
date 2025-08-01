@@ -4,13 +4,13 @@ import React from "react";
 import { TouchTarget } from "./button";
 import { Link } from "./link";
 
-type AvatarProps = {
+interface AvatarProps {
     src?: string | null;
     square?: boolean;
     initials?: string;
     alt?: string;
     className?: string;
-};
+}
 
 export function Avatar({
     src = null,
@@ -37,63 +37,50 @@ export function Avatar({
         >
             {initials && (
                 <svg
+                    aria-hidden={alt ? undefined : "true"}
                     className="size-full fill-current p-[5%] text-[48px] font-medium uppercase select-none"
                     viewBox="0 0 100 100"
-                    aria-hidden={alt ? undefined : "true"}
                 >
                     {alt && <title>{alt}</title>}
                     <text
-                        x="50%"
-                        y="50%"
                         alignmentBaseline="middle"
                         dominantBaseline="middle"
-                        textAnchor="middle"
                         dy=".125em"
+                        textAnchor="middle"
+                        x="50%"
+                        y="50%"
                     >
                         {initials}
                     </text>
                 </svg>
             )}
-            {src && <img className="size-full" src={src} alt={alt} />}
+            {src && <img alt={alt} className="size-full" src={src} />}
         </span>
     );
 }
 
-export const AvatarButton = React.forwardRef(function AvatarButton(
-    {
-        src,
-        square = false,
-        initials,
-        alt,
-        className,
-        ...props
-    }:
-        & AvatarProps
-        & (
-            | Omit<Headless.ButtonProps, "className">
-            | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
-        ),
-    ref: React.ForwardedRef<HTMLElement>,
+export const AvatarButton = function AvatarButton(
+    { ref, src, square = false, initials, alt, className, ...props },
 ) {
-    let classes = clsx(
+    const classes = clsx(
         className,
         square ? "rounded-[20%]" : "rounded-full",
-        "relative inline-grid focus:outline-hidden data-focus:outline-solid data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-blue-500",
+        "relative inline-grid focus:outline-hidden data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-blue-500 data-focus:outline-solid",
     );
 
     return "href" in props
         ? (
-            <Link {...props} className={classes} ref={ref as React.ForwardedRef<HTMLAnchorElement>}>
+            <Link {...props} ref={ref as React.ForwardedRef<HTMLAnchorElement>} className={classes}>
                 <TouchTarget>
-                    <Avatar src={src} square={square} initials={initials} alt={alt} />
+                    <Avatar alt={alt} initials={initials} square={square} src={src} />
                 </TouchTarget>
             </Link>
         )
         : (
-            <Headless.Button {...props} className={classes} ref={ref}>
+            <Headless.Button {...props} ref={ref} className={classes}>
                 <TouchTarget>
-                    <Avatar src={src} square={square} initials={initials} alt={alt} />
+                    <Avatar alt={alt} initials={initials} square={square} src={src} />
                 </TouchTarget>
             </Headless.Button>
         );
-});
+};

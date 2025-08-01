@@ -1,7 +1,7 @@
+import type { CollectionEntry } from "~/lib/content.server";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
 import { BookOpenIcon, PlayCircleIcon } from "@heroicons/react/24/outline";
 import { Badge, Button } from "@tailwindcss/ui";
-import type { CollectionEntry } from "~/lib/content.server";
 
 export function TVShowCell({
     tvShow: {
@@ -15,10 +15,10 @@ export function TVShowCell({
             <div className="flex flex-col gap-2">
                 <a
                     href={link}
-                    className="aspect-h-3 aspect-w-2 overflow-hidden rounded-lg bg-gray-100"
+                    className="aspect-w-2 overflow-hidden rounded-lg bg-gray-100 aspect-h-3"
                     target="_blank"
                 >
-                    <img src={poster} className="object-cover" />
+                    <img className="object-cover" src={poster} />
                 </a>
                 <a
                     href={link}
@@ -32,8 +32,8 @@ export function TVShowCell({
                 <div>
                     <Button
                         plain
-                        className="font-normal text-blue-500 dark:text-blue-400"
                         href={trailer}
+                        className="font-normal text-blue-500 dark:text-blue-400"
                         target="_blank"
                     >
                         Trailer
@@ -57,10 +57,10 @@ export function MovieCell({
             <div className="flex flex-col gap-2">
                 <a
                     href={link}
-                    className="aspect-h-3 aspect-w-2 overflow-hidden rounded-lg bg-gray-100"
+                    className="aspect-w-2 overflow-hidden rounded-lg bg-gray-100 aspect-h-3"
                     target="_blank"
                 >
-                    <img src={poster} className="object-cover" />
+                    <img className="object-cover" src={poster} />
                 </a>
                 <div className="flex flex-col">
                     <a
@@ -78,8 +78,8 @@ export function MovieCell({
             <div>
                 <Button
                     plain
-                    className="font-normal text-blue-500 dark:text-blue-400"
                     href={trailer}
+                    className="font-normal text-blue-500 dark:text-blue-400"
                     target="_blank"
                 >
                     Trailer
@@ -100,8 +100,8 @@ export function EventCell({
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
             <div className="relative w-full md:w-auto">
-                <div className="aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg bg-black/10 md:w-96 dark:bg-white/10">
-                    <img src={thumbnail} className="object-cover" />
+                <div className="aspect-w-10 block w-full overflow-hidden rounded-lg bg-black/10 aspect-h-7 md:w-96 dark:bg-white/10">
+                    <img className="object-cover" src={thumbnail} />
                 </div>
             </div>
 
@@ -115,8 +115,8 @@ export function EventCell({
                     {link !== undefined && (
                         <Button
                             plain
-                            className="text-blue-500 dark:text-blue-400"
                             href={link}
+                            className="text-blue-500 dark:text-blue-400"
                             target="_blank"
                         >
                             Learn More
@@ -129,7 +129,7 @@ export function EventCell({
     );
 }
 
-export type Video = {
+export interface Video {
     id: string;
     slug: string;
     data: {
@@ -140,11 +140,11 @@ export type Video = {
         tags: string[];
     };
     body: string;
-};
+}
 
 export function VideoCell({
     video: {
-        data: { title, link, thumbnail, year, tags },
+        data: { title, link, thumbnail, year, tags: _tags },
         body: description,
     },
 }: {
@@ -153,16 +153,16 @@ export function VideoCell({
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
             <div className="relative w-full md:w-auto">
-                <div className="aspect-h-9 aspect-w-16 block w-full overflow-hidden rounded-lg bg-black/10 md:w-72 dark:bg-white/10">
-                    <img src={thumbnail} className="object-cover" />
+                <div className="aspect-w-16 block w-full overflow-hidden rounded-lg bg-black/10 aspect-h-9 md:w-72 dark:bg-white/10">
+                    <img className="object-cover" src={thumbnail} />
                 </div>
             </div>
 
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
                     <h2 className="inline-block text-xl font-medium text-wrap text-black/95 md:truncate dark:text-white/95">
-                        {title} {year && (
-                            <Badge color="blue" className="align-text-top">
+                        {title} {Boolean(year) && (
+                            <Badge className="align-text-top" color="blue">
                                 {year}
                             </Badge>
                         )}
@@ -175,8 +175,8 @@ export function VideoCell({
                 <div>
                     <Button
                         plain
-                        className="text-blue-500 dark:text-blue-400"
                         href={link}
+                        className="text-blue-500 dark:text-blue-400"
                         target="_blank"
                     >
                         Watch
@@ -199,8 +199,8 @@ export function RestaurantCell({
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
             <div className="relative w-full md:w-auto">
-                <div className="aspect-h-2 aspect-w-3 md:aspect-h-1 md:aspect-w-1 block w-full overflow-hidden rounded-lg bg-black/10 md:w-52 dark:bg-white/10">
-                    <img src={thumbnail} className="object-cover" />
+                <div className="aspect-w-3 block w-full overflow-hidden rounded-lg bg-black/10 aspect-h-2 md:aspect-w-1 md:w-52 md:aspect-h-1 dark:bg-white/10">
+                    <img className="object-cover" src={thumbnail} />
                 </div>
             </div>
 
@@ -236,8 +236,8 @@ export function RestaurantCell({
                     {menu !== undefined && (
                         <Button
                             plain
-                            className="text-blue-500 dark:text-blue-400"
                             href={menu}
+                            className="text-blue-500 dark:text-blue-400"
                             target="_blank"
                         >
                             Menu
@@ -261,8 +261,8 @@ export function RecipeCell({
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
             <div className="relative w-full md:w-auto">
-                <div className="aspect-h-2 aspect-w-3 block w-full overflow-hidden rounded-lg bg-black/10 md:w-72 dark:bg-white/10">
-                    <img src={thumbnail} className="object-cover" />
+                <div className="aspect-w-3 block w-full overflow-hidden rounded-lg bg-black/10 aspect-h-2 md:w-72 dark:bg-white/10">
+                    <img className="object-cover" src={thumbnail} />
                 </div>
             </div>
 
