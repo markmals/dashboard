@@ -14,7 +14,6 @@ import {
     tailwindcss,
     toml,
     typeScript,
-    // vitest,
     yaml,
 } from "@withsprinkles/eslint-config";
 
@@ -25,31 +24,23 @@ export default defineConfig({
         ignores([
             "**/eslint.config.ts",
             "**/worker-configurtion.d.ts",
-            "**/vite.config.ts",
-            "**/react-router.config.ts",
-            "**/app/content/**",
             "**/public/**",
             "**/*.{png,jpg,jpeg,webp,svg}",
         ]),
         imports(),
         javaScript(),
-        typeScript({ tsconfigPath: "./tsconfig.cloudflare.json" }),
+        typeScript({ tsconfigPath: "./tsconfig.json" }),
         jsDoc(),
         jsonc(),
         jsx(),
         markdown(),
         react({
             useReactCompiler: false,
-            tsconfigPath: "./tsconfig.cloudflare.json",
+            tsconfigPath: "./tsconfig.json",
         }),
         regexp(),
-        tailwindcss({
-            stylesheet: "./app/styles/style.css",
-            // functions: ["cva", "cx", "clsx"],
-            // attributes: ["className", "class"],
-        }),
+        tailwindcss({ stylesheet: "./app/styles/style.css" }),
         toml(),
-        // await vitest(),
         yaml(),
     ],
 });
