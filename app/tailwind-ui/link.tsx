@@ -1,12 +1,12 @@
 import * as Headless from "@headlessui/react";
 import React from "react";
-import {
-    Link as RemixLink,
-    NavLink as RemixNavLink,
-} from "react-router";
+import { Link as RemixLink, NavLink as RemixNavLink } from "react-router";
 
 export const Link = function Link(
-    { ref, ...props },
+    { ref, ...props }: {
+        href: string;
+        ref?: React.Ref<HTMLAnchorElement>;
+    } & React.ComponentPropsWithoutRef<"a">,
 ) {
     return (
         <Headless.DataInteractive>
@@ -16,7 +16,10 @@ export const Link = function Link(
 };
 
 export const NavLink = function Link(
-    { ref, ...props },
+    { ref, ...props }: {
+        href: string;
+        ref?: React.Ref<HTMLAnchorElement>;
+    } & React.ComponentPropsWithoutRef<"a">,
 ) {
     return (
         <Headless.DataInteractive>
