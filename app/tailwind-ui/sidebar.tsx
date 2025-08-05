@@ -91,7 +91,16 @@ export function SidebarHeading({ className, ...props }: React.ComponentPropsWith
 }
 
 export const SidebarItem = function SidebarItem(
-    { ref, className, children, ...props },
+    { ref, className, children, ...props }:
+        & {
+            className?: string;
+            children: React.ReactNode;
+            ref?: React.Ref<HTMLAnchorElement | HTMLButtonElement>;
+        }
+        & (
+            | Omit<Headless.ButtonProps, "as" | "className">
+            | Omit<Headless.ButtonProps<typeof Link>, "as" | "className">
+        ),
 ) {
     const classes = clsx(
         // Base

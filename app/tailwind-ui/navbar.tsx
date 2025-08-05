@@ -37,7 +37,16 @@ export function NavbarSpacer({ className, ...props }: React.ComponentPropsWithou
 }
 
 export const NavbarItem = function NavbarItem(
-    { ref, className, children, ...props },
+    { ref, className, children, ...props }:
+        & {
+            className?: string;
+            children: React.ReactNode;
+            ref?: React.Ref<HTMLAnchorElement | HTMLButtonElement>;
+        }
+        & (
+            | Omit<Headless.ButtonProps, "as" | "className">
+            | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
+        ),
 ) {
     const classes = clsx(
         // Base
