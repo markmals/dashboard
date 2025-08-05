@@ -71,7 +71,7 @@ export function MovieCell({
                         {title}
                     </a>
                     <p className="text-sm font-medium text-black/70 dark:text-white/70">
-                        {year} • {genre} • {runningTime}
+                        {runningTime} • {genre} • {year}
                     </p>
                 </div>
             </div>
