@@ -177,7 +177,7 @@ type ButtonProps =
     );
 
 export const Button = function Button(
-    { ref, color, outline, plain, className, children, ...props },
+    { ref, color, outline, plain, className, children, ...props }: ButtonProps,
 ) {
     const classes = clsx(
         className,

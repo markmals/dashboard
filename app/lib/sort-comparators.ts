@@ -1,9 +1,11 @@
 import type { CollectionEntry } from "./content.server";
 
-const articles = /^(a|an|the)\s+/i;
+const articles = /^(?:a|an|the)\s+/i;
 const removeArticles = (title: string) => title.replace(articles, "");
 
-interface Titled { title: string; }
+interface Titled {
+    title: string;
+}
 
 export const titleSortComparator = (lhs: Titled, rhs: Titled) => {
     return removeArticles(lhs.title).localeCompare(removeArticles(rhs.title), undefined, {
@@ -13,7 +15,9 @@ export const titleSortComparator = (lhs: Titled, rhs: Titled) => {
     });
 };
 
-interface Named { name: string; }
+interface Named {
+    name: string;
+}
 
 export const nameSortComparator = (lhs: Named, rhs: Named) => {
     return removeArticles(lhs.name).localeCompare(removeArticles(rhs.name), undefined, {
@@ -23,13 +27,26 @@ export const nameSortComparator = (lhs: Named, rhs: Named) => {
     });
 };
 
-interface Year { year: number; }
+interface Releasable {
+    release: string;
+}
+
+export const releaseSortComparator = (lhs: Releasable, rhs: Releasable) => {
+    return new Date(`${lhs.release}T00:00:00`).getTime()
+        - new Date(`${rhs.release}T00:00:00`).getTime();
+};
+
+interface Year {
+    year: number;
+}
 
 export const yearSortComparator = (lhs: Year, rhs: Year) => {
     return lhs.year - rhs.year;
 };
 
-interface Identifiable { id: string; }
+interface Identifiable {
+    id: string;
+}
 
 export const idSortComparator = (lhs: Identifiable, rhs: Identifiable) => {
     return parseInt(lhs.id) - parseInt(rhs.id);

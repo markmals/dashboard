@@ -1,3 +1,4 @@
+/* eslint-disable react-dom/no-dangerously-set-innerhtml */
 import type { CollectionEntry } from "~/lib/content.server";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
 import { BookOpenIcon, PlayCircleIcon } from "@heroicons/react/24/outline";
@@ -46,39 +47,42 @@ export function TVShowCell({
 }
 
 export function MovieCell({
-    movie: {
-        data: { title, link, year, genre, runningTime, trailer, poster },
-    },
+    movie: { data: movie },
 }: {
-    movie: Omit<CollectionEntry<"movies">, "collection">;
+    movie:
+        | Omit<CollectionEntry<"movies">, "collection">
+        | Omit<CollectionEntry<"theaters">, "collection">;
 }) {
     return (
         <li className="flex flex-col justify-between gap-4">
             <div className="flex flex-col gap-2">
                 <a
-                    href={link}
+                    href={movie.link}
                     className="aspect-w-2 overflow-hidden rounded-lg bg-gray-100 aspect-h-3"
                     target="_blank"
                 >
-                    <img className="object-cover" src={poster} />
+                    <img className="object-cover" src={movie.poster} />
                 </a>
                 <div className="flex flex-col">
                     <a
-                        href={link}
+                        href={movie.link}
                         className="mt-2 truncate text-sm font-medium text-black/95 hover:text-blue-600 dark:text-white/95 dark:hover:text-blue-500"
                         target="_blank"
                     >
-                        {title}
+                        {movie.title}
                     </a>
                     <p className="text-sm font-medium text-black/70 dark:text-white/70">
-                        {runningTime} • {genre} • {year}
+                        {("release" in movie && movie.release) && `${movie.release} • `}
+                        {movie.runningTime && `${movie.runningTime} • `}
+                        {movie.genre}
+                        {("year" in movie && movie.year) && ` • ${movie.year}`}
                     </p>
                 </div>
             </div>
             <div>
                 <Button
                     plain
-                    href={trailer}
+                    href={movie.trailer}
                     className="font-normal text-blue-500 dark:text-blue-400"
                     target="_blank"
                 >

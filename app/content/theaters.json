@@ -1,8 +1,8 @@
 [
     {
-        "title": "The Fantastic Four: First Steps",
+        "title": "The Fantastic 4: First Steps",
         "link": "https://www.fandango.com/the-fantastic-four-first-steps-2025-236967/movie-overview",
-        "year": "2025",
+        "release": "2025-07-25",
         "genre": "Sci-Fi, Adventure",
         "runningTime": "1h 55m",
         "trailer": "https://youtu.be/b-WdRqzSJ9w",
@@ -11,7 +11,7 @@
     {
         "title": "Superman",
         "link": "https://www.fandango.com/superman-2025-230934/movie-overview",
-        "year": "2025",
+        "release": "2025-07-11",
         "genre": "Sci-Fi, Adventure",
         "runningTime": "2h 10m",
         "trailer": "https://youtu.be/nZTgJy8ym34",
@@ -20,7 +20,7 @@
     {
         "title": "Jurassic World Rebirth",
         "link": "https://www.fandango.com/jurassic-world-rebirth-2025-239206/movie-overview",
-        "year": "2025",
+        "release": "2025-07-02",
         "genre": "Sci-Fi, Adventure",
         "runningTime": "2h 14m",
         "trailer": "https://youtu.be/2ZhB-YO5Tnk",
@@ -29,10 +29,77 @@
     {
         "title": "Oh, Hi!",
         "link": "https://www.fandango.com/oh-hi-2025-240921/movie-overview",
-        "year": "2025",
+        "release": "2025-07-25",
         "genre": "Comedy, Romance",
         "runningTime": "1h 34m",
         "trailer": "https://youtu.be/s_IEVF0GQPk",
         "poster": "https://image.tmdb.org/t/p/original/XBC1Oi5pXmlmvE1n2KqaS1qm7B.jpg"
+    },
+    {
+        "title": "Freakier Friday",
+        "link": "https://www.fandango.com/freakier-friday-2025-237433/movie-overview",
+        "release": "2025-08-08",
+        "genre": "Fantasy, Comedy",
+        "runningTime": "1h 51m",
+        "trailer": "https://youtu.be/IyJzhtJEtoU",
+        "poster": "https://image.tmdb.org/t/p/original/9wV65OmsjLAqBfDnYTkMPutXH8j.jpg"
+    },
+    {
+        "title": "Honey Don't!",
+        "link": "https://www.themoviedb.org/movie/1149504-honey-don-t",
+        "release": "2025-08-22",
+        "genre": "Comedy, Crime",
+        "runningTime": "1h 29m",
+        "trailer": "https://youtu.be/Jzr6pHIZAI0",
+        "poster": "https://image.tmdb.org/t/p/original/sYdIRJZ41BE2XRdoD5SmutbcEeW.jpg"
+    },
+    {
+        "title": "Splitsville",
+        "link": "https://www.themoviedb.org/movie/1337562-splitsville",
+        "release": "2025-08-22",
+        "genre": "Comedy, Drama",
+        "runningTime": "1h 40m",
+        "trailer": "https://youtu.be/VrdSQSLD63Q",
+        "poster": "https://image.tmdb.org/t/p/original/gxCv6kUdywxYzIXX6xYcmX5APUV.jpg"
+    },
+    {
+        "title": "TRON: Ares",
+        "link": "https://www.themoviedb.org/movie/533533-tron-ares",
+        "release": "2025-10-10",
+        "genre": "Sci-Fi, Adventure",
+        "trailer": "https://youtu.be/YShVEXb7-ic",
+        "poster": "https://image.tmdb.org/t/p/original/lyq8uQzxWTCIxWEKuxyQPrbVu40.jpg"
+    },
+    {
+        "title": "Predator: Badlands",
+        "link": "https://www.themoviedb.org/movie/1242898-predator-badlands",
+        "release": "2025-11-07",
+        "genre": "Action, Sci-Fi",
+        "trailer": "https://youtu.be/43R9l7EkJwE",
+        "poster": "https://image.tmdb.org/t/p/original/4MC1qxXJeV6vOcqSFh6GdeFZjtc.jpg"
+    },
+    {
+        "title": "Now You See Me: Now You Don't",
+        "link": "https://www.themoviedb.org/movie/425274-now-you-see-me-now-you-don-t",
+        "release": "2025-11-14",
+        "genre": "Thriller, Crime",
+        "trailer": "https://youtu.be/-E3lMRx7HRQ",
+        "poster": "https://image.tmdb.org/t/p/original/oD3Eey4e4Z259XLm3eD3WGcoJAh.jpg"
+    },
+    {
+        "title": "Wicked: For Good",
+        "link": "https://www.themoviedb.org/movie/967941-wicked-for-good",
+        "release": "2025-11-21",
+        "genre": "Musical",
+        "trailer": "https://youtu.be/vt98AlBDI9Y",
+        "poster": "https://image.tmdb.org/t/p/original/si9tolnefLSUKaqQEGz1bWArOaL.jpg"
+    },
+    {
+        "title": "Avatar: Fire and Ash",
+        "link": "https://www.themoviedb.org/movie/967941-wicked-for-good",
+        "release": "2025-12-19",
+        "genre": "Sci-Fi, Adventure",
+        "trailer": "https://youtu.be/SKe4G3OfUew",
+        "poster": "https://image.tmdb.org/t/p/original/vDdFxksDMkUJjZXd00OKJfwXKre.jpg"
     }
 ]

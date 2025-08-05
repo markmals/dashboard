@@ -38,9 +38,9 @@ const theaters = defineCollection({
     schema: z.object({
         title: z.string(),
         link: z.url(),
-        year: z.string(),
+        release: z.iso.date(),
         genre: z.string(),
-        runningTime: z.string(),
+        runningTime: z.string().optional(),
         trailer: z.url(),
         poster: z.url(),
     }),

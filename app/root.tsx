@@ -1,9 +1,5 @@
 import { CalendarDaysIcon } from "@heroicons/react/16/solid";
-import {
-    BuildingStorefrontIcon,
-    FilmIcon,
-    TvIcon,
-} from "@heroicons/react/24/solid";
+import { BuildingStorefrontIcon, FilmIcon, TvIcon } from "@heroicons/react/24/solid";
 import {
     Navbar,
     NavbarItem,
@@ -20,7 +16,8 @@ import tailwind from "~/styles/style.css?url";
 
 const navItems = [
     // { label: "Home", url: "/", icon: HomeIcon },
-    { label: "TV Shows & Movies", url: "/tv-movies", icon: TvIcon },
+    { label: "TV Shows", url: "/tv", icon: TvIcon },
+    { label: "Movies", url: "/movies", icon: TvIcon },
     { label: "In Theaters", url: "/in-theaters", icon: FilmIcon },
     { label: "Activities", url: "/activities", icon: CalendarDaysIcon },
     { label: "Restaurants", url: "/restaurants", icon: BuildingStorefrontIcon },

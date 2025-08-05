@@ -9,7 +9,8 @@
         "module.sortImportDeclarations": "maintain",
         "module.sortExportDeclarations": "maintain",
         "exportDeclaration.sortNamedExports": "maintain",
-        "importDeclaration.sortNamedImports": "maintain"
+        "importDeclaration.sortNamedImports": "maintain",
+        "quoteProps": "asNeeded"
     },
     "json": {
         "lineWidth": 100,
