@@ -1,7 +1,6 @@
 {
-    "private": true,
-    "sideEffects": false,
     "type": "module",
+    "private": true,
     "scripts": {
         "postinstall": "mise run postinstall"
     },
@@ -10,8 +9,8 @@
         "@headlessui/react": "^2.2.6",
         "@heroicons/react": "^2.2.0",
         "@react-router/fs-routes": "7.7.1",
-        "@std/path": "npm:@jsr/std__path@^1.1.1",
-        "@std/yaml": "npm:@jsr/std__yaml@^1.0.9",
+        "@std/path": "jsr:^1.1.2",
+        "@std/yaml": "jsr:^1.0.9",
         "@tailwindcss/vite": "^4.1.11",
         "clsx": "^2.1.1",
         "framer-motion": "^12.23.9",
@@ -23,17 +22,38 @@
         "zod": "^4.0.10"
     },
     "devDependencies": {
+        "@babel/preset-typescript": "^7.27.1",
+        "@prettier/plugin-oxc": "^0.0.4",
         "@react-router/dev": "7.7.1",
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@types/node": "^24",
         "@types/react": "^19.1.8",
         "@types/react-dom": "^19.1.6",
+        "@typescript/native-preview": "latest",
         "@withsprinkles/eslint-config": "0.2.0",
+        "babel-plugin-react-compiler": "19.1.0-rc.3",
         "eslint": "^9.32.0",
+        "prettier": "^3.6.2",
+        "prettier-plugin-pkg": "^0.21.2",
+        "prettier-plugin-sh": "^0.18.0",
+        "prettier-plugin-tailwindcss": "^0.6.14",
+        "prettier-plugin-toml": "^2.0.6",
         "tailwindcss": "^4.1.11",
-        "vite": "npm:rolldown-vite@latest"
+        "vite": "npm:rolldown-vite@latest",
+        "vite-plugin-babel": "^1.3.2",
+        "wrangler": "^4.34.0"
     },
-    "overrides": {
-        "vite": "npm:rolldown-vite@latest"
+    "sideEffects": false,
+    "pnpm": {
+        "overrides": {
+            "vite": "npm:rolldown-vite@latest"
+        },
+        "onlyBuiltDependencies": [
+            "esbuild",
+            "workerd",
+            "@tailwindcss/oxide",
+            "sharp",
+            "unrs-resolver"
+        ]
     }
 }

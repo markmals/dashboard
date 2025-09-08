@@ -1,18 +1,11 @@
 [tools]
-bun = "latest"
-claude = "latest"
-dprint = "latest"
 node = "lts"
-"npm:@typescript/native-preview" = "latest"
-"npm:rolldown-vite" = "latest"
-"npm:wrangler" = "latest"
-
-[settings.npm]
-bun = true
+pnpm = "latest"
+claude = "latest"
 
 [tasks.dev]
 description = "Run the development server"
-run = "vite dev --host"
+run = "pnpm exec vite dev --host"
 
 [tasks.build]
 description = "Build the app"
@@ -26,43 +19,43 @@ sources = [
     "app/**/*.{ts,tsx,css,json,md}",
 ]
 outputs = ["build"]
-run = "vite build"
+run = "pnpm exec vite build"
 
 [tasks.preview]
 description = "Preview the built application"
 depends = "build"
-run = "vite preview"
+run = "pnpm exec vite preview"
 
 [tasks.deploy]
 description = "Deploy to Cloudflare Workers"
 depends = "build"
 confirm = "Are you sure you want to deploy this app to Cloudflare Workers?"
-run = "wrangler deploy"
+run = "pnpm exec wrangler deploy"
 
 [tasks.fmt]
 description = "Format the entire project"
-run = "dprint fmt"
+run = "pnpm exec prettier --write"
 
 [tasks.lint]
 description = "Lint the entire project"
-run = "bunx eslint --cache --cache-location './node_modules/eslint/.eslintcache/' --fix"
+run = "pnpm exec eslint --cache --cache-location './node_modules/eslint/.eslintcache/' --fix"
 
 [tasks."typegen:cloudflare"]
 description = "Generate types for Cloudflare bindings"
 sources = ["wrangler.jsonc"]
 outputs = ["worker-configuration.d.ts"]
-run = "wrangler types"
+run = "pnpm exec wrangler types"
 
 [tasks."typegen:react-router"]
 description = "Generate types for React Router routes"
 sources = ["react-router.config.ts", "vite.config.ts", "app/**/*.{ts,tsx}"]
 outputs = [".react-router"]
-run = "bunx react-router typegen"
+run = "pnpm exec react-router typegen"
 
 [tasks.typecheck]
 description = "Typecheck the entire project"
 depends = "typegen:*"
-run = "tsgo --noEmit"
+run = "pnpm exec tsgo --noEmit"
 
 [tasks.postinstall]
 description = "Generate types after npm package installation"
