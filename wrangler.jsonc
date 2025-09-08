@@ -1,6 +1,6 @@
 {
     "$schema": "node_modules/wrangler/config-schema.json",
     "name": "dashboard",
-    "compatibility_date": "2025-07-12",
-    "main": "./workers/app.ts",
+    "compatibility_date": "2025-09-01",
+    "main": "workers/app.ts"
 }
