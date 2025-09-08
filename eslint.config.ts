@@ -35,7 +35,7 @@ export default defineConfig({
         jsx(),
         markdown(),
         react({
-            useReactCompiler: false,
+            useReactCompiler: true,
             tsconfigPath: "./tsconfig.json",
         }),
         regexp(),
