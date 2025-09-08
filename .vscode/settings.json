@@ -1,9 +1,5 @@
 {
-    "typescript.updateImportsOnFileMove.enabled": "always",
-
-    "editor.stickyScroll.enabled": true,
-
-    "dprint.experimentalLsp": true,
+    "prettier.enable": true,
 
     "eslint.enable": true,
     "eslint.codeActionsOnSave.mode": "problems",
@@ -13,33 +9,34 @@
     },
 
     "biome.enabled": false,
+    "dprint.experimentalLsp": false,
     "deno.enable": false,
-    "prettier.enable": false,
 
     "editor.codeActionsOnSave": {
+        "source.fixAll.ts": "explicit",
         "source.fixAll.eslint": "explicit"
     },
 
-    "editor.defaultFormatter": "dprint.dprint",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
 
     "[typescript]": {
-        "editor.defaultFormatter": "dprint.dprint"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[tsx]": {
-        "editor.defaultFormatter": "dprint.dprint"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[json]": {
-        "editor.defaultFormatter": "dprint.dprint"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[jsonc]": {
-        "editor.defaultFormatter": "dprint.dprint"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[markdown]": {
-        "editor.defaultFormatter": "dprint.dprint"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[css]": {
-        "editor.defaultFormatter": "dprint.dprint"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 
     "explorer.fileNesting.enabled": true,
@@ -47,15 +44,17 @@
     "explorer.fileNesting.patterns": {
         "*.css": "$(capture).css.map, $(capture).*.css",
         ".env": "*.env, .env.*, .envrc, env.d.ts",
-        "package.json": ".bun-version, .github*, .npmrc, .vscode*, biome*, bun.lock, dprint.json, eslint.config.*, mise.toml, tsconfig.*, worker-configuration.*, wrangler.toml, wrangler.json*, workspace.json",
-        "readme*": "authors, backers*, changelog*, citation*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
+        "package.json": ".github*, .npmrc, .vscode*, eslint.config.*, mise.toml, pnpm-*.yaml, prettier.config.*, tsconfig.*, wrangler.toml, wrangler.json*, workspace.json",
+        "readme*": "agent*, authors, backers*, changelog*, citation*, claude*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
         "vite.config.*": "drizzle.config.*, react-router.config.*, vitest.config.*, *.plugin.ts"
     },
     "files.exclude": {
-        "**/.DS_Store": true,
         ".react-router": true,
         ".wrangler": true,
-        ".claude": true
+        ".claude": true,
+        // "build": true,
+        // "dist": true,
+        "worker-configuration.d.ts": true
     },
 
     "tailwindCSS.classAttributes": ["className"],
@@ -78,7 +77,7 @@
         "borderRadius": "2px"
     },
 
-    "symbols.files.associations": {
-        "eslint.config.ts": "eslint"
+    "debug.javascript.defaultRuntimeExecutable": {
+        "pwa-node": "/Users/orion/.local/share/mise/shims/node"
     }
 }
