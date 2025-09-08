@@ -79,7 +79,7 @@ importers:
         specifier: ^19.1.6
         version: 19.1.9(@types/react@19.1.12)
       '@typescript/native-preview':
-        specifier: 7.0.0-dev.20250907.1
+        specifier: latest
         version: 7.0.0-dev.20250907.1
       '@withsprinkles/eslint-config':
         specifier: 0.2.0
