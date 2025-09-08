@@ -10,35 +10,37 @@ export async function loader() {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    const inTheaters = movies.filter(movie => {
-        const releaseDate = new Date(`${movie.data.release}T00:00:00`);
-        return releaseDate <= today;
-    });
+    const inTheaters = movies
+        .filter(movie => {
+            const releaseDate = new Date(`${movie.data.release}T00:00:00`);
+            return releaseDate <= today;
+        })
+        .toSorted(withContent(titleSortComparator))
+        .map(movie => ({
+            ...movie,
+            data: {
+                ...movie.data,
+                release: null as unknown as string,
+            },
+        }));
 
-    const upcoming = movies.filter(movie => {
-        const releaseDate = new Date(`${movie.data.release}T00:00:00`);
-        return releaseDate > today;
-    });
+    const upcoming = movies
+        .filter(movie => {
+            const releaseDate = new Date(`${movie.data.release}T00:00:00`);
+            return releaseDate > today;
+        })
+        .toSorted(withContent(releaseSortComparator))
+        .map(movie => ({
+            ...movie,
+            data: {
+                ...movie.data,
+                release: formatter.format(new Date(`${movie.data.release}T00:00:00`)),
+            },
+        }));
 
     return {
-        inTheaters: inTheaters
-            .toSorted(withContent(titleSortComparator))
-            .map(movie => ({
-                ...movie,
-                data: {
-                    ...movie.data,
-                    release: null as unknown as string,
-                },
-            })),
-        upcoming: upcoming
-            .toSorted(withContent(releaseSortComparator))
-            .map(movie => ({
-                ...movie,
-                data: {
-                    ...movie.data,
-                    release: formatter.format(new Date(`${movie.data.release}T00:00:00`)),
-                },
-            })),
+        inTheaters,
+        upcoming,
     };
 }
 
@@ -48,20 +50,32 @@ export default function Component({ loaderData }: Route.ComponentProps) {
         <>
             <title>Theater Movies • Dashboard</title>
             <div className="flex flex-col gap-10">
-                <SectionHeader>In Theaters</SectionHeader>
-                <ul
-                    className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
-                    role="list"
-                >
-                    {inTheaters.map(movie => <MovieCell key={movie.id} movie={movie} />)}
-                </ul>
-                <SectionHeader>Upcoming</SectionHeader>
-                <ul
-                    className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
-                    role="list"
-                >
-                    {upcoming.map(movie => <MovieCell key={movie.id} movie={movie} />)}
-                </ul>
+                {Boolean(inTheaters.length) && (
+                    <>
+                        <SectionHeader>In Theaters</SectionHeader>
+                        <ul
+                            className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
+                            role="list"
+                        >
+                            {inTheaters.map(movie => (
+                                <MovieCell key={movie.data.link} movie={movie} />
+                            ))}
+                        </ul>
+                    </>
+                )}
+                {Boolean(upcoming.length) && (
+                    <>
+                        <SectionHeader>Upcoming</SectionHeader>
+                        <ul
+                            className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
+                            role="list"
+                        >
+                            {upcoming.map(movie => (
+                                <MovieCell key={movie.data.link} movie={movie} />
+                            ))}
+                        </ul>
+                    </>
+                )}
             </div>
         </>
     );
