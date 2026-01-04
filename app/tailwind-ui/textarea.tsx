@@ -1,9 +1,7 @@
 import * as Headless from "@headlessui/react";
 import { clsx } from "clsx";
 
-export const Textarea = function Textarea(
-    { ref, className, resizable = true, ...props },
-) {
+export const Textarea = function Textarea({ ref, className, resizable = true, ...props }) {
     return (
         <span
             className={clsx([

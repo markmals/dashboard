@@ -1,8 +1,8 @@
+import { MovieCell } from "~/components/CollectionCells.tsx";
+import { SectionHeader } from "~/components/SectionHeader.tsx";
+import { getCollection } from "~/lib/content.server.ts";
+import { releaseSortComparator, titleSortComparator, withContent } from "~/lib/sort-comparators.ts";
 import type { Route } from "./+types/in-theaters";
-import { MovieCell } from "~/components/CollectionCells";
-import { SectionHeader } from "~/components/SectionHeader";
-import { getCollection } from "~/lib/content.server";
-import { releaseSortComparator, titleSortComparator, withContent } from "~/lib/sort-comparators";
 
 export async function loader() {
     const movies = await getCollection("theaters");
@@ -53,10 +53,7 @@ export default function Component({ loaderData }: Route.ComponentProps) {
                 {Boolean(inTheaters.length) && (
                     <>
                         <SectionHeader>In Theaters</SectionHeader>
-                        <ul
-                            className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
-                            role="list"
-                        >
+                        <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8">
                             {inTheaters.map(movie => (
                                 <MovieCell key={movie.data.link} movie={movie} />
                             ))}
@@ -66,10 +63,7 @@ export default function Component({ loaderData }: Route.ComponentProps) {
                 {Boolean(upcoming.length) && (
                     <>
                         <SectionHeader>Upcoming</SectionHeader>
-                        <ul
-                            className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8"
-                            role="list"
-                        >
+                        <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8">
                             {upcoming.map(movie => (
                                 <MovieCell key={movie.data.link} movie={movie} />
                             ))}

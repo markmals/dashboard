@@ -1,16 +1,28 @@
 [tools]
-node = "lts"
+node = "24"
 pnpm = "latest"
-claude = "latest"
+
+[env]
+_.path = ['{{config_root}}/node_modules/.bin']
+
+[hooks]
+postinstall = """
+if [ "$CI" = "true" ]; then
+  exit 0
+fi
+
+pnpm install
+mise run typegen:*
+"""
 
 [tasks.dev]
 description = "Run the development server"
-run = "pnpm exec vite dev --host"
+run = "vite dev --host"
 
 [tasks.build]
 description = "Build the app"
 sources = [
-    "bun.lock",
+    "pnpm-lock.yaml",
     "react-router.config.ts",
     "vite.config.ts",
     "tsconfig.ts",
@@ -19,50 +31,44 @@ sources = [
     "app/**/*.{ts,tsx,css,json,md}",
 ]
 outputs = ["build"]
-run = "pnpm exec vite build"
+run = "vite build"
 
 [tasks.preview]
 description = "Preview the built application"
 depends = "build"
-run = "pnpm exec vite preview"
+run = "vite preview"
 
 [tasks.deploy]
 description = "Deploy to Cloudflare Workers"
 depends = "build"
 confirm = "Are you sure you want to deploy this app to Cloudflare Workers?"
-run = "pnpm exec wrangler deploy"
+run = "wrangler deploy"
 
 [tasks.fmt]
-description = "Format the entire project"
-run = "pnpm exec prettier --write"
+description = "Format the entire project with Prettier"
+run = "prettier --write ."
 
 [tasks.lint]
-description = "Lint the entire project"
-run = "pnpm exec eslint --cache --cache-location './node_modules/eslint/.eslintcache/' --fix"
+description = "Format and lint the entire project with Biome"
+run = "biome check --write --unsafe ."
+
+[tasks.check]
+description = "Format and lint the entire project"
+depends = ["fmt", "lint"]
 
 [tasks."typegen:cloudflare"]
 description = "Generate types for Cloudflare bindings"
 sources = ["wrangler.jsonc"]
 outputs = ["worker-configuration.d.ts"]
-run = "pnpm exec wrangler types"
+run = "wrangler types"
 
 [tasks."typegen:react-router"]
 description = "Generate types for React Router routes"
 sources = ["react-router.config.ts", "vite.config.ts", "app/**/*.{ts,tsx}"]
 outputs = [".react-router"]
-run = "pnpm exec react-router typegen"
+run = "react-router typegen"
 
 [tasks.typecheck]
 description = "Typecheck the entire project"
 depends = "typegen:*"
-run = "pnpm exec tsgo --noEmit"
-
-[tasks.postinstall]
-description = "Generate types after npm package installation"
-run = """
-  if [ -z \"$GITHUB_ACTIONS\" ]; then
-    mise run typegen:*
-  else
-    echo '✅ Skipping typegen in CI'
-  fi
-"""
+run = "tsgo --noEmit"

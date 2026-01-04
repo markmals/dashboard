@@ -14,8 +14,8 @@ jobs:
         runs-on: ubuntu-latest
 
         environment:
-          name: production
-          url: https://dashboard.malstrom.me
+            name: production
+            url: https://dashboard.malstrom.me
 
         steps:
             - name: 📥 Checkout code
@@ -41,31 +41,31 @@ jobs:
             - name: 🗄️ Cache build output
               uses: actions/cache@v3
               with:
-                path: build
-                key: >-
-                  "${{ runner.os }}-build-${{ hashFiles(
-                    'pnpm-lock.yaml',
-                    'pnpm-workspace.yaml',
-                    'package.json',
-                    'tsconfig.json',
-                    'tsconfig.*.json',
-                    'react-router.config.ts',
-                    'vite.config.ts',
-                    'worker-configuration.d.ts',
-                    'app/**/*.ts',
-                    'app/**/*.tsx',
-                    'app/**/*.css',
-                    'app/**/*.json',
-                    'app/**/*.md',
-                    'app/**/*.mdx'
-                  ) }}"
+                  path: build
+                  key: >-
+                      "${{ runner.os }}-build-${{ hashFiles(
+                        'pnpm-lock.yaml',
+                        'pnpm-workspace.yaml',
+                        'package.json',
+                        'tsconfig.json',
+                        'tsconfig.*.json',
+                        'react-router.config.ts',
+                        'vite.config.ts',
+                        'worker-configuration.d.ts',
+                        'app/**/*.ts',
+                        'app/**/*.tsx',
+                        'app/**/*.css',
+                        'app/**/*.json',
+                        'app/**/*.md',
+                        'app/**/*.mdx'
+                      ) }}"
 
             - name: ⏰ Bump build output timestamps
               run: |
-                if [ -d build ]; then
-                  touch build
-                  find build -exec touch {} +
-                fi
+                  if [ -d build ]; then
+                    touch build
+                    find build -exec touch {} +
+                  fi
 
             - name: ⚒️ Build website
               run: mise run build

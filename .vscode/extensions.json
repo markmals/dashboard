@@ -1,13 +1,13 @@
 {
     "recommendations": [
-        "Anthropic.claude-code",
+        "biomejs.biome",
         "bradlc.vscode-tailwindcss",
-        "dbaeumer.vscode-eslint",
-        "dprint.dprint",
-        "github.vscode-github-actions",
-        "GitHub.vscode-pull-request-github",
-        "oven.bun-vscode",
+        "christian-kohler.npm-intellisense",
+        "hverlin.mise-vscode",
+        "planet57.vscode-beads",
+        "prettier.prettier-vscode",
         "tamasfe.even-better-toml",
+        "TypeScriptTeam.native-preview",
         "wayou.vscode-todo-highlight"
     ]
 }

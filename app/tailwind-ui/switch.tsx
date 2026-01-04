@@ -1,6 +1,6 @@
-import type React from "react";
 import * as Headless from "@headlessui/react";
 import { clsx } from "clsx";
+import type React from "react";
 
 export function SwitchGroup({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
     return (
@@ -21,7 +21,7 @@ export function SwitchGroup({ className, ...props }: React.ComponentPropsWithout
 export function SwitchField({
     className,
     ...props
-}: { className?: string; } & Omit<Headless.FieldProps, "className">) {
+}: { className?: string } & Omit<Headless.FieldProps, "className">) {
     return (
         <Headless.Field
             data-slot="field"

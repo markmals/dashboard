@@ -1,8 +1,9 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
-import type { CollectionEntry } from "~/lib/content.server";
+
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
 import { BookOpenIcon, PlayCircleIcon } from "@heroicons/react/24/outline";
 import { Badge, Button } from "@tailwindcss/ui";
+import type { CollectionEntry } from "~/lib/content.server.ts";
 
 export function TVShowCell({
     tvShow: {
@@ -15,15 +16,15 @@ export function TVShowCell({
         <li className="flex w-full flex-col justify-between gap-4">
             <div className="flex flex-col gap-2">
                 <a
+                    className="aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-gray-100"
                     href={link}
-                    className="aspect-w-2 overflow-hidden rounded-lg bg-gray-100 aspect-h-3"
                     target="_blank"
                 >
                     <img className="object-cover" src={poster} />
                 </a>
                 <a
-                    href={link}
                     className="text-sm font-medium text-black/95 hover:text-blue-600 dark:text-white/95 dark:hover:text-blue-500"
+                    href={link}
                     target="_blank"
                 >
                     {title}
@@ -32,9 +33,9 @@ export function TVShowCell({
             {trailer && (
                 <div>
                     <Button
-                        plain
-                        href={trailer}
                         className="font-normal text-blue-500 dark:text-blue-400"
+                        href={trailer}
+                        plain
                         target="_blank"
                     >
                         Trailer
@@ -57,33 +58,33 @@ export function MovieCell({
         <li className="flex flex-col justify-between gap-4">
             <div className="flex flex-col gap-2">
                 <a
+                    className="aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-gray-100"
                     href={movie.link}
-                    className="aspect-w-2 overflow-hidden rounded-lg bg-gray-100 aspect-h-3"
                     target="_blank"
                 >
                     <img className="object-cover" src={movie.poster} />
                 </a>
                 <div className="flex flex-col">
                     <a
-                        href={movie.link}
                         className="mt-2 truncate text-sm font-medium text-black/95 hover:text-blue-600 dark:text-white/95 dark:hover:text-blue-500"
+                        href={movie.link}
                         target="_blank"
                     >
                         {movie.title}
                     </a>
                     <p className="text-sm font-medium text-black/70 dark:text-white/70">
-                        {("release" in movie && movie.release) && `${movie.release} • `}
+                        {"release" in movie && movie.release && `${movie.release} • `}
                         {movie.runningTime && `${movie.runningTime} • `}
                         {movie.genre}
-                        {("year" in movie && movie.year) && ` • ${movie.year}`}
+                        {"year" in movie && movie.year && ` • ${movie.year}`}
                     </p>
                 </div>
             </div>
             <div>
                 <Button
-                    plain
-                    href={movie.trailer}
                     className="font-normal text-blue-500 dark:text-blue-400"
+                    href={movie.trailer}
+                    plain
                     target="_blank"
                 >
                     Trailer
@@ -104,7 +105,7 @@ export function EventCell({
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
             <div className="relative w-full md:w-auto">
-                <div className="aspect-w-10 block w-full overflow-hidden rounded-lg bg-black/10 aspect-h-7 md:w-96 dark:bg-white/10">
+                <div className="aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-black/10 md:w-96 dark:bg-white/10">
                     <img className="object-cover" src={thumbnail} />
                 </div>
             </div>
@@ -118,9 +119,9 @@ export function EventCell({
                 <div>
                     {link !== undefined && (
                         <Button
-                            plain
-                            href={link}
                             className="text-blue-500 dark:text-blue-400"
+                            href={link}
+                            plain
                             target="_blank"
                         >
                             Learn More
@@ -157,7 +158,7 @@ export function VideoCell({
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
             <div className="relative w-full md:w-auto">
-                <div className="aspect-w-16 block w-full overflow-hidden rounded-lg bg-black/10 aspect-h-9 md:w-72 dark:bg-white/10">
+                <div className="aspect-w-16 aspect-h-9 block w-full overflow-hidden rounded-lg bg-black/10 md:w-72 dark:bg-white/10">
                     <img className="object-cover" src={thumbnail} />
                 </div>
             </div>
@@ -165,7 +166,8 @@ export function VideoCell({
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
                     <h2 className="inline-block text-xl font-medium text-wrap text-black/95 md:truncate dark:text-white/95">
-                        {title} {Boolean(year) && (
+                        {title}{" "}
+                        {Boolean(year) && (
                             <Badge className="align-text-top" color="blue">
                                 {year}
                             </Badge>
@@ -178,9 +180,9 @@ export function VideoCell({
                 </div>
                 <div>
                     <Button
-                        plain
-                        href={link}
                         className="text-blue-500 dark:text-blue-400"
+                        href={link}
+                        plain
                         target="_blank"
                     >
                         Watch
@@ -203,7 +205,7 @@ export function RestaurantCell({
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
             <div className="relative w-full md:w-auto">
-                <div className="aspect-w-3 block w-full overflow-hidden rounded-lg bg-black/10 aspect-h-2 md:aspect-w-1 md:w-52 md:aspect-h-1 dark:bg-white/10">
+                <div className="aspect-w-3 aspect-h-2 md:aspect-w-1 md:aspect-h-1 block w-full overflow-hidden rounded-lg bg-black/10 md:w-52 dark:bg-white/10">
                     <img className="object-cover" src={thumbnail} />
                 </div>
             </div>
@@ -218,12 +220,10 @@ export function RestaurantCell({
                             <span className="inline-block text-wrap">
                                 {cuisine} •{" "}
                                 <a
-                                    href={`http://maps.apple.com/?address=${
-                                        address
-                                            .split(" ")
-                                            .join("+")
-                                    }`}
                                     className="underline hover:text-blue-500 dark:hover:text-blue-400"
+                                    href={`http://maps.apple.com/?address=${address
+                                        .split(" ")
+                                        .join("+")}`}
                                     target="_blank"
                                 >
                                     {address}
@@ -239,9 +239,9 @@ export function RestaurantCell({
                 <div>
                     {menu !== undefined && (
                         <Button
-                            plain
-                            href={menu}
                             className="text-blue-500 dark:text-blue-400"
+                            href={menu}
+                            plain
                             target="_blank"
                         >
                             Menu
@@ -265,7 +265,7 @@ export function RecipeCell({
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
             <div className="relative w-full md:w-auto">
-                <div className="aspect-w-3 block w-full overflow-hidden rounded-lg bg-black/10 aspect-h-2 md:w-72 dark:bg-white/10">
+                <div className="aspect-w-3 aspect-h-2 block w-full overflow-hidden rounded-lg bg-black/10 md:w-72 dark:bg-white/10">
                     <img className="object-cover" src={thumbnail} />
                 </div>
             </div>

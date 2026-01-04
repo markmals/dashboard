@@ -1,9 +1,7 @@
 import * as Headless from "@headlessui/react";
 import { clsx } from "clsx";
 
-export const Select = function Select(
-    { ref, className, multiple, ...props },
-) {
+export const Select = function Select({ ref, className, multiple, ...props }) {
     return (
         <span
             className={clsx([
@@ -22,8 +20,8 @@ export const Select = function Select(
             data-slot="control"
         >
             <Headless.Select
-                ref={ref}
                 multiple={multiple}
+                ref={ref}
                 {...props}
                 className={clsx([
                     // Basic layout

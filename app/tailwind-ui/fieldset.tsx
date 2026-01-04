@@ -1,11 +1,11 @@
-import type React from "react";
 import * as Headless from "@headlessui/react";
 import clsx from "clsx";
+import type React from "react";
 
 export function Fieldset({
     className,
     ...props
-}: { className?: string; } & Omit<Headless.FieldsetProps, "className">) {
+}: { className?: string } & Omit<Headless.FieldsetProps, "className">) {
     return (
         <Headless.Fieldset
             {...props}
@@ -17,7 +17,7 @@ export function Fieldset({
 export function Legend({
     className,
     ...props
-}: { className?: string; } & Omit<Headless.LegendProps, "className">) {
+}: { className?: string } & Omit<Headless.LegendProps, "className">) {
     return (
         <Headless.Legend
             data-slot="legend"
@@ -37,7 +37,7 @@ export function FieldGroup({ className, ...props }: React.ComponentPropsWithoutR
 export function Field({
     className,
     ...props
-}: { className?: string; } & Omit<Headless.FieldProps, "className">) {
+}: { className?: string } & Omit<Headless.FieldProps, "className">) {
     return (
         <Headless.Field
             {...props}
@@ -57,7 +57,7 @@ export function Field({
 export function Label({
     className,
     ...props
-}: { className?: string; } & Omit<Headless.LabelProps, "className">) {
+}: { className?: string } & Omit<Headless.LabelProps, "className">) {
     return (
         <Headless.Label
             data-slot="label"
@@ -73,7 +73,7 @@ export function Label({
 export function Description({
     className,
     ...props
-}: { className?: string; } & Omit<Headless.DescriptionProps, "className">) {
+}: { className?: string } & Omit<Headless.DescriptionProps, "className">) {
     return (
         <Headless.Description
             data-slot="description"
@@ -89,7 +89,7 @@ export function Description({
 export function ErrorMessage({
     className,
     ...props
-}: { className?: string; } & Omit<Headless.DescriptionProps, "className">) {
+}: { className?: string } & Omit<Headless.DescriptionProps, "className">) {
     return (
         <Headless.Description
             data-slot="error"

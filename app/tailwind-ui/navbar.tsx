@@ -3,10 +3,11 @@
 import * as Headless from "@headlessui/react";
 import clsx from "clsx";
 import { LayoutGroup, motion } from "framer-motion";
-import React, { useId } from "react";
+import type React from "react";
+import { useId } from "react";
 import { useLocation } from "react-router";
-import { TouchTarget } from "./button";
-import { Link } from "./link";
+import { TouchTarget } from "./button.tsx";
+import { Link } from "./link.tsx";
 
 export function Navbar({ className, ...props }: React.ComponentPropsWithoutRef<"nav">) {
     return <nav {...props} className={clsx(className, "flex flex-1 items-center gap-4 py-2.5")} />;
@@ -36,18 +37,19 @@ export function NavbarSpacer({ className, ...props }: React.ComponentPropsWithou
     return <div aria-hidden="true" {...props} className={clsx(className, "-ml-4 flex-1")} />;
 }
 
-export const NavbarItem = function NavbarItem(
-    { ref, className, children, ...props }:
-        & {
-            className?: string;
-            children: React.ReactNode;
-            ref?: React.Ref<HTMLAnchorElement | HTMLButtonElement>;
-        }
-        & (
-            | Omit<Headless.ButtonProps, "as" | "className">
-            | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
-        ),
-) {
+export const NavbarItem = function NavbarItem({
+    ref,
+    className,
+    children,
+    ...props
+}: {
+    className?: string;
+    children: React.ReactNode;
+    ref?: React.Ref<HTMLAnchorElement | HTMLButtonElement>;
+} & (
+    | Omit<Headless.ButtonProps, "as" | "className">
+    | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
+)) {
     const classes = clsx(
         // Base
         "relative flex min-w-0 items-center gap-3 rounded-lg p-2 text-left text-base/6 font-medium text-zinc-950 sm:text-sm/5",
@@ -78,27 +80,25 @@ export const NavbarItem = function NavbarItem(
                     layoutId="current-indicator"
                 />
             )}
-            {"href" in props
-                ? (
-                    <Link
-                        {...props}
-                        ref={ref as React.ForwardedRef<HTMLAnchorElement>}
-                        className={classes}
-                        data-current={current ? "true" : undefined}
-                    >
-                        <TouchTarget>{children}</TouchTarget>
-                    </Link>
-                )
-                : (
-                    <Headless.Button
-                        {...props}
-                        ref={ref}
-                        className={clsx("cursor-default", classes)}
-                        data-current={current ? "true" : undefined}
-                    >
-                        <TouchTarget>{children}</TouchTarget>
-                    </Headless.Button>
-                )}
+            {"href" in props ? (
+                <Link
+                    {...props}
+                    className={classes}
+                    data-current={current ? "true" : undefined}
+                    ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+                >
+                    <TouchTarget>{children}</TouchTarget>
+                </Link>
+            ) : (
+                <Headless.Button
+                    {...props}
+                    className={clsx("cursor-default", classes)}
+                    data-current={current ? "true" : undefined}
+                    ref={ref}
+                >
+                    <TouchTarget>{children}</TouchTarget>
+                </Headless.Button>
+            )}
         </span>
     );
 };

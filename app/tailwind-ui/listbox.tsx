@@ -61,9 +61,11 @@ export function Listbox<T>({
                         "group-data-disabled:border-zinc-950/20 group-data-disabled:opacity-100 dark:group-data-disabled:border-white/15 dark:group-data-disabled:bg-white/2.5 dark:group-data-disabled:data-hover:border-white/15",
                     ])}
                     options={options}
-                    placeholder={placeholder && (
-                        <span className="block truncate text-zinc-500">{placeholder}</span>
-                    )}
+                    placeholder={
+                        placeholder && (
+                            <span className="block truncate text-zinc-500">{placeholder}</span>
+                        )
+                    }
                 />
                 <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                     <svg
@@ -120,13 +122,10 @@ export function ListboxOption<T>({
     children,
     className,
     ...props
-}:
-    & { className?: string; children?: React.ReactNode; }
-    & Omit<
-        Headless.ListboxOptionProps<"div", T>,
-        "className"
-    >)
-{
+}: { className?: string; children?: React.ReactNode } & Omit<
+    Headless.ListboxOptionProps<"div", T>,
+    "className"
+>) {
     const sharedClasses = clsx(
         // Base
         "flex min-w-0 items-center",

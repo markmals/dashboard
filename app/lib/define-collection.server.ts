@@ -25,7 +25,7 @@ export type CollectionConfig<S extends BaseSchema> =
 export function defineCollection<
     Schema extends BaseSchema,
     Type extends "content" | "data",
->(input: { type: Type; schema: Schema; }): { type: Type; schema: Schema; } {
+>(input: { type: Type; schema: Schema }): { type: Type; schema: Schema } {
     return input as any;
 }
 

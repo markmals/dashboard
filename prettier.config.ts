@@ -1,12 +1,11 @@
-// @ts-check
+import type { Config } from "prettier";
 
-/** @type {import("prettier").Config} */
 export default {
     printWidth: 100,
     tabWidth: 4,
     arrowParens: "avoid",
 
-    // MARK: Defaults
+    // MARK: Keeping these defaults
     // useTabs: false,
     // semi: true,
     // singleQuote: false,
@@ -14,7 +13,6 @@ export default {
     // proseWrap: "preserve",
 
     plugins: [
-        "@prettier/plugin-oxc",
         "prettier-plugin-pkg",
         "prettier-plugin-sh",
         "prettier-plugin-tailwindcss",
@@ -29,4 +27,4 @@ export default {
             },
         },
     ],
-};
+} satisfies Config;

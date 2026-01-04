@@ -1,7 +1,7 @@
-import type React from "react";
 import * as Headless from "@headlessui/react";
 import clsx from "clsx";
-import { Text } from "./text";
+import type React from "react";
+import { Text } from "./text.tsx";
 
 const sizes = {
     xs: "sm:max-w-xs",
@@ -22,13 +22,10 @@ export function Alert({
     className,
     children,
     ...props
-}:
-    & { size?: keyof typeof sizes; className?: string; children: React.ReactNode; }
-    & Omit<
-        Headless.DialogProps,
-        "className"
-    >)
-{
+}: { size?: keyof typeof sizes; className?: string; children: React.ReactNode } & Omit<
+    Headless.DialogProps,
+    "className"
+>) {
     return (
         <Headless.Transition appear show={open} {...props}>
             <Headless.Dialog onClose={onClose}>
@@ -73,7 +70,7 @@ export function Alert({
 export function AlertTitle({
     className,
     ...props
-}: { className?: string; } & Omit<Headless.DialogTitleProps, "className">) {
+}: { className?: string } & Omit<Headless.DialogTitleProps, "className">) {
     return (
         <Headless.DialogTitle
             {...props}
@@ -88,7 +85,7 @@ export function AlertTitle({
 export function AlertDescription({
     className,
     ...props
-}: { className?: string; } & Omit<Headless.DescriptionProps<typeof Text>, "className">) {
+}: { className?: string } & Omit<Headless.DescriptionProps<typeof Text>, "className">) {
     return (
         <Headless.Description
             as={Text}

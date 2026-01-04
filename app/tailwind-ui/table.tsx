@@ -1,9 +1,9 @@
 "use client";
 
-import type React from "react";
 import { clsx } from "clsx";
+import type React from "react";
 import { createContext, useState } from "react";
-import { Link } from "./link";
+import { Link } from "./link.tsx";
 
 const TableContext = createContext<{
     bleed: boolean;
@@ -64,7 +64,7 @@ export function TableBody(props: React.ComponentPropsWithoutRef<"tbody">) {
     return <tbody {...props} />;
 }
 
-const TableRowContext = createContext<{ href?: string; target?: string; title?: string; }>({
+const TableRowContext = createContext<{ href?: string; target?: string; title?: string }>({
     href: undefined,
     target: undefined,
     title: undefined,
@@ -76,7 +76,7 @@ export function TableRow({
     title,
     className,
     ...props
-}: { href?: string; target?: string; title?: string; } & React.ComponentPropsWithoutRef<"tr">) {
+}: { href?: string; target?: string; title?: string } & React.ComponentPropsWithoutRef<"tr">) {
     const { striped } = use(TableContext);
 
     return (
@@ -87,8 +87,8 @@ export function TableRow({
                 {...props}
                 className={clsx(
                     className,
-                    href
-                        && "has-[[data-row-link][data-focus]]:outline-2 has-[[data-row-link][data-focus]]:-outline-offset-2 has-[[data-row-link][data-focus]]:outline-blue-500 has-[[data-row-link][data-focus]]:outline-solid dark:focus-within:bg-white/2.5",
+                    href &&
+                        "has-[[data-row-link][data-focus]]:outline-2 has-[[data-row-link][data-focus]]:-outline-offset-2 has-[[data-row-link][data-focus]]:outline-blue-500 has-[[data-row-link][data-focus]]:outline-solid dark:focus-within:bg-white/2.5",
                     striped && "even:bg-zinc-950/2.5 dark:even:bg-white/2.5",
                     href && striped && "hover:bg-zinc-950/5 dark:hover:bg-white/5",
                     href && !striped && "hover:bg-zinc-950/2.5 dark:hover:bg-white/2.5",
@@ -134,12 +134,12 @@ export function TableCell({ className, children, ...props }: React.ComponentProp
         >
             {href && (
                 <Link
-                    href={href}
                     aria-label={title}
                     className="absolute inset-0 focus:outline-hidden"
+                    data-row-link
+                    href={href}
                     tabIndex={cellRef?.previousElementSibling === null ? 0 : -1}
                     target={target}
-                    data-row-link
                 />
             )}
             {children}

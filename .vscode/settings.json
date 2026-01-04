@@ -1,83 +1,58 @@
 {
+    "typescript.preferences.importModuleSpecifierEnding": "js",
+
+    "biome.enabled": true,
     "prettier.enable": true,
 
-    "eslint.enable": true,
-    "eslint.codeActionsOnSave.mode": "problems",
-    "eslint.options": {
-        "cache": true,
-        "cacheLocation": "node_modules/eslint/.eslintcache"
-    },
-
-    "biome.enabled": false,
-    "dprint.experimentalLsp": false,
-    "deno.enable": false,
-
     "editor.codeActionsOnSave": {
-        "source.fixAll.ts": "explicit",
-        "source.fixAll.eslint": "explicit"
+        "source.fixAll": "explicit",
+        "source.fixAll.biome": "explicit",
+
+        "source.addMissingImports.ts": "explicit",
+        "source.removeUnused.ts": "never"
     },
 
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "biomejs.biome",
     "editor.formatOnSave": true,
 
     "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "biomejs.biome"
     },
     "[tsx]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "biomejs.biome"
     },
     "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "prettier.prettier-vscode"
+    },
+    "[toml]": {
+        "editor.defaultFormatter": "prettier.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "prettier.prettier-vscode"
     },
 
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
-        "*.css": "$(capture).css.map, $(capture).*.css",
-        ".env": "*.env, .env.*, .envrc, env.d.ts",
-        "package.json": ".github*, .npmrc, .vscode*, eslint.config.*, mise.toml, pnpm-*.yaml, prettier.config.*, tsconfig.*, wrangler.toml, wrangler.json*, workspace.json",
-        "readme*": "agent*, authors, backers*, changelog*, citation*, claude*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
-        "vite.config.*": "drizzle.config.*, react-router.config.*, vitest.config.*, *.plugin.ts"
-    },
-    "files.exclude": {
-        ".react-router": true,
-        ".wrangler": true,
-        ".claude": true,
-        // "build": true,
-        // "dist": true,
-        "worker-configuration.d.ts": true
+        "package.json": ".github*, .npmrc, .prettierignore, .vscode*, biome.json*, bun.lock*, components.json, eslint.config.*, mise.toml, pnpm-*.yaml, prettier.config.*, tsconfig.*, wrangler.toml, wrangler.*.toml, wrangler.json*, wrangler.*.json, wrangler.*.jsonc, workspace.json",
+        "readme*": "agent*, authors, backers*, changelog*, citation*, claude*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*"
+        // "tsdown.config.ts": "vitest.config.ts, *.plugin.ts"
+        // "vite.config.ts": "vitest.config.ts, *.plugin.ts"
     },
 
-    "tailwindCSS.classAttributes": ["className"],
-    "tailwindCSS.classFunctions": ["cva", "cx", "clsx"],
-
-    "todohighlight.keywords": [
-        "MARK:",
-        {
-            "text": "FIXME:",
-            "backgroundColor": "#F14848"
-        },
-        {
-            "text": "TODO:",
-            "backgroundColor": "#3593FF"
-        }
-    ],
-    "todohighlight.defaultStyle": {
-        "backgroundColor": "#434B54",
-        "color": "#fff",
-        "borderRadius": "2px"
-    },
-
-    "debug.javascript.defaultRuntimeExecutable": {
-        "pwa-node": "/Users/orion/.local/share/mise/shims/node"
-    }
+    "oxc.enable": false,
+    "eslint.enable": false,
+    "dprint.experimentalLsp": false,
+    "deno.enable": false,
+    "unocss.disable": true,
+    "vitest.ignoreWorkspace": true
 }

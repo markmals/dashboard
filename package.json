@@ -1,9 +1,6 @@
 {
     "type": "module",
     "private": true,
-    "scripts": {
-        "postinstall": "mise run postinstall"
-    },
     "dependencies": {
         "@cloudflare/vite-plugin": "^1.10.1",
         "@headlessui/react": "^2.2.6",
@@ -30,7 +27,6 @@
         "@types/react": "^19.1.8",
         "@types/react-dom": "^19.1.6",
         "@typescript/native-preview": "latest",
-        "@withsprinkles/eslint-config": "0.2.0",
         "babel-plugin-react-compiler": "19.1.0-rc.3",
         "eslint": "^9.32.0",
         "prettier": "^3.6.2",

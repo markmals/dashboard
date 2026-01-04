@@ -3,10 +3,11 @@
 import * as Headless from "@headlessui/react";
 import clsx from "clsx";
 import { LayoutGroup, motion } from "framer-motion";
-import React, { Fragment, useId } from "react";
+import type React from "react";
+import { Fragment, useId } from "react";
 import { useLocation } from "react-router";
-import { TouchTarget } from "./button";
-import { Link } from "./link";
+import { TouchTarget } from "./button.tsx";
+import { Link } from "./link.tsx";
 
 export function Sidebar({ className, ...props }: React.ComponentPropsWithoutRef<"nav">) {
     return <nav {...props} className={clsx(className, "flex h-full flex-col")} />;
@@ -90,18 +91,19 @@ export function SidebarHeading({ className, ...props }: React.ComponentPropsWith
     );
 }
 
-export const SidebarItem = function SidebarItem(
-    { ref, className, children, ...props }:
-        & {
-            className?: string;
-            children: React.ReactNode;
-            ref?: React.Ref<HTMLAnchorElement | HTMLButtonElement>;
-        }
-        & (
-            | Omit<Headless.ButtonProps, "as" | "className">
-            | Omit<Headless.ButtonProps<typeof Link>, "as" | "className">
-        ),
-) {
+export const SidebarItem = function SidebarItem({
+    ref,
+    className,
+    children,
+    ...props
+}: {
+    className?: string;
+    children: React.ReactNode;
+    ref?: React.Ref<HTMLAnchorElement | HTMLButtonElement>;
+} & (
+    | Omit<Headless.ButtonProps, "as" | "className">
+    | Omit<Headless.ButtonProps<typeof Link>, "as" | "className">
+)) {
     const classes = clsx(
         // Base
         "flex w-full items-center gap-3 rounded-lg px-2 py-2.5 text-left text-base/6 font-medium text-zinc-950 sm:py-2 sm:text-sm/5",
@@ -135,28 +137,26 @@ export const SidebarItem = function SidebarItem(
                     layoutId="current-indicator"
                 />
             )}
-            {"href" in props
-                ? (
-                    <Headless.CloseButton ref={ref} as={Fragment}>
-                        <Link
-                            className={classes}
-                            {...props}
-                            data-current={current ? "true" : undefined}
-                        >
-                            <TouchTarget>{children}</TouchTarget>
-                        </Link>
-                    </Headless.CloseButton>
-                )
-                : (
-                    <Headless.Button
-                        {...props}
-                        ref={ref}
+            {"href" in props ? (
+                <Headless.CloseButton as={Fragment} ref={ref}>
+                    <Link
                         className={classes}
+                        {...props}
                         data-current={current ? "true" : undefined}
                     >
                         <TouchTarget>{children}</TouchTarget>
-                    </Headless.Button>
-                )}
+                    </Link>
+                </Headless.CloseButton>
+            ) : (
+                <Headless.Button
+                    {...props}
+                    className={classes}
+                    data-current={current ? "true" : undefined}
+                    ref={ref}
+                >
+                    <TouchTarget>{children}</TouchTarget>
+                </Headless.Button>
+            )}
         </span>
     );
 };

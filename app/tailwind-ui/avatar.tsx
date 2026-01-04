@@ -1,8 +1,8 @@
 import * as Headless from "@headlessui/react";
 import clsx from "clsx";
-import React from "react";
-import { TouchTarget } from "./button";
-import { Link } from "./link";
+import type React from "react";
+import { TouchTarget } from "./button.tsx";
+import { Link } from "./link.tsx";
 
 interface AvatarProps {
     src?: string | null;
@@ -59,28 +59,32 @@ export function Avatar({
     );
 }
 
-export const AvatarButton = function AvatarButton(
-    { ref, src, square = false, initials, alt, className, ...props },
-) {
+export const AvatarButton = function AvatarButton({
+    ref,
+    src,
+    square = false,
+    initials,
+    alt,
+    className,
+    ...props
+}) {
     const classes = clsx(
         className,
         square ? "rounded-[20%]" : "rounded-full",
         "relative inline-grid focus:outline-hidden data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-blue-500 data-focus:outline-solid",
     );
 
-    return "href" in props
-        ? (
-            <Link {...props} ref={ref as React.ForwardedRef<HTMLAnchorElement>} className={classes}>
-                <TouchTarget>
-                    <Avatar alt={alt} initials={initials} square={square} src={src} />
-                </TouchTarget>
-            </Link>
-        )
-        : (
-            <Headless.Button {...props} ref={ref} className={classes}>
-                <TouchTarget>
-                    <Avatar alt={alt} initials={initials} square={square} src={src} />
-                </TouchTarget>
-            </Headless.Button>
-        );
+    return "href" in props ? (
+        <Link {...props} className={classes} ref={ref as React.ForwardedRef<HTMLAnchorElement>}>
+            <TouchTarget>
+                <Avatar alt={alt} initials={initials} square={square} src={src} />
+            </TouchTarget>
+        </Link>
+    ) : (
+        <Headless.Button {...props} className={classes} ref={ref}>
+            <TouchTarget>
+                <Avatar alt={alt} initials={initials} square={square} src={src} />
+            </TouchTarget>
+        </Headless.Button>
+    );
 };

@@ -1,4 +1,4 @@
-import type { CollectionEntry } from "./content.server";
+import type { CollectionEntry } from "./content.server.ts";
 
 const articles = /^(?:a|an|the)\s+/i;
 const removeArticles = (title: string) => title.replace(articles, "");
@@ -32,8 +32,10 @@ interface Releasable {
 }
 
 export const releaseSortComparator = (lhs: Releasable, rhs: Releasable) => {
-    return new Date(`${lhs.release}T00:00:00`).getTime()
-        - new Date(`${rhs.release}T00:00:00`).getTime();
+    return (
+        new Date(`${lhs.release}T00:00:00`).getTime() -
+        new Date(`${rhs.release}T00:00:00`).getTime()
+    );
 };
 
 interface Year {
@@ -49,7 +51,7 @@ interface Identifiable {
 }
 
 export const idSortComparator = (lhs: Identifiable, rhs: Identifiable) => {
-    return parseInt(lhs.id) - parseInt(rhs.id);
+    return Number.parseInt(lhs.id, 10) - Number.parseInt(rhs.id, 10);
 };
 
 export const withContent = <T>(comparator: (lhs: T, rhs: T) => number) => {

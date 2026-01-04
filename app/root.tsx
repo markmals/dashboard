@@ -25,12 +25,12 @@ const navItems = [
     // { label: "Developer Education", url: "/dev-edu", icon: CodeBracketIcon },
 ];
 
-export function Layout({ children }: { children: React.ReactNode; }) {
+export function Layout({ children }: { children: React.ReactNode }) {
     return (
         <html className="bg-white lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950" lang="en">
             <head>
                 <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta content="width=device-width, initial-scale=1" name="viewport" />
                 <link href={tailwind} rel="stylesheet" />
                 <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
                 <link href="favicon.svg" rel="icon" type="image/svg+xml" />
@@ -42,7 +42,7 @@ export function Layout({ children }: { children: React.ReactNode; }) {
                         <Navbar>
                             <NavbarSection className="max-lg:hidden">
                                 {navItems.map(({ label, url }) => (
-                                    <NavbarItem key={label} href={url}>
+                                    <NavbarItem href={url} key={label}>
                                         {label}
                                     </NavbarItem>
                                 ))}
@@ -54,7 +54,7 @@ export function Layout({ children }: { children: React.ReactNode; }) {
                             <SidebarBody>
                                 <SidebarSection>
                                     {navItems.map(({ label, url, icon: Icon }) => (
-                                        <SidebarItem key={label} href={url}>
+                                        <SidebarItem href={url} key={label}>
                                             <Icon />
                                             <SidebarLabel>{label}</SidebarLabel>
                                         </SidebarItem>
