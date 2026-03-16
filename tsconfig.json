@@ -13,6 +13,7 @@
             "@tailwindcss/ui": ["app/tailwind-ui/index.ts"],
             "@tailwindcss/ui/*": ["app/tailwind-ui/*"]
         },
-        "rootDirs": [".", "./.react-router/types"]
+        "rootDirs": [".", "./.react-router/types"],
+        "allowImportingTsExtensions": true
     }
 }
