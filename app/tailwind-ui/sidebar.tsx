@@ -1,10 +1,10 @@
 "use client";
 
-import * as Headless from "@headlessui/react";
 import clsx from "clsx";
 import { LayoutGroup, motion } from "framer-motion";
 import type React from "react";
-import { Fragment, useId } from "react";
+import { useId } from "react";
+import { Button as RACButton } from "react-aria-components";
 import { useLocation } from "react-router";
 import { TouchTarget } from "./button.tsx";
 import { Link } from "./link.tsx";
@@ -101,8 +101,8 @@ export const SidebarItem = function SidebarItem({
     children: React.ReactNode;
     ref?: React.Ref<HTMLAnchorElement | HTMLButtonElement>;
 } & (
-    | Omit<Headless.ButtonProps, "as" | "className">
-    | Omit<Headless.ButtonProps<typeof Link>, "as" | "className">
+    | Omit<React.ComponentPropsWithoutRef<typeof RACButton>, "className">
+    | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
 )) {
     const classes = clsx(
         // Base
@@ -114,15 +114,15 @@ export const SidebarItem = function SidebarItem({
         // Avatar
         "*:data-[slot=avatar]:-m-0.5 *:data-[slot=avatar]:size-7 *:data-[slot=avatar]:[--ring-opacity:10%] sm:*:data-[slot=avatar]:size-6",
         // Hover
-        "data-hover:bg-blue-600/5 data-hover:*:data-[slot=icon]:fill-blue-600",
+        "data-hovered:bg-blue-600/5 data-hovered:*:data-[slot=icon]:fill-blue-600",
         // Active
-        "data-active:bg-blue-600/5 data-active:*:data-[slot=icon]:fill-blue-600",
+        "data-pressed:bg-blue-600/5 data-pressed:*:data-[slot=icon]:fill-blue-600",
         // Current
         "data-current:*:data-[slot=icon]:fill-blue-600",
         // Dark mode
         "dark:text-white dark:*:data-[slot=icon]:fill-zinc-400",
-        "dark:data-hover:bg-white/5 dark:data-hover:*:data-[slot=icon]:fill-blue-500",
-        "dark:data-active:bg-white/5 dark:data-active:*:data-[slot=icon]:fill-blue-500",
+        "dark:data-hovered:bg-white/5 dark:data-hovered:*:data-[slot=icon]:fill-blue-500",
+        "dark:data-pressed:bg-white/5 dark:data-pressed:*:data-[slot=icon]:fill-blue-500",
         "dark:data-current:*:data-[slot=icon]:fill-blue-500",
     );
 
@@ -138,24 +138,23 @@ export const SidebarItem = function SidebarItem({
                 />
             )}
             {"href" in props ? (
-                <Headless.CloseButton as={Fragment} ref={ref}>
-                    <Link
-                        className={classes}
-                        {...props}
-                        data-current={current ? "true" : undefined}
-                    >
-                        <TouchTarget>{children}</TouchTarget>
-                    </Link>
-                </Headless.CloseButton>
+                <Link
+                    className={classes}
+                    {...props}
+                    data-current={current ? "true" : undefined}
+                    ref={ref as React.Ref<HTMLAnchorElement>}
+                >
+                    <TouchTarget>{children}</TouchTarget>
+                </Link>
             ) : (
-                <Headless.Button
+                <RACButton
                     {...props}
                     className={classes}
                     data-current={current ? "true" : undefined}
                     ref={ref}
                 >
                     <TouchTarget>{children}</TouchTarget>
-                </Headless.Button>
+                </RACButton>
             )}
         </span>
     );

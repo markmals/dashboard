@@ -1,6 +1,6 @@
-import * as Headless from "@headlessui/react";
 import { clsx } from "clsx";
 import type React from "react";
+import { Switch as RACSwitch } from "react-aria-components";
 
 export function SwitchGroup({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
     return (
@@ -21,9 +21,9 @@ export function SwitchGroup({ className, ...props }: React.ComponentPropsWithout
 export function SwitchField({
     className,
     ...props
-}: { className?: string } & Omit<Headless.FieldProps, "className">) {
+}: { className?: string } & React.ComponentPropsWithoutRef<"div">) {
     return (
-        <Headless.Field
+        <div
             data-slot="field"
             {...props}
             className={clsx(
@@ -143,9 +143,9 @@ export function Switch({
 }: {
     color?: Color;
     className?: string;
-} & Omit<Headless.SwitchProps, "className" | "children">) {
+} & Omit<React.ComponentPropsWithoutRef<typeof RACSwitch>, "className" | "children">) {
     return (
-        <Headless.Switch
+        <RACSwitch
             data-slot="control"
             {...props}
             className={clsx(
@@ -153,21 +153,21 @@ export function Switch({
                 // Base styles
                 "group relative isolate inline-flex h-6 w-10 cursor-default rounded-full p-[3px] sm:h-5 sm:w-8",
                 // Transitions
-                "transition duration-0 ease-in-out data-changing:duration-200",
+                "transition duration-200 ease-in-out",
                 // Outline and background color in forced-colors mode so switch is still visible
                 "forced-colors:outline-solid forced-colors:[--switch-bg:Highlight] dark:forced-colors:[--switch-bg:Highlight]",
                 // Unchecked
                 "bg-zinc-200 ring-1 ring-black/5 ring-inset dark:bg-white/5 dark:ring-white/15",
                 // Checked
-                "data-checked:bg-(--switch-bg) data-checked:ring-(--switch-bg-ring) dark:data-checked:bg-(--switch-bg) dark:data-checked:ring-(--switch-bg-ring)",
+                "data-selected:bg-(--switch-bg) data-selected:ring-(--switch-bg-ring) dark:data-selected:bg-(--switch-bg) dark:data-selected:ring-(--switch-bg-ring)",
                 // Focus
-                "focus:outline-hidden data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-blue-500 data-focus:outline-solid",
+                "focus:outline-hidden data-focus-visible:outline-2 data-focus-visible:outline-offset-2 data-focus-visible:outline-blue-500 data-focus-visible:outline-solid",
                 // Hover
-                "data-hover:ring-black/15 data-hover:data-checked:ring-(--switch-bg-ring)",
-                "dark:data-hover:ring-white/25 dark:data-hover:data-checked:ring-(--switch-bg-ring)",
+                "data-hovered:ring-black/15 data-hovered:data-selected:ring-(--switch-bg-ring)",
+                "dark:data-hovered:ring-white/25 dark:data-hovered:data-selected:ring-(--switch-bg-ring)",
                 // Disabled
-                "data-disabled:bg-zinc-200 data-disabled:opacity-50 data-disabled:data-checked:bg-zinc-200 data-disabled:data-checked:ring-black/5",
-                "dark:data-disabled:bg-white/15 dark:data-disabled:data-checked:bg-white/15 dark:data-disabled:data-checked:ring-white/15",
+                "data-disabled:bg-zinc-200 data-disabled:opacity-50 data-disabled:data-selected:bg-zinc-200 data-disabled:data-selected:ring-black/5",
+                "dark:data-disabled:bg-white/15 dark:data-disabled:data-selected:bg-white/15 dark:data-disabled:data-selected:ring-white/15",
                 // Color specific styles
                 colors[color],
             )}
@@ -184,12 +184,12 @@ export function Switch({
                     // Unchecked
                     "bg-white shadow-sm ring-1 ring-black/5",
                     // Checked
-                    "group-data-checked:bg-(--switch) group-data-checked:shadow-(--switch-shadow) group-data-checked:ring-(--switch-ring)",
-                    "group-data-checked:translate-x-4 sm:group-data-checked:translate-x-3",
+                    "group-data-selected:bg-(--switch) group-data-selected:shadow-(--switch-shadow) group-data-selected:ring-(--switch-ring)",
+                    "group-data-selected:translate-x-4 sm:group-data-selected:translate-x-3",
                     // Disabled
-                    "group-data-checked:group-data-disabled:bg-white group-data-checked:group-data-disabled:shadow-sm group-data-checked:group-data-disabled:ring-black/5",
+                    "group-data-selected:group-data-disabled:bg-white group-data-selected:group-data-disabled:shadow-sm group-data-selected:group-data-disabled:ring-black/5",
                 )}
             />
-        </Headless.Switch>
+        </RACSwitch>
     );
 }

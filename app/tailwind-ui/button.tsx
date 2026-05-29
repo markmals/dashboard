@@ -1,4 +1,4 @@
-import * as Headless from "@headlessui/react";
+import { Button as RACButton } from "react-aria-components";
 import { clsx } from "clsx";
 import type React from "react";
 import { Link } from "./link.tsx";
@@ -10,11 +10,11 @@ const styles = {
         // Sizing
         "px-[calc(--spacing(3.5)-1px)] py-[calc(--spacing(2.5)-1px)] sm:px-[calc(--spacing(3)-1px)] sm:py-[calc(--spacing(1.5)-1px)] sm:text-sm/6",
         // Focus
-        "focus:outline-hidden data-focus:outline-solid data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-blue-500",
+        "focus:outline-hidden data-focus-visible:outline-solid data-focus-visible:outline-2 data-focus-visible:outline-offset-2 data-focus-visible:outline-blue-500",
         // Disabled
         "data-disabled:text-black/35",
         // Icon
-        "*:data-[slot=icon]:-mx-0.5 *:data-[slot=icon]:my-0.5 *:data-[slot=icon]:size-5 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:text-(--btn-icon) sm:*:data-[slot=icon]:my-1 sm:*:data-[slot=icon]:size-4 forced-colors:[--btn-icon:ButtonText] forced-colors:data-hover:[--btn-icon:ButtonText]",
+        "*:data-[slot=icon]:-mx-0.5 *:data-[slot=icon]:my-0.5 *:data-[slot=icon]:size-5 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:text-(--btn-icon) sm:*:data-[slot=icon]:my-1 sm:*:data-[slot=icon]:size-4 forced-colors:[--btn-icon:ButtonText] forced-colors:data-hovered:[--btn-icon:ButtonText]",
     ],
     solid: [
         // Semibold font
@@ -36,7 +36,7 @@ const styles = {
         // Inner highlight shadow
         "after:shadow-[inset_0_1px_--theme(--color-white/15%)]",
         // White overlay on hover
-        "data-active:after:bg-(--btn-hover-overlay) data-hover:after:bg-(--btn-hover-overlay)",
+        "data-pressed:after:bg-(--btn-hover-overlay) data-hovered:after:bg-(--btn-hover-overlay)",
         // Dark mode: `after` layer expands to cover entire button
         "dark:after:-inset-px dark:after:rounded-lg",
         // Disabled
@@ -44,58 +44,58 @@ const styles = {
     ],
     outline: [
         // Base
-        "border-zinc-950/10 text-zinc-950 data-active:bg-zinc-950/2.5 data-hover:bg-zinc-950/2.5",
+        "border-zinc-950/10 text-zinc-950 data-pressed:bg-zinc-950/2.5 data-hovered:bg-zinc-950/2.5",
         // Semibold font
         "font-semibold",
         // Dark mode
-        "dark:border-white/15 dark:text-white dark:[--btn-bg:transparent] dark:data-active:bg-white/5 dark:data-hover:bg-white/5",
+        "dark:border-white/15 dark:text-white dark:[--btn-bg:transparent] dark:data-pressed:bg-white/5 dark:data-hovered:bg-white/5",
         // Icon
-        "[--btn-icon:var(--color-zinc-500)] data-active:[--btn-icon:var(--color-zinc-700)] data-hover:[--btn-icon:var(--color-zinc-700)] dark:data-active:[--btn-icon:var(--color-zinc-400)] dark:data-hover:[--btn-icon:var(--color-zinc-400)]",
+        "[--btn-icon:var(--color-zinc-500)] data-pressed:[--btn-icon:var(--color-zinc-700)] data-hovered:[--btn-icon:var(--color-zinc-700)] dark:data-pressed:[--btn-icon:var(--color-zinc-400)] dark:data-hovered:[--btn-icon:var(--color-zinc-400)]",
     ],
     plain: [
         // Base
-        "border-transparent data-active:bg-zinc-950/5 data-hover:bg-zinc-950/5",
+        "border-transparent data-pressed:bg-zinc-950/5 data-hovered:bg-zinc-950/5",
         // Normal font
         "font-normal",
         // Dark mode
-        "dark:data-active:bg-white/10 dark:data-hover:bg-white/10",
+        "dark:data-pressed:bg-white/10 dark:data-hovered:bg-white/10",
         // Icon
-        "[--btn-icon:var(--color-zinc-500)] data-active:[--btn-icon:var(--color-zinc-700)] data-hover:[--btn-icon:var(--color-zinc-700)] dark:[--btn-icon:var(--color-zinc-500)] dark:data-active:[--btn-icon:var(--color-zinc-400)] dark:data-hover:[--btn-icon:var(--color-zinc-400)]",
+        "[--btn-icon:var(--color-zinc-500)] data-pressed:[--btn-icon:var(--color-zinc-700)] data-hovered:[--btn-icon:var(--color-zinc-700)] dark:[--btn-icon:var(--color-zinc-500)] dark:data-pressed:[--btn-icon:var(--color-zinc-400)] dark:data-hovered:[--btn-icon:var(--color-zinc-400)]",
     ],
     colors: {
         "dark/zinc": [
             "text-white [--btn-bg:var(--color-zinc-900)] [--btn-border:var(--color-zinc-950)]/90 [--btn-hover-overlay:var(--color-white)]/10",
             "dark:text-white dark:[--btn-bg:var(--color-zinc-600)] dark:[--btn-hover-overlay:var(--color-white)]/5",
-            "[--btn-icon:var(--color-zinc-400)] data-active:[--btn-icon:var(--color-zinc-300)] data-hover:[--btn-icon:var(--color-zinc-300)]",
+            "[--btn-icon:var(--color-zinc-400)] data-pressed:[--btn-icon:var(--color-zinc-300)] data-hovered:[--btn-icon:var(--color-zinc-300)]",
         ],
         light: [
-            "text-zinc-950 [--btn-bg:white] [--btn-border:var(--color-zinc-950)]/10 [--btn-hover-overlay:var(--color-zinc-950)]/2.5 data-active:[--btn-border:var(--color-zinc-950)]/15 data-hover:[--btn-border:var(--color-zinc-950)]/15",
+            "text-zinc-950 [--btn-bg:white] [--btn-border:var(--color-zinc-950)]/10 [--btn-hover-overlay:var(--color-zinc-950)]/2.5 data-pressed:[--btn-border:var(--color-zinc-950)]/15 data-hovered:[--btn-border:var(--color-zinc-950)]/15",
             "dark:text-white dark:[--btn-hover-overlay:var(--color-white)]/5 dark:[--btn-bg:var(--color-zinc-800)]",
-            "[--btn-icon:var(--color-zinc-500)] data-active:[--btn-icon:var(--color-zinc-700)] data-hover:[--btn-icon:var(--color-zinc-700)] dark:[--btn-icon:var(--color-zinc-500)] dark:data-active:[--btn-icon:var(--color-zinc-400)] dark:data-hover:[--btn-icon:var(--color-zinc-400)]",
+            "[--btn-icon:var(--color-zinc-500)] data-pressed:[--btn-icon:var(--color-zinc-700)] data-hovered:[--btn-icon:var(--color-zinc-700)] dark:[--btn-icon:var(--color-zinc-500)] dark:data-pressed:[--btn-icon:var(--color-zinc-400)] dark:data-hovered:[--btn-icon:var(--color-zinc-400)]",
         ],
         "dark/white": [
             "text-white [--btn-bg:var(--color-zinc-900)] [--btn-border:var(--color-zinc-950)]/90 [--btn-hover-overlay:var(--color-white)]/10",
             "dark:text-zinc-950 dark:[--btn-bg:white] dark:[--btn-hover-overlay:var(--color-zinc-950)]/5",
-            "[--btn-icon:var(--color-zinc-400)] data-active:[--btn-icon:var(--color-zinc-300)] data-hover:[--btn-icon:var(--color-zinc-300)] dark:[--btn-icon:var(--color-zinc-500)] dark:data-active:[--btn-icon:var(--color-zinc-400)] dark:data-hover:[--btn-icon:var(--color-zinc-400)]",
+            "[--btn-icon:var(--color-zinc-400)] data-pressed:[--btn-icon:var(--color-zinc-300)] data-hovered:[--btn-icon:var(--color-zinc-300)] dark:[--btn-icon:var(--color-zinc-500)] dark:data-pressed:[--btn-icon:var(--color-zinc-400)] dark:data-hovered:[--btn-icon:var(--color-zinc-400)]",
         ],
         dark: [
             "text-white [--btn-bg:var(--color-zinc-900)] [--btn-border:var(--color-zinc-950)]/90 [--btn-hover-overlay:var(--color-white)]/10",
             "dark:[--btn-hover-overlay:var(--color-white)]/5 dark:[--btn-bg:var(--color-zinc-800)]",
-            "[--btn-icon:var(--color-zinc-400)] data-active:[--btn-icon:var(--color-zinc-300)] data-hover:[--btn-icon:var(--color-zinc-300)]",
+            "[--btn-icon:var(--color-zinc-400)] data-pressed:[--btn-icon:var(--color-zinc-300)] data-hovered:[--btn-icon:var(--color-zinc-300)]",
         ],
         white: [
-            "text-zinc-950 [--btn-bg:white] [--btn-border:var(--color-zinc-950)]/10 [--btn-hover-overlay:var(--color-zinc-950)]/2.5 data-active:[--btn-border:var(--color-zinc-950)]/15 data-hover:[--btn-border:var(--color-zinc-950)]/15",
+            "text-zinc-950 [--btn-bg:white] [--btn-border:var(--color-zinc-950)]/10 [--btn-hover-overlay:var(--color-zinc-950)]/2.5 data-pressed:[--btn-border:var(--color-zinc-950)]/15 data-hovered:[--btn-border:var(--color-zinc-950)]/15",
             "dark:[--btn-hover-overlay:var(--color-zinc-950)]/5",
-            "[--btn-icon:var(--color-zinc-400)] data-active:[--btn-icon:var(--color-zinc-500)] data-hover:[--btn-icon:var(--color-zinc-500)]",
+            "[--btn-icon:var(--color-zinc-400)] data-pressed:[--btn-icon:var(--color-zinc-500)] data-hovered:[--btn-icon:var(--color-zinc-500)]",
         ],
         zinc: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-zinc-600)] [--btn-border:var(--color-zinc-700)]/90",
             "dark:[--btn-hover-overlay:var(--color-white)]/5",
-            "[--btn-icon:var(--color-zinc-400)] data-active:[--btn-icon:var(--color-zinc-300)] data-hover:[--btn-icon:var(--color-zinc-300)]",
+            "[--btn-icon:var(--color-zinc-400)] data-pressed:[--btn-icon:var(--color-zinc-300)] data-hovered:[--btn-icon:var(--color-zinc-300)]",
         ],
         indigo: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-indigo-500)] [--btn-border:var(--color-indigo-600)]/90",
-            "[--btn-icon:var(--color-indigo-300)] data-active:[--btn-icon:var(--color-indigo-200)] data-hover:[--btn-icon:var(--color-indigo-200)]",
+            "[--btn-icon:var(--color-indigo-300)] data-pressed:[--btn-icon:var(--color-indigo-200)] data-hovered:[--btn-icon:var(--color-indigo-200)]",
         ],
         cyan: [
             "text-cyan-950 [--btn-bg:var(--color-cyan-300)] [--btn-border:var(--color-cyan-400)]/80 [--btn-hover-overlay:var(--color-white)]/25",
@@ -103,11 +103,11 @@ const styles = {
         ],
         red: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-red-600)] [--btn-border:var(--color-red-700)]/90",
-            "[--btn-icon:var(--color-red-300)] data-active:[--btn-icon:var(--color-red-200)] data-hover:[--btn-icon:var(--color-red-200)]",
+            "[--btn-icon:var(--color-red-300)] data-pressed:[--btn-icon:var(--color-red-200)] data-hovered:[--btn-icon:var(--color-red-200)]",
         ],
         orange: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-orange-500)] [--btn-border:var(--color-orange-600)]/90",
-            "[--btn-icon:var(--color-orange-300)] data-active:[--btn-icon:var(--color-orange-200)] data-hover:[--btn-icon:var(--color-orange-200)]",
+            "[--btn-icon:var(--color-orange-300)] data-pressed:[--btn-icon:var(--color-orange-200)] data-hovered:[--btn-icon:var(--color-orange-200)]",
         ],
         amber: [
             "text-amber-950 [--btn-hover-overlay:var(--color-white)]/25 [--btn-bg:var(--color-amber-400)] [--btn-border:var(--color-amber-500)]/80",
@@ -115,51 +115,51 @@ const styles = {
         ],
         yellow: [
             "text-yellow-950 [--btn-hover-overlay:var(--color-white)]/25 [--btn-bg:var(--color-yellow-300)] [--btn-border:var(--color-yellow-400)]/80",
-            "[--btn-icon:var(--color-yellow-600)] data-active:[--btn-icon:var(--color-yellow-700)] data-hover:[--btn-icon:var(--color-yellow-700)]",
+            "[--btn-icon:var(--color-yellow-600)] data-pressed:[--btn-icon:var(--color-yellow-700)] data-hovered:[--btn-icon:var(--color-yellow-700)]",
         ],
         lime: [
             "text-lime-950 [--btn-hover-overlay:var(--color-white)]/25 [--btn-bg:var(--color-lime-300)] [--btn-border:var(--color-lime-400)]/80",
-            "[--btn-icon:var(--color-lime-600)] data-active:[--btn-icon:var(--color-lime-700)] data-hover:[--btn-icon:var(--color-lime-700)]",
+            "[--btn-icon:var(--color-lime-600)] data-pressed:[--btn-icon:var(--color-lime-700)] data-hovered:[--btn-icon:var(--color-lime-700)]",
         ],
         green: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-green-600)] [--btn-border:var(--color-green-700)]/90",
-            "[--btn-icon:var(--color-white)]/60 data-active:[--btn-icon:var(--color-white)]/80 data-hover:[--btn-icon:var(--color-white)]/80",
+            "[--btn-icon:var(--color-white)]/60 data-pressed:[--btn-icon:var(--color-white)]/80 data-hovered:[--btn-icon:var(--color-white)]/80",
         ],
         emerald: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-emerald-600)] [--btn-border:var(--color-emerald-700)]/90",
-            "[--btn-icon:var(--color-white)]/60 data-active:[--btn-icon:var(--color-white)]/80 data-hover:[--btn-icon:var(--color-white)]/80",
+            "[--btn-icon:var(--color-white)]/60 data-pressed:[--btn-icon:var(--color-white)]/80 data-hovered:[--btn-icon:var(--color-white)]/80",
         ],
         teal: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-teal-600)] [--btn-border:var(--color-teal-700)]/90",
-            "[--btn-icon:var(--color-white)]/60 data-active:[--btn-icon:var(--color-white)]/80 data-hover:[--btn-icon:var(--color-white)]/80",
+            "[--btn-icon:var(--color-white)]/60 data-pressed:[--btn-icon:var(--color-white)]/80 data-hovered:[--btn-icon:var(--color-white)]/80",
         ],
         sky: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-sky-500)] [--btn-border:var(--color-sky-600)]/80",
-            "[--btn-icon:var(--color-white)]/60 data-active:[--btn-icon:var(--color-white)]/80 data-hover:[--btn-icon:var(--color-white)]/80",
+            "[--btn-icon:var(--color-white)]/60 data-pressed:[--btn-icon:var(--color-white)]/80 data-hovered:[--btn-icon:var(--color-white)]/80",
         ],
         blue: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-blue-600)] [--btn-border:var(--color-blue-700)]/90",
-            "[--btn-icon:var(--color-blue-400)] data-active:[--btn-icon:var(--color-blue-300)] data-hover:[--btn-icon:var(--color-blue-300)]",
+            "[--btn-icon:var(--color-blue-400)] data-pressed:[--btn-icon:var(--color-blue-300)] data-hovered:[--btn-icon:var(--color-blue-300)]",
         ],
         violet: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-violet-500)] [--btn-border:var(--color-violet-600)]/90",
-            "[--btn-icon:var(--color-violet-300)] data-active:[--btn-icon:var(--color-violet-200)] data-hover:[--btn-icon:var(--color-violet-200)]",
+            "[--btn-icon:var(--color-violet-300)] data-pressed:[--btn-icon:var(--color-violet-200)] data-hovered:[--btn-icon:var(--color-violet-200)]",
         ],
         purple: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-purple-500)] [--btn-border:var(--color-purple-600)]/90",
-            "[--btn-icon:var(--color-purple-300)] data-active:[--btn-icon:var(--color-purple-200)] data-hover:[--btn-icon:var(--color-purple-200)]",
+            "[--btn-icon:var(--color-purple-300)] data-pressed:[--btn-icon:var(--color-purple-200)] data-hovered:[--btn-icon:var(--color-purple-200)]",
         ],
         fuchsia: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-fuchsia-500)] [--btn-border:var(--color-fuchsia-600)]/90",
-            "[--btn-icon:var(--color-fuchsia-300)] data-active:[--btn-icon:var(--color-fuchsia-200)] data-hover:[--btn-icon:var(--color-fuchsia-200)]",
+            "[--btn-icon:var(--color-fuchsia-300)] data-pressed:[--btn-icon:var(--color-fuchsia-200)] data-hovered:[--btn-icon:var(--color-fuchsia-200)]",
         ],
         pink: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-pink-500)] [--btn-border:var(--color-pink-600)]/90",
-            "[--btn-icon:var(--color-pink-300)] data-active:[--btn-icon:var(--color-pink-200)] data-hover:[--btn-icon:var(--color-pink-200)]",
+            "[--btn-icon:var(--color-pink-300)] data-pressed:[--btn-icon:var(--color-pink-200)] data-hovered:[--btn-icon:var(--color-pink-200)]",
         ],
         rose: [
             "text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-rose-500)] [--btn-border:var(--color-rose-600)]/90",
-            "[--btn-icon:var(--color-rose-300)] data-active:[--btn-icon:var(--color-rose-200)] data-hover:[--btn-icon:var(--color-rose-200)]",
+            "[--btn-icon:var(--color-rose-300)] data-pressed:[--btn-icon:var(--color-rose-200)] data-hovered:[--btn-icon:var(--color-rose-200)]",
         ],
     },
 };
@@ -169,7 +169,7 @@ type ButtonProps = (
     | { color?: never; outline: true; plain?: never }
     | { color?: never; outline?: never; plain: true }
 ) & { className?: string; children: React.ReactNode; ref?: React.Ref<HTMLElement> } & (
-        | Omit<Headless.ButtonProps, "as" | "className">
+        | Omit<React.ComponentPropsWithoutRef<typeof RACButton>, "className">
         | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
     );
 
@@ -197,9 +197,9 @@ export const Button = function Button({
             <TouchTarget>{children}</TouchTarget>
         </Link>
     ) : (
-        <Headless.Button {...props} className={clsx(classes, "cursor-default")} ref={ref}>
+        <RACButton {...props} className={clsx(classes, "cursor-default")} ref={ref}>
             <TouchTarget>{children}</TouchTarget>
-        </Headless.Button>
+        </RACButton>
     );
 };
 

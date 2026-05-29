@@ -1,4 +1,4 @@
-import * as Headless from "@headlessui/react";
+import { Button as RACButton } from "react-aria-components";
 import clsx from "clsx";
 import type React from "react";
 import { TouchTarget } from "./button.tsx";
@@ -71,7 +71,7 @@ export const AvatarButton = function AvatarButton({
     const classes = clsx(
         className,
         square ? "rounded-[20%]" : "rounded-full",
-        "relative inline-grid focus:outline-hidden data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-blue-500 data-focus:outline-solid",
+        "relative inline-grid focus:outline-hidden data-focus-visible:outline-2 data-focus-visible:outline-offset-2 data-focus-visible:outline-blue-500 data-focus-visible:outline-solid",
     );
 
     return "href" in props ? (
@@ -81,10 +81,10 @@ export const AvatarButton = function AvatarButton({
             </TouchTarget>
         </Link>
     ) : (
-        <Headless.Button {...props} className={classes} ref={ref}>
+        <RACButton {...props} className={classes} ref={ref}>
             <TouchTarget>
                 <Avatar alt={alt} initials={initials} square={square} src={src} />
             </TouchTarget>
-        </Headless.Button>
+        </RACButton>
     );
 };

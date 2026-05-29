@@ -1,8 +1,9 @@
 "use client";
 
-import * as Headless from "@headlessui/react";
+import clsx from "clsx";
 import type React from "react";
 import { useState } from "react";
+import { Dialog, Modal, ModalOverlay } from "react-aria-components";
 import { NavbarItem } from "./navbar.tsx";
 
 function OpenMenuIcon() {
@@ -27,39 +28,33 @@ function MobileSidebar({
     children,
 }: React.PropsWithChildren<{ open: boolean; close: () => void }>) {
     return (
-        <Headless.Transition show={open}>
-            <Headless.Dialog className="lg:hidden" onClose={close}>
-                <Headless.TransitionChild
-                    enter="ease-out duration-300"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="ease-in duration-200"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                >
-                    <div className="fixed inset-0 bg-black/30" />
-                </Headless.TransitionChild>
-                <Headless.TransitionChild
-                    enter="ease-in-out duration-300"
-                    enterFrom="-translate-x-full"
-                    enterTo="translate-x-0"
-                    leave="ease-in-out duration-300"
-                    leaveFrom="translate-x-0"
-                    leaveTo="-translate-x-full"
-                >
-                    <Headless.DialogPanel className="fixed inset-y-0 w-full max-w-80 p-2 transition">
-                        <div className="flex h-full flex-col rounded-lg bg-white shadow-xs ring-1 ring-zinc-950/5 dark:bg-zinc-900 dark:ring-white/10">
-                            <div className="-mb-3 px-4 pt-3">
-                                <Headless.CloseButton aria-label="Close navigation" as={NavbarItem}>
-                                    <CloseMenuIcon />
-                                </Headless.CloseButton>
-                            </div>
-                            {children}
-                        </div>
-                    </Headless.DialogPanel>
-                </Headless.TransitionChild>
-            </Headless.Dialog>
-        </Headless.Transition>
+        <ModalOverlay
+            className={clsx(
+                "fixed inset-0 z-50 bg-black/30 lg:hidden",
+                "transition-opacity duration-300 ease-out data-entering:opacity-0 data-exiting:opacity-0",
+            )}
+            isDismissable
+            isOpen={open}
+            onOpenChange={isOpen => {
+                if (!isOpen) close();
+            }}
+        >
+            <Modal
+                className={clsx(
+                    "fixed inset-y-0 w-full max-w-80 p-2",
+                    "transition-transform duration-300 ease-in-out data-entering:-translate-x-full data-exiting:-translate-x-full",
+                )}
+            >
+                <Dialog className="flex h-full flex-col rounded-lg bg-white shadow-xs ring-1 ring-zinc-950/5 outline-none dark:bg-zinc-900 dark:ring-white/10">
+                    <div className="-mb-3 px-4 pt-3">
+                        <NavbarItem aria-label="Close navigation" onClick={close}>
+                            <CloseMenuIcon />
+                        </NavbarItem>
+                    </div>
+                    {children}
+                </Dialog>
+            </Modal>
+        </ModalOverlay>
     );
 }
 

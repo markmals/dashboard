@@ -7,11 +7,10 @@
         "skipLibCheck": true,
         "strict": true,
         "noEmit": true,
-        "baseUrl": ".",
         "paths": {
             "~/*": ["./app/*"],
-            "@tailwindcss/ui": ["app/tailwind-ui/index.ts"],
-            "@tailwindcss/ui/*": ["app/tailwind-ui/*"]
+            "@tailwindcss/ui": ["./app/tailwind-ui/index.ts"],
+            "@tailwindcss/ui/*": ["./app/tailwind-ui/*"]
         },
         "rootDirs": [".", "./.react-router/types"],
         "allowImportingTsExtensions": true

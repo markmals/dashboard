@@ -1,10 +1,10 @@
 "use client";
 
-import * as Headless from "@headlessui/react";
 import clsx from "clsx";
 import { LayoutGroup, motion } from "framer-motion";
 import type React from "react";
 import { useId } from "react";
+import { Button as RACButton } from "react-aria-components";
 import { useLocation } from "react-router";
 import { TouchTarget } from "./button.tsx";
 import { Link } from "./link.tsx";
@@ -47,7 +47,7 @@ export const NavbarItem = function NavbarItem({
     children: React.ReactNode;
     ref?: React.Ref<HTMLAnchorElement | HTMLButtonElement>;
 } & (
-    | Omit<Headless.ButtonProps, "as" | "className">
+    | Omit<React.ComponentPropsWithoutRef<typeof RACButton>, "className">
     | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
 )) {
     const classes = clsx(
@@ -60,13 +60,13 @@ export const NavbarItem = function NavbarItem({
         // Avatar
         "*:data-[slot=avatar]:-m-0.5 *:data-[slot=avatar]:size-7 *:data-[slot=avatar]:[--avatar-radius:var(--radius)] *:data-[slot=avatar]:[--ring-opacity:10%] sm:*:data-[slot=avatar]:size-6",
         // Hover
-        "data-hover:bg-zinc-950/5 data-hover:*:data-[slot=icon]:fill-zinc-950",
+        "data-hovered:bg-zinc-950/5 data-hovered:*:data-[slot=icon]:fill-zinc-950",
         // Active
-        "data-active:bg-zinc-950/5 data-active:*:data-[slot=icon]:fill-zinc-950",
+        "data-pressed:bg-zinc-950/5 data-pressed:*:data-[slot=icon]:fill-zinc-950",
         // Dark mode
         "dark:text-white dark:*:data-[slot=icon]:fill-zinc-400",
-        "dark:data-hover:bg-white/5 dark:data-hover:*:data-[slot=icon]:fill-white",
-        "dark:data-active:bg-white/5 dark:data-active:*:data-[slot=icon]:fill-white",
+        "dark:data-hovered:bg-white/5 dark:data-hovered:*:data-[slot=icon]:fill-white",
+        "dark:data-pressed:bg-white/5 dark:data-pressed:*:data-[slot=icon]:fill-white",
     );
 
     const location = useLocation();
@@ -85,19 +85,19 @@ export const NavbarItem = function NavbarItem({
                     {...props}
                     className={classes}
                     data-current={current ? "true" : undefined}
-                    ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+                    ref={ref as React.Ref<HTMLAnchorElement>}
                 >
                     <TouchTarget>{children}</TouchTarget>
                 </Link>
             ) : (
-                <Headless.Button
+                <RACButton
                     {...props}
                     className={clsx("cursor-default", classes)}
                     data-current={current ? "true" : undefined}
                     ref={ref}
                 >
                     <TouchTarget>{children}</TouchTarget>
-                </Headless.Button>
+                </RACButton>
             )}
         </span>
     );
