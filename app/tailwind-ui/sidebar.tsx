@@ -108,22 +108,22 @@ export const SidebarItem = function SidebarItem({
         // Base
         "flex w-full items-center gap-3 rounded-lg px-2 py-2.5 text-left text-base/6 font-medium text-zinc-950 sm:py-2 sm:text-sm/5",
         // Leading icon/icon-only
-        "*:data-[slot=icon]:size-6 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:fill-zinc-500 sm:*:data-[slot=icon]:size-5",
+        "*:data-[slot=icon]:size-6 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:text-zinc-500 sm:*:data-[slot=icon]:size-5",
         // Trailing icon (down chevron or similar)
         "*:last:data-[slot=icon]:ml-auto *:last:data-[slot=icon]:size-5 sm:*:last:data-[slot=icon]:size-4",
         // Avatar
         "*:data-[slot=avatar]:-m-0.5 *:data-[slot=avatar]:size-7 *:data-[slot=avatar]:[--ring-opacity:10%] sm:*:data-[slot=avatar]:size-6",
         // Hover
-        "data-hovered:bg-blue-600/5 data-hovered:*:data-[slot=icon]:fill-blue-600",
+        "data-hovered:bg-blue-600/5 data-hovered:*:data-[slot=icon]:text-blue-600",
         // Active
-        "data-pressed:bg-blue-600/5 data-pressed:*:data-[slot=icon]:fill-blue-600",
+        "data-pressed:bg-blue-600/5 data-pressed:*:data-[slot=icon]:text-blue-600",
         // Current
-        "data-current:*:data-[slot=icon]:fill-blue-600",
+        "data-current:*:data-[slot=icon]:text-blue-600",
         // Dark mode
-        "dark:text-white dark:*:data-[slot=icon]:fill-zinc-400",
-        "dark:data-hovered:bg-white/5 dark:data-hovered:*:data-[slot=icon]:fill-blue-500",
-        "dark:data-pressed:bg-white/5 dark:data-pressed:*:data-[slot=icon]:fill-blue-500",
-        "dark:data-current:*:data-[slot=icon]:fill-blue-500",
+        "dark:text-white dark:*:data-[slot=icon]:text-zinc-400",
+        "dark:data-hovered:bg-white/5 dark:data-hovered:*:data-[slot=icon]:text-blue-500",
+        "dark:data-pressed:bg-white/5 dark:data-pressed:*:data-[slot=icon]:text-blue-500",
+        "dark:data-current:*:data-[slot=icon]:text-blue-500",
     );
 
     const location = useLocation();

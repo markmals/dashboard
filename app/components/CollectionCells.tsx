@@ -1,15 +1,14 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
 
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
-import { BookOpenIcon, PlayCircleIcon } from "@heroicons/react/24/outline";
 import { Badge, Button } from "@tailwindcss/ui/index.ts";
+import { Icon } from "~/components/Icon.tsx";
 import type { CollectionEntry } from "~/lib/content.server.ts";
 
 function TrailerButton({ href }: { href: string }) {
     return (
         <Button href={href} soft target="_blank">
             Trailer
-            <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
+            <Icon name="playback-play-button" />
         </Button>
     );
 }
@@ -85,11 +84,7 @@ export function MovieCell({
                     </p>
                 </div>
             </div>
-            <div>
-                {movie.trailer && (
-                    <TrailerButton href={movie.trailer} />
-                )}
-            </div>
+            <div>{movie.trailer && <TrailerButton href={movie.trailer} />}</div>
         </li>
     );
 }
@@ -119,7 +114,7 @@ export function EventCell({
                     {link !== undefined && (
                         <Button href={link} soft target="_blank">
                             Learn More
-                            <ArrowTopRightOnSquareIcon className="fill-blue-500 dark:fill-blue-400" />
+                            <Icon name="pop-out" />
                         </Button>
                     )}
                 </div>
@@ -175,7 +170,7 @@ export function VideoCell({
                 <div>
                     <Button href={link} soft target="_blank">
                         Watch
-                        <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
+                        <Icon name="playback-play-button" />
                     </Button>
                 </div>
             </div>
@@ -230,7 +225,7 @@ export function RestaurantCell({
                     {menu !== undefined && (
                         <Button href={menu} soft target="_blank">
                             Menu
-                            <BookOpenIcon className="stroke-blue-500 dark:stroke-blue-400" />
+                            <Icon name="book" />
                         </Button>
                     )}
                 </div>

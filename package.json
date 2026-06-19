@@ -4,7 +4,6 @@
     "dependencies": {
         "@cloudflare/vite-plugin": "^1.10.1",
         "@headlessui/react": "^2.2.6",
-        "@heroicons/react": "^2.2.0",
         "@react-router/fs-routes": "7.13.1",
         "@std/path": "jsr:^1.1.2",
         "@std/yaml": "jsr:^1.0.9",

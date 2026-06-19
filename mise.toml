@@ -56,6 +56,12 @@ run = "biome check --write --unsafe ."
 description = "Format and lint the entire project"
 depends = ["fmt", "lint"]
 
+[tasks.icons]
+description = "Rebuild the Primaries icon sprite subset from the upstream sprite"
+sources = ["scripts/build-icons.mjs"]
+outputs = ["app/assets/primaries.svg", "app/components/icon-names.ts"]
+run = "node scripts/build-icons.mjs"
+
 [tasks."typegen:cloudflare"]
 description = "Generate types for Cloudflare bindings"
 sources = ["wrangler.jsonc"]

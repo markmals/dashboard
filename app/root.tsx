@@ -1,12 +1,3 @@
-import { CalendarDaysIcon } from "@heroicons/react/16/solid";
-import {
-    BookOpenIcon,
-    BuildingStorefrontIcon,
-    CameraIcon,
-    CodeBracketIcon,
-    FilmIcon,
-    TvIcon,
-} from "@heroicons/react/24/solid";
 import {
     Navbar,
     NavbarItem,
@@ -19,18 +10,20 @@ import {
     StackedLayout,
 } from "@tailwindcss/ui/index.ts";
 import { Outlet, Scripts, ScrollRestoration } from "react-router";
+import { Icon } from "~/components/Icon.tsx";
+import type { IconName } from "~/components/icon-names.ts";
 import tailwind from "~/styles/style.css?url";
 
 const navItems = [
-    // { label: "Home", url: "/", icon: HomeIcon },
-    { label: "TV Shows", url: "/tv", icon: TvIcon },
-    { label: "Movies", url: "/movies", icon: CameraIcon },
-    { label: "In Theaters", url: "/in-theaters", icon: FilmIcon },
-    { label: "Activities", url: "/activities", icon: CalendarDaysIcon },
-    { label: "Restaurants", url: "/restaurants", icon: BuildingStorefrontIcon },
-    { label: "Recipes", url: "/recipes", icon: BookOpenIcon },
-    // { label: "Developer Education", url: "/dev-edu", icon: CodeBracketIcon },
-];
+    // { label: "Home", url: "/", icon: "home" },
+    { label: "TV Shows", url: "/tv", icon: "tv" },
+    { label: "Movies", url: "/movies", icon: "movie-camera" },
+    { label: "In Theaters", url: "/in-theaters", icon: "movie" },
+    { label: "Activities", url: "/activities", icon: "calendar" },
+    { label: "Restaurants", url: "/restaurants", icon: "dining" },
+    { label: "Recipes", url: "/recipes", icon: "book" },
+    // { label: "Developer Education", url: "/dev-edu", icon: "code" },
+] satisfies { label: string; url: string; icon: IconName }[];
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -60,9 +53,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
                         <Sidebar>
                             <SidebarBody>
                                 <SidebarSection>
-                                    {navItems.map(({ label, url, icon: Icon }) => (
+                                    {navItems.map(({ label, url, icon }) => (
                                         <SidebarItem href={url} key={label}>
-                                            <Icon />
+                                            <Icon name={icon} />
                                             <SidebarLabel>{label}</SidebarLabel>
                                         </SidebarItem>
                                     ))}
