@@ -1,5 +1,12 @@
 import { CalendarDaysIcon } from "@heroicons/react/16/solid";
-import { BuildingStorefrontIcon, CameraIcon, FilmIcon, TvIcon } from "@heroicons/react/24/solid";
+import {
+    BookOpenIcon,
+    BuildingStorefrontIcon,
+    CameraIcon,
+    CodeBracketIcon,
+    FilmIcon,
+    TvIcon,
+} from "@heroicons/react/24/solid";
 import {
     Navbar,
     NavbarItem,
@@ -10,7 +17,7 @@ import {
     SidebarLabel,
     SidebarSection,
     StackedLayout,
-} from "@tailwindcss/ui";
+} from "@tailwindcss/ui/index.ts";
 import { Outlet, Scripts, ScrollRestoration } from "react-router";
 import tailwind from "~/styles/style.css?url";
 
@@ -21,7 +28,7 @@ const navItems = [
     { label: "In Theaters", url: "/in-theaters", icon: FilmIcon },
     { label: "Activities", url: "/activities", icon: CalendarDaysIcon },
     { label: "Restaurants", url: "/restaurants", icon: BuildingStorefrontIcon },
-    // { label: "Recipes", url: "/recipes", icon: BookOpenIcon },
+    { label: "Recipes", url: "/recipes", icon: BookOpenIcon },
     // { label: "Developer Education", url: "/dev-edu", icon: CodeBracketIcon },
 ];
 
