@@ -49,6 +49,12 @@
         // "vite.config.ts": "vitest.config.ts, *.plugin.ts"
     },
 
+    "files.exclude": {
+        "**/.react-router": true,
+        "**/.wrangler": true,
+        "**/build": true
+    },
+
     "oxc.enable": false,
     "eslint.enable": false,
     "dprint.experimentalLsp": false,
