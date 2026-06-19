@@ -5,17 +5,9 @@ import { BookOpenIcon, PlayCircleIcon } from "@heroicons/react/24/outline";
 import { Badge, Button } from "@tailwindcss/ui/index.ts";
 import type { CollectionEntry } from "~/lib/content.server.ts";
 
-// Trailer link styled with a persistent blue tint so the button shape is always visible,
-// deepening (or brightening, in dark mode) on hover. The `!` overrides the plain variant's
-// baked-in neutral hover background; the base tint has no conflict to override.
 function TrailerButton({ href }: { href: string }) {
     return (
-        <Button
-            className="bg-blue-500/10 font-normal text-blue-500 data-hovered:bg-blue-500/20! data-pressed:bg-blue-500/20! dark:bg-blue-400/10 dark:text-blue-400 dark:data-hovered:bg-blue-400/20! dark:data-pressed:bg-blue-400/20!"
-            href={href}
-            plain
-            target="_blank"
-        >
+        <Button href={href} soft target="_blank">
             Trailer
             <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
         </Button>
@@ -125,12 +117,7 @@ export function EventCell({
                 </div>
                 <div>
                     {link !== undefined && (
-                        <Button
-                            className="text-blue-500 dark:text-blue-400"
-                            href={link}
-                            plain
-                            target="_blank"
-                        >
+                        <Button href={link} soft target="_blank">
                             Learn More
                             <ArrowTopRightOnSquareIcon className="fill-blue-500 dark:fill-blue-400" />
                         </Button>
@@ -186,12 +173,7 @@ export function VideoCell({
                     />
                 </div>
                 <div>
-                    <Button
-                        className="text-blue-500 dark:text-blue-400"
-                        href={link}
-                        plain
-                        target="_blank"
-                    >
+                    <Button href={link} soft target="_blank">
                         Watch
                         <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
                     </Button>
@@ -246,12 +228,7 @@ export function RestaurantCell({
                 </div>
                 <div>
                     {menu !== undefined && (
-                        <Button
-                            className="text-blue-500 dark:text-blue-400"
-                            href={menu}
-                            plain
-                            target="_blank"
-                        >
+                        <Button href={menu} soft target="_blank">
                             Menu
                             <BookOpenIcon className="stroke-blue-500 dark:stroke-blue-400" />
                         </Button>

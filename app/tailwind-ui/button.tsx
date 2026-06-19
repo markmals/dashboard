@@ -62,6 +62,16 @@ const styles = {
         // Icon
         "[--btn-icon:var(--color-zinc-500)] data-pressed:[--btn-icon:var(--color-zinc-700)] data-hovered:[--btn-icon:var(--color-zinc-700)] dark:[--btn-icon:var(--color-zinc-500)] dark:data-pressed:[--btn-icon:var(--color-zinc-400)] dark:data-hovered:[--btn-icon:var(--color-zinc-400)]",
     ],
+    soft: [
+        // Base — a persistent blue accent tint so the button shape is always visible. It
+        // deepens on hover (and brightens in dark mode) without becoming prominent.
+        "border-transparent font-normal",
+        "text-blue-500 dark:text-blue-400",
+        "bg-blue-500/10 data-pressed:bg-blue-500/20 data-hovered:bg-blue-500/20",
+        "dark:bg-blue-400/10 dark:data-pressed:bg-blue-400/20 dark:data-hovered:bg-blue-400/20",
+        // Icon
+        "[--btn-icon:var(--color-blue-500)] dark:[--btn-icon:var(--color-blue-400)]",
+    ],
     colors: {
         "dark/zinc": [
             "text-white [--btn-bg:var(--color-zinc-900)] [--btn-border:var(--color-zinc-950)]/90 [--btn-hover-overlay:var(--color-white)]/10",
@@ -165,9 +175,10 @@ const styles = {
 };
 
 type ButtonProps = (
-    | { color?: keyof typeof styles.colors; outline?: never; plain?: never }
-    | { color?: never; outline: true; plain?: never }
-    | { color?: never; outline?: never; plain: true }
+    | { color?: keyof typeof styles.colors; outline?: never; plain?: never; soft?: never }
+    | { color?: never; outline: true; plain?: never; soft?: never }
+    | { color?: never; outline?: never; plain: true; soft?: never }
+    | { color?: never; outline?: never; plain?: never; soft: true }
 ) & { className?: string; children: React.ReactNode; ref?: React.Ref<HTMLElement> } & (
         | Omit<React.ComponentPropsWithoutRef<typeof RACButton>, "className">
         | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
@@ -178,6 +189,7 @@ export const Button = function Button({
     color,
     outline,
     plain,
+    soft,
     className,
     children,
     ...props
@@ -189,7 +201,9 @@ export const Button = function Button({
             ? styles.outline
             : plain
               ? styles.plain
-              : clsx(styles.solid, styles.colors[color ?? "dark/zinc"]),
+              : soft
+                ? styles.soft
+                : clsx(styles.solid, styles.colors[color ?? "dark/zinc"]),
     );
 
     return "href" in props ? (
