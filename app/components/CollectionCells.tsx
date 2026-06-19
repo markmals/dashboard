@@ -5,6 +5,23 @@ import { BookOpenIcon, PlayCircleIcon } from "@heroicons/react/24/outline";
 import { Badge, Button } from "@tailwindcss/ui/index.ts";
 import type { CollectionEntry } from "~/lib/content.server.ts";
 
+// Trailer link styled with a persistent blue tint so the button shape is always visible,
+// deepening (or brightening, in dark mode) on hover. The `!` overrides the plain variant's
+// baked-in neutral hover background; the base tint has no conflict to override.
+function TrailerButton({ href }: { href: string }) {
+    return (
+        <Button
+            className="bg-blue-500/10 font-normal text-blue-500 data-hovered:bg-blue-500/20! data-pressed:bg-blue-500/20! dark:bg-blue-400/10 dark:text-blue-400 dark:data-hovered:bg-blue-400/20! dark:data-pressed:bg-blue-400/20!"
+            href={href}
+            plain
+            target="_blank"
+        >
+            Trailer
+            <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
+        </Button>
+    );
+}
+
 export function TVShowCell({
     tvShow: {
         data: { title, link, trailer, poster },
@@ -34,15 +51,7 @@ export function TVShowCell({
             </div>
             {trailer && (
                 <div>
-                    <Button
-                        className="font-normal text-blue-500 dark:text-blue-400"
-                        href={trailer}
-                        plain
-                        target="_blank"
-                    >
-                        Trailer
-                        <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
-                    </Button>
+                    <TrailerButton href={trailer} />
                 </div>
             )}
         </li>
@@ -86,15 +95,7 @@ export function MovieCell({
             </div>
             <div>
                 {movie.trailer && (
-                    <Button
-                        className="font-normal text-blue-500 dark:text-blue-400"
-                        href={movie.trailer}
-                        plain
-                        target="_blank"
-                    >
-                        Trailer
-                        <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
-                    </Button>
+                    <TrailerButton href={movie.trailer} />
                 )}
             </div>
         </li>
