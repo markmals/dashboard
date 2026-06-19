@@ -10,7 +10,11 @@ export async function loader() {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    const inTheaters = movies
+    // Only surface fully-hydrated entries; upcoming titles without a trailer or poster on
+    // TMDb yet are kept in the data file but hidden until those fields can be filled in.
+    const complete = movies.filter(movie => movie.data.poster);
+
+    const inTheaters = complete
         .filter(movie => {
             const releaseDate = new Date(`${movie.data.release}T00:00:00`);
             return releaseDate <= today;
@@ -24,7 +28,7 @@ export async function loader() {
             },
         }));
 
-    const upcoming = movies
+    const upcoming = complete
         .filter(movie => {
             const releaseDate = new Date(`${movie.data.release}T00:00:00`);
             return releaseDate > today;

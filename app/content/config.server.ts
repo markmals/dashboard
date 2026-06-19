@@ -41,8 +41,10 @@ const theaters = defineCollection({
         release: z.iso.date(),
         genre: z.string(),
         runningTime: z.string().optional(),
-        trailer: z.url(),
-        poster: z.url(),
+        // Optional so upcoming titles can be stored before a trailer/poster exists on TMDb;
+        // the in-theaters route hides any entry missing these (see in-theaters.tsx).
+        trailer: z.url().optional(),
+        poster: z.url().optional(),
     }),
 });
 

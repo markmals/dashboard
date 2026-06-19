@@ -2,7 +2,7 @@
 
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
 import { BookOpenIcon, PlayCircleIcon } from "@heroicons/react/24/outline";
-import { Badge, Button } from "@tailwindcss/ui";
+import { Badge, Button } from "@tailwindcss/ui/index.ts";
 import type { CollectionEntry } from "~/lib/content.server.ts";
 
 export function TVShowCell({
@@ -18,6 +18,7 @@ export function TVShowCell({
                 <a
                     className="aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-gray-100"
                     href={link}
+                    rel="noopener"
                     target="_blank"
                 >
                     <img className="object-cover" src={poster} />
@@ -25,6 +26,7 @@ export function TVShowCell({
                 <a
                     className="text-sm font-medium text-black/95 hover:text-blue-600 dark:text-white/95 dark:hover:text-blue-500"
                     href={link}
+                    rel="noopener"
                     target="_blank"
                 >
                     {title}
@@ -60,6 +62,7 @@ export function MovieCell({
                 <a
                     className="aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-gray-100"
                     href={movie.link}
+                    rel="noopener"
                     target="_blank"
                 >
                     <img className="object-cover" src={movie.poster} />
@@ -68,6 +71,7 @@ export function MovieCell({
                     <a
                         className="mt-2 truncate text-sm font-medium text-black/95 hover:text-blue-600 dark:text-white/95 dark:hover:text-blue-500"
                         href={movie.link}
+                        rel="noopener"
                         target="_blank"
                     >
                         {movie.title}
@@ -81,15 +85,17 @@ export function MovieCell({
                 </div>
             </div>
             <div>
-                <Button
-                    className="font-normal text-blue-500 dark:text-blue-400"
-                    href={movie.trailer}
-                    plain
-                    target="_blank"
-                >
-                    Trailer
-                    <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
-                </Button>
+                {movie.trailer && (
+                    <Button
+                        className="font-normal text-blue-500 dark:text-blue-400"
+                        href={movie.trailer}
+                        plain
+                        target="_blank"
+                    >
+                        Trailer
+                        <PlayCircleIcon className="stroke-blue-500 dark:stroke-blue-400" />
+                    </Button>
+                )}
             </div>
         </li>
     );
@@ -224,6 +230,7 @@ export function RestaurantCell({
                                     href={`http://maps.apple.com/?address=${address
                                         .split(" ")
                                         .join("+")}`}
+                                    rel="noopener"
                                     target="_blank"
                                 >
                                     {address}
@@ -273,7 +280,7 @@ export function RecipeCell({
             <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col gap-1">
-                        <a href={source} target="_blank">
+                        <a href={source} rel="noopener" target="_blank">
                             <h2 className="text-xl font-medium text-black/95 hover:text-blue-500 md:truncate dark:text-white/95 dark:hover:text-blue-400">
                                 {title}
                             </h2>
