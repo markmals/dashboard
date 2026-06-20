@@ -14,14 +14,26 @@ const movies = defineCollection({
     }),
 });
 
+const tvBase = z.object({
+    title: z.string(),
+    link: z.url(),
+    seasons: z.number().int().positive(),
+    trailer: z.url().optional(),
+    poster: z.url(),
+    // Defaults to false and is omitted from the data files; add `"watching": true` per show.
+    watching: z.boolean().default(false),
+});
+
 const television = defineCollection({
     type: "data",
-    schema: z.object({
-        title: z.string(),
-        link: z.url(),
-        trailer: z.url().optional(),
-        poster: z.url(),
-    }),
+    // Discriminated on `status` so `premiere` is required exactly when a show is upcoming.
+    // These three fields (status/seasons/premiere) drift over time — refresh via `mise run tv:refresh`.
+    schema: z.discriminatedUnion("status", [
+        tvBase.extend({ status: z.literal("ended") }),
+        tvBase.extend({ status: z.literal("airing") }),
+        tvBase.extend({ status: z.literal("returning") }),
+        tvBase.extend({ status: z.literal("upcoming"), premiere: z.iso.date() }),
+    ]),
 });
 
 const events = defineCollection({

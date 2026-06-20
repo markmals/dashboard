@@ -1,6 +1,8 @@
 {
     "title": "Silo",
     "link": "https://www.themoviedb.org/tv/125988-silo",
+    "status": "airing",
+    "seasons": 3,
     "trailer": "https://youtu.be/8ZYhuvIv1pA",
     "poster": "https://image.tmdb.org/t/p/original/fDMTqUcEh6qJwWZP1SHTfoaqsCy.jpg"
 }

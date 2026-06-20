@@ -1,6 +1,8 @@
 {
     "title": "Rick and Morty",
     "link": "https://www.themoviedb.org/tv/60625-rick-and-morty",
+    "status": "airing",
+    "seasons": 9,
     "trailer": "https://youtu.be/WNhH00OIPP0",
     "poster": "https://image.tmdb.org/t/p/original/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg"
 }

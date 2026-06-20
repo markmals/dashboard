@@ -1,6 +1,9 @@
 {
     "title": "Lucky",
     "link": "https://www.themoviedb.org/tv/278624-lucky",
+    "status": "upcoming",
+    "seasons": 1,
+    "premiere": "2026-07-14",
     "trailer": "https://youtu.be/GAbT5qCTXR8",
     "poster": "https://image.tmdb.org/t/p/original/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg"
 }

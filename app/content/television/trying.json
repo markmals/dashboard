@@ -1,6 +1,8 @@
 {
     "title": "Trying",
     "link": "https://www.themoviedb.org/tv/98177-trying",
+    "status": "airing",
+    "seasons": 5,
     "trailer": "https://youtu.be/nGA_6WTD3vM",
     "poster": "https://image.tmdb.org/t/p/original/eHTDuZp8UtbSK1XehE59UJrgOXg.jpg"
 }

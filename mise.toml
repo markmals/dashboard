@@ -62,6 +62,10 @@ sources = ["scripts/build-icons.mjs"]
 outputs = ["app/assets/primaries.svg", "app/components/icon-names.ts"]
 run = "node scripts/build-icons.mjs"
 
+[tasks."tv:refresh"]
+description = "Re-hydrate TV show airing status, season counts, and premiere dates from TMDb"
+run = "TMDB_API_KEY=$(op read 'op://Private/TMDb API Key/credential') node scripts/refresh-tv.mjs"
+
 [tasks."typegen:cloudflare"]
 description = "Generate types for Cloudflare bindings"
 sources = ["wrangler.jsonc"]

@@ -13,36 +13,64 @@ function TrailerButton({ href }: { href: string }) {
     );
 }
 
+const STATUS_BADGE = {
+    ended: { label: "Ended", color: "zinc" },
+    airing: { label: "Airing", color: "green" },
+    returning: { label: "Returning", color: "blue" },
+    upcoming: { label: "Upcoming", color: "amber" },
+} as const;
+
+function formatPremiere(iso: string) {
+    // Parse as local-date parts to avoid the UTC-midnight off-by-one in toLocaleDateString.
+    const [year, month, day] = iso.split("-").map(Number);
+    return new Date(year, month - 1, day).toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+    });
+}
+
 export function TVShowCell({
-    tvShow: {
-        data: { title, link, trailer, poster },
-    },
+    tvShow: { data },
 }: {
     tvShow: CollectionEntry<"television">;
 }) {
+    const badge = STATUS_BADGE[data.status];
+    const detail =
+        data.status === "upcoming"
+            ? `Premieres ${formatPremiere(data.premiere)}`
+            : `${data.seasons} ${data.seasons === 1 ? "season" : "seasons"}`;
+
     return (
         <li className="flex w-full flex-col justify-between gap-4">
             <div className="flex flex-col gap-2">
                 <a
                     className="aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-gray-100"
-                    href={link}
+                    href={data.link}
                     rel="noopener"
                     target="_blank"
                 >
-                    <img className="object-cover" src={poster} />
+                    <img className="object-cover" src={data.poster} />
                 </a>
                 <a
                     className="text-sm font-medium text-black/95 hover:text-blue-600 dark:text-white/95 dark:hover:text-blue-500"
-                    href={link}
+                    href={data.link}
                     rel="noopener"
                     target="_blank"
                 >
-                    {title}
+                    {data.title}
                 </a>
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                    <Badge color={badge.color}>{badge.label}</Badge>
+                    {data.watching && <Badge color="violet">Watching</Badge>}
+                    <span className="text-sm font-medium text-black/70 dark:text-white/70">
+                        {detail}
+                    </span>
+                </div>
             </div>
-            {trailer && (
+            {data.trailer && (
                 <div>
-                    <TrailerButton href={trailer} />
+                    <TrailerButton href={data.trailer} />
                 </div>
             )}
         </li>
