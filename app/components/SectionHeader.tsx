@@ -1,4 +1,4 @@
-import { Divider, Heading } from "@tailwindcss/ui";
+import { Divider, Heading } from "@tailwindcss/ui/index.ts";
 import type { PropsWithChildren } from "react";
 
 export function SectionHeader({ children, className }: { className?: string } & PropsWithChildren) {

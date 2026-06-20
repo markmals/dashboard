@@ -13,9 +13,9 @@ export function Fieldset({
     return (
         <fieldset
             {...props}
-            disabled={disabled}
-            data-disabled={disabled ? "" : undefined}
             className={clsx(className, "*:data-[slot=text]:mt-1 [&>*+[data-slot=control]]:mt-6")}
+            data-disabled={disabled ? "" : undefined}
+            disabled={disabled}
         />
     );
 }
@@ -51,7 +51,6 @@ export function Field({
     return (
         <div
             {...props}
-            data-disabled={disabled ? "" : undefined}
             className={clsx(
                 className,
                 "[&>[data-slot=label]+[data-slot=control]]:mt-3",
@@ -61,6 +60,7 @@ export function Field({
                 "[&>[data-slot=control]+[data-slot=error]]:mt-3",
                 "*:data-[slot=label]:font-medium",
             )}
+            data-disabled={disabled ? "" : undefined}
         />
     );
 }

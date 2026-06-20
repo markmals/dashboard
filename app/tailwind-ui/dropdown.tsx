@@ -5,10 +5,10 @@ import type React from "react";
 import {
     Header,
     Menu,
-    MenuItem as RACMenuItem,
-    MenuSection as RACMenuSection,
     MenuTrigger,
     Popover,
+    MenuItem as RACMenuItem,
+    MenuSection as RACMenuSection,
     Separator,
 } from "react-aria-components";
 import { Button } from "./button.tsx";
@@ -35,7 +35,6 @@ export function DropdownMenu({
 >) {
     return (
         <Popover
-            placement={anchor === "bottom" ? "bottom start" : (anchor as any)}
             className={clsx(
                 className,
                 // Transition
@@ -55,6 +54,7 @@ export function DropdownMenu({
                 // Define grid at the menu level if subgrid is supported
                 "supports-[grid-template-columns:subgrid]:grid supports-[grid-template-columns:subgrid]:grid-cols-[auto_1fr_1.5rem_0.5rem_auto]",
             )}
+            placement={anchor === "bottom" ? "bottom start" : (anchor as any)}
         >
             <Menu {...props} className="outline-none" />
         </Popover>

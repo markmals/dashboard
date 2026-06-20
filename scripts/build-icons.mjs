@@ -4,7 +4,7 @@
 // To add an icon: add its symbol id to ICONS below, then run `mise run icons`
 // (or `node scripts/build-icons.mjs`). To regenerate from a newer upstream sprite,
 // pass its path as the first CLI arg or via the PRIMARIES_SRC env var.
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -22,9 +22,7 @@ const ICONS = [
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const source =
-    process.argv[2] ??
-    process.env.PRIMARIES_SRC ??
-    resolve(repoRoot, "scripts/primaries-full.svg");
+    process.argv[2] ?? process.env.PRIMARIES_SRC ?? resolve(repoRoot, "scripts/primaries-full.svg");
 
 const spriteOut = resolve(repoRoot, "app/assets/primaries.svg");
 const typeOut = resolve(repoRoot, "app/components/icon-names.ts");

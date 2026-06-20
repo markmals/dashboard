@@ -2,10 +2,10 @@
 
 import clsx from "clsx";
 import {
-    Button as RACButton,
     ListBox,
     ListBoxItem,
     Popover,
+    Button as RACButton,
     Select,
     SelectValue,
 } from "react-aria-components";
@@ -139,7 +139,6 @@ export function ListboxOption({
     return (
         <ListBoxItem
             {...props}
-            textValue={typeof children === "string" ? children : undefined}
             className={clsx(
                 // Basic layout
                 "group/option grid cursor-default grid-cols-[--spacing(5)_1fr] items-baseline gap-x-2 rounded-lg py-2.5 pr-3.5 pl-2 sm:grid-cols-[--spacing(4)_1fr] sm:py-1.5 sm:pr-3 sm:pl-1.5",
@@ -152,6 +151,7 @@ export function ListboxOption({
                 // Disabled
                 "data-disabled:opacity-50",
             )}
+            textValue={typeof children === "string" ? children : undefined}
         >
             {({ isSelected }) => (
                 <>
