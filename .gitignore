@@ -12,3 +12,4 @@ build/
 .mf
 .wrangler
 .dev.vars*
+worker-configuration.d.ts

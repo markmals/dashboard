@@ -58,7 +58,7 @@ depends = ["fmt", "lint"]
 
 [tasks.icons]
 description = "Rebuild the Primaries icon sprite subset from the upstream sprite"
-sources = ["scripts/build-icons.ts"]
+sources = ["scripts/build-icons.ts", "scripts/primaries-full.svg"]
 outputs = ["app/assets/primaries.svg", "app/components/icon-names.ts"]
 run = "node scripts/build-icons.ts"
 
