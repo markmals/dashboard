@@ -1,6 +1,6 @@
 [tools]
 node = "24"
-pnpm = "latest"
+pnpm = "11"
 
 [env]
 _.path = ['{{config_root}}/node_modules/.bin']

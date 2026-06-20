@@ -46,7 +46,9 @@
 
     "files.exclude": {
         "**/.react-router": true,
+        "**/.sprinkles": true,
         "**/.wrangler": true,
-        "**/build": true
+        "**/build": true,
+        "worker-configuration.d.ts": true
     }
 }
