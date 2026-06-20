@@ -6,7 +6,7 @@ import { Button as RACButton } from "react-aria-components";
 import { TouchTarget } from "./button.tsx";
 import { Link } from "./link.tsx";
 
-const colors = {
+let colors = {
     red: "bg-red-500/15 text-red-700 group-data-hovered:bg-red-500/25 dark:bg-red-500/10 dark:text-red-400 dark:group-data-hovered:bg-red-500/20",
     orange: "bg-orange-500/15 text-orange-700 group-data-hovered:bg-orange-500/25 dark:bg-orange-500/10 dark:text-orange-400 dark:group-data-hovered:bg-orange-500/20",
     amber: "bg-amber-400/20 text-amber-700 group-data-hovered:bg-amber-400/30 dark:bg-amber-400/10 dark:text-amber-400 dark:group-data-hovered:bg-amber-400/15",
@@ -57,7 +57,7 @@ export const BadgeButton = function BadgeButton({
     children,
     ...props
 }) {
-    const classes = clsx(
+    let classes = clsx(
         className,
         "group relative inline-flex rounded-md focus:outline-hidden data-focus-visible:outline-2 data-focus-visible:outline-offset-2 data-focus-visible:outline-blue-500 data-focus-visible:outline-solid",
     );

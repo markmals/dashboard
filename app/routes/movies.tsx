@@ -6,7 +6,7 @@ import { titleSortComparator, withContent } from "~/lib/sort-comparators.ts";
 import type { Route } from "./+types/movies";
 
 export async function loader() {
-    const movies = await getCollection("movies");
+    let movies = await getCollection("movies");
     return movies.toSorted(withContent(titleSortComparator));
 }
 

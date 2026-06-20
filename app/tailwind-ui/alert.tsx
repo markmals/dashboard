@@ -5,7 +5,7 @@ import { Heading, Modal, ModalOverlay, Dialog as RACDialog } from "react-aria-co
 
 import { Text } from "./text.tsx";
 
-const sizes = {
+let sizes = {
     xs: "sm:max-w-xs",
     sm: "sm:max-w-sm",
     md: "sm:max-w-md",

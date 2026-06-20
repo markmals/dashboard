@@ -2,7 +2,7 @@ import { z } from "zod";
 
 import { defineCollection, partialURL } from "~/lib/define-collection.server.ts";
 
-const movies = defineCollection({
+let movies = defineCollection({
     type: "data",
     schema: z.object({
         title: z.string(),
@@ -15,12 +15,12 @@ const movies = defineCollection({
     }),
 });
 
-const tvGenre = z.enum(["Comedy", "Drama", "Documentary"]);
+let TvGenre = z.enum(["Comedy", "Drama", "Documentary"]);
 
-const tvBase = z.object({
+let TvBase = z.object({
     title: z.string(),
     link: z.url(),
-    genre: z.union([tvGenre, z.array(tvGenre)]),
+    genre: z.union([TvGenre, z.array(TvGenre)]),
     seasons: z.number().int().positive(),
     trailer: z.url().optional(),
     poster: z.url(),
@@ -28,21 +28,21 @@ const tvBase = z.object({
     watching: z.boolean().default(false),
 });
 
-const television = defineCollection({
+let television = defineCollection({
     type: "data",
     // Discriminated on `status`: `premiere` (the next premiere date) is required on and unique
     // to `upcoming`, which means "not ended, with a known future date" — whether a brand-new
     // series or a dated returning season. `returning` is "not ended, no date scheduled yet".
     // These fields (status/seasons/premiere) drift over time — refresh via `mise run tv:refresh`.
     schema: z.discriminatedUnion("status", [
-        tvBase.extend({ status: z.literal("ended") }),
-        tvBase.extend({ status: z.literal("airing") }),
-        tvBase.extend({ status: z.literal("returning") }),
-        tvBase.extend({ status: z.literal("upcoming"), premiere: z.iso.date() }),
+        TvBase.extend({ status: z.literal("ended") }),
+        TvBase.extend({ status: z.literal("airing") }),
+        TvBase.extend({ status: z.literal("returning") }),
+        TvBase.extend({ status: z.literal("upcoming"), premiere: z.iso.date() }),
     ]),
 });
 
-const events = defineCollection({
+let events = defineCollection({
     type: "data",
     schema: z.object({
         title: z.string(),
@@ -51,7 +51,7 @@ const events = defineCollection({
     }),
 });
 
-const theaters = defineCollection({
+let theaters = defineCollection({
     type: "data",
     schema: z.object({
         title: z.string(),
@@ -66,7 +66,7 @@ const theaters = defineCollection({
     }),
 });
 
-const recipes = defineCollection({
+let recipes = defineCollection({
     type: "content",
     schema: z.object({
         title: z.string(),
@@ -75,7 +75,7 @@ const recipes = defineCollection({
     }),
 });
 
-const restaurants = defineCollection({
+let restaurants = defineCollection({
     type: "content",
     schema: z.object({
         name: z.string(),

@@ -16,7 +16,7 @@ import type { IconName } from "~/components/icon-names.ts";
 import { Icon } from "~/components/Icon.tsx";
 import tailwind from "~/styles/style.css?url";
 
-const navItems = [
+const NAV_ITEMS = [
     // { label: "Home", url: "/", icon: "home" },
     { label: "TV Shows", url: "/tv", icon: "tv" },
     { label: "Movies", url: "/movies", icon: "movie-camera" },
@@ -43,7 +43,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     navbar={
                         <Navbar>
                             <NavbarSection className="max-lg:hidden">
-                                {navItems.map(({ label, url }) => (
+                                {NAV_ITEMS.map(({ label, url }) => (
                                     <NavbarItem href={url} key={label}>
                                         {label}
                                     </NavbarItem>
@@ -55,7 +55,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                         <Sidebar>
                             <SidebarBody>
                                 <SidebarSection>
-                                    {navItems.map(({ label, url, icon }) => (
+                                    {NAV_ITEMS.map(({ label, url, icon }) => (
                                         <SidebarItem href={url} key={label}>
                                             <Icon name={icon} />
                                             <SidebarLabel>{label}</SidebarLabel>

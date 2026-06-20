@@ -5,7 +5,7 @@ import { Button as RACButton } from "react-aria-components";
 
 import { Link } from "./link.tsx";
 
-const styles = {
+let styles = {
     base: [
         // Base
         "relative isolate inline-flex items-center justify-center gap-x-2 rounded-lg border text-base/6",
@@ -196,7 +196,7 @@ export const Button = function Button({
     children,
     ...props
 }: ButtonProps) {
-    const classes = clsx(
+    let classes = clsx(
         className,
         styles.base,
         outline

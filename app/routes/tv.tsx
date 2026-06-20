@@ -15,14 +15,15 @@ const NO_PREMIERE = "9999-99-99";
 
 // Accent- and case-insensitive title key, since `sortBy` compares by code point rather than
 // locale. Mirrors the article-stripping, base-sensitivity behavior of `titleSortComparator`.
-const titleKey = (title: string) =>
-    removeArticles(title)
+function titleKey(title: string) {
+    return removeArticles(title)
         .normalize("NFD")
         .replace(/\p{Diacritic}/gu, "")
         .toLowerCase();
+}
 
 export async function loader() {
-    const tvShows = sortBy(await getCollection("television"), [
+    let tvShows = sortBy(await getCollection("television"), [
         show => STATUS_ORDER[show.data.status],
         // Only `upcoming` shows carry a premiere; order them by it (ISO strings compare
         // chronologically). Other statuses share the sentinel and fall through to the title key.
@@ -37,7 +38,7 @@ export async function loader() {
 }
 
 export default function Component({ loaderData }: Route.ComponentProps) {
-    const { tvShows, watching } = loaderData;
+    let { tvShows, watching } = loaderData;
     return (
         <>
             <title>TV Shows • Dashboard</title>

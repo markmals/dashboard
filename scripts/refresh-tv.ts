@@ -19,7 +19,7 @@ if (!API_KEY) {
     process.exit(1);
 }
 
-const _today = new Date().toISOString().slice(0, 10);
+let _today = new Date().toISOString().slice(0, 10);
 
 type TvStatus = "ended" | "airing" | "returning" | "upcoming";
 
@@ -65,17 +65,17 @@ interface TvShowFile {
  * on Drama). Everything else is Drama.
  */
 function collapseGenre(genres: { name: string }[]): Genre {
-    const names = new Set(genres.map(g => g.name));
+    let names = new Set(genres.map(g => g.name));
     return names.has("Comedy") && !names.has("Drama") ? "Comedy" : "Drama";
 }
 
 /** Map TMDb status + episode dates to our normalized airing state. */
 function derive(tv: TmdbTv): Derived {
-    const seasons = tv.number_of_seasons;
-    const firstAir = tv.first_air_date || null;
-    const last = tv.last_episode_to_air || null;
-    const next = tv.next_episode_to_air || null;
-    const genre = collapseGenre(tv.genres);
+    let seasons = tv.number_of_seasons;
+    let firstAir = tv.first_air_date || null;
+    let last = tv.last_episode_to_air || null;
+    let next = tv.next_episode_to_air || null;
+    let genre = collapseGenre(tv.genres);
 
     if (tv.status === "Ended" || tv.status === "Canceled") {
         return { status: "ended", seasons, genre };
@@ -89,7 +89,7 @@ function derive(tv: TmdbTv): Derived {
     // Otherwise the show is brand-new (nothing aired yet) or between seasons. The next premiere
     // date is the first air date for a show that hasn't started, or the next episode's air date
     // for a returning one. With a known date it's `upcoming`; without one, `returning`.
-    const premiere = last ? next?.air_date : firstAir;
+    let premiere = last ? next?.air_date : firstAir;
     if (premiere) {
         return { status: "upcoming", seasons, premiere, genre };
     }
@@ -99,36 +99,36 @@ function derive(tv: TmdbTv): Derived {
 const TV_ID_RE = /\/tv\/(\d+)/;
 
 function tmdbId(link: string | undefined): string {
-    const match = TV_ID_RE.exec(link ?? "");
+    let match = TV_ID_RE.exec(link ?? "");
     if (!match) throw new Error(`Could not parse TMDb id from link: ${link}`);
     return match[1];
 }
 
-const files = (await readdir(TV_DIR)).filter(f => f.endsWith(".json")).sort();
+let files = (await readdir(TV_DIR)).filter(f => f.endsWith(".json")).sort();
 let changed = 0;
 
-for (const file of files) {
-    const path = join(TV_DIR, file);
-    const raw = await readFile(path, "utf8");
-    const existing = JSON.parse(raw) as TvShowFile;
-    const id = tmdbId(existing.link);
+for (let file of files) {
+    let path = join(TV_DIR, file);
+    let raw = await readFile(path, "utf8");
+    let existing = JSON.parse(raw) as TvShowFile;
+    let id = tmdbId(existing.link);
 
-    const res = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}`);
+    let res = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}`);
     if (!res.ok) {
         console.error(`✗ ${file}: TMDb ${res.status}`);
         continue;
     }
-    const { status, seasons, premiere, genre: derivedGenre } = derive((await res.json()) as TmdbTv);
+    let { status, seasons, premiere, genre: derivedGenre } = derive((await res.json()) as TmdbTv);
     // `genre` is preserve-when-present: an existing value (manual override or a prior backfill)
     // wins, otherwise we use the freshly-derived label. This makes genre sticky — once written
     // it is not re-derived on later refreshes. To re-derive, delete the field and re-run.
-    const genre = existing.genre ?? derivedGenre;
+    let genre = existing.genre ?? derivedGenre;
 
     // Rebuild in a stable key order, preserving everything not derived here. This script writes
     // status/seasons/premiere every run and backfills genre once; title/link/trailer/poster/
     // watching are carried over from disk verbatim and are never sourced from TMDb. `poster` in
     // particular is hand-curated — see the invariant below.
-    const updated: TvShowFile = {
+    let updated: TvShowFile = {
         title: existing.title,
         link: existing.link,
         genre,
@@ -150,11 +150,11 @@ for (const file of files) {
         );
     }
 
-    const next = `${JSON.stringify(updated, null, 4)}\n`;
+    let next = `${JSON.stringify(updated, null, 4)}\n`;
     if (next !== raw) changed++;
     await writeFile(path, next);
 
-    const detail = premiere ? `premieres ${premiere}` : `${seasons} season(s)`;
+    let detail = premiere ? `premieres ${premiere}` : `${seasons} season(s)`;
     console.log(`✓ ${file.padEnd(40)} ${genre.padEnd(7)} ${status.padEnd(10)} ${detail}`);
 }
 

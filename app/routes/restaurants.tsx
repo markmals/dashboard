@@ -6,7 +6,7 @@ import { nameSortComparator, withContent } from "~/lib/sort-comparators.ts";
 import type { Route } from "./+types/restaurants";
 
 export async function loader() {
-    const restaurants = await getCollection("restaurants");
+    let restaurants = await getCollection("restaurants");
     return restaurants.toSorted(withContent(nameSortComparator));
 }
 

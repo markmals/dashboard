@@ -125,7 +125,7 @@ export function ListboxOption({
     React.ComponentPropsWithoutRef<typeof ListBoxItem>,
     "className" | "children"
 >) {
-    const sharedClasses = clsx(
+    let sharedClasses = clsx(
         // Base
         "flex min-w-0 items-center",
         // Icons

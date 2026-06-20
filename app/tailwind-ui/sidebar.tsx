@@ -52,7 +52,7 @@ export function SidebarFooter({ className, ...props }: React.ComponentPropsWitho
 }
 
 export function SidebarSection({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
-    const id = useId();
+    let id = useId();
 
     return (
         <LayoutGroup id={id}>
@@ -106,7 +106,7 @@ export const SidebarItem = function SidebarItem({
     | Omit<React.ComponentPropsWithoutRef<typeof RACButton>, "className">
     | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
 )) {
-    const classes = clsx(
+    let classes = clsx(
         // Base
         "flex w-full items-center gap-3 rounded-lg px-2 py-2.5 text-left text-base/6 font-medium text-zinc-950 sm:py-2 sm:text-sm/5",
         // Leading icon/icon-only
@@ -128,8 +128,8 @@ export const SidebarItem = function SidebarItem({
         "dark:data-current:*:data-[slot=icon]:text-blue-500",
     );
 
-    const location = useLocation();
-    const current = "href" in props && location.pathname === props.href;
+    let location = useLocation();
+    let current = "href" in props && location.pathname === props.href;
 
     return (
         <span className={clsx(className, "relative")}>

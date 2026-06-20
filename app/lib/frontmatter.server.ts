@@ -108,7 +108,7 @@ export class Frontmatter<T> {
      */
     private findMetaIndices(mem: number[], item: string, i: number): number[] {
         // If the line starts with ---, it's a metadata delimiter
-        if (/^---/.test(item)) {
+        if (item.startsWith('---')) {
             // Add the index of the line to the array of indices
             mem.push(i);
         }
@@ -123,9 +123,9 @@ export class Frontmatter<T> {
      * @returns The parsed data of type T extracted from the specified lines, or an empty object if no metadata indices are found.
      */
     private getData<T>(linesProps: DataProps): FrontmatterResult<T>["data"] {
-        const { lines, metaIndices } = linesProps;
+        let { lines, metaIndices } = linesProps;
         if (metaIndices.length > 0) {
-            const data = lines.slice(metaIndices[0] + 1, metaIndices[1]);
+            let data = lines.slice(metaIndices[0] + 1, metaIndices[1]);
 
             return parse(data.join("\n")) as T;
         }
@@ -141,8 +141,8 @@ export class Frontmatter<T> {
      *   - content: The content of the markdown file.
      */
     private getContent(linesProps: DataProps): string {
-        const { lines, metaIndices } = linesProps;
-        const content =
+        let { lines, metaIndices } = linesProps;
+        let content =
             metaIndices.length > 0 ? lines.slice(metaIndices[1] + 1).join("\n") : lines.join("\n");
 
         return content.trim() === "undefined" ? "" : content.trim();

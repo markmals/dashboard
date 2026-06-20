@@ -12,9 +12,9 @@ export default async function handleRequest(
     _loadContext: RouterContextProvider,
 ) {
     let shellRendered = false;
-    const userAgent = request.headers.get("user-agent");
+    let userAgent = request.headers.get("user-agent");
 
-    const body = await renderToReadableStream(
+    let body = await renderToReadableStream(
         <ServerRouter context={routerContext} url={request.url} />,
         {
             onError(error: unknown) {

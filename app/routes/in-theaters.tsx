@@ -6,18 +6,18 @@ import { releaseSortComparator, titleSortComparator, withContent } from "~/lib/s
 import type { Route } from "./+types/in-theaters";
 
 export async function loader() {
-    const movies = await getCollection("theaters");
-    const formatter = new Intl.DateTimeFormat("en", { dateStyle: "short" });
-    const today = new Date();
+    let movies = await getCollection("theaters");
+    let formatter = new Intl.DateTimeFormat("en", { dateStyle: "short" });
+    let today = new Date();
     today.setHours(0, 0, 0, 0);
 
     // Only surface fully-hydrated entries; upcoming titles without a trailer or poster on
     // TMDb yet are kept in the data file but hidden until those fields can be filled in.
-    const complete = movies.filter(movie => movie.data.poster);
+    let complete = movies.filter(movie => movie.data.poster);
 
-    const inTheaters = complete
+    let inTheaters = complete
         .filter(movie => {
-            const releaseDate = new Date(`${movie.data.release}T00:00:00`);
+            let releaseDate = new Date(`${movie.data.release}T00:00:00`);
             return releaseDate <= today;
         })
         .toSorted(withContent(titleSortComparator))
@@ -29,9 +29,9 @@ export async function loader() {
             },
         }));
 
-    const upcoming = complete
+    let upcoming = complete
         .filter(movie => {
-            const releaseDate = new Date(`${movie.data.release}T00:00:00`);
+            let releaseDate = new Date(`${movie.data.release}T00:00:00`);
             return releaseDate > today;
         })
         .toSorted(withContent(releaseSortComparator))
@@ -50,7 +50,7 @@ export async function loader() {
 }
 
 export default function Component({ loaderData }: Route.ComponentProps) {
-    const { inTheaters, upcoming } = loaderData;
+    let { inTheaters, upcoming } = loaderData;
     return (
         <>
             <title>Theater Movies • Dashboard</title>

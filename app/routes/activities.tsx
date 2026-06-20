@@ -6,7 +6,7 @@ import { titleSortComparator, withContent } from "~/lib/sort-comparators.ts";
 import type { Route } from "./+types/activities";
 
 export async function loader() {
-    const events = await getCollection("events");
+    let events = await getCollection("events");
     return events.toSorted(withContent(titleSortComparator));
 }
 

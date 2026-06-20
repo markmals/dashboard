@@ -1,7 +1,7 @@
 import type { CollectionEntry } from "./content.server.ts";
 
-const articles = /^(?:a|an|the)\s+/i;
-export const removeArticles = (title: string) => title.replace(articles, "");
+const ARTICLES_RE = /^(?:a|an|the)\s+/i;
+export let removeArticles = (title: string) => title.replace(ARTICLES_RE, "");
 
 interface Titled {
     title: string;

@@ -44,7 +44,7 @@ export function CheckboxField({
     );
 }
 
-const base = [
+let base = [
     // Basic layout
     "relative isolate flex size-4.5 items-center justify-center rounded-[0.3125rem] sm:size-4",
     // Background color + shadow applied to inset pseudo element, so shadow blends with border in light mode
@@ -72,7 +72,7 @@ const base = [
     "dark:forced-colors:[--checkbox-check:HighlightText] dark:forced-colors:[--checkbox-checked-bg:Highlight] dark:forced-colors:group-data-disabled:[--checkbox-check:Highlight]",
 ];
 
-const colors = {
+let colors = {
     "dark/zinc": [
         "[--checkbox-check:var(--color-white)] [--checkbox-checked-bg:var(--color-zinc-900)] [--checkbox-checked-border:var(--color-zinc-950)]/90",
         "dark:[--checkbox-checked-bg:var(--color-zinc-600)]",

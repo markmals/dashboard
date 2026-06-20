@@ -24,7 +24,7 @@ const STATUS_BADGE = {
 
 function formatPremiere(iso: string) {
     // Parse as local-date parts to avoid the UTC-midnight off-by-one in toLocaleDateString.
-    const [year, month, day] = iso.split("-").map(Number);
+    let [year, month, day] = iso.split("-").map(Number);
     return new Date(year, month - 1, day).toLocaleDateString("en-US", {
         month: "numeric",
         day: "numeric",
@@ -33,15 +33,15 @@ function formatPremiere(iso: string) {
 }
 
 export function TVShowCell({ tvShow: { data } }: { tvShow: CollectionEntry<"television"> }) {
-    const badge = STATUS_BADGE[data.status];
+    let badge = STATUS_BADGE[data.status];
     // `upcoming` shows — new premieres and dated returning seasons alike — carry a premiere
     // date; show it, otherwise fall back to the season count. Genre trails the line, matching
     // the movie cell: "6/25/26 • Drama" / "5 seasons • Comedy".
-    const premiere = "premiere" in data ? data.premiere : undefined;
-    const statusText = premiere
+    let premiere = "premiere" in data ? data.premiere : undefined;
+    let statusText = premiere
         ? formatPremiere(premiere)
         : `${data.seasons} ${data.seasons === 1 ? "season" : "seasons"}`;
-    const detail = `${statusText} • ${Array.isArray(data.genre) ? data.genre.join("/") : data.genre}`;
+    let detail = `${statusText} • ${Array.isArray(data.genre) ? data.genre.join("/") : data.genre}`;
 
     return (
         <li className="flex w-full flex-col justify-between gap-4">

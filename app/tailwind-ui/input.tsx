@@ -17,7 +17,7 @@ export function InputGroup({ children }: React.ComponentPropsWithoutRef<"span">)
     );
 }
 
-const dateTypes = ["date", "datetime-local", "month", "time", "week"];
+let dateTypes = ["date", "datetime-local", "month", "time", "week"];
 type DateType = (typeof dateTypes)[number];
 
 export const Input = function Input({ ref, className, ...props }) {

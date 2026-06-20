@@ -31,7 +31,7 @@ export type CollectionEntry<Key extends CollectionKey> = Collecitons[Key]["type"
           collection: Key;
       };
 
-const content = import.meta.glob<false, string, { default: string }>(
+let content = import.meta.glob<false, string, { default: string }>(
     "/app/content/**/*.{md,json,yaml}",
     { query: "?raw" },
 );
@@ -40,18 +40,18 @@ export async function getCollection<Key extends CollectionKey>(
     key: Key,
     filter?: (entry: CollectionEntry<Key>) => boolean,
 ): Promise<CollectionEntry<Key>[]> {
-    const collection = collections[key];
-    const allDirs = [...new Set(Object.keys(content).map(filePath => path.dirname(filePath)))];
-    const kebabCaseKey = key.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+    let collection = collections[key];
+    let allDirs = [...new Set(Object.keys(content).map(filePath => path.dirname(filePath)))];
+    let kebabCaseKey = key.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 
-    const filteredContent = Object.entries(content)
+    let filteredContent = Object.entries(content)
         .filter(([filePath]) => {
-            const parsedPath = path.parse(filePath);
-            const contentDir = path.parse(parsedPath.dir).name;
-            const camelCasedContentDir = contentDir.replace(/-([a-z])/g, (_, letter) =>
+            let parsedPath = path.parse(filePath);
+            let contentDir = path.parse(parsedPath.dir).name;
+            let camelCasedContentDir = contentDir.replace(/-([a-z])/g, (_, letter) =>
                 letter.toUpperCase(),
             );
-            const fileName = parsedPath.name;
+            let fileName = parsedPath.name;
             if (allDirs.includes(fileName)) {
                 throw new Error(
                     `Cannot have top level file and directory in /app/content/. Found: ${fileName}${parsedPath.ext.toLowerCase()} and /app/content/${fileName}/`,
@@ -69,14 +69,14 @@ export async function getCollection<Key extends CollectionKey>(
         return filePath.split(`content/${kebabCaseKey}/`)[1]?.replace(/\.(md|json|yaml)$/, "");
     }
 
-    const entries = (
+    let entries = (
         await Promise.all(
             collection.type === "data"
                 ? filteredContent.flatMap(async ([filePath, file]) => {
-                      const ext = path.extname(filePath).toLowerCase();
-                      const contents = await file;
-                      const parsed = ext === ".json" ? JSON.parse(contents) : YAML.parse(contents);
-                      const data = Array.isArray(parsed) ? parsed : [parsed];
+                      let ext = path.extname(filePath).toLowerCase();
+                      let contents = await file;
+                      let parsed = ext === ".json" ? JSON.parse(contents) : YAML.parse(contents);
+                      let data = Array.isArray(parsed) ? parsed : [parsed];
                       return data.map(item => ({
                           id: getId(filePath),
                           data: collection.schema.parse(item),
@@ -85,14 +85,14 @@ export async function getCollection<Key extends CollectionKey>(
                   })
                 : filteredContent.map(async ([filePath, file]) => {
                       try {
-                          const contents = await file;
-                          const frontmatter = new Frontmatter(contents);
-                          const body = await parseMarkdown(frontmatter.content, {
+                          let contents = await file;
+                          let frontmatter = new Frontmatter(contents);
+                          let body = await parseMarkdown(frontmatter.content, {
                               renderer: new ParagraphStripper(),
                           });
-                          const data = collection.schema.parse(frontmatter.data);
-                          const id = getId(filePath)!;
-                          const slug = path.basename(id);
+                          let data = collection.schema.parse(frontmatter.data);
+                          let id = getId(filePath)!;
+                          let slug = path.basename(id);
                           return {
                               id,
                               slug,

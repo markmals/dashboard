@@ -26,7 +26,7 @@ export function NavbarDivider({ className, ...props }: React.ComponentPropsWitho
 }
 
 export function NavbarSection({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
-    const id = useId();
+    let id = useId();
 
     return (
         <LayoutGroup id={id}>
@@ -52,7 +52,7 @@ export const NavbarItem = function NavbarItem({
     | Omit<React.ComponentPropsWithoutRef<typeof RACButton>, "className">
     | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
 )) {
-    const classes = clsx(
+    let classes = clsx(
         // Base
         "relative flex min-w-0 items-center gap-3 rounded-lg p-2 text-left text-base/6 font-medium text-zinc-950 sm:text-sm/5",
         // Leading icon/icon-only
@@ -71,8 +71,8 @@ export const NavbarItem = function NavbarItem({
         "dark:data-pressed:bg-white/5 dark:data-pressed:*:data-[slot=icon]:fill-white",
     );
 
-    const location = useLocation();
-    const current = "href" in props && location.pathname === props.href;
+    let location = useLocation();
+    let current = "href" in props && location.pathname === props.href;
 
     return (
         <span className={clsx(className, "relative")}>

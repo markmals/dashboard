@@ -7,7 +7,7 @@ import { createContext, useState } from "react";
 
 import { Link } from "./link.tsx";
 
-const TableContext = createContext<{
+let TableContext = createContext<{
     bleed: boolean;
     dense: boolean;
     grid: boolean;
@@ -66,7 +66,7 @@ export function TableBody(props: React.ComponentPropsWithoutRef<"tbody">) {
     return <tbody {...props} />;
 }
 
-const TableRowContext = createContext<{ href?: string; target?: string; title?: string }>({
+let TableRowContext = createContext<{ href?: string; target?: string; title?: string }>({
     href: undefined,
     target: undefined,
     title: undefined,
@@ -79,7 +79,7 @@ export function TableRow({
     className,
     ...props
 }: { href?: string; target?: string; title?: string } & React.ComponentPropsWithoutRef<"tr">) {
-    const { striped } = use(TableContext);
+    let { striped } = use(TableContext);
 
     return (
         <TableRowContext
@@ -101,7 +101,7 @@ export function TableRow({
 }
 
 export function TableHeader({ className, ...props }: React.ComponentPropsWithoutRef<"th">) {
-    const { bleed, grid } = use(TableContext);
+    let { bleed, grid } = use(TableContext);
 
     return (
         <th
@@ -117,9 +117,9 @@ export function TableHeader({ className, ...props }: React.ComponentPropsWithout
 }
 
 export function TableCell({ className, children, ...props }: React.ComponentPropsWithoutRef<"td">) {
-    const { bleed, dense, grid, striped } = use(TableContext);
-    const { href, target, title } = use(TableRowContext);
-    const [cellRef, setCellRef] = useState<HTMLElement | null>(null);
+    let { bleed, dense, grid, striped } = use(TableContext);
+    let { href, target, title } = use(TableRowContext);
+    let [cellRef, setCellRef] = useState<HTMLElement | null>(null);
 
     return (
         <td
