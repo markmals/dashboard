@@ -1,5 +1,8 @@
+import { cache } from "react";
 import { sortBy } from "es-toolkit/array";
 import { unstable_getRequest as getRequest } from "react-router";
+
+import { readPrefs } from "~/lib/prefs.ts";
 
 // A single `<Select>` option rendered by `CollectionControls`.
 export interface ControlOption {
@@ -39,12 +42,22 @@ export function sortEntries<E extends { data: object }>(
     );
 }
 
-// Read the current request's query string from inside an RSC server component. `unstable_getRequest`
-// is populated for the whole route render (react-router runs the RSC render inside its
-// `ServerStorage` async context), so this is the RSC-native counterpart to a loader's
-// `request.url` — no loader or middleware required. Requires the `nodejs_als` Worker flag.
-export function getSearchParams(): URLSearchParams {
-    return new URL(getRequest().url).searchParams;
+// Request-scoped accessors over the per-request globals. `unstable_getRequest` is populated for the
+// whole RSC render (react-router runs it inside its `ServerStorage` async context; needs the
+// `nodejs_als` Worker flag), and `React.cache` dedupes these within a single render so the URL is
+// parsed once and the prefs cookie read at most once per request.
+let requestUrl = cache(() => new URL(getRequest().url));
+let requestPrefs = cache(() => readPrefs(getRequest()));
+
+// Effective sort/filter params for a collection page: the URL params when the user has interacted
+// (any known param is present), otherwise the values remembered in the prefs cookie (keyed by
+// pathname). The root `persistPrefs` middleware normally redirects a bare URL to its stored params
+// (so the URL stays authoritative); the cookie read here is the render-time fallback.
+export async function resolvePageParams(paramNames: readonly string[]): Promise<URLSearchParams> {
+    let url = requestUrl();
+    if (paramNames.some(name => url.searchParams.has(name))) return url.searchParams;
+    let prefs = await requestPrefs();
+    return new URLSearchParams(prefs[url.pathname] ?? "");
 }
 
 // Narrow a raw `?sort=` value to a known registry key, falling back to the default.

@@ -15,9 +15,9 @@ import { Icon } from "~/components/Icon.tsx";
 import { SectionHeader } from "~/components/SectionHeader.tsx";
 import {
     genreControlOptions,
-    getSearchParams,
     matchesGenre,
     pickSort,
+    resolvePageParams,
     sortControlOptions,
     sortEntries,
     titleKey,
@@ -53,7 +53,7 @@ const TV_SORTS = {
 } satisfies Record<string, SortOption<TvData>>;
 
 export async function ServerComponent() {
-    let params = getSearchParams();
+    let params = await resolvePageParams(["sort", "status", "genre"]);
     let sort = pickSort(TV_SORTS, params.get("sort"), "status");
     let status = params.get("status") ?? "";
     let genre = params.get("genre") ?? "";
@@ -99,7 +99,7 @@ export async function ServerComponent() {
                             options: genreControlOptions(all.map(show => show.data.genre)),
                         },
                     ]}
-                    resetTo="/tv"
+                    resetTo="/tv?sort=status"
                 />
                 {watching.length > 0 && (
                     <>

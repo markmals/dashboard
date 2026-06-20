@@ -9,12 +9,27 @@ import {
     SidebarSection,
     StackedLayout,
 } from "@tailwindcss/ui/index.ts";
-import { Outlet } from "react-router";
+import { Outlet, redirect } from "react-router";
 
 import type { IconName } from "~/components/icon-names.ts";
+import type { Route } from "./+types/root.ts";
 
 import { Icon } from "~/components/Icon.tsx";
+import { resolvePrefs } from "~/lib/prefs.ts";
 import tailwind from "~/styles/style.css?url";
+
+// Persist collection-page filter params in a cookie and restore them across navigations. On a bare
+// URL with remembered params we redirect so the params reappear in the URL; on a filtered URL we
+// write the cookie. Read back during render via `resolvePageParams`.
+export const middleware: Route.MiddlewareFunction[] = [
+    async ({ request }, next) => {
+        let { redirect: to, setCookie } = await resolvePrefs(request);
+        if (to) return redirect(to);
+        let response = await next();
+        if (setCookie) response.headers.append("Set-Cookie", setCookie);
+        return response;
+    },
+];
 
 const NAV_ITEMS = [
     // { label: "Home", url: "/", icon: "home" },

@@ -14,8 +14,10 @@ export interface CollectionControl {
 }
 
 // A GET filter/sort toolbar. Each `<Select>` auto-submits the form on change (mirroring the
-// contacts-rsc search pattern), driving everything through URL search params so the server
-// component can read them via `getSearchParams()`. Empty selections are dropped to keep URLs clean.
+// contacts-rsc search pattern), driving everything through URL search params so the server can read
+// them via `resolvePageParams`. Empty selections are dropped to keep URLs clean. Persistence across
+// navigations is handled server-side (the root `persistPrefs` middleware writes a cookie), so there
+// is no client cookie handling here; `resetTo` points at the page's explicit defaults.
 export function CollectionControls({
     canReset,
     controls,

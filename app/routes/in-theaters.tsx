@@ -15,9 +15,9 @@ import { Icon } from "~/components/Icon.tsx";
 import { SectionHeader } from "~/components/SectionHeader.tsx";
 import {
     genreControlOptions,
-    getSearchParams,
     matchesGenre,
     pickSort,
+    resolvePageParams,
     sortControlOptions,
     sortEntries,
     titleKey,
@@ -36,7 +36,7 @@ const THEATER_SORTS = {
 } satisfies Record<string, SortOption<TheaterData>>;
 
 export async function ServerComponent() {
-    let params = getSearchParams();
+    let params = await resolvePageParams(["sort", "genre"]);
     let sort = pickSort(THEATER_SORTS, params.get("sort"), "release-asc");
     let genre = params.get("genre") ?? "";
 
@@ -94,7 +94,7 @@ export async function ServerComponent() {
                             options: genreControlOptions(complete.map(movie => movie.data.genre)),
                         },
                     ]}
-                    resetTo="/in-theaters"
+                    resetTo="/in-theaters?sort=release-asc"
                 />
                 {inTheaters.length > 0 && (
                     <>

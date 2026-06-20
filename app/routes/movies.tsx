@@ -15,9 +15,9 @@ import { Icon } from "~/components/Icon.tsx";
 import { SectionHeader } from "~/components/SectionHeader.tsx";
 import {
     genreControlOptions,
-    getSearchParams,
     matchesGenre,
     pickSort,
+    resolvePageParams,
     runtimeMinutes,
     sortControlOptions,
     sortEntries,
@@ -35,7 +35,7 @@ const MOVIE_SORTS = {
 } satisfies Record<string, SortOption<MovieData>>;
 
 export async function ServerComponent() {
-    let params = getSearchParams();
+    let params = await resolvePageParams(["sort", "genre"]);
     let sort = pickSort(MOVIE_SORTS, params.get("sort"), "title");
     let genre = params.get("genre") ?? "";
 
@@ -67,7 +67,7 @@ export async function ServerComponent() {
                             options: genreControlOptions(all.map(movie => movie.data.genre)),
                         },
                     ]}
-                    resetTo="/movies"
+                    resetTo="/movies?sort=title"
                 />
                 <SectionHeader>Movies</SectionHeader>
                 {movies.length === 0 ? (
