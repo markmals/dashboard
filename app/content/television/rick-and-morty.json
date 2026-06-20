@@ -1,6 +1,7 @@
 {
     "title": "Rick and Morty",
     "link": "https://www.themoviedb.org/tv/60625-rick-and-morty",
+    "genre": "Comedy",
     "status": "airing",
     "seasons": 9,
     "trailer": "https://youtu.be/WNhH00OIPP0",

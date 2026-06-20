@@ -14,9 +14,12 @@ const movies = defineCollection({
     }),
 });
 
+const tvGenre = z.enum(["Comedy", "Drama", "Documentary"]);
+
 const tvBase = z.object({
     title: z.string(),
     link: z.url(),
+    genre: z.union([tvGenre, z.array(tvGenre)]),
     seasons: z.number().int().positive(),
     trailer: z.url().optional(),
     poster: z.url(),
