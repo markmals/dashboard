@@ -1,11 +1,32 @@
+import { sortBy } from "es-toolkit/array";
 import { TVShowCell } from "~/components/CollectionCells.tsx";
 import { SectionHeader } from "~/components/SectionHeader.tsx";
 import { getCollection } from "~/lib/content.server.ts";
-import { titleSortComparator, withContent } from "~/lib/sort-comparators.ts";
+import { removeArticles } from "~/lib/sort-comparators.ts";
 import type { Route } from "./+types/tv";
 
+// Section order for the TV grid: airing first, then upcoming, returning, ended.
+const STATUS_ORDER = { airing: 0, upcoming: 1, returning: 2, ended: 3 } as const;
+
+// Shared sort key for statuses without a premiere date, so they fall through to the title key.
+const NO_PREMIERE = "9999-99-99";
+
+// Accent- and case-insensitive title key, since `sortBy` compares by code point rather than
+// locale. Mirrors the article-stripping, base-sensitivity behavior of `titleSortComparator`.
+const titleKey = (title: string) =>
+    removeArticles(title)
+        .normalize("NFD")
+        .replace(/\p{Diacritic}/gu, "")
+        .toLowerCase();
+
 export async function loader() {
-    const tvShows = (await getCollection("television")).toSorted(withContent(titleSortComparator));
+    const tvShows = sortBy(await getCollection("television"), [
+        show => STATUS_ORDER[show.data.status],
+        // Only `upcoming` shows carry a premiere; order them by it (ISO strings compare
+        // chronologically). Other statuses share the sentinel and fall through to the title key.
+        show => ("premiere" in show.data ? show.data.premiere : undefined) ?? NO_PREMIERE,
+        show => titleKey(show.data.title),
+    ]);
 
     return {
         tvShows: tvShows.filter(show => !show.data.watching),

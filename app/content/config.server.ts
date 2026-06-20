@@ -26,8 +26,10 @@ const tvBase = z.object({
 
 const television = defineCollection({
     type: "data",
-    // Discriminated on `status` so `premiere` is required exactly when a show is upcoming.
-    // These three fields (status/seasons/premiere) drift over time — refresh via `mise run tv:refresh`.
+    // Discriminated on `status`: `premiere` (the next premiere date) is required on and unique
+    // to `upcoming`, which means "not ended, with a known future date" — whether a brand-new
+    // series or a dated returning season. `returning` is "not ended, no date scheduled yet".
+    // These fields (status/seasons/premiere) drift over time — refresh via `mise run tv:refresh`.
     schema: z.discriminatedUnion("status", [
         tvBase.extend({ status: z.literal("ended") }),
         tvBase.extend({ status: z.literal("airing") }),

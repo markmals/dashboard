@@ -1,8 +1,9 @@
 {
     "title": "Slow Horses",
     "link": "https://www.themoviedb.org/tv/95480-slow-horses",
-    "status": "returning",
+    "status": "upcoming",
     "seasons": 6,
+    "premiere": "2026-09-16",
     "trailer": "https://youtu.be/O9ZJChzPn0U",
     "poster": "https://image.tmdb.org/t/p/original/d8KJTOG3vVUdhuMRrEeKK2FMqhF.jpg"
 }

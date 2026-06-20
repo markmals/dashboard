@@ -32,10 +32,12 @@ function formatPremiere(iso: string) {
 
 export function TVShowCell({ tvShow: { data } }: { tvShow: CollectionEntry<"television"> }) {
     const badge = STATUS_BADGE[data.status];
-    const detail =
-        data.status === "upcoming"
-            ? `Premieres ${formatPremiere(data.premiere)}`
-            : `${data.seasons} ${data.seasons === 1 ? "season" : "seasons"}`;
+    // `upcoming` shows — new premieres and dated returning seasons alike — carry a premiere
+    // date; show it, otherwise fall back to the season count.
+    const premiere = "premiere" in data ? data.premiere : undefined;
+    const detail = premiere
+        ? `Premieres ${formatPremiere(premiere)}`
+        : `${data.seasons} ${data.seasons === 1 ? "season" : "seasons"}`;
 
     return (
         <li className="flex w-full flex-col justify-between gap-4">

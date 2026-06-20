@@ -1,7 +1,7 @@
 // Re-hydrates the volatile TMDb-derived fields on each TV show data file:
 //   - status   (ended | airing | returning | upcoming)
 //   - seasons  (number_of_seasons)
-//   - premiere (ISO date, only when upcoming)
+//   - premiere (ISO date — the next premiere date; present only on `upcoming` shows)
 //
 // Everything else (title, link, trailer, poster, watching) is preserved as-is,
 // including manually-added posters and the `watching` flag. Doubles as the
@@ -64,15 +64,18 @@ function derive(tv: TmdbTv): Derived {
     if (tv.status === "Ended" || tv.status === "Canceled") {
         return { status: "ended", seasons };
     }
-    // Not yet premiered: nothing has aired, or the first air date is still in the future.
-    if (firstAir && (!last || firstAir > today)) {
-        return { status: "upcoming", seasons, premiere: firstAir };
-    }
-    // Airing ONLY when a season is currently mid-release: an episode has already aired and
-    // the next scheduled episode is in the SAME season. A next episode in a later season is
-    // an upcoming season premiere, not new episodes dropping now → that's `returning`.
+    // Airing: a season is currently mid-release — an episode has aired and the next scheduled
+    // episode is in the SAME season. (A next episode in a later season is a future premiere,
+    // handled below as `upcoming`.)
     if (last && next && last.season_number === next.season_number) {
         return { status: "airing", seasons };
+    }
+    // Otherwise the show is brand-new (nothing aired yet) or between seasons. The next premiere
+    // date is the first air date for a show that hasn't started, or the next episode's air date
+    // for a returning one. With a known date it's `upcoming`; without one, `returning`.
+    const premiere = last ? next?.air_date : firstAir;
+    if (premiere) {
+        return { status: "upcoming", seasons, premiere };
     }
     return { status: "returning", seasons };
 }
