@@ -5,7 +5,10 @@ import { Radio as RACRadio, RadioGroup as RACRadioGroup } from "react-aria-compo
 export function RadioGroup({
     className,
     ...props
-}: { className?: string } & Omit<React.ComponentPropsWithoutRef<typeof RACRadioGroup>, "className">) {
+}: { className?: string } & Omit<
+    React.ComponentPropsWithoutRef<typeof RACRadioGroup>,
+    "className"
+>) {
     return (
         <RACRadioGroup
             data-slot="control"
@@ -114,7 +117,10 @@ export function Radio({
     color = "dark/zinc",
     className,
     ...props
-}: { color?: Color; className?: string } & Omit<React.ComponentPropsWithoutRef<typeof RACRadio>, "className" | "children">) {
+}: { color?: Color; className?: string } & Omit<
+    React.ComponentPropsWithoutRef<typeof RACRadio>,
+    "className" | "children"
+>) {
     return (
         <RACRadio
             data-slot="control"

@@ -56,7 +56,7 @@ export function Listbox({
                         // Typography
                         "text-left text-base/6 text-zinc-950 placeholder:text-zinc-500 sm:text-sm/6 dark:text-white forced-colors:text-[CanvasText]",
                         // Border
-                        "border border-zinc-950/10 group-data-pressed:border-zinc-950/20 group-data-hovered:border-zinc-950/20 dark:border-white/10 dark:group-data-pressed:border-white/20 dark:group-data-hovered:border-white/20",
+                        "border border-zinc-950/10 group-data-hovered:border-zinc-950/20 group-data-pressed:border-zinc-950/20 dark:border-white/10 dark:group-data-hovered:border-white/20 dark:group-data-pressed:border-white/20",
                         // Background color
                         "bg-transparent dark:bg-white/5",
                         // Invalid state
@@ -111,9 +111,7 @@ export function Listbox({
                     "shadow-lg ring-1 ring-zinc-950/10 dark:ring-white/10 dark:ring-inset",
                 )}
             >
-                <ListBox className="outline-none">
-                    {options}
-                </ListBox>
+                <ListBox className="outline-none">{options}</ListBox>
             </Popover>
         </Select>
     );

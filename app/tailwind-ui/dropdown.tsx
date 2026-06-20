@@ -29,7 +29,10 @@ export function DropdownMenu({
     anchor = "bottom",
     className,
     ...props
-}: { anchor?: string; className?: string } & Omit<React.ComponentPropsWithoutRef<typeof Menu>, "className">) {
+}: { anchor?: string; className?: string } & Omit<
+    React.ComponentPropsWithoutRef<typeof Menu>,
+    "className"
+>) {
     return (
         <Popover
             placement={anchor === "bottom" ? "bottom start" : (anchor as any)}
@@ -100,7 +103,10 @@ export function DropdownHeader({ className, ...props }: React.ComponentPropsWith
 export function DropdownSection({
     className,
     ...props
-}: { className?: string } & Omit<React.ComponentPropsWithoutRef<typeof RACMenuSection>, "className">) {
+}: { className?: string } & Omit<
+    React.ComponentPropsWithoutRef<typeof RACMenuSection>,
+    "className"
+>) {
     return (
         <RACMenuSection
             {...props}
@@ -148,11 +154,7 @@ export function DropdownLabel({
     ...props
 }: { className?: string } & Omit<React.ComponentPropsWithoutRef<"span">, "className">) {
     return (
-        <span
-            {...props}
-            className={clsx(className, "col-start-2 row-start-1")}
-            data-slot="label"
-        />
+        <span {...props} className={clsx(className, "col-start-2 row-start-1")} data-slot="label" />
     );
 }
 

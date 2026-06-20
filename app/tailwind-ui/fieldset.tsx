@@ -6,7 +6,10 @@ export function Fieldset({
     className,
     disabled,
     ...props
-}: { className?: string; disabled?: boolean } & Omit<React.ComponentPropsWithoutRef<"fieldset">, "className">) {
+}: { className?: string; disabled?: boolean } & Omit<
+    React.ComponentPropsWithoutRef<"fieldset">,
+    "className"
+>) {
     return (
         <fieldset
             {...props}
@@ -41,7 +44,10 @@ export function Field({
     className,
     disabled,
     ...props
-}: { className?: string; disabled?: boolean } & Omit<React.ComponentPropsWithoutRef<"div">, "className">) {
+}: { className?: string; disabled?: boolean } & Omit<
+    React.ComponentPropsWithoutRef<"div">,
+    "className"
+>) {
     return (
         <div
             {...props}

@@ -47,9 +47,9 @@ export function Dialog({
                         className,
                         sizes[size],
                         "row-start-2 w-full min-w-0 rounded-t-3xl bg-white p-(--gutter) shadow-lg ring-1 ring-zinc-950/10 [--gutter:--spacing(8)] sm:mb-auto sm:rounded-2xl dark:bg-zinc-900 dark:ring-white/10 forced-colors:outline-solid",
-                        "outline-none transition-all duration-100 ease-out",
-                        "data-entering:opacity-0 data-entering:translate-y-12 sm:data-entering:translate-y-0 sm:data-entering:scale-95",
-                        "data-exiting:opacity-0 data-exiting:translate-y-12 sm:data-exiting:translate-y-0",
+                        "transition-all duration-100 ease-out outline-none",
+                        "data-entering:translate-y-12 data-entering:opacity-0 sm:data-entering:translate-y-0 sm:data-entering:scale-95",
+                        "data-exiting:translate-y-12 data-exiting:opacity-0 sm:data-exiting:translate-y-0",
                     )}
                 >
                     <RACDialog {...props} className="outline-none">

@@ -47,8 +47,8 @@ export function Alert({
                         className,
                         sizes[size],
                         "row-start-2 w-full rounded-2xl bg-white p-8 shadow-lg ring-1 ring-zinc-950/10 sm:rounded-2xl sm:p-6 dark:bg-zinc-900 dark:ring-white/10 forced-colors:outline-solid",
-                        "outline-none transition-all duration-100 ease-out",
-                        "data-entering:opacity-0 data-entering:scale-95",
+                        "transition-all duration-100 ease-out outline-none",
+                        "data-entering:scale-95 data-entering:opacity-0",
                         "data-exiting:opacity-0",
                     )}
                 >
