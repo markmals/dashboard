@@ -4,5 +4,6 @@
     "status": "airing",
     "seasons": 9,
     "trailer": "https://youtu.be/WNhH00OIPP0",
-    "poster": "https://image.tmdb.org/t/p/original/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg"
+    "poster": "https://image.tmdb.org/t/p/original/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
+    "watching": true
 }

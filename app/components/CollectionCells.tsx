@@ -30,11 +30,7 @@ function formatPremiere(iso: string) {
     });
 }
 
-export function TVShowCell({
-    tvShow: { data },
-}: {
-    tvShow: CollectionEntry<"television">;
-}) {
+export function TVShowCell({ tvShow: { data } }: { tvShow: CollectionEntry<"television"> }) {
     const badge = STATUS_BADGE[data.status];
     const detail =
         data.status === "upcoming"
@@ -62,7 +58,6 @@ export function TVShowCell({
                 </a>
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                     <Badge color={badge.color}>{badge.label}</Badge>
-                    {data.watching && <Badge color="violet">Watching</Badge>}
                     <span className="text-sm font-medium text-black/70 dark:text-white/70">
                         {detail}
                     </span>
