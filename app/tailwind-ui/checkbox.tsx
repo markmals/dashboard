@@ -1,14 +1,15 @@
 import type React from "react";
 
-import { clsx } from "clsx";
 import { Checkbox as RACCheckbox } from "react-aria-components";
+
+import { cx } from "~/styles/cva.ts";
 
 export function CheckboxGroup({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
     return (
         <div
             data-slot="control"
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 // Basic groups
                 "space-y-3",
@@ -27,7 +28,7 @@ export function CheckboxField({
         <div
             data-slot="field"
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 // Base layout
                 "grid grid-cols-[1.125rem_1fr] items-center gap-x-4 gap-y-1 sm:grid-cols-[1rem_1fr]",
@@ -119,9 +120,9 @@ export function Checkbox({
         <RACCheckbox
             data-slot="control"
             {...props}
-            className={clsx(className, "group inline-flex focus:outline-hidden")}
+            className={cx(className, "group inline-flex focus:outline-hidden")}
         >
-            <span className={clsx([base, colors[color]])}>
+            <span className={cx([base, colors[color]])}>
                 <svg
                     className="size-4 stroke-(--checkbox-check) opacity-0 group-data-selected:opacity-100 sm:h-3.5 sm:w-3.5"
                     fill="none"

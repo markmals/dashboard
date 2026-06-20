@@ -1,6 +1,6 @@
 import type React from "react";
 
-import clsx from "clsx";
+import { cx } from "~/styles/cva.ts";
 
 import { Button } from "./button.tsx";
 
@@ -9,7 +9,7 @@ export function Pagination({
     className,
     ...props
 }: React.ComponentPropsWithoutRef<"nav">) {
-    return <nav aria-label={ariaLabel} {...props} className={clsx(className, "flex gap-x-2")} />;
+    return <nav aria-label={ariaLabel} {...props} className={cx(className, "flex gap-x-2")} />;
 }
 
 export function PaginationPrevious({
@@ -18,7 +18,7 @@ export function PaginationPrevious({
     children = "Previous",
 }: React.PropsWithChildren<{ href?: string | null; className?: string }>) {
     return (
-        <span className={clsx(className, "grow basis-0")}>
+        <span className={cx(className, "grow basis-0")}>
             <Button
                 {...(href === null ? { disabled: true } : { href })}
                 aria-label="Previous page"
@@ -50,7 +50,7 @@ export function PaginationNext({
     children = "Next",
 }: React.PropsWithChildren<{ href?: string | null; className?: string }>) {
     return (
-        <span className={clsx(className, "flex grow basis-0 justify-end")}>
+        <span className={cx(className, "flex grow basis-0 justify-end")}>
             <Button
                 {...(href === null ? { disabled: true } : { href })}
                 aria-label="Next page"
@@ -77,7 +77,7 @@ export function PaginationNext({
 }
 
 export function PaginationList({ className, ...props }: React.ComponentPropsWithoutRef<"span">) {
-    return <span {...props} className={clsx(className, "hidden items-baseline gap-x-2 sm:flex")} />;
+    return <span {...props} className={cx(className, "hidden items-baseline gap-x-2 sm:flex")} />;
 }
 
 export function PaginationPage({
@@ -85,12 +85,12 @@ export function PaginationPage({
     className,
     current = false,
     children,
-}: React.PropsWithChildren<{ href: string; className?: string; current?: boolean }>) {
+}: { href: string; className?: string; current?: boolean; children: string | number }) {
     return (
         <Button
             aria-current={current ? "page" : undefined}
             aria-label={`Page ${children}`}
-            className={clsx(
+            className={cx(
                 className,
                 "min-w-9 before:absolute before:-inset-px before:rounded-lg",
                 current && "before:bg-zinc-950/5 dark:before:bg-white/10",
@@ -112,7 +112,7 @@ export function PaginationGap({
         <span
             aria-hidden="true"
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 "w-9 text-center text-sm/6 font-semibold text-zinc-950 select-none dark:text-white",
             )}

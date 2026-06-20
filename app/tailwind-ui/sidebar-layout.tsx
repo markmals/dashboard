@@ -2,9 +2,10 @@
 
 import type React from "react";
 
-import clsx from "clsx";
 import { useState } from "react";
 import { Dialog, Modal, ModalOverlay } from "react-aria-components";
+
+import { cx } from "~/styles/cva.ts";
 
 import { NavbarItem } from "./navbar.tsx";
 
@@ -31,7 +32,7 @@ function MobileSidebar({
 }: React.PropsWithChildren<{ open: boolean; close: () => void }>) {
     return (
         <ModalOverlay
-            className={clsx(
+            className={cx(
                 "fixed inset-0 z-50 bg-black/30 lg:hidden",
                 "transition-opacity duration-300 ease-out data-entering:opacity-0 data-exiting:opacity-0",
             )}
@@ -42,7 +43,7 @@ function MobileSidebar({
             }}
         >
             <Modal
-                className={clsx(
+                className={cx(
                     "fixed inset-y-0 w-full max-w-80 p-2",
                     "transition-transform duration-300 ease-in-out data-entering:-translate-x-full data-exiting:-translate-x-full",
                 )}

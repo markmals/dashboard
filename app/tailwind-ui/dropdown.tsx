@@ -2,7 +2,6 @@
 
 import type React from "react";
 
-import clsx from "clsx";
 import {
     Header,
     Menu,
@@ -12,6 +11,8 @@ import {
     MenuSection as RACMenuSection,
     Separator,
 } from "react-aria-components";
+
+import { cx } from "~/styles/cva.ts";
 
 import type { Link } from "./link.tsx";
 
@@ -25,7 +26,7 @@ export function DropdownButton<T extends React.ElementType = typeof Button>({
     as: Component = Button as any,
     ...props
 }: { as?: T; className?: string } & Omit<React.ComponentPropsWithoutRef<T>, "as" | "className">) {
-    return <Component {...props} />;
+    return <Component {...(props as any)} />;
 }
 
 export function DropdownMenu({
@@ -38,7 +39,7 @@ export function DropdownMenu({
 >) {
     return (
         <Popover
-            className={clsx(
+            className={cx(
                 className,
                 // Transition
                 "transition-opacity duration-100 ease-in data-exiting:opacity-0",
@@ -71,7 +72,7 @@ export function DropdownItem({
     | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
     | Omit<React.ComponentPropsWithoutRef<"button">, "className">
 )) {
-    let classes = clsx(
+    let classes = cx(
         className,
         // Base styles
         "group cursor-default rounded-lg px-3.5 py-2.5 focus:outline-hidden sm:px-3 sm:py-1.5",
@@ -95,12 +96,12 @@ export function DropdownItem({
     return "href" in props ? (
         <RACMenuItem {...(props as any)} className={classes} />
     ) : (
-        <RACMenuItem {...props} className={classes} />
+        <RACMenuItem {...(props as any)} className={classes} />
     );
 }
 
 export function DropdownHeader({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
-    return <div {...props} className={clsx(className, "col-span-5 px-3.5 pt-2.5 pb-1 sm:px-3")} />;
+    return <div {...props} className={cx(className, "col-span-5 px-3.5 pt-2.5 pb-1 sm:px-3")} />;
 }
 
 export function DropdownSection({
@@ -113,7 +114,7 @@ export function DropdownSection({
     return (
         <RACMenuSection
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 // Define grid at the section level instead of the item level if subgrid is supported
                 "col-span-full supports-[grid-template-columns:subgrid]:grid supports-[grid-template-columns:subgrid]:grid-cols-[auto_1fr_1.5rem_0.5rem_auto]",
@@ -129,7 +130,7 @@ export function DropdownHeading({
     return (
         <Header
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 "col-span-full grid grid-cols-[1fr_auto] gap-x-12 px-3.5 pt-2 pb-1 text-sm/5 font-medium text-zinc-500 sm:px-3 sm:text-xs/5 dark:text-zinc-400",
             )}
@@ -144,7 +145,7 @@ export function DropdownDivider({
     return (
         <Separator
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 "col-span-full mx-3.5 my-1 h-px border-0 bg-zinc-950/5 sm:mx-3 dark:bg-white/10 forced-colors:bg-[CanvasText]",
             )}
@@ -157,7 +158,7 @@ export function DropdownLabel({
     ...props
 }: { className?: string } & Omit<React.ComponentPropsWithoutRef<"span">, "className">) {
     return (
-        <span {...props} className={clsx(className, "col-start-2 row-start-1")} data-slot="label" />
+        <span {...props} className={cx(className, "col-start-2 row-start-1")} data-slot="label" />
     );
 }
 
@@ -169,7 +170,7 @@ export function DropdownDescription({
         <span
             data-slot="description"
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 "col-span-2 col-start-2 row-start-2 text-sm/5 text-zinc-500 group-data-focused:text-white sm:text-xs/5 dark:text-zinc-400 forced-colors:group-data-focused:text-[HighlightText]",
             )}
@@ -186,13 +187,10 @@ export function DropdownShortcut({
     "className"
 >) {
     return (
-        <kbd
-            {...props}
-            className={clsx(className, "col-start-5 row-start-1 flex justify-self-end")}
-        >
+        <kbd {...props} className={cx(className, "col-start-5 row-start-1 flex justify-self-end")}>
             {(Array.isArray(keys) ? keys : keys.split("")).map((char, index) => (
                 <kbd
-                    className={clsx([
+                    className={cx([
                         "min-w-[2ch] text-center font-sans text-zinc-400 capitalize group-data-focused:text-white forced-colors:group-data-focused:text-[HighlightText]",
                         // Make sure key names that are longer than one character (like "Tab") have extra space
                         index > 0 && char.length > 1 && "pl-1",

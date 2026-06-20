@@ -1,9 +1,16 @@
-import { clsx } from "clsx";
+import type React from "react";
 
-export const Select = function Select({ ref, className, multiple, ...props }) {
+import { cx } from "~/styles/cva.ts";
+
+export function Select({
+    ref,
+    className,
+    multiple,
+    ...props
+}: React.ComponentPropsWithRef<"select">) {
     return (
         <span
-            className={clsx([
+            className={cx([
                 className,
                 // Basic layout
                 "group relative block w-full",
@@ -22,7 +29,7 @@ export const Select = function Select({ ref, className, multiple, ...props }) {
                 multiple={multiple}
                 ref={ref}
                 {...props}
-                className={clsx([
+                className={cx([
                     // Basic layout
                     "relative block w-full appearance-none rounded-lg py-[calc(--spacing(2.5)-1px)] sm:py-[calc(--spacing(1.5)-1px)]",
                     // Horizontal padding
@@ -70,4 +77,4 @@ export const Select = function Select({ ref, className, multiple, ...props }) {
             )}
         </span>
     );
-};
+}

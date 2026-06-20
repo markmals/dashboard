@@ -1,7 +1,8 @@
 import type React from "react";
 
-import clsx from "clsx";
 import { Button as RACButton } from "react-aria-components";
+
+import { cx } from "~/styles/cva.ts";
 
 import { TouchTarget } from "./button.tsx";
 import { Link } from "./link.tsx";
@@ -26,7 +27,7 @@ export function Avatar({
         <span
             data-slot="avatar"
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 // Basic layout
                 "inline-grid shrink-0 align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1",
@@ -61,7 +62,15 @@ export function Avatar({
     );
 }
 
-export const AvatarButton = function AvatarButton({
+type AvatarButtonProps = AvatarProps & {
+    className?: string;
+    ref?: React.Ref<HTMLButtonElement>;
+} & (
+        | Omit<React.ComponentPropsWithoutRef<typeof RACButton>, "className">
+        | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
+    );
+
+export function AvatarButton({
     ref,
     src,
     square = false,
@@ -69,8 +78,8 @@ export const AvatarButton = function AvatarButton({
     alt,
     className,
     ...props
-}) {
-    let classes = clsx(
+}: AvatarButtonProps) {
+    let classes = cx(
         className,
         square ? "rounded-[20%]" : "rounded-full",
         "relative inline-grid focus:outline-hidden data-focus-visible:outline-2 data-focus-visible:outline-offset-2 data-focus-visible:outline-blue-500 data-focus-visible:outline-solid",
@@ -89,4 +98,4 @@ export const AvatarButton = function AvatarButton({
             </TouchTarget>
         </RACButton>
     );
-};
+}

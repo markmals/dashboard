@@ -1,7 +1,8 @@
 import type React from "react";
 
-import clsx from "clsx";
 import { Label as RACLabel } from "react-aria-components";
+
+import { cx } from "~/styles/cva.ts";
 
 export function Fieldset({
     className,
@@ -14,7 +15,7 @@ export function Fieldset({
     return (
         <fieldset
             {...props}
-            className={clsx(className, "*:data-[slot=text]:mt-1 [&>*+[data-slot=control]]:mt-6")}
+            className={cx(className, "*:data-[slot=text]:mt-1 [&>*+[data-slot=control]]:mt-6")}
             data-disabled={disabled ? "" : undefined}
             disabled={disabled}
         />
@@ -29,7 +30,7 @@ export function Legend({
         <legend
             data-slot="legend"
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 "text-base/6 font-semibold text-zinc-950 data-disabled:opacity-50 sm:text-sm/6 dark:text-white",
             )}
@@ -38,7 +39,7 @@ export function Legend({
 }
 
 export function FieldGroup({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
-    return <div data-slot="control" {...props} className={clsx(className, "space-y-8")} />;
+    return <div data-slot="control" {...props} className={cx(className, "space-y-8")} />;
 }
 
 export function Field({
@@ -52,7 +53,7 @@ export function Field({
     return (
         <div
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 "[&>[data-slot=label]+[data-slot=control]]:mt-3",
                 "[&>[data-slot=label]+[data-slot=description]]:mt-1",
@@ -74,7 +75,7 @@ export function Label({
         <RACLabel
             data-slot="label"
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 "text-base/6 text-zinc-950 select-none data-disabled:opacity-50 sm:text-sm/6 dark:text-white",
             )}
@@ -90,7 +91,7 @@ export function Description({
         <p
             data-slot="description"
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 "text-base/6 text-zinc-500 data-disabled:opacity-50 sm:text-sm/6 dark:text-zinc-400",
             )}
@@ -106,7 +107,7 @@ export function ErrorMessage({
         <p
             data-slot="error"
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 "text-base/6 text-red-600 data-disabled:opacity-50 sm:text-sm/6 dark:text-red-500",
             )}

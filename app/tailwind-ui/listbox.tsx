@@ -1,6 +1,5 @@
 "use client";
 
-import clsx from "clsx";
 import {
     ListBox,
     ListBoxItem,
@@ -9,6 +8,8 @@ import {
     Select,
     SelectValue,
 } from "react-aria-components";
+
+import { cx } from "~/styles/cva.ts";
 
 export function Listbox({
     className,
@@ -28,7 +29,7 @@ export function Listbox({
         <Select aria-label={ariaLabel} {...props}>
             <RACButton
                 autoFocus={autoFocus}
-                className={clsx([
+                className={cx([
                     className,
                     // Basic layout
                     "group relative block w-full",
@@ -46,7 +47,7 @@ export function Listbox({
                 data-slot="control"
             >
                 <SelectValue
-                    className={clsx([
+                    className={cx([
                         // Basic layout
                         "relative block w-full appearance-none rounded-lg py-[calc(--spacing(2.5)-1px)] sm:py-[calc(--spacing(1.5)-1px)]",
                         // Set minimum height for when no value is selected
@@ -94,7 +95,7 @@ export function Listbox({
                 </span>
             </RACButton>
             <Popover
-                className={clsx(
+                className={cx(
                     // Transition
                     "transition-opacity duration-100 ease-in data-exiting:opacity-0",
                     // Anchor positioning
@@ -125,7 +126,7 @@ export function ListboxOption({
     React.ComponentPropsWithoutRef<typeof ListBoxItem>,
     "className" | "children"
 >) {
-    let sharedClasses = clsx(
+    let sharedClasses = cx(
         // Base
         "flex min-w-0 items-center",
         // Icons
@@ -139,7 +140,7 @@ export function ListboxOption({
     return (
         <ListBoxItem
             {...props}
-            className={clsx(
+            className={cx(
                 // Basic layout
                 "group/option grid cursor-default grid-cols-[--spacing(5)_1fr] items-baseline gap-x-2 rounded-lg py-2.5 pr-3.5 pl-2 sm:grid-cols-[--spacing(4)_1fr] sm:py-1.5 sm:pr-3 sm:pl-1.5",
                 // Typography
@@ -157,7 +158,7 @@ export function ListboxOption({
                 <>
                     <svg
                         aria-hidden="true"
-                        className={clsx(
+                        className={cx(
                             "relative size-5 self-center stroke-current sm:size-4",
                             isSelected ? "inline" : "hidden",
                         )}
@@ -171,9 +172,7 @@ export function ListboxOption({
                             strokeWidth={1.5}
                         />
                     </svg>
-                    <span className={clsx(className, sharedClasses, "col-start-2")}>
-                        {children}
-                    </span>
+                    <span className={cx(className, sharedClasses, "col-start-2")}>{children}</span>
                 </>
             )}
         </ListBoxItem>
@@ -184,7 +183,7 @@ export function ListboxLabel({ className, ...props }: React.ComponentPropsWithou
     return (
         <span
             {...props}
-            className={clsx(className, "ml-2.5 truncate first:ml-0 sm:ml-2 sm:first:ml-0")}
+            className={cx(className, "ml-2.5 truncate first:ml-0 sm:ml-2 sm:first:ml-0")}
         />
     );
 }
@@ -197,7 +196,7 @@ export function ListboxDescription({
     return (
         <span
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 "flex flex-1 overflow-hidden text-zinc-500 group-data-focused/option:text-white before:w-2 before:min-w-0 before:shrink dark:text-zinc-400",
             )}

@@ -2,9 +2,10 @@
 
 import type React from "react";
 
-import clsx from "clsx";
 import { useState } from "react";
 import { Dialog, Modal, ModalOverlay } from "react-aria-components";
+
+import { cx } from "~/styles/cva.ts";
 
 import { NavbarItem } from "./navbar.tsx";
 
@@ -31,7 +32,7 @@ function MobileSidebar({
 }: React.PropsWithChildren<{ open: boolean; close: () => void }>) {
     return (
         <ModalOverlay
-            className={clsx(
+            className={cx(
                 "fixed inset-0 z-50 bg-black/30 lg:hidden",
                 "transition-opacity duration-300 ease-out data-entering:opacity-0 data-exiting:opacity-0",
             )}
@@ -42,7 +43,7 @@ function MobileSidebar({
             }}
         >
             <Modal
-                className={clsx(
+                className={cx(
                     "fixed inset-y-0 w-full max-w-80 p-2",
                     "transition-transform duration-300 ease-in-out data-entering:-translate-x-full data-exiting:-translate-x-full",
                 )}
@@ -68,7 +69,7 @@ export function StackedLayout({
     let [showSidebar, setShowSidebar] = useState(false);
 
     return (
-        <div className="relative isolate flex min-h-svh w-full flex-col">
+        <div className="relative isolate flex min-h-svh w-full flex-col lg:h-svh lg:max-h-svh">
             {/* Sidebar on mobile */}
             <MobileSidebar close={() => setShowSidebar(false)} open={showSidebar}>
                 {sidebar}
@@ -84,10 +85,15 @@ export function StackedLayout({
                 <div className="min-w-0 flex-1">{navbar}</div>
             </header>
 
-            {/* Content */}
-            <main className="flex flex-1 flex-col pb-2 lg:px-2">
-                <div className="grow p-6 lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-xs lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
-                    <div className="mx-auto max-w-6xl">{children}</div>
+            {/* Content. The padding lives on an inner wrapper, not the scroll
+                container, so `position: sticky; top: 0` children pin to the card's
+                true top edge instead of below its padding (which would let scrolled
+                content show in the padding band above a sticky header). */}
+            <main className="flex flex-1 flex-col pb-2 lg:min-h-0 lg:px-2">
+                <div className="grow lg:overflow-y-auto lg:rounded-lg lg:bg-white lg:shadow-xs lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+                    <div className="p-6 lg:p-10">
+                        <div className="mx-auto max-w-6xl">{children}</div>
+                    </div>
                 </div>
             </main>
         </div>

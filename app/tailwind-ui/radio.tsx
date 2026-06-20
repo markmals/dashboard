@@ -1,7 +1,8 @@
 import type React from "react";
 
-import { clsx } from "clsx";
 import { Radio as RACRadio, RadioGroup as RACRadioGroup } from "react-aria-components";
+
+import { cx } from "~/styles/cva.ts";
 
 export function RadioGroup({
     className,
@@ -14,7 +15,7 @@ export function RadioGroup({
         <RACRadioGroup
             data-slot="control"
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 // Basic groups
                 "space-y-3 **:data-[slot=label]:font-normal",
@@ -33,7 +34,7 @@ export function RadioField({
         <div
             data-slot="field"
             {...props}
-            className={clsx(
+            className={cx(
                 className,
                 // Base layout
                 "grid grid-cols-[1.125rem_1fr] items-center gap-x-4 gap-y-1 sm:grid-cols-[1rem_1fr]",
@@ -126,11 +127,11 @@ export function Radio({
         <RACRadio
             data-slot="control"
             {...props}
-            className={clsx(className, "group inline-flex focus:outline-hidden")}
+            className={cx(className, "group inline-flex focus:outline-hidden")}
         >
-            <span className={clsx([base, colors[color]])}>
+            <span className={cx([base, colors[color]])}>
                 <span
-                    className={clsx(
+                    className={cx(
                         "size-full rounded-full border-[4.5px] border-transparent bg-(--radio-indicator) bg-clip-padding",
                         // Forced colors mode
                         "forced-colors:border-[Canvas] forced-colors:group-data-selected:border-[Highlight]",

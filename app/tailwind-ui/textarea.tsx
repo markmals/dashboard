@@ -1,9 +1,16 @@
-import { clsx } from "clsx";
+import type React from "react";
 
-export const Textarea = function Textarea({ ref, className, resizable = true, ...props }) {
+import { cx } from "~/styles/cva.ts";
+
+export function Textarea({
+    ref,
+    className,
+    resizable = true,
+    ...props
+}: { resizable?: boolean } & React.ComponentPropsWithRef<"textarea">) {
     return (
         <span
-            className={clsx([
+            className={cx([
                 className,
                 // Basic layout
                 "relative block w-full",
@@ -21,7 +28,7 @@ export const Textarea = function Textarea({ ref, className, resizable = true, ..
             <textarea
                 ref={ref}
                 {...props}
-                className={clsx([
+                className={cx([
                     // Basic layout
                     "relative block h-full w-full appearance-none rounded-lg px-[calc(--spacing(3.5)-1px)] py-[calc(--spacing(2.5)-1px)] sm:px-[calc(--spacing(3)-1px)] sm:py-[calc(--spacing(1.5)-1px)]",
                     // Typography

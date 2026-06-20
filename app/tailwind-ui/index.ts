@@ -7,6 +7,7 @@ export * from "./description-list.tsx";
 export * from "./dialog.tsx";
 export * from "./divider.tsx";
 export * from "./dropdown.tsx";
+export * from "./empty-state.tsx";
 export * from "./fieldset.tsx";
 export * from "./heading.tsx";
 export * from "./input.tsx";

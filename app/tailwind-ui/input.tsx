@@ -1,9 +1,11 @@
-import { clsx } from "clsx";
+import type React from "react";
+
+import { cx } from "~/styles/cva.ts";
 
 export function InputGroup({ children }: React.ComponentPropsWithoutRef<"span">) {
     return (
         <span
-            className={clsx(
+            className={cx(
                 "relative isolate block",
                 "has-[[data-slot=icon]:first-child]:[&_input]:pl-10 has-[[data-slot=icon]:last-child]:[&_input]:pr-10 sm:has-[[data-slot=icon]:first-child]:[&_input]:pl-8 sm:has-[[data-slot=icon]:last-child]:[&_input]:pr-8",
                 "*:data-[slot=icon]:pointer-events-none *:data-[slot=icon]:absolute *:data-[slot=icon]:top-3 *:data-[slot=icon]:z-10 *:data-[slot=icon]:size-5 sm:*:data-[slot=icon]:top-2.5 sm:*:data-[slot=icon]:size-4",
@@ -17,13 +19,12 @@ export function InputGroup({ children }: React.ComponentPropsWithoutRef<"span">)
     );
 }
 
-let dateTypes = ["date", "datetime-local", "month", "time", "week"];
-type DateType = (typeof dateTypes)[number];
+const DATE_TYPES = ["date", "datetime-local", "month", "time", "week"];
 
-export const Input = function Input({ ref, className, ...props }) {
+export function Input({ ref, className, ...props }: React.ComponentPropsWithRef<"input">) {
     return (
         <span
-            className={clsx([
+            className={cx([
                 className,
                 // Basic layout
                 "relative block w-full",
@@ -43,10 +44,10 @@ export const Input = function Input({ ref, className, ...props }) {
             <input
                 ref={ref}
                 {...props}
-                className={clsx([
+                className={cx([
                     // Date classes
                     props.type &&
-                        dateTypes.includes(props.type) && [
+                        DATE_TYPES.includes(props.type) && [
                             "[&::-webkit-datetime-edit-fields-wrapper]:p-0",
                             "[&::-webkit-date-and-time-value]:min-h-[1.5em]",
                             "[&::-webkit-datetime-edit]:inline-flex",
@@ -78,4 +79,4 @@ export const Input = function Input({ ref, className, ...props }) {
             />
         </span>
     );
-};
+}

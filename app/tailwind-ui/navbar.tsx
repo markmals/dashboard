@@ -2,17 +2,18 @@
 
 import type React from "react";
 
-import clsx from "clsx";
 import { LayoutGroup, motion } from "framer-motion";
 import { useId } from "react";
 import { Button as RACButton } from "react-aria-components";
 import { useLocation } from "react-router";
 
+import { cx } from "~/styles/cva.ts";
+
 import { TouchTarget } from "./button.tsx";
 import { Link } from "./link.tsx";
 
 export function Navbar({ className, ...props }: React.ComponentPropsWithoutRef<"nav">) {
-    return <nav {...props} className={clsx(className, "flex flex-1 items-center gap-4 py-2.5")} />;
+    return <nav {...props} className={cx(className, "flex flex-1 items-center gap-4 py-2.5")} />;
 }
 
 export function NavbarDivider({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
@@ -20,7 +21,7 @@ export function NavbarDivider({ className, ...props }: React.ComponentPropsWitho
         <div
             aria-hidden="true"
             {...props}
-            className={clsx(className, "h-6 w-px bg-zinc-950/10 dark:bg-white/10")}
+            className={cx(className, "h-6 w-px bg-zinc-950/10 dark:bg-white/10")}
         />
     );
 }
@@ -30,16 +31,16 @@ export function NavbarSection({ className, ...props }: React.ComponentPropsWitho
 
     return (
         <LayoutGroup id={id}>
-            <div {...props} className={clsx(className, "flex items-center gap-3")} />
+            <div {...props} className={cx(className, "flex items-center gap-3")} />
         </LayoutGroup>
     );
 }
 
 export function NavbarSpacer({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
-    return <div aria-hidden="true" {...props} className={clsx(className, "-ml-4 flex-1")} />;
+    return <div aria-hidden="true" {...props} className={cx(className, "-ml-4 flex-1")} />;
 }
 
-export const NavbarItem = function NavbarItem({
+export function NavbarItem({
     ref,
     className,
     children,
@@ -52,7 +53,7 @@ export const NavbarItem = function NavbarItem({
     | Omit<React.ComponentPropsWithoutRef<typeof RACButton>, "className">
     | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
 )) {
-    let classes = clsx(
+    let classes = cx(
         // Base
         "relative flex min-w-0 items-center gap-3 rounded-lg p-2 text-left text-base/6 font-medium text-zinc-950 sm:text-sm/5",
         // Leading icon/icon-only
@@ -72,10 +73,12 @@ export const NavbarItem = function NavbarItem({
     );
 
     let location = useLocation();
-    let current = "href" in props && location.pathname === props.href;
+    let current =
+        "href" in props &&
+        (props.href === "/" ? location.pathname === "/" : location.pathname.startsWith(props.href));
 
     return (
-        <span className={clsx(className, "relative")}>
+        <span className={cx(className, "relative")}>
             {current && (
                 <motion.span
                     className="absolute inset-x-2 -bottom-2.5 h-0.5 rounded-full bg-blue-600 dark:bg-blue-500"
@@ -94,17 +97,17 @@ export const NavbarItem = function NavbarItem({
             ) : (
                 <RACButton
                     {...props}
-                    className={clsx("cursor-default", classes)}
+                    className={cx("cursor-default", classes)}
                     data-current={current ? "true" : undefined}
-                    ref={ref}
+                    ref={ref as React.Ref<HTMLButtonElement>}
                 >
                     <TouchTarget>{children}</TouchTarget>
                 </RACButton>
             )}
         </span>
     );
-};
+}
 
 export function NavbarLabel({ className, ...props }: React.ComponentPropsWithoutRef<"span">) {
-    return <span {...props} className={clsx(className, "truncate")} />;
+    return <span {...props} className={cx(className, "truncate")} />;
 }
