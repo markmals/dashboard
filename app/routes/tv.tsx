@@ -52,7 +52,7 @@ export default function Component({ loaderData }: Route.ComponentProps) {
                 )}
                 {Boolean(tvShows.length) && (
                     <>
-                        <SectionHeader>All TV Shows</SectionHeader>
+                        <SectionHeader>All Shows</SectionHeader>
                         <ul className="grid grid-cols-2 gap-x-4 gap-y-8 pb-12 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8">
                             {tvShows.map(show => (
                                 <TVShowCell key={show.data.title} tvShow={show} />
