@@ -58,13 +58,13 @@ depends = ["fmt", "lint"]
 
 [tasks.icons]
 description = "Rebuild the Primaries icon sprite subset from the upstream sprite"
-sources = ["scripts/build-icons.mjs"]
+sources = ["scripts/build-icons.ts"]
 outputs = ["app/assets/primaries.svg", "app/components/icon-names.ts"]
-run = "node scripts/build-icons.mjs"
+run = "node scripts/build-icons.ts"
 
 [tasks."tv:refresh"]
 description = "Re-hydrate TV show airing status, season counts, and premiere dates from TMDb"
-run = "TMDB_API_KEY=$(op read 'op://Private/TMDb API Key/credential') node scripts/refresh-tv.mjs"
+run = "TMDB_API_KEY=$(op read 'op://Private/TMDb API Key/credential') node scripts/refresh-tv.ts"
 
 [tasks."typegen:cloudflare"]
 description = "Generate types for Cloudflare bindings"

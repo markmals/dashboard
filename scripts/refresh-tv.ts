@@ -21,27 +21,65 @@ if (!API_KEY) {
 
 const today = new Date().toISOString().slice(0, 10);
 
+type TvStatus = "ended" | "airing" | "returning" | "upcoming";
+
+interface TmdbEpisode {
+    air_date: string | null;
+    season_number: number;
+    episode_number: number;
+}
+
+interface TmdbTv {
+    status: string;
+    number_of_seasons: number;
+    first_air_date: string | null;
+    last_episode_to_air: TmdbEpisode | null;
+    next_episode_to_air: TmdbEpisode | null;
+}
+
+interface Derived {
+    status: TvStatus;
+    seasons: number;
+    premiere?: string;
+}
+
+interface TvShowFile {
+    title: string;
+    link: string;
+    status?: TvStatus;
+    seasons?: number;
+    premiere?: string;
+    trailer?: string;
+    poster?: string;
+    watching?: boolean;
+}
+
 /** Map TMDb status + episode dates to our normalized airing state. */
-function derive(tv) {
+function derive(tv: TmdbTv): Derived {
     const seasons = tv.number_of_seasons;
     const firstAir = tv.first_air_date || null;
-    const lastEp = tv.last_episode_to_air?.air_date || null;
-    const nextEp = tv.next_episode_to_air?.air_date || null;
+    const last = tv.last_episode_to_air || null;
+    const next = tv.next_episode_to_air || null;
 
     if (tv.status === "Ended" || tv.status === "Canceled") {
         return { status: "ended", seasons };
     }
     // Not yet premiered: nothing has aired, or the first air date is still in the future.
-    if (firstAir && (!lastEp || firstAir > today)) {
+    if (firstAir && (!last || firstAir > today)) {
         return { status: "upcoming", seasons, premiere: firstAir };
     }
-    if (nextEp) return { status: "airing", seasons };
+    // Airing ONLY when a season is currently mid-release: an episode has already aired and
+    // the next scheduled episode is in the SAME season. A next episode in a later season is
+    // an upcoming season premiere, not new episodes dropping now → that's `returning`.
+    if (last && next && last.season_number === next.season_number) {
+        return { status: "airing", seasons };
+    }
     return { status: "returning", seasons };
 }
 
 const TV_ID_RE = /\/tv\/(\d+)/;
 
-function tmdbId(link) {
+function tmdbId(link: string | undefined): string {
     const match = TV_ID_RE.exec(link ?? "");
     if (!match) throw new Error(`Could not parse TMDb id from link: ${link}`);
     return match[1];
@@ -52,7 +90,8 @@ let changed = 0;
 
 for (const file of files) {
     const path = join(TV_DIR, file);
-    const existing = JSON.parse(await readFile(path, "utf8"));
+    const raw = await readFile(path, "utf8");
+    const existing = JSON.parse(raw) as TvShowFile;
     const id = tmdbId(existing.link);
 
     const res = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}`);
@@ -60,10 +99,10 @@ for (const file of files) {
         console.error(`✗ ${file}: TMDb ${res.status}`);
         continue;
     }
-    const { status, seasons, premiere } = derive(await res.json());
+    const { status, seasons, premiere } = derive((await res.json()) as TmdbTv);
 
     // Rebuild in a stable key order, preserving everything not derived here.
-    const updated = {
+    const updated: TvShowFile = {
         title: existing.title,
         link: existing.link,
         status,
@@ -75,7 +114,7 @@ for (const file of files) {
     };
 
     const next = `${JSON.stringify(updated, null, 4)}\n`;
-    if (next !== (await readFile(path, "utf8"))) changed++;
+    if (next !== raw) changed++;
     await writeFile(path, next);
 
     const detail = premiere ? `premieres ${premiere}` : `${seasons} season(s)`;
