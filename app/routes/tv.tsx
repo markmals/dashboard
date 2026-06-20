@@ -19,8 +19,9 @@ import {
     matchesGenre,
     pickSort,
     sortControlOptions,
+    sortEntries,
+    titleKey,
 } from "~/lib/collections.ts";
-import { titleSortComparator, withContent } from "~/lib/sort-comparators.ts";
 
 type TvData = CollectionEntry<"television">["data"];
 
@@ -41,17 +42,14 @@ function premiereKey(data: TvData): string {
 }
 
 const TV_SORTS = {
+    // Airing → upcoming → returning → ended; within a status, dated premieres first, then title.
     status: {
         label: "Status",
-        // Airing → upcoming → returning → ended; within a status, dated premieres first, then title.
-        compare: (lhs, rhs) =>
-            STATUS_ORDER[lhs.status] - STATUS_ORDER[rhs.status] ||
-            premiereKey(lhs).localeCompare(premiereKey(rhs)) ||
-            titleSortComparator(lhs, rhs),
+        criteria: [d => STATUS_ORDER[d.status], d => premiereKey(d), d => titleKey(d.title)],
     },
-    title: { label: "Title (A–Z)", compare: titleSortComparator },
-    "seasons-desc": { label: "Seasons (most)", compare: (lhs, rhs) => rhs.seasons - lhs.seasons },
-    "seasons-asc": { label: "Seasons (fewest)", compare: (lhs, rhs) => lhs.seasons - rhs.seasons },
+    title: { label: "Title (A–Z)", criteria: [d => titleKey(d.title)] },
+    "seasons-desc": { label: "Seasons (most)", criteria: [d => -d.seasons] },
+    "seasons-asc": { label: "Seasons (fewest)", criteria: [d => d.seasons] },
 } satisfies Record<string, SortOption<TvData>>;
 
 export async function ServerComponent() {
@@ -61,13 +59,14 @@ export async function ServerComponent() {
     let genre = params.get("genre") ?? "";
 
     let all = await getCollection("television");
-    let shows = all
-        .filter(
+    let shows = sortEntries(
+        all.filter(
             show =>
                 (status === "" || show.data.status === status) &&
                 matchesGenre(show.data.genre, genre),
-        )
-        .toSorted(withContent(TV_SORTS[sort].compare));
+        ),
+        TV_SORTS[sort],
+    );
 
     let watching = shows.filter(show => show.data.watching);
     let tvShows = shows.filter(show => !show.data.watching);

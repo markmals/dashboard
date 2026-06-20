@@ -4,17 +4,18 @@ import {
     EmptyStateHeading,
     EmptyStateIcon,
 } from "@tailwindcss/ui";
+import { sortBy } from "es-toolkit/array";
 import { getCollection, render } from "sprinkles:content";
 
 import { RestaurantCell } from "~/components/CollectionCells.tsx";
 import { Icon } from "~/components/Icon.tsx";
 import { SectionHeader } from "~/components/SectionHeader.tsx";
-import { nameSortComparator, withContent } from "~/lib/sort-comparators.ts";
+import { titleKey } from "~/lib/collections.ts";
 
 export async function ServerComponent() {
-    let restaurants = (await getCollection("restaurants")).toSorted(
-        withContent(nameSortComparator),
-    );
+    let restaurants = sortBy(await getCollection("restaurants"), [
+        restaurant => titleKey(restaurant.data.name),
+    ]);
     let rendered = await Promise.all(
         restaurants.map(async restaurant => ({
             restaurant,

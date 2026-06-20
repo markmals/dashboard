@@ -1,3 +1,4 @@
+import { sortBy } from "es-toolkit/array";
 import { unstable_getRequest as getRequest } from "react-router";
 
 // A single `<Select>` option rendered by `CollectionControls`.
@@ -6,10 +7,36 @@ export interface ControlOption {
     label: string;
 }
 
-// A sort entry: a human label plus a comparator over a collection's `data`.
+// A sort entry: a human label plus es-toolkit `sortBy` criteria over a collection's `data`. Criteria
+// sort ascending and are applied in order (ties fall through to the next); express a descending sort
+// by negating a numeric/date criterion (`d => -d.seasons`), since `sortBy` has no direction.
 export interface SortOption<T> {
     label: string;
-    compare: (lhs: T, rhs: T) => number;
+    criteria: Array<(data: T) => unknown>;
+}
+
+const ARTICLES_RE = /^(?:a|an|the)\s+/i;
+
+// Article-, accent-, and case-insensitive key for title/name sorts. `sortBy` compares strings by
+// code point (no `localeCompare`), so we normalize here to approximate "base" sensitivity. Note this
+// drops `localeCompare`'s numeric/ignore-punctuation handling — fine for these title/name datasets.
+export function titleKey(value: string): string {
+    return value
+        .replace(ARTICLES_RE, "")
+        .normalize("NFD")
+        .replace(/\p{Diacritic}/gu, "")
+        .toLowerCase();
+}
+
+// Sort collection entries with es-toolkit `sortBy`, applying each criterion to the entry's `data`.
+export function sortEntries<E extends { data: object }>(
+    entries: readonly E[],
+    option: SortOption<E["data"]>,
+): E[] {
+    return sortBy(
+        entries,
+        option.criteria.map(criterion => (entry: E) => criterion(entry.data)),
+    );
 }
 
 // Read the current request's query string from inside an RSC server component. `unstable_getRequest`

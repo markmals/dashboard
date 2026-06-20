@@ -20,29 +20,18 @@ import {
     pickSort,
     runtimeMinutes,
     sortControlOptions,
+    sortEntries,
+    titleKey,
 } from "~/lib/collections.ts";
-import { titleSortComparator, withContent } from "~/lib/sort-comparators.ts";
 
 type MovieData = CollectionEntry<"movies">["data"];
 
 const MOVIE_SORTS = {
-    title: { label: "Title (A–Z)", compare: titleSortComparator },
-    "year-desc": {
-        label: "Year (newest)",
-        compare: (lhs, rhs) => Number(rhs.year) - Number(lhs.year),
-    },
-    "year-asc": {
-        label: "Year (oldest)",
-        compare: (lhs, rhs) => Number(lhs.year) - Number(rhs.year),
-    },
-    "runtime-desc": {
-        label: "Runtime (longest)",
-        compare: (lhs, rhs) => runtimeMinutes(rhs.runningTime) - runtimeMinutes(lhs.runningTime),
-    },
-    "runtime-asc": {
-        label: "Runtime (shortest)",
-        compare: (lhs, rhs) => runtimeMinutes(lhs.runningTime) - runtimeMinutes(rhs.runningTime),
-    },
+    title: { label: "Title (A–Z)", criteria: [d => titleKey(d.title)] },
+    "year-desc": { label: "Year (newest)", criteria: [d => -Number(d.year)] },
+    "year-asc": { label: "Year (oldest)", criteria: [d => Number(d.year)] },
+    "runtime-desc": { label: "Runtime (longest)", criteria: [d => -runtimeMinutes(d.runningTime)] },
+    "runtime-asc": { label: "Runtime (shortest)", criteria: [d => runtimeMinutes(d.runningTime)] },
 } satisfies Record<string, SortOption<MovieData>>;
 
 export async function ServerComponent() {
@@ -51,9 +40,10 @@ export async function ServerComponent() {
     let genre = params.get("genre") ?? "";
 
     let all = await getCollection("movies");
-    let movies = all
-        .filter(movie => matchesGenre(movie.data.genre, genre))
-        .toSorted(withContent(MOVIE_SORTS[sort].compare));
+    let movies = sortEntries(
+        all.filter(movie => matchesGenre(movie.data.genre, genre)),
+        MOVIE_SORTS[sort],
+    );
 
     let canReset = sort !== "title" || genre !== "";
 

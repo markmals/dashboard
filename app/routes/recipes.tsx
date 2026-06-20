@@ -4,15 +4,16 @@ import {
     EmptyStateHeading,
     EmptyStateIcon,
 } from "@tailwindcss/ui";
+import { sortBy } from "es-toolkit/array";
 import { getCollection, render } from "sprinkles:content";
 
 import { RecipeCell } from "~/components/CollectionCells.tsx";
 import { Icon } from "~/components/Icon.tsx";
 import { SectionHeader } from "~/components/SectionHeader.tsx";
-import { titleSortComparator, withContent } from "~/lib/sort-comparators.ts";
+import { titleKey } from "~/lib/collections.ts";
 
 export async function ServerComponent() {
-    let recipes = (await getCollection("recipes")).toSorted(withContent(titleSortComparator));
+    let recipes = sortBy(await getCollection("recipes"), [recipe => titleKey(recipe.data.title)]);
     let rendered = await Promise.all(
         recipes.map(async recipe => ({
             recipe,

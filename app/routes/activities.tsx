@@ -1,11 +1,12 @@
+import { sortBy } from "es-toolkit/array";
 import { getCollection } from "sprinkles:content";
 
 import { EventCell } from "~/components/CollectionCells.tsx";
 import { SectionHeader } from "~/components/SectionHeader.tsx";
-import { titleSortComparator, withContent } from "~/lib/sort-comparators.ts";
+import { titleKey } from "~/lib/collections.ts";
 
 export async function ServerComponent() {
-    let events = (await getCollection("events")).toSorted(withContent(titleSortComparator));
+    let events = sortBy(await getCollection("events"), [event => titleKey(event.data.title)]);
     return (
         <>
             <title>Events • Dashboard</title>

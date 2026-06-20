@@ -19,23 +19,25 @@ import {
     matchesGenre,
     pickSort,
     sortControlOptions,
+    sortEntries,
+    titleKey,
 } from "~/lib/collections.ts";
-import { releaseSortComparator, titleSortComparator, withContent } from "~/lib/sort-comparators.ts";
 
 type TheaterData = CollectionEntry<"theaters">["data"];
 
+function releaseTime(release: string): number {
+    return new Date(`${release}T00:00:00`).getTime();
+}
+
 const THEATER_SORTS = {
-    title: { label: "Title (A–Z)", compare: titleSortComparator },
-    "release-asc": { label: "Release (soonest)", compare: releaseSortComparator },
-    "release-desc": {
-        label: "Release (latest)",
-        compare: (lhs, rhs) => releaseSortComparator(rhs, lhs),
-    },
+    title: { label: "Title (A–Z)", criteria: [d => titleKey(d.title)] },
+    "release-asc": { label: "Release (soonest)", criteria: [d => releaseTime(d.release)] },
+    "release-desc": { label: "Release (latest)", criteria: [d => -releaseTime(d.release)] },
 } satisfies Record<string, SortOption<TheaterData>>;
 
 export async function ServerComponent() {
     let params = getSearchParams();
-    let sort = pickSort(THEATER_SORTS, params.get("sort"), "title");
+    let sort = pickSort(THEATER_SORTS, params.get("sort"), "release-asc");
     let genre = params.get("genre") ?? "";
 
     let movies = await getCollection("theaters");
@@ -47,23 +49,22 @@ export async function ServerComponent() {
     // in the data file but hidden until those fields can be filled in.
     let complete = movies.filter(movie => movie.data.poster);
     let visible = complete.filter(movie => matchesGenre(movie.data.genre, genre));
-    let comparator = withContent(THEATER_SORTS[sort].compare);
 
-    let inTheaters = visible
-        .filter(movie => new Date(`${movie.data.release}T00:00:00`) <= today)
-        .toSorted(comparator)
-        .map(movie => ({
-            ...movie,
-            data: {
-                ...movie.data,
-                release: null as unknown as string,
-            },
-        }));
+    let inTheaters = sortEntries(
+        visible.filter(movie => new Date(`${movie.data.release}T00:00:00`) <= today),
+        THEATER_SORTS[sort],
+    ).map(movie => ({
+        ...movie,
+        data: {
+            ...movie.data,
+            release: null as unknown as string,
+        },
+    }));
 
-    let upcoming = visible
-        .filter(movie => new Date(`${movie.data.release}T00:00:00`) > today)
-        .toSorted(comparator)
-        .map(movie => ({
+    let upcoming = sortEntries(
+        visible.filter(movie => new Date(`${movie.data.release}T00:00:00`) > today),
+        THEATER_SORTS[sort],
+    ).map(movie => ({
             ...movie,
             data: {
                 ...movie.data,
@@ -71,7 +72,7 @@ export async function ServerComponent() {
             },
         }));
 
-    let canReset = sort !== "title" || genre !== "";
+    let canReset = sort !== "release-asc" || genre !== "";
 
     return (
         <>
