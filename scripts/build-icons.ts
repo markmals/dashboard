@@ -18,6 +18,7 @@ const ICONS = [
     "book",
     "playback-play-button",
     "pop-out",
+    "search",
 ];
 
 let repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");

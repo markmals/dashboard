@@ -7,4 +7,5 @@ export type IconName =
     | "movie-camera"
     | "playback-play-button"
     | "pop-out"
+    | "search"
     | "tv";
