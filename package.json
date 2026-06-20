@@ -3,55 +3,44 @@
     "private": true,
     "packageManager": "pnpm@10.32.1",
     "dependencies": {
-        "@cloudflare/vite-plugin": "^1.10.1",
         "@headlessui/react": "^2.2.6",
-        "@react-router/fs-routes": "7.13.1",
+        "@react-router/fs-routes": "8.0.1",
         "@std/path": "jsr:^1.1.2",
         "@std/yaml": "jsr:^1.0.9",
-        "@tailwindcss/vite": "^4.1.11",
+        "@tailwindcss/vite": "^4.3.1",
         "clsx": "^2.1.1",
         "es-toolkit": "^1.47.1",
         "framer-motion": "^12.23.9",
         "isbot": "^5.1.28",
         "marked": "^16.1.1",
-        "react": "^19.1.0",
+        "react": "^19.2.7",
         "react-aria-components": "^1.16.0",
-        "react-dom": "^19.1.0",
-        "react-router": "7.13.1",
+        "react-dom": "^19.2.7",
+        "react-router": "8.0.1",
         "zod": "^4.0.10"
     },
     "devDependencies": {
-        "@babel/preset-typescript": "^7.27.1",
+        "@babel/core": "^8.0.1",
+        "@cloudflare/vite-plugin": "^1.42.1",
         "@prettier/plugin-oxc": "^0.0.4",
-        "@react-router/dev": "7.13.1",
+        "@react-router/dev": "8.0.1",
+        "@rolldown/plugin-babel": "^0.2.3",
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@types/node": "^24",
-        "@types/react": "^19.1.8",
-        "@types/react-dom": "^19.1.6",
+        "@types/react": "^19.2.0",
+        "@types/react-dom": "^19.2.0",
         "@typescript/native-preview": "latest",
-        "babel-plugin-react-compiler": "19.1.0-rc.3",
+        "@vitejs/plugin-react": "^6.0.2",
+        "babel-plugin-react-compiler": "1.0.0",
         "eslint": "^9.32.0",
         "prettier": "^3.6.2",
         "prettier-plugin-pkg": "^0.21.2",
         "prettier-plugin-sh": "^0.18.0",
         "prettier-plugin-tailwindcss": "^0.6.14",
         "prettier-plugin-toml": "^2.0.6",
-        "tailwindcss": "^4.1.11",
-        "vite": "8.0.0-beta.16",
-        "vite-plugin-babel": "^1.5.1",
-        "wrangler": "^4.34.0"
+        "tailwindcss": "^4.3.1",
+        "vite": "8.0.16",
+        "wrangler": "^4.103.0"
     },
-    "sideEffects": false,
-    "pnpm": {
-        "overrides": {
-            "vite": "8.0.0-beta.16"
-        },
-        "onlyBuiltDependencies": [
-            "esbuild",
-            "workerd",
-            "@tailwindcss/oxide",
-            "sharp",
-            "unrs-resolver"
-        ]
-    }
+    "sideEffects": false
 }
