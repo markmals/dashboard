@@ -101,7 +101,10 @@ for (const file of files) {
     }
     const { status, seasons, premiere } = derive((await res.json()) as TmdbTv);
 
-    // Rebuild in a stable key order, preserving everything not derived here.
+    // Rebuild in a stable key order, preserving everything not derived here. This script
+    // ONLY ever writes status/seasons/premiere; title/link/trailer/poster/watching are
+    // carried over from disk verbatim and are never sourced from TMDb. `poster` in
+    // particular is hand-curated — see the invariant below.
     const updated: TvShowFile = {
         title: existing.title,
         link: existing.link,
@@ -112,6 +115,16 @@ for (const file of files) {
         ...(existing.poster ? { poster: existing.poster } : {}),
         ...(existing.watching !== undefined ? { watching: existing.watching } : {}),
     };
+
+    // Hard guarantee: poster data is hand-curated and must never be clobbered by this
+    // script. If a future edit ever changes (or drops) a poster, fail loudly instead of
+    // overwriting it on disk.
+    if (updated.poster !== existing.poster) {
+        throw new Error(
+            `refresh-tv refuses to modify the hand-curated poster for ${file} ` +
+                `(was ${existing.poster ?? "<none>"}, would become ${updated.poster ?? "<none>"})`,
+        );
+    }
 
     const next = `${JSON.stringify(updated, null, 4)}\n`;
     if (next !== raw) changed++;
