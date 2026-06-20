@@ -1,49 +1,34 @@
 {
     "typescript.preferences.importModuleSpecifierEnding": "js",
 
-    "biome.enabled": true,
-    "prettier.enable": true,
-
     "editor.codeActionsOnSave": {
         "source.fixAll": "explicit",
-        "source.fixAll.biome": "explicit",
+        "source.fixAll.oxc": "explicit",
 
         "source.addMissingImports.ts": "explicit",
         "source.removeUnused.ts": "never"
     },
 
-    "editor.defaultFormatter": "biomejs.biome",
+    "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true,
 
     "[typescript]": {
-        "editor.defaultFormatter": "biomejs.biome"
+        "editor.defaultFormatter": "oxc.oxc-vscode"
     },
     "[tsx]": {
-        "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[css]": {
-        "editor.defaultFormatter": "biomejs.biome"
+        "editor.defaultFormatter": "oxc.oxc-vscode"
     },
     "[json]": {
-        "editor.defaultFormatter": "biomejs.biome"
+        "editor.defaultFormatter": "oxc.oxc-vscode"
     },
     "[jsonc]": {
-        "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[yaml]": {
-        "editor.defaultFormatter": "prettier.prettier-vscode"
-    },
-    "[toml]": {
-        "editor.defaultFormatter": "prettier.prettier-vscode"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "prettier.prettier-vscode"
+        "editor.defaultFormatter": "oxc.oxc-vscode"
     },
 
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
-        "package.json": ".github*, .npmrc, .prettierignore, .vscode*, biome.json*, bun.lock*, components.json, eslint.config.*, mise.toml, pnpm-*.yaml, prettier.config.*, tsconfig.*, wrangler.toml, wrangler.*.toml, wrangler.json*, wrangler.*.json, wrangler.*.jsonc, workspace.json",
+        "package.json": ".github*, .npmrc, .oxfmtrc*, .oxlintrc*, .vscode*, bun.lock*, components.json, mise.toml, pnpm-*.yaml, tsconfig.*, wrangler.toml, wrangler.*.toml, wrangler.json*, wrangler.*.json, wrangler.*.jsonc, workspace.json",
         "readme*": "agent*, authors, backers*, changelog*, citation*, claude*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*"
         // "tsdown.config.ts": "vitest.config.ts, *.plugin.ts"
         // "vite.config.ts": "vitest.config.ts, *.plugin.ts"
@@ -55,7 +40,7 @@
         "**/build": true
     },
 
-    "oxc.enable": false,
+    "oxc.enable": true,
     "eslint.enable": false,
     "dprint.experimentalLsp": false,
     "deno.enable": false,

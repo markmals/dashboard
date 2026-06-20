@@ -45,12 +45,12 @@ confirm = "Are you sure you want to deploy this app to Cloudflare Workers?"
 run = "wrangler deploy"
 
 [tasks.fmt]
-description = "Format the entire project with Prettier"
-run = "prettier --write ."
+description = "Format the entire project with Oxfmt"
+run = "oxfmt"
 
 [tasks.lint]
-description = "Format and lint the entire project with Biome"
-run = "biome check --write --unsafe ."
+description = "Lint the entire project with Oxlint"
+run = "oxlint --fix"
 
 [tasks.check]
 description = "Format and lint the entire project"
@@ -81,4 +81,4 @@ run = "react-router typegen"
 [tasks.typecheck]
 description = "Typecheck the entire project"
 depends = "typegen:*"
-run = "tsgo --noEmit"
+run = "tsc -b --noEmit"

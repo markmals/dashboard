@@ -1,11 +1,10 @@
 {
     "recommendations": [
-        "biomejs.biome",
         "bradlc.vscode-tailwindcss",
         "christian-kohler.npm-intellisense",
         "hverlin.mise-vscode",
+        "oxc.oxc-vscode",
         "planet57.vscode-beads",
-        "prettier.prettier-vscode",
         "tamasfe.even-better-toml",
         "TypeScriptTeam.native-preview",
         "wayou.vscode-todo-highlight"
