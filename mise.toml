@@ -25,24 +25,25 @@ sources = [
     "pnpm-lock.yaml",
     "react-router.config.ts",
     "vite.config.ts",
+    "wrangler.jsonc",
     "tsconfig.ts",
     "tsconfig.*.ts",
     "worker-configuration.d.ts",
-    "app/**/*.{ts,tsx,css,json,md}",
+    "app/**/*.{ts,tsx,css,json,md,mdx}",
+    "workers/**/*.{ts,tsx}",
 ]
-outputs = ["build"]
 run = "vite build"
 
 [tasks.preview]
 description = "Preview the built application"
 depends = "build"
-run = "vite preview"
+run = "wrangler dev --config build/server/wrangler.json"
 
 [tasks.deploy]
 description = "Deploy to Cloudflare Workers"
 depends = "build"
 confirm = "Are you sure you want to deploy this app to Cloudflare Workers?"
-run = "wrangler deploy"
+run = "wrangler deploy --config build/server/wrangler.json"
 
 [tasks.fmt]
 description = "Format the entire project with Oxfmt"
@@ -59,7 +60,6 @@ depends = ["fmt", "lint"]
 [tasks.icons]
 description = "Rebuild the Primaries icon sprite subset from the upstream sprite"
 sources = ["scripts/build-icons.ts", "scripts/primaries-full.svg"]
-outputs = ["app/assets/primaries.svg", "app/components/icon-names.ts"]
 run = "node scripts/build-icons.ts"
 
 [tasks."tv:refresh"]
@@ -69,13 +69,11 @@ run = "TMDB_API_KEY=$(op read 'op://Private/TMDb API Key/credential') node scrip
 [tasks."typegen:cloudflare"]
 description = "Generate types for Cloudflare bindings"
 sources = ["wrangler.jsonc"]
-outputs = ["worker-configuration.d.ts"]
 run = "wrangler types"
 
 [tasks."typegen:react-router"]
 description = "Generate types for React Router routes"
 sources = ["react-router.config.ts", "vite.config.ts", "app/**/*.{ts,tsx}"]
-outputs = [".react-router"]
 run = "react-router typegen"
 
 [tasks.typecheck]

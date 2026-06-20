@@ -1,16 +1,11 @@
+import { getCollection } from "sprinkles:content";
+
 import { MovieCell } from "~/components/CollectionCells.tsx";
 import { SectionHeader } from "~/components/SectionHeader.tsx";
-import { getCollection } from "~/lib/content.server.ts";
 import { titleSortComparator, withContent } from "~/lib/sort-comparators.ts";
 
-import type { Route } from "./+types/movies";
-
-export async function loader() {
-    let movies = await getCollection("movies");
-    return movies.toSorted(withContent(titleSortComparator));
-}
-
-export default function Component({ loaderData: movies }: Route.ComponentProps) {
+export async function ServerComponent() {
+    let movies = (await getCollection("movies")).toSorted(withContent(titleSortComparator));
     return (
         <>
             <title>Movies • Dashboard</title>

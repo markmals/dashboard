@@ -1,5 +1,6 @@
 [
     {
+        "id": "masters-of-the-universe",
         "title": "Masters of the Universe",
         "link": "https://www.themoviedb.org/movie/454639-masters-of-the-universe",
         "release": "2026-06-05",
@@ -9,6 +10,7 @@
         "poster": "https://image.tmdb.org/t/p/original/nm2ianYVp7OXElUZVeeAbNTqBLr.jpg"
     },
     {
+        "id": "disclosure-day",
         "title": "Disclosure Day",
         "link": "https://www.themoviedb.org/movie/1275779-disclosure-day",
         "release": "2026-06-12",
@@ -18,6 +20,7 @@
         "poster": "https://image.tmdb.org/t/p/original/AnJ8IQJI23hNpYXVNaythu061Ru.jpg"
     },
     {
+        "id": "toy-story-5",
         "title": "Toy Story 5",
         "link": "https://www.themoviedb.org/movie/1084244-toy-story-5",
         "release": "2026-06-19",
@@ -27,6 +30,7 @@
         "poster": "https://image.tmdb.org/t/p/original/7veGbEIL1nvtVXVwFlqCs62zsvc.jpg"
     },
     {
+        "id": "supergirl",
         "title": "Supergirl",
         "link": "https://www.themoviedb.org/movie/1081003-supergirl",
         "release": "2026-06-26",
@@ -36,6 +40,7 @@
         "poster": "https://image.tmdb.org/t/p/original/niSvU02l2BONH9ivubV6K1a5QiK.jpg"
     },
     {
+        "id": "the-odyssey",
         "title": "The Odyssey",
         "link": "https://www.themoviedb.org/movie/1368337-the-odyssey",
         "release": "2026-07-17",
@@ -45,6 +50,7 @@
         "poster": "https://image.tmdb.org/t/p/original/3WSxhPjc1piCr6ezMhGv9g2EOGA.jpg"
     },
     {
+        "id": "motor-city",
         "title": "Motor City",
         "link": "https://www.themoviedb.org/movie/87513-motor-city",
         "release": "2026-07-24",
@@ -54,6 +60,7 @@
         "poster": "https://image.tmdb.org/t/p/original/lGovcOtxugJPhfJjFKud9EbWtOA.jpg"
     },
     {
+        "id": "her-private-hell",
         "title": "Her Private Hell",
         "link": "https://www.themoviedb.org/movie/1469342-her-private-hell",
         "release": "2026-07-24",
@@ -63,6 +70,7 @@
         "poster": "https://image.tmdb.org/t/p/original/kncKYCe4stYQ1YPAmIcvtjpF1Bc.jpg"
     },
     {
+        "id": "late-fame",
         "title": "Late Fame",
         "link": "https://www.themoviedb.org/movie/1285895-late-fame",
         "release": "2026-08-07",
@@ -71,6 +79,7 @@
         "poster": "https://image.tmdb.org/t/p/original/iCLsQ34OMyOS1zN8yUhE59SZnfK.jpg"
     },
     {
+        "id": "the-end-of-oak-street",
         "title": "The End of Oak Street",
         "link": "https://www.themoviedb.org/movie/1101383-the-end-of-oak-street",
         "release": "2026-08-14",
@@ -80,6 +89,7 @@
         "poster": "https://image.tmdb.org/t/p/original/60bRdW7JTXTaSMFgLHjcoS1fXHh.jpg"
     },
     {
+        "id": "the-wrong-girls",
         "title": "The Wrong Girls",
         "link": "https://www.themoviedb.org/movie/1226699-the-wrong-girls",
         "release": "2026-08-14",
@@ -87,6 +97,7 @@
         "poster": "https://image.tmdb.org/t/p/original/rwLgmo32j1O91D2xPXOrGUcyzn5.jpg"
     },
     {
+        "id": "nimrods",
         "title": "Nimrods",
         "link": "https://www.themoviedb.org/movie/1432474-nimrods",
         "release": "2026-08-14",
@@ -96,6 +107,7 @@
         "poster": "https://image.tmdb.org/t/p/original/aebmSpFu1lUV78PtOpqMUn4d82B.jpg"
     },
     {
+        "id": "union-county",
         "title": "Union County",
         "link": "https://www.themoviedb.org/movie/1482938-union-county",
         "release": "2026-08-14",
@@ -104,6 +116,7 @@
         "poster": "https://image.tmdb.org/t/p/original/byyqr47131Xufb7e0deIkBRZ3Wa.jpg"
     },
     {
+        "id": "the-rivals-of-amziah-king",
         "title": "The Rivals of Amziah King",
         "link": "https://www.themoviedb.org/movie/1124142-the-rivals-of-amziah-king",
         "release": "2026-08-21",
@@ -113,6 +126,7 @@
         "poster": "https://image.tmdb.org/t/p/original/3iVDCDS1VwHIm95PjWEPwsfdhaf.jpg"
     },
     {
+        "id": "mutiny",
         "title": "Mutiny",
         "link": "https://www.themoviedb.org/movie/1288445-mutiny",
         "release": "2026-08-21",
@@ -122,6 +136,7 @@
         "poster": "https://image.tmdb.org/t/p/original/aAnTt6KpmbbHbd6xH3FQFlppZjc.jpg"
     },
     {
+        "id": "it-ends",
         "title": "It Ends",
         "link": "https://www.themoviedb.org/movie/1422011-it-ends",
         "release": "2026-08-21",
@@ -130,6 +145,7 @@
         "poster": "https://image.tmdb.org/t/p/original/x76Fsd65aUwS3W8S1L6NClpmhWP.jpg"
     },
     {
+        "id": "the-dog-stars",
         "title": "The Dog Stars",
         "link": "https://www.themoviedb.org/movie/1384216-the-dog-stars",
         "release": "2026-08-28",
@@ -139,6 +155,7 @@
         "poster": "https://image.tmdb.org/t/p/original/ePWFnyCQQr4fvBOD1lgKtcvfnCd.jpg"
     },
     {
+        "id": "idiots",
         "title": "Idiots",
         "link": "https://www.themoviedb.org/movie/445466-idiots",
         "release": "2026-08-28",
@@ -148,6 +165,7 @@
         "poster": "https://image.tmdb.org/t/p/original/6GighAm1FOixgUuMQ1uEGxe3AKq.jpg"
     },
     {
+        "id": "how-to-rob-a-bank",
         "title": "How to Rob a Bank",
         "link": "https://www.themoviedb.org/movie/1437511-how-to-rob-a-bank",
         "release": "2026-09-04",
@@ -156,6 +174,7 @@
         "poster": "https://image.tmdb.org/t/p/original/oUt2f6qHRZDnprG16ELimRhDGDV.jpg"
     },
     {
+        "id": "onslaught",
         "title": "Onslaught",
         "link": "https://www.themoviedb.org/movie/1284046-onslaught",
         "release": "2026-09-04",
@@ -164,6 +183,7 @@
         "poster": "https://image.tmdb.org/t/p/original/3k69IPJEoLBMB3J5FCYehL8NMs2.jpg"
     },
     {
+        "id": "the-uprising",
         "title": "The Uprising",
         "link": "https://www.themoviedb.org/movie/977942-the-uprising",
         "release": "2026-09-11",
@@ -171,6 +191,7 @@
         "poster": "https://image.tmdb.org/t/p/original/xBn14Qxc7jYpl5GVVfKRMRE52k8.jpg"
     },
     {
+        "id": "runner",
         "title": "Runner",
         "link": "https://www.themoviedb.org/movie/1377237-runner",
         "release": "2026-09-11",
@@ -180,6 +201,7 @@
         "poster": "https://image.tmdb.org/t/p/original/gA1UBGxQp0xRaewFF5AE7Xdy1b3.jpg"
     },
     {
+        "id": "heart-of-the-beast",
         "title": "Heart of the Beast",
         "link": "https://www.themoviedb.org/movie/1263337-heart-of-the-beast",
         "release": "2026-09-25",
@@ -188,12 +210,14 @@
         "poster": "https://image.tmdb.org/t/p/original/1ApfSA8JTqeha3GTFEY8syV4auq.jpg"
     },
     {
+        "id": "your-mother-your-mother-your-mother",
         "title": "Your Mother Your Mother Your Mother",
         "link": "https://www.themoviedb.org/movie/1437396-your-mother-your-mother-your-mother",
         "release": "2026-09-25",
         "genre": "Action"
     },
     {
+        "id": "digger",
         "title": "Digger",
         "link": "https://www.themoviedb.org/movie/1248832-digger",
         "release": "2026-10-02",
@@ -203,6 +227,7 @@
         "poster": "https://image.tmdb.org/t/p/original/1ATXKrIPJyKNwnJ6lcG088Sa6zi.jpg"
     },
     {
+        "id": "the-social-reckoning",
         "title": "The Social Reckoning",
         "link": "https://www.themoviedb.org/movie/1281331-the-social-reckoning",
         "release": "2026-10-09",
@@ -211,6 +236,7 @@
         "poster": "https://image.tmdb.org/t/p/original/kHXzAm0ERUX8yZxe5xFSMsJsf3t.jpg"
     },
     {
+        "id": "whalefall",
         "title": "Whalefall",
         "link": "https://www.themoviedb.org/movie/1255833-whalefall",
         "release": "2026-10-16",
@@ -220,6 +246,7 @@
         "poster": "https://image.tmdb.org/t/p/original/wse4S4EuVHSNk9yzsjhdRLmipXk.jpg"
     },
     {
+        "id": "klara-and-the-sun",
         "title": "Klara and the Sun",
         "link": "https://www.themoviedb.org/movie/858035-klara-and-the-sun",
         "release": "2026-10-23",
@@ -227,6 +254,7 @@
         "poster": "https://image.tmdb.org/t/p/original/4B8f9c3zxe4Sey2ps0taHFNvcUC.jpg"
     },
     {
+        "id": "wife-dog",
         "title": "Wife & Dog",
         "link": "https://www.themoviedb.org/movie/1290000-wife-dog",
         "release": "2026-10-23",
@@ -234,12 +262,14 @@
         "poster": "https://image.tmdb.org/t/p/original/eoyLMVeP1cuQRTU74W5NAFJBvsu.jpg"
     },
     {
+        "id": "ebenezer-a-christmas-carol",
         "title": "Ebenezer: A Christmas Carol",
         "link": "https://www.themoviedb.org/movie/1567605-ebenezer-a-christmas-carol",
         "release": "2026-11-13",
         "genre": "Fantasy, Drama"
     },
     {
+        "id": "jimmy",
         "title": "Jimmy",
         "link": "https://www.themoviedb.org/movie/1241478-jimmy",
         "release": "2026-11-20",
@@ -248,6 +278,7 @@
         "poster": "https://image.tmdb.org/t/p/original/c3fWnsg5VEP5EhYZ4oY2NpFrrU1.jpg"
     },
     {
+        "id": "the-adventures-of-cliff-booth",
         "title": "The Adventures of Cliff Booth",
         "link": "https://www.themoviedb.org/movie/1457866-the-adventures-of-cliff-booth",
         "release": "2026-11-24",
@@ -255,6 +286,7 @@
         "trailer": "https://youtu.be/ik0drfECnPo"
     },
     {
+        "id": "focker-in-law",
         "title": "Focker-In-Law",
         "link": "https://www.themoviedb.org/movie/1400336-focker-in-law",
         "release": "2026-11-25",
@@ -263,6 +295,7 @@
         "poster": "https://image.tmdb.org/t/p/original/gPdzdeehaoaYqxH2rA6yayEDSsS.jpg"
     },
     {
+        "id": "hexed",
         "title": "Hexed",
         "link": "https://www.themoviedb.org/movie/1538497-hexed",
         "release": "2026-11-25",
@@ -271,12 +304,14 @@
         "poster": "https://image.tmdb.org/t/p/original/g0f2mzRzwbIrzpieftY98W97muf.jpg"
     },
     {
+        "id": "the-man-with-the-bag",
         "title": "The Man with the Bag",
         "link": "https://www.themoviedb.org/movie/1137888-the-man-with-the-bag",
         "release": "2026-12-02",
         "genre": "Comedy, Family"
     },
     {
+        "id": "werwulf",
         "title": "Werwulf",
         "link": "https://www.themoviedb.org/movie/1421903-werwulf",
         "release": "2026-12-25",

@@ -1,6 +1,15 @@
 {
     "$schema": "node_modules/wrangler/config-schema.json",
     "name": "dashboard",
+    "main": "workers/app.tsx",
     "compatibility_date": "2025-09-01",
-    "main": "workers/app.ts",
+    "compatibility_flags": ["nodejs_als", "nodejs_compat"],
+    "assets": {
+        "directory": "./build/client",
+    },
+    "observability": {
+        "logs": {
+            "enabled": true,
+        },
+    },
 }

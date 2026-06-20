@@ -2,6 +2,7 @@
     "extends": "./tsconfig.json",
     "include": [
         ".react-router/types/**/*",
+        ".sprinkles/content-layer/**/*",
         "app/**/*",
         "app/**/.server/**/*",
         "app/**/.client/**/*",

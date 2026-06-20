@@ -1,11 +1,10 @@
+import { getCollection } from "sprinkles:content";
+
 import { MovieCell } from "~/components/CollectionCells.tsx";
 import { SectionHeader } from "~/components/SectionHeader.tsx";
-import { getCollection } from "~/lib/content.server.ts";
 import { releaseSortComparator, titleSortComparator, withContent } from "~/lib/sort-comparators.ts";
 
-import type { Route } from "./+types/in-theaters";
-
-export async function loader() {
+export async function ServerComponent() {
     let movies = await getCollection("theaters");
     let formatter = new Intl.DateTimeFormat("en", { dateStyle: "short" });
     let today = new Date();
@@ -43,14 +42,6 @@ export async function loader() {
             },
         }));
 
-    return {
-        inTheaters,
-        upcoming,
-    };
-}
-
-export default function Component({ loaderData }: Route.ComponentProps) {
-    let { inTheaters, upcoming } = loaderData;
     return (
         <>
             <title>Theater Movies • Dashboard</title>

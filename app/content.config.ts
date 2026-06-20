@@ -1,9 +1,16 @@
+import { defineCollection } from "@withsprinkles/content-layer";
+import { file, glob } from "@withsprinkles/content-layer/loaders";
 import { z } from "zod";
 
-import { defineCollection, partialURL } from "~/lib/define-collection.server.ts";
+// Accepts a site-relative path ("/foo.webp") or an absolute URL.
+function partialURL() {
+    return z.string().refine(val => val.startsWith("/") || val.startsWith("http"), {
+        message: "Must be a partial URL path or a full URL",
+    });
+}
 
 let movies = defineCollection({
-    type: "data",
+    loader: glob({ pattern: "*.json", base: "app/content/movies" }),
     schema: z.object({
         title: z.string(),
         link: z.url(),
@@ -24,16 +31,11 @@ let TvBase = z.object({
     seasons: z.number().int().positive(),
     trailer: z.url().optional(),
     poster: z.url(),
-    // Defaults to false and is omitted from the data files; add `"watching": true` per show.
     watching: z.boolean().default(false),
 });
 
 let television = defineCollection({
-    type: "data",
-    // Discriminated on `status`: `premiere` (the next premiere date) is required on and unique
-    // to `upcoming`, which means "not ended, with a known future date" — whether a brand-new
-    // series or a dated returning season. `returning` is "not ended, no date scheduled yet".
-    // These fields (status/seasons/premiere) drift over time — refresh via `mise run tv:refresh`.
+    loader: glob({ pattern: "*.json", base: "app/content/television" }),
     schema: z.discriminatedUnion("status", [
         TvBase.extend({ status: z.literal("ended") }),
         TvBase.extend({ status: z.literal("airing") }),
@@ -43,7 +45,7 @@ let television = defineCollection({
 });
 
 let events = defineCollection({
-    type: "data",
+    loader: file("app/content/events.json"),
     schema: z.object({
         title: z.string(),
         link: z.url(),
@@ -52,22 +54,20 @@ let events = defineCollection({
 });
 
 let theaters = defineCollection({
-    type: "data",
+    loader: file("app/content/theaters.json"),
     schema: z.object({
         title: z.string(),
         link: z.url(),
         release: z.iso.date(),
         genre: z.string(),
         runningTime: z.string().optional(),
-        // Optional so upcoming titles can be stored before a trailer/poster exists on TMDb;
-        // the in-theaters route hides any entry missing these (see in-theaters.tsx).
         trailer: z.url().optional(),
         poster: z.url().optional(),
     }),
 });
 
 let recipes = defineCollection({
-    type: "content",
+    loader: glob({ pattern: "*.md", base: "app/content/recipes" }),
     schema: z.object({
         title: z.string(),
         source: z.url(),
@@ -76,7 +76,7 @@ let recipes = defineCollection({
 });
 
 let restaurants = defineCollection({
-    type: "content",
+    loader: glob({ pattern: "*.md", base: "app/content/restaurants" }),
     schema: z.object({
         name: z.string(),
         address: z.string(),
@@ -86,11 +86,4 @@ let restaurants = defineCollection({
     }),
 });
 
-export const collections = {
-    movies,
-    television,
-    events,
-    recipes,
-    restaurants,
-    theaters,
-};
+export let collections = { movies, television, events, theaters, recipes, restaurants };

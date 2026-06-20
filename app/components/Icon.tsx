@@ -1,3 +1,5 @@
+"use client";
+
 import primaries from "~/assets/primaries.svg?url";
 
 import type { IconName } from "./icon-names.ts";

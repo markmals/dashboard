@@ -1,3 +1,5 @@
+"use client";
+
 import type React from "react";
 
 import { Radio as RACRadio, RadioGroup as RACRadioGroup } from "react-aria-components";

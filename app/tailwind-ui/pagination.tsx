@@ -1,3 +1,5 @@
+"use client";
+
 import type React from "react";
 
 import { cx } from "~/styles/cva.ts";
@@ -85,7 +87,12 @@ export function PaginationPage({
     className,
     current = false,
     children,
-}: { href: string; className?: string; current?: boolean; children: string | number }) {
+}: {
+    href: string;
+    className?: string;
+    current?: boolean;
+    children: string | number;
+}) {
     return (
         <Button
             aria-current={current ? "page" : undefined}

@@ -1,3 +1,5 @@
+"use client";
+
 import { cx } from "~/styles/cva.ts";
 
 import { Link } from "./link.tsx";

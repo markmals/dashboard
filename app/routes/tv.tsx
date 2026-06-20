@@ -1,11 +1,9 @@
 import { sortBy } from "es-toolkit/array";
+import { getCollection } from "sprinkles:content";
 
 import { TVShowCell } from "~/components/CollectionCells.tsx";
 import { SectionHeader } from "~/components/SectionHeader.tsx";
-import { getCollection } from "~/lib/content.server.ts";
 import { removeArticles } from "~/lib/sort-comparators.ts";
-
-import type { Route } from "./+types/tv";
 
 // Section order for the TV grid: airing first, then upcoming, returning, ended.
 const STATUS_ORDER = { airing: 0, upcoming: 1, returning: 2, ended: 3 } as const;
@@ -22,8 +20,8 @@ function titleKey(title: string) {
         .toLowerCase();
 }
 
-export async function loader() {
-    let tvShows = sortBy(await getCollection("television"), [
+export async function ServerComponent() {
+    let shows = sortBy(await getCollection("television"), [
         show => STATUS_ORDER[show.data.status],
         // Only `upcoming` shows carry a premiere; order them by it (ISO strings compare
         // chronologically). Other statuses share the sentinel and fall through to the title key.
@@ -31,14 +29,9 @@ export async function loader() {
         show => titleKey(show.data.title),
     ]);
 
-    return {
-        tvShows: tvShows.filter(show => !show.data.watching),
-        watching: tvShows.filter(show => show.data.watching),
-    };
-}
+    let tvShows = shows.filter(show => !show.data.watching);
+    let watching = shows.filter(show => show.data.watching);
 
-export default function Component({ loaderData }: Route.ComponentProps) {
-    let { tvShows, watching } = loaderData;
     return (
         <>
             <title>TV Shows • Dashboard</title>

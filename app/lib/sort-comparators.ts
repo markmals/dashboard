@@ -1,5 +1,3 @@
-import type { CollectionEntry } from "./content.server.ts";
-
 const ARTICLES_RE = /^(?:a|an|the)\s+/i;
 export let removeArticles = (title: string) => title.replace(ARTICLES_RE, "");
 
@@ -55,7 +53,7 @@ export const idSortComparator = (lhs: Identifiable, rhs: Identifiable) => {
 };
 
 export const withContent = <T>(comparator: (lhs: T, rhs: T) => number) => {
-    return (lhs: CollectionEntry<any>, rhs: CollectionEntry<any>) => {
+    return (lhs: { data: T }, rhs: { data: T }) => {
         return comparator(lhs.data, rhs.data);
     };
 };

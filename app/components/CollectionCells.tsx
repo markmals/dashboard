@@ -1,8 +1,10 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
 
+import type { ComponentType } from "react";
+
 import { Badge, Button } from "@tailwindcss/ui/index.ts";
 
-import type { CollectionEntry } from "~/lib/content.server.ts";
+import type { CollectionEntry } from "~/lib/content-types.ts";
 
 import { Icon } from "~/components/Icon.tsx";
 
@@ -210,10 +212,11 @@ export function VideoCell({
 export function RestaurantCell({
     restaurant: {
         data: { name, thumbnail, menu, address, cuisine },
-        body: description,
     },
+    Content,
 }: {
     restaurant: CollectionEntry<"restaurants">;
+    Content: ComponentType;
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
@@ -245,10 +248,9 @@ export function RestaurantCell({
                             </span>
                         </div>
                     </div>
-                    <p
-                        className="text-sm text-black/70 dark:text-white/70"
-                        dangerouslySetInnerHTML={{ __html: description }}
-                    />
+                    <div className="text-sm text-black/70 dark:text-white/70 [&>p]:m-0">
+                        <Content />
+                    </div>
                 </div>
                 <div>
                     {menu !== undefined && (
@@ -266,10 +268,11 @@ export function RestaurantCell({
 export function RecipeCell({
     recipe: {
         data: { title, source, thumbnail },
-        body: description,
     },
+    Content,
 }: {
     recipe: CollectionEntry<"recipes">;
+    Content: ComponentType;
 }) {
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
@@ -288,10 +291,9 @@ export function RecipeCell({
                             </h2>
                         </a>
                     </div>
-                    <p
-                        className="text-sm text-black/70 dark:text-white/70"
-                        dangerouslySetInnerHTML={{ __html: description }}
-                    />
+                    <div className="text-sm text-black/70 dark:text-white/70 [&>p]:m-0">
+                        <Content />
+                    </div>
                 </div>
             </div>
         </li>

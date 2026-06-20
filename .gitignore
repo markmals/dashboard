@@ -13,3 +13,6 @@ build/
 .wrangler
 .dev.vars*
 worker-configuration.d.ts
+
+# Content Layer
+.sprinkles/

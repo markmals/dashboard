@@ -1,3 +1,5 @@
+"use client";
+
 import type React from "react";
 
 import { Link as RACLink } from "react-aria-components";

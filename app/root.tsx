@@ -9,7 +9,7 @@ import {
     SidebarSection,
     StackedLayout,
 } from "@tailwindcss/ui/index.ts";
-import { Outlet, Scripts, ScrollRestoration } from "react-router";
+import { Outlet } from "react-router";
 
 import type { IconName } from "~/components/icon-names.ts";
 
@@ -68,13 +68,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 >
                     {children}
                 </StackedLayout>
-                <ScrollRestoration />
-                <Scripts />
             </body>
         </html>
     );
 }
 
-export default function App() {
+export function ServerComponent() {
     return <Outlet />;
 }

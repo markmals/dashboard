@@ -1,3 +1,5 @@
+"use client";
+
 import type React from "react";
 
 import { Heading, Modal, ModalOverlay, Dialog as RACDialog } from "react-aria-components";

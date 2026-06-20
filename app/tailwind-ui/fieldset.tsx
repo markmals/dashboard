@@ -1,3 +1,5 @@
+"use client";
+
 import type React from "react";
 
 import { Label as RACLabel } from "react-aria-components";

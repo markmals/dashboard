@@ -1,3 +1,5 @@
+"use client";
+
 import type React from "react";
 
 import { Button as RACButton } from "react-aria-components";
