@@ -2,6 +2,7 @@ import { RestaurantCell } from "~/components/CollectionCells.tsx";
 import { SectionHeader } from "~/components/SectionHeader.tsx";
 import { getCollection } from "~/lib/content.server.ts";
 import { nameSortComparator, withContent } from "~/lib/sort-comparators.ts";
+
 import type { Route } from "./+types/restaurants";
 
 export async function loader() {

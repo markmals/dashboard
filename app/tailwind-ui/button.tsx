@@ -1,6 +1,8 @@
-import { clsx } from "clsx";
 import type React from "react";
+
+import { clsx } from "clsx";
 import { Button as RACButton } from "react-aria-components";
+
 import { Link } from "./link.tsx";
 
 const styles = {

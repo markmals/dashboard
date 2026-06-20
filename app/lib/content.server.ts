@@ -1,9 +1,12 @@
+import type { Tokens } from "marked";
+import type { z } from "zod";
+
 import * as path from "@std/path";
 import * as YAML from "@std/yaml";
-import type { Tokens } from "marked";
 import { Renderer as MarkdownRenderer, marked as parseMarkdown } from "marked";
-import type { z } from "zod";
+
 import { collections } from "~/content/config.server.ts";
+
 import { Frontmatter } from "./frontmatter.server.ts";
 
 class ParagraphStripper extends MarkdownRenderer {

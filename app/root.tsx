@@ -10,8 +10,10 @@ import {
     StackedLayout,
 } from "@tailwindcss/ui/index.ts";
 import { Outlet, Scripts, ScrollRestoration } from "react-router";
-import { Icon } from "~/components/Icon.tsx";
+
 import type { IconName } from "~/components/icon-names.ts";
+
+import { Icon } from "~/components/Icon.tsx";
 import tailwind from "~/styles/style.css?url";
 
 const navItems = [

@@ -1,6 +1,8 @@
-import clsx from "clsx";
 import type React from "react";
+
+import clsx from "clsx";
 import { Heading, Modal, ModalOverlay, Dialog as RACDialog } from "react-aria-components";
+
 import { Text } from "./text.tsx";
 
 const sizes = {

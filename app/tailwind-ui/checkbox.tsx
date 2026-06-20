@@ -1,5 +1,6 @@
-import { clsx } from "clsx";
 import type React from "react";
+
+import { clsx } from "clsx";
 import { Checkbox as RACCheckbox } from "react-aria-components";
 
 export function CheckboxGroup({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {

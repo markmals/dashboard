@@ -2,6 +2,7 @@ import { MovieCell } from "~/components/CollectionCells.tsx";
 import { SectionHeader } from "~/components/SectionHeader.tsx";
 import { getCollection } from "~/lib/content.server.ts";
 import { releaseSortComparator, titleSortComparator, withContent } from "~/lib/sort-comparators.ts";
+
 import type { Route } from "./+types/in-theaters";
 
 export async function loader() {

@@ -1,4 +1,5 @@
 import primaries from "~/assets/primaries.svg?url";
+
 import type { IconName } from "./icon-names.ts";
 
 // Renders a Primaries icon from the sprite subset (see scripts/build-icons.ts). Symbols use

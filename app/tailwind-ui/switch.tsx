@@ -1,5 +1,6 @@
-import { clsx } from "clsx";
 import type React from "react";
+
+import { clsx } from "clsx";
 import { Switch as RACSwitch } from "react-aria-components";
 
 export function SwitchGroup({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {

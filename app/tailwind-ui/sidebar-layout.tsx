@@ -1,9 +1,11 @@
 "use client";
 
-import clsx from "clsx";
 import type React from "react";
+
+import clsx from "clsx";
 import { useState } from "react";
 import { Dialog, Modal, ModalOverlay } from "react-aria-components";
+
 import { NavbarItem } from "./navbar.tsx";
 
 function OpenMenuIcon() {

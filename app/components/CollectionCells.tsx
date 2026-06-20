@@ -1,8 +1,10 @@
 /* eslint-disable react-dom/no-dangerously-set-innerhtml */
 
 import { Badge, Button } from "@tailwindcss/ui/index.ts";
-import { Icon } from "~/components/Icon.tsx";
+
 import type { CollectionEntry } from "~/lib/content.server.ts";
+
+import { Icon } from "~/components/Icon.tsx";
 
 function TrailerButton({ href }: { href: string }) {
     return (

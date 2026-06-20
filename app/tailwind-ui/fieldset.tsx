@@ -1,5 +1,6 @@
-import clsx from "clsx";
 import type React from "react";
+
+import clsx from "clsx";
 import { Label as RACLabel } from "react-aria-components";
 
 export function Fieldset({

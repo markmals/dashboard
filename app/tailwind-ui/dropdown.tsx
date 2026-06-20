@@ -1,7 +1,8 @@
 "use client";
 
-import clsx from "clsx";
 import type React from "react";
+
+import clsx from "clsx";
 import {
     Header,
     Menu,
@@ -11,8 +12,10 @@ import {
     MenuSection as RACMenuSection,
     Separator,
 } from "react-aria-components";
-import { Button } from "./button.tsx";
+
 import type { Link } from "./link.tsx";
+
+import { Button } from "./button.tsx";
 
 export function Dropdown(props: React.ComponentPropsWithoutRef<typeof MenuTrigger>) {
     return <MenuTrigger {...props} />;
