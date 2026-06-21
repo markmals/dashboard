@@ -5,7 +5,7 @@ import type React from "react";
 
 import { Button as RACButton } from "react-aria-components";
 
-import { compose, cva, cx } from "~/styles/cva.ts";
+import { cva, cx } from "~/styles/cva.ts";
 
 import { Link } from "./link.tsx";
 
@@ -73,14 +73,17 @@ let buttonBase = cva({
                 "[--btn-icon:var(--color-zinc-500)] data-pressed:[--btn-icon:var(--color-zinc-700)] data-hovered:[--btn-icon:var(--color-zinc-700)] dark:[--btn-icon:var(--color-zinc-500)] dark:data-pressed:[--btn-icon:var(--color-zinc-400)] dark:data-hovered:[--btn-icon:var(--color-zinc-400)]",
             ],
             soft: [
-                // Base — a persistent blue accent tint so the button shape is always visible. It
-                // deepens on hover (and brightens in dark mode) without becoming prominent.
+                // Base — a persistent accent tint so the button shape is always visible. It deepens
+                // on hover without becoming prominent. The accent color comes from `--btn-soft`,
+                // which `buttonSoftColor` sets from the `color` prop (so `soft` composes with `color`,
+                // defaulting to blue), so text/background/icon all stay in sync.
                 "border-transparent font-normal",
-                "text-blue-500 dark:text-blue-400",
-                "bg-blue-500/10 data-pressed:bg-blue-500/20 data-hovered:bg-blue-500/20",
-                "dark:bg-blue-400/10 dark:data-pressed:bg-blue-400/20 dark:data-hovered:bg-blue-400/20",
+                "text-(--btn-soft)",
+                "bg-(--btn-soft)/10 data-pressed:bg-(--btn-soft)/20 data-hovered:bg-(--btn-soft)/20",
                 // Icon
-                "[--btn-icon:var(--color-blue-500)] dark:[--btn-icon:var(--color-blue-400)]",
+                "[--btn-icon:var(--btn-soft)]",
+                // Disabled — fully desaturate to neutral grey (on top of the base opacity fade).
+                "data-disabled:[--btn-soft:var(--color-zinc-500)] dark:data-disabled:[--btn-soft:var(--color-zinc-400)]",
             ],
         },
     },
@@ -194,7 +197,43 @@ let buttonColor = cva({
     },
 });
 
-let button = compose(buttonBase, buttonColor);
+// Soft-variant accent: maps each `color` to the `--btn-soft` accent the `soft` variant reads from
+// (lighter 500 shade in light mode, 400 in dark, matching the original blue soft button). Greyscale
+// solid colors collapse to zinc since a "soft white" tint is meaningless. Mirrors `buttonColor`'s
+// key set so `color` stays a single shared type across solid and soft.
+let buttonSoftColor = cva({
+    variants: {
+        color: {
+            "dark/zinc":
+                "[--btn-soft:var(--color-zinc-500)] dark:[--btn-soft:var(--color-zinc-400)]",
+            light: "[--btn-soft:var(--color-zinc-500)] dark:[--btn-soft:var(--color-zinc-400)]",
+            "dark/white":
+                "[--btn-soft:var(--color-zinc-500)] dark:[--btn-soft:var(--color-zinc-400)]",
+            dark: "[--btn-soft:var(--color-zinc-500)] dark:[--btn-soft:var(--color-zinc-400)]",
+            white: "[--btn-soft:var(--color-zinc-500)] dark:[--btn-soft:var(--color-zinc-400)]",
+            zinc: "[--btn-soft:var(--color-zinc-500)] dark:[--btn-soft:var(--color-zinc-400)]",
+            indigo: "[--btn-soft:var(--color-indigo-500)] dark:[--btn-soft:var(--color-indigo-400)]",
+            cyan: "[--btn-soft:var(--color-cyan-500)] dark:[--btn-soft:var(--color-cyan-400)]",
+            red: "[--btn-soft:var(--color-red-500)] dark:[--btn-soft:var(--color-red-400)]",
+            orange: "[--btn-soft:var(--color-orange-500)] dark:[--btn-soft:var(--color-orange-400)]",
+            amber: "[--btn-soft:var(--color-amber-500)] dark:[--btn-soft:var(--color-amber-400)]",
+            yellow: "[--btn-soft:var(--color-yellow-500)] dark:[--btn-soft:var(--color-yellow-400)]",
+            lime: "[--btn-soft:var(--color-lime-500)] dark:[--btn-soft:var(--color-lime-400)]",
+            green: "[--btn-soft:var(--color-green-500)] dark:[--btn-soft:var(--color-green-400)]",
+            emerald:
+                "[--btn-soft:var(--color-emerald-500)] dark:[--btn-soft:var(--color-emerald-400)]",
+            teal: "[--btn-soft:var(--color-teal-500)] dark:[--btn-soft:var(--color-teal-400)]",
+            sky: "[--btn-soft:var(--color-sky-500)] dark:[--btn-soft:var(--color-sky-400)]",
+            blue: "[--btn-soft:var(--color-blue-500)] dark:[--btn-soft:var(--color-blue-400)]",
+            violet: "[--btn-soft:var(--color-violet-500)] dark:[--btn-soft:var(--color-violet-400)]",
+            purple: "[--btn-soft:var(--color-purple-500)] dark:[--btn-soft:var(--color-purple-400)]",
+            fuchsia:
+                "[--btn-soft:var(--color-fuchsia-500)] dark:[--btn-soft:var(--color-fuchsia-400)]",
+            pink: "[--btn-soft:var(--color-pink-500)] dark:[--btn-soft:var(--color-pink-400)]",
+            rose: "[--btn-soft:var(--color-rose-500)] dark:[--btn-soft:var(--color-rose-400)]",
+        },
+    },
+});
 
 type ButtonColor = NonNullable<VariantProps<typeof buttonColor>["color"]>;
 
@@ -202,7 +241,7 @@ type ButtonProps = (
     | { color?: ButtonColor; outline?: never; plain?: never; soft?: never }
     | { color?: never; outline: true; plain?: never; soft?: never }
     | { color?: never; outline?: never; plain: true; soft?: never }
-    | { color?: never; outline?: never; plain?: never; soft: true }
+    | { color?: ButtonColor; outline?: never; plain?: never; soft: true }
 ) & { className?: string; children: React.ReactNode; ref?: React.Ref<HTMLButtonElement> } & (
         | Omit<React.ComponentPropsWithoutRef<typeof RACButton>, "className">
         | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
@@ -225,18 +264,45 @@ export function Button({
           : soft
             ? "soft"
             : "solid";
-    let classes = button({
-        variant,
-        color: variant === "solid" ? (color ?? "dark/zinc") : undefined,
+    let classes = cx(
+        buttonBase({ variant }),
+        variant === "solid" && buttonColor({ color: color ?? "dark/zinc" }),
+        variant === "soft" && buttonSoftColor({ color: color ?? "blue" }),
         className,
-    });
+    );
 
-    return "href" in props ? (
-        <Link {...props} className={classes} ref={ref as React.ForwardedRef<HTMLAnchorElement>}>
+    // An `href` (even a present-but-`undefined` one stays out via the `!= null` check) always renders
+    // an anchor — including when disabled. RAC's `Link` would swap a disabled link to a <span>;
+    // instead we keep the <a> and disable it with CSS/ARIA: `data-disabled` drives the same dimmed/
+    // desaturated styling buttons get, while `pointer-events-none` + `tabIndex={-1}` + `aria-disabled`
+    // make it non-interactive. Only hrefless controls fall back to a real <button>. `href`/`isDisabled`
+    // are pulled out of the spread so neither leaks onto the wrong element; the cast collapses the
+    // button|anchor prop union at this polymorphic boundary (cf. dropdown.tsx) while the public
+    // `ButtonProps` keeps call sites type-checked.
+    let { href, isDisabled, ...rest } = props as unknown as {
+        href?: string;
+        isDisabled?: boolean;
+    };
+
+    return href != null ? (
+        <Link
+            {...rest}
+            aria-disabled={isDisabled || undefined}
+            className={cx(classes, isDisabled && "pointer-events-none")}
+            data-disabled={isDisabled ? "" : undefined}
+            href={href}
+            ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+            tabIndex={isDisabled ? -1 : undefined}
+        >
             <TouchTarget>{children}</TouchTarget>
         </Link>
     ) : (
-        <RACButton {...props} className={cx(classes, "cursor-default")} ref={ref}>
+        <RACButton
+            {...rest}
+            className={cx(classes, "cursor-default")}
+            isDisabled={isDisabled}
+            ref={ref}
+        >
             <TouchTarget>{children}</TouchTarget>
         </RACButton>
     );
