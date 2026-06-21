@@ -19,7 +19,6 @@
         "@cloudflare/vite-plugin": "^1.42.1",
         "@mdx-js/rollup": "^3.1.1",
         "@react-router/dev": "8.0.1",
-        "@react-router/fs-routes": "8.0.1",
         "@rolldown/plugin-babel": "^0.2.3",
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/vite": "^4.3.1",

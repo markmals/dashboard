@@ -51,9 +51,6 @@ importers:
       '@react-router/dev':
         specifier: 8.0.1
         version: 8.0.1(@vitejs/plugin-rsc@0.5.27(react-dom@19.2.7(react@19.2.7))(react-server-dom-webpack@19.2.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(webpack@5.107.2(esbuild@0.28.1)))(react@19.2.7)(vite@8.0.16(@types/node@24.10.15)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0)))(react-router@8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react-server-dom-webpack@19.2.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(webpack@5.107.2(esbuild@0.28.1)))(typescript@7.0.1-rc)(vite@8.0.16(@types/node@24.10.15)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0))(wrangler@4.103.0)
-      '@react-router/fs-routes':
-        specifier: 8.0.1
-        version: 8.0.1(@react-router/dev@8.0.1(@vitejs/plugin-rsc@0.5.27(react-dom@19.2.7(react@19.2.7))(react-server-dom-webpack@19.2.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(webpack@5.107.2(esbuild@0.28.1)))(react@19.2.7)(vite@8.0.16(@types/node@24.10.15)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0)))(react-router@8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react-server-dom-webpack@19.2.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(webpack@5.107.2(esbuild@0.28.1)))(typescript@7.0.1-rc)(vite@8.0.16(@types/node@24.10.15)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0))(wrangler@4.103.0))(typescript@7.0.1-rc)
       '@rolldown/plugin-babel':
         specifier: ^0.2.3
         version: 0.2.3(@babel/core@8.0.1)(rolldown@1.0.3)(vite@8.0.16(@types/node@24.10.15)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0))
@@ -1406,16 +1403,6 @@ packages:
       typescript:
         optional: true
       wrangler:
-        optional: true
-
-  '@react-router/fs-routes@8.0.1':
-    resolution: {integrity: sha512-AvVOgD51NONhWECESN8kATjq7bKRZg/PmHA/vk9DrRIYFxCPFe3xiEvtIIk5q6Ng61lQUHfUzx5e5K95VpIAiA==}
-    engines: {node: '>=22.22.0'}
-    peerDependencies:
-      '@react-router/dev': ^8.0.1
-      typescript: ^5.1.0 || ^6.0.0
-    peerDependenciesMeta:
-      typescript:
         optional: true
 
   '@react-router/node@8.0.1':
@@ -5332,13 +5319,6 @@ snapshots:
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
-
-  '@react-router/fs-routes@8.0.1(@react-router/dev@8.0.1(@vitejs/plugin-rsc@0.5.27(react-dom@19.2.7(react@19.2.7))(react-server-dom-webpack@19.2.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(webpack@5.107.2(esbuild@0.28.1)))(react@19.2.7)(vite@8.0.16(@types/node@24.10.15)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0)))(react-router@8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react-server-dom-webpack@19.2.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(webpack@5.107.2(esbuild@0.28.1)))(typescript@7.0.1-rc)(vite@8.0.16(@types/node@24.10.15)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0))(wrangler@4.103.0))(typescript@7.0.1-rc)':
-    dependencies:
-      '@react-router/dev': 8.0.1(@vitejs/plugin-rsc@0.5.27(react-dom@19.2.7(react@19.2.7))(react-server-dom-webpack@19.2.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(webpack@5.107.2(esbuild@0.28.1)))(react@19.2.7)(vite@8.0.16(@types/node@24.10.15)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0)))(react-router@8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react-server-dom-webpack@19.2.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(webpack@5.107.2(esbuild@0.28.1)))(typescript@7.0.1-rc)(vite@8.0.16(@types/node@24.10.15)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0))(wrangler@4.103.0)
-      minimatch: 10.2.5
-    optionalDependencies:
-      typescript: 7.0.1-rc
 
   '@react-router/node@8.0.1(react-router@8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(typescript@7.0.1-rc)':
     dependencies:
