@@ -1,6 +1,6 @@
 import { sortBy } from "es-toolkit/array";
 import { cache } from "react";
-import { unstable_getRequest as getRequest } from "react-router";
+import { href, unstable_getRequest as getRequest } from "react-router";
 
 import { readPrefs } from "~/lib/prefs.ts";
 
@@ -49,15 +49,23 @@ export function sortEntries<E extends { data: object }>(
 let requestUrl = cache(() => new URL(getRequest().url));
 let requestPrefs = cache(() => readPrefs(getRequest()));
 
-// Effective sort/filter params for a collection page: the URL params when the user has interacted
-// (any known param is present), otherwise the values remembered in the prefs cookie (keyed by
-// pathname). The root `persistPrefs` middleware normally redirects a bare URL to its stored params
-// (so the URL stays authoritative); the cookie read here is the render-time fallback.
-export async function resolvePageParams(paramNames: readonly string[]): Promise<URLSearchParams> {
+// Effective sort/filter params for a collection page: just the URL's search params. The URL is now
+// authoritative — a bare URL renders defaults (a reset). Remembered params aren't restored here;
+// they're carried into in-app links by `restoredHref`.
+export function resolvePageParams(): URLSearchParams {
+    return requestUrl().searchParams;
+}
+
+// Type-safe `href()` that bakes in a collection page's remembered sort/filter params so in-app links
+// preserve them (bare URLs reset instead of redirect-restoring). The current page mirrors the live
+// URL so its own nav link never lags a render; every other page uses its stored prefs entry, falling
+// back to the plain path when nothing is remembered. Server-only (reads the request-scoped prefs).
+export async function restoredHref(...args: Parameters<typeof href>): Promise<string> {
+    let path = href(...args);
     let url = requestUrl();
-    if (paramNames.some(name => url.searchParams.has(name))) return url.searchParams;
+    if (path === url.pathname) return `${path}${url.search}`;
     let prefs = await requestPrefs();
-    return new URLSearchParams(prefs[url.pathname] ?? "");
+    return prefs[path] ? `${path}?${prefs[path]}` : path;
 }
 
 // Narrow a raw `?sort=` value to a known registry key, falling back to the default.

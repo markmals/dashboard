@@ -35,7 +35,7 @@ const MOVIE_SORTS = {
 } satisfies Record<string, SortOption<MovieData>>;
 
 export async function ServerComponent() {
-    let params = await resolvePageParams(["sort", "genre"]);
+    let params = resolvePageParams();
     let sort = pickSort(MOVIE_SORTS, params.get("sort"), "title");
     let genre = params.get("genre") ?? "";
 
@@ -71,7 +71,6 @@ export async function ServerComponent() {
                                     ),
                                 },
                             ]}
-                            resetTo="/movies?sort=title"
                         />
                     }
                 >

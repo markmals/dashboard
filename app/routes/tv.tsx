@@ -53,7 +53,7 @@ const TV_SORTS = {
 } satisfies Record<string, SortOption<TvData>>;
 
 export async function ServerComponent() {
-    let params = await resolvePageParams(["sort", "status", "genre"]);
+    let params = resolvePageParams();
     let sort = pickSort(TV_SORTS, params.get("sort"), "status");
     let status = params.get("status") ?? "";
     let genre = params.get("genre") ?? "";
@@ -96,7 +96,6 @@ export async function ServerComponent() {
                     options: genreControlOptions(all.map(show => show.data.genre)),
                 },
             ]}
-            resetTo="/tv?sort=status"
         />
     );
 

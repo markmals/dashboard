@@ -38,10 +38,10 @@ function pagePrefSearch(url: URL, paramNames: readonly string[]): string {
     return search.toString();
 }
 
-// What the prefs middleware should do for a request: redirect a bare URL to its remembered params
-// (so the URL reflects the restored state), and/or write the cookie when filter params change.
+// What the prefs middleware should do for a request: write (or clear) the remembered-filters cookie.
+// Restoration is no longer a redirect — in-app links bake the remembered params in via `restoredHref`,
+// so a bare URL is a deliberate reset that forgets the entry.
 export interface PrefsDirective {
-    redirect?: string;
     setCookie?: string;
 }
 
@@ -53,14 +53,12 @@ export async function resolvePrefs(request: Request): Promise<PrefsDirective> {
     let prefs = await readPrefs(request);
     let stored = prefs[url.pathname] ?? "";
 
-    if (!page.names.some(name => url.searchParams.has(name))) {
-        // Bare URL: reflect any remembered (non-default) params back into the URL.
-        return stored ? { redirect: `${url.pathname}?${stored}` } : {};
-    }
-
-    // The URL carries filter params: remember them, treating the page's defaults as "no preference"
-    // so a Reset (which navigates to the default URL) forgets the entry instead of persisting it.
-    let current = pagePrefSearch(url, page.names);
+    // Remember the current filter params, treating the page's defaults — and a bare URL — as "no
+    // preference" so a Reset (which navigates to the bare path) forgets the entry. In-app links carry
+    // remembered params forward via `restoredHref`; only a bare or default visit clears them.
+    let current = page.names.some(name => url.searchParams.has(name))
+        ? pagePrefSearch(url, page.names)
+        : "";
     let desired = current === page.defaultSearch ? "" : current;
     if (desired === stored) return {};
     if (desired) prefs[url.pathname] = desired;

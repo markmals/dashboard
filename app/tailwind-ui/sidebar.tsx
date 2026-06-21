@@ -130,7 +130,9 @@ export const SidebarItem = function SidebarItem({
     );
 
     let location = useLocation();
-    let current = "href" in props && location.pathname === props.href;
+    // Compare against the href's pathname only — nav links bake in remembered search params
+    // (`restoredHref`), so the active page is path-based, independent of the query string.
+    let current = "href" in props && location.pathname === props.href.split("?")[0];
 
     return (
         <span className={cx(className, "relative")}>

@@ -73,9 +73,12 @@ export function NavbarItem({
     );
 
     let location = useLocation();
+    // Compare against the href's pathname only — nav links bake in remembered search params
+    // (`restoredHref`), so the active page is path-based, independent of the query string.
+    let hrefPath = "href" in props ? props.href.split("?")[0] : undefined;
     let current =
-        "href" in props &&
-        (props.href === "/" ? location.pathname === "/" : location.pathname.startsWith(props.href));
+        hrefPath !== undefined &&
+        (hrefPath === "/" ? location.pathname === "/" : location.pathname.startsWith(hrefPath));
 
     return (
         <span className={cx(className, "relative")}>

@@ -3,7 +3,7 @@
 import { Button, Label, Select } from "@tailwindcss/ui";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useId, useState } from "react";
-import { Form, useSubmit } from "react-router";
+import { Form, useLocation, useSubmit } from "react-router";
 
 import type { ControlOption } from "~/lib/collections.ts";
 
@@ -37,18 +37,18 @@ let openMemo = false;
 //     labels stacked above each select.
 //
 // Returned as a fragment of two flex children (toggle + panel) so `SectionHeader`'s flex-wrap row
-// owns the wrap. Persistence across navigations is handled server-side (the root `persistPrefs`
-// middleware writes a cookie); `resetTo` points at the page's explicit defaults.
+// owns the wrap. Persistence is server-side (the root middleware writes a cookie; in-app links bake
+// the params back in via `restoredHref`). Reset is its own GET `<Form>` posting to the bare path,
+// which the middleware reads as a clean reset.
 export function CollectionControls({
     canReset,
     controls,
-    resetTo,
 }: {
     canReset: boolean;
     controls: CollectionControl[];
-    resetTo: string;
 }) {
     let submit = useSubmit();
+    let { pathname } = useLocation();
     let [open, setOpen] = useState(openMemo);
     let panelId = useId();
 
@@ -99,63 +99,60 @@ export function CollectionControls({
                             reduce ? { duration: 0 } : { duration: 0.32, ease: [0.22, 1, 0.36, 1] }
                         }
                     >
-                        <Form
-                            aria-label="Sort and filter"
-                            className="flex w-full flex-wrap items-end gap-3 pt-4 lg:w-max lg:flex-nowrap lg:items-center lg:pt-0"
-                            method="get"
-                            onChange={event => {
-                                let params = new URLSearchParams();
-                                for (let [name, value] of new FormData(event.currentTarget)) {
-                                    if (typeof value === "string" && value) params.set(name, value);
-                                }
-                                submit(params, { method: "get", replace: true });
-                            }}
-                        >
-                            {controls.map(control => (
-                                <div
-                                    className="flex min-w-32 flex-1 flex-col gap-1.5 lg:min-w-0 lg:flex-none lg:flex-row lg:items-center lg:gap-2"
-                                    key={control.name}
-                                >
-                                    <Label className="whitespace-nowrap lg:text-zinc-500 lg:dark:text-zinc-400">
-                                        {control.label}
-                                    </Label>
-                                    {/* `key` on the value remounts the uncontrolled <select> so
-                                        Reset and browser back/forward navigations re-sync it. */}
-                                    <Select
-                                        aria-label={control.label}
-                                        className="lg:w-40"
-                                        defaultValue={control.value}
-                                        key={control.value}
-                                        name={control.name}
+                        <div className="flex w-full flex-wrap items-end gap-3 pt-4 lg:w-max lg:flex-nowrap lg:items-center lg:pt-0">
+                            <Form
+                                aria-label="Sort and filter"
+                                className="contents"
+                                method="get"
+                                onChange={event => {
+                                    let params = new URLSearchParams();
+                                    for (let [name, value] of new FormData(event.currentTarget)) {
+                                        if (typeof value === "string" && value)
+                                            params.set(name, value);
+                                    }
+                                    submit(params, { method: "get", replace: true });
+                                }}
+                            >
+                                {controls.map(control => (
+                                    <div
+                                        className="flex min-w-32 flex-1 flex-col gap-1.5 lg:min-w-0 lg:flex-none lg:flex-row lg:items-center lg:gap-2"
+                                        key={control.name}
                                     >
-                                        {control.options.map(option => (
-                                            <option key={option.value} value={option.value}>
-                                                {option.label}
-                                            </option>
-                                        ))}
-                                    </Select>
-                                </div>
-                            ))}
-                            {/* Always shown; disabled (a real <button>, not a fake-disabled link)
-                                when the page is already at its defaults. */}
-                            {canReset ? (
+                                        <Label className="whitespace-nowrap lg:text-zinc-500 lg:dark:text-zinc-400">
+                                            {control.label}
+                                        </Label>
+                                        {/* `key` on the value remounts the uncontrolled <select> so
+                                            Reset and browser back/forward navigations re-sync it. */}
+                                        <Select
+                                            aria-label={control.label}
+                                            className="lg:w-40"
+                                            defaultValue={control.value}
+                                            key={control.value}
+                                            name={control.name}
+                                        >
+                                            {control.options.map(option => (
+                                                <option key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </option>
+                                            ))}
+                                        </Select>
+                                    </div>
+                                ))}
+                            </Form>
+                            {/* Reset is its own GET form posting to the bare path — the middleware
+                                reads that as "forget this page's saved filters". A real submit
+                                <button>, natively disabled when there's nothing to reset. */}
+                            <Form action={pathname} className="contents" method="get">
                                 <Button
                                     className="self-end lg:order-last lg:self-auto"
-                                    href={resetTo}
-                                    soft
+                                    color="dark/zinc"
+                                    isDisabled={!canReset}
+                                    type="submit"
                                 >
                                     Reset
                                 </Button>
-                            ) : (
-                                <Button
-                                    className="self-end lg:order-last lg:self-auto"
-                                    isDisabled
-                                    soft
-                                >
-                                    Reset
-                                </Button>
-                            )}
-                        </Form>
+                            </Form>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

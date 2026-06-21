@@ -9,23 +9,23 @@ import {
     SidebarSection,
     StackedLayout,
 } from "@tailwindcss/ui/index.ts";
-import { Outlet, redirect } from "react-router";
+import { Outlet } from "react-router";
 
 import type { IconName } from "~/components/icon-names.ts";
 
 import { Icon } from "~/components/Icon.tsx";
+import { restoredHref } from "~/lib/collections.ts";
 import { resolvePrefs } from "~/lib/prefs.ts";
 import tailwind from "~/styles/style.css?url";
 
 import type { Route } from "./+types/root.ts";
 
-// Persist collection-page filter params in a cookie and restore them across navigations. On a bare
-// URL with remembered params we redirect so the params reappear in the URL; on a filtered URL we
-// write the cookie. Read back during render via `resolvePageParams`.
+// Persist collection-page filter params in a cookie. There's no restore-redirect: in-app links bake
+// the remembered params in (`restoredHref` in the nav below), so a bare URL is a clean reset. The
+// middleware only writes/clears the cookie; pages read the live URL via `resolvePageParams`.
 export const middleware: Route.MiddlewareFunction[] = [
     async ({ request }, next) => {
-        let { redirect: to, setCookie } = await resolvePrefs(request);
-        if (to) return redirect(to);
+        let { setCookie } = await resolvePrefs(request);
         let response = await next();
         if (setCookie) response.headers.append("Set-Cookie", setCookie);
         return response;
@@ -41,9 +41,18 @@ const NAV_ITEMS = [
     { label: "Restaurants", url: "/restaurants", icon: "dining" },
     { label: "Recipes", url: "/recipes", icon: "book" },
     // { label: "Developer Education", url: "/dev-edu", icon: "code" },
-] satisfies { label: string; url: string; icon: IconName }[];
+] as const satisfies readonly { label: string; url: string; icon: IconName }[];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+// The server-component counterpart of `Layout` (RR splits these: `Layout` is a client component,
+// `ServerLayout` renders on the server and may be async). Being the layout, it wraps every state —
+// including error boundaries — so the nav chrome is always present; being async, it can await the
+// prefs cookie to bake each page's remembered sort/filter params into its nav link, so in-app
+// navigation preserves them (there's no restore-redirect anymore).
+export async function ServerLayout({ children }: { children: React.ReactNode }) {
+    let navItems = await Promise.all(
+        NAV_ITEMS.map(async item => ({ ...item, href: await restoredHref(item.url) })),
+    );
+
     return (
         <html className="bg-white lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950" lang="en">
             <head>
@@ -59,8 +68,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     navbar={
                         <Navbar>
                             <NavbarSection className="max-lg:hidden">
-                                {NAV_ITEMS.map(({ label, url }) => (
-                                    <NavbarItem href={url} key={label}>
+                                {navItems.map(({ label, href }) => (
+                                    <NavbarItem href={href} key={label}>
                                         {label}
                                     </NavbarItem>
                                 ))}
@@ -71,8 +80,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                         <Sidebar>
                             <SidebarBody>
                                 <SidebarSection>
-                                    {NAV_ITEMS.map(({ label, url, icon }) => (
-                                        <SidebarItem href={url} key={label}>
+                                    {navItems.map(({ label, href, icon }) => (
+                                        <SidebarItem href={href} key={label}>
                                             <Icon name={icon} />
                                             <SidebarLabel>{label}</SidebarLabel>
                                         </SidebarItem>

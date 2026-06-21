@@ -36,7 +36,7 @@ const THEATER_SORTS = {
 } satisfies Record<string, SortOption<TheaterData>>;
 
 export async function ServerComponent() {
-    let params = await resolvePageParams(["sort", "genre"]);
+    let params = resolvePageParams();
     let sort = pickSort(THEATER_SORTS, params.get("sort"), "release-asc");
     let genre = params.get("genre") ?? "";
 
@@ -91,7 +91,6 @@ export async function ServerComponent() {
                     options: genreControlOptions(complete.map(movie => movie.data.genre)),
                 },
             ]}
-            resetTo="/in-theaters?sort=release-asc"
         />
     );
 
