@@ -4,5 +4,17 @@
         "title": "Get Photos Developed",
         "link": "https://prismafilmlab.com",
         "thumbnail": "https://legacy-photolab.com/cdn/shop/files/camera-4421040_1920_1920x750_crop_center.jpg?v=1613786360"
+    },
+    {
+        "id": "pickleball",
+        "title": "Play Pickleball",
+        "link": "https://playsandypickle.com",
+        "thumbnail": "https://playsandypickle.com/wp-content/uploads/2026/03/A7406789.webp"
+    },
+    {
+        "id": "meow-wolf",
+        "title": "Go to Meow Wolf",
+        "link": "https://meowwolf.com/adulti-verse/grapevine",
+        "thumbnail": "https://assets.dmagstatic.com/wp-content/uploads/2023/07/Exhibition-Detail-of-Meow-Wolf-Grapevines-The-Real-Unreal-Photo-by-Jess-Gallo-_-Photo-Courtesy-of-Meow-Wolf..jpg"
     }
 ]
