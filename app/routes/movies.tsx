@@ -1,6 +1,3 @@
-import type { SortOption } from "~/lib/collections.ts";
-import type { CollectionEntry } from "~/lib/content-types.ts";
-
 import {
     EmptyState,
     EmptyStateDescription,
@@ -8,6 +5,9 @@ import {
     EmptyStateIcon,
 } from "@tailwindcss/ui";
 import { getCollection } from "sprinkles:content";
+
+import type { SortOption } from "~/lib/collections.ts";
+import type { CollectionEntry } from "~/lib/content-types.ts";
 
 import { MovieCell } from "~/components/CollectionCells.tsx";
 import { CollectionControls } from "~/components/CollectionControls.tsx";
@@ -51,25 +51,32 @@ export async function ServerComponent() {
         <>
             <title>Movies • Dashboard</title>
             <div className="flex flex-col gap-10">
-                <CollectionControls
-                    canReset={canReset}
-                    controls={[
-                        {
-                            name: "sort",
-                            label: "Sort by",
-                            value: sort,
-                            options: sortControlOptions(MOVIE_SORTS),
-                        },
-                        {
-                            name: "genre",
-                            label: "Genre",
-                            value: genre,
-                            options: genreControlOptions(all.map(movie => movie.data.genre)),
-                        },
-                    ]}
-                    resetTo="/movies?sort=title"
-                />
-                <SectionHeader>Movies</SectionHeader>
+                <SectionHeader
+                    actions={
+                        <CollectionControls
+                            canReset={canReset}
+                            controls={[
+                                {
+                                    name: "sort",
+                                    label: "Sort by",
+                                    value: sort,
+                                    options: sortControlOptions(MOVIE_SORTS),
+                                },
+                                {
+                                    name: "genre",
+                                    label: "Genre",
+                                    value: genre,
+                                    options: genreControlOptions(
+                                        all.map(movie => movie.data.genre),
+                                    ),
+                                },
+                            ]}
+                            resetTo="/movies?sort=title"
+                        />
+                    }
+                >
+                    Movies
+                </SectionHeader>
                 {movies.length === 0 ? (
                     <EmptyState className="py-12">
                         <EmptyStateIcon>

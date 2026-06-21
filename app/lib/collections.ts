@@ -1,5 +1,5 @@
-import { cache } from "react";
 import { sortBy } from "es-toolkit/array";
+import { cache } from "react";
 import { unstable_getRequest as getRequest } from "react-router";
 
 import { readPrefs } from "~/lib/prefs.ts";

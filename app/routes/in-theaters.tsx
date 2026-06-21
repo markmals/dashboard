@@ -1,6 +1,3 @@
-import type { SortOption } from "~/lib/collections.ts";
-import type { CollectionEntry } from "~/lib/content-types.ts";
-
 import {
     EmptyState,
     EmptyStateDescription,
@@ -8,6 +5,9 @@ import {
     EmptyStateIcon,
 } from "@tailwindcss/ui";
 import { getCollection } from "sprinkles:content";
+
+import type { SortOption } from "~/lib/collections.ts";
+import type { CollectionEntry } from "~/lib/content-types.ts";
 
 import { MovieCell } from "~/components/CollectionCells.tsx";
 import { CollectionControls } from "~/components/CollectionControls.tsx";
@@ -65,40 +65,43 @@ export async function ServerComponent() {
         visible.filter(movie => new Date(`${movie.data.release}T00:00:00`) > today),
         THEATER_SORTS[sort],
     ).map(movie => ({
-            ...movie,
-            data: {
-                ...movie.data,
-                release: formatter.format(new Date(`${movie.data.release}T00:00:00`)),
-            },
-        }));
+        ...movie,
+        data: {
+            ...movie.data,
+            release: formatter.format(new Date(`${movie.data.release}T00:00:00`)),
+        },
+    }));
 
     let canReset = sort !== "release-asc" || genre !== "";
+
+    let controls = (
+        <CollectionControls
+            canReset={canReset}
+            controls={[
+                {
+                    name: "sort",
+                    label: "Sort by",
+                    value: sort,
+                    options: sortControlOptions(THEATER_SORTS),
+                },
+                {
+                    name: "genre",
+                    label: "Genre",
+                    value: genre,
+                    options: genreControlOptions(complete.map(movie => movie.data.genre)),
+                },
+            ]}
+            resetTo="/in-theaters?sort=release-asc"
+        />
+    );
 
     return (
         <>
             <title>Theater Movies • Dashboard</title>
             <div className="flex flex-col gap-10">
-                <CollectionControls
-                    canReset={canReset}
-                    controls={[
-                        {
-                            name: "sort",
-                            label: "Sort by",
-                            value: sort,
-                            options: sortControlOptions(THEATER_SORTS),
-                        },
-                        {
-                            name: "genre",
-                            label: "Genre",
-                            value: genre,
-                            options: genreControlOptions(complete.map(movie => movie.data.genre)),
-                        },
-                    ]}
-                    resetTo="/in-theaters?sort=release-asc"
-                />
                 {inTheaters.length > 0 && (
                     <>
-                        <SectionHeader>In Theaters</SectionHeader>
+                        <SectionHeader actions={controls}>In Theaters</SectionHeader>
                         <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8">
                             {inTheaters.map(movie => (
                                 <MovieCell key={movie.data.link} movie={movie} />
@@ -108,7 +111,9 @@ export async function ServerComponent() {
                 )}
                 {upcoming.length > 0 && (
                     <>
-                        <SectionHeader>Upcoming</SectionHeader>
+                        <SectionHeader actions={inTheaters.length === 0 ? controls : undefined}>
+                            Upcoming
+                        </SectionHeader>
                         <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8">
                             {upcoming.map(movie => (
                                 <MovieCell key={movie.data.link} movie={movie} />
@@ -117,15 +122,18 @@ export async function ServerComponent() {
                     </>
                 )}
                 {inTheaters.length === 0 && upcoming.length === 0 && (
-                    <EmptyState className="py-12">
-                        <EmptyStateIcon>
-                            <Icon name="search" size={48} />
-                        </EmptyStateIcon>
-                        <EmptyStateHeading>No movies match</EmptyStateHeading>
-                        <EmptyStateDescription>
-                            Try a different genre, or reset the filters.
-                        </EmptyStateDescription>
-                    </EmptyState>
+                    <>
+                        <SectionHeader actions={controls}>In Theaters</SectionHeader>
+                        <EmptyState className="py-12">
+                            <EmptyStateIcon>
+                                <Icon name="search" size={48} />
+                            </EmptyStateIcon>
+                            <EmptyStateHeading>No movies match</EmptyStateHeading>
+                            <EmptyStateDescription>
+                                Try a different genre, or reset the filters.
+                            </EmptyStateDescription>
+                        </EmptyState>
+                    </>
                 )}
             </div>
         </>

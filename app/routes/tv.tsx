@@ -1,6 +1,3 @@
-import type { SortOption } from "~/lib/collections.ts";
-import type { CollectionEntry } from "~/lib/content-types.ts";
-
 import {
     EmptyState,
     EmptyStateDescription,
@@ -8,6 +5,9 @@ import {
     EmptyStateIcon,
 } from "@tailwindcss/ui";
 import { getCollection } from "sprinkles:content";
+
+import type { SortOption } from "~/lib/collections.ts";
+import type { CollectionEntry } from "~/lib/content-types.ts";
 
 import { TVShowCell } from "~/components/CollectionCells.tsx";
 import { CollectionControls } from "~/components/CollectionControls.tsx";
@@ -73,37 +73,40 @@ export async function ServerComponent() {
 
     let canReset = sort !== "status" || status !== "" || genre !== "";
 
+    let controls = (
+        <CollectionControls
+            canReset={canReset}
+            controls={[
+                {
+                    name: "sort",
+                    label: "Sort by",
+                    value: sort,
+                    options: sortControlOptions(TV_SORTS),
+                },
+                {
+                    name: "status",
+                    label: "Status",
+                    value: status,
+                    options: [{ value: "", label: "All statuses" }, ...TV_STATUSES],
+                },
+                {
+                    name: "genre",
+                    label: "Genre",
+                    value: genre,
+                    options: genreControlOptions(all.map(show => show.data.genre)),
+                },
+            ]}
+            resetTo="/tv?sort=status"
+        />
+    );
+
     return (
         <>
             <title>TV Shows • Dashboard</title>
             <div className="flex flex-col gap-10">
-                <CollectionControls
-                    canReset={canReset}
-                    controls={[
-                        {
-                            name: "sort",
-                            label: "Sort by",
-                            value: sort,
-                            options: sortControlOptions(TV_SORTS),
-                        },
-                        {
-                            name: "status",
-                            label: "Status",
-                            value: status,
-                            options: [{ value: "", label: "All statuses" }, ...TV_STATUSES],
-                        },
-                        {
-                            name: "genre",
-                            label: "Genre",
-                            value: genre,
-                            options: genreControlOptions(all.map(show => show.data.genre)),
-                        },
-                    ]}
-                    resetTo="/tv?sort=status"
-                />
                 {watching.length > 0 && (
                     <>
-                        <SectionHeader>Watching</SectionHeader>
+                        <SectionHeader actions={controls}>Watching</SectionHeader>
                         <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8">
                             {watching.map(show => (
                                 <TVShowCell key={show.data.title} tvShow={show} />
@@ -113,7 +116,9 @@ export async function ServerComponent() {
                 )}
                 {tvShows.length > 0 && (
                     <>
-                        <SectionHeader>All Shows</SectionHeader>
+                        <SectionHeader actions={watching.length === 0 ? controls : undefined}>
+                            All Shows
+                        </SectionHeader>
                         <ul className="grid grid-cols-2 gap-x-4 gap-y-8 pb-12 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8">
                             {tvShows.map(show => (
                                 <TVShowCell key={show.data.title} tvShow={show} />
@@ -122,15 +127,18 @@ export async function ServerComponent() {
                     </>
                 )}
                 {shows.length === 0 && (
-                    <EmptyState className="py-12">
-                        <EmptyStateIcon>
-                            <Icon name="search" size={48} />
-                        </EmptyStateIcon>
-                        <EmptyStateHeading>No shows match</EmptyStateHeading>
-                        <EmptyStateDescription>
-                            Try a different status or genre, or reset the filters.
-                        </EmptyStateDescription>
-                    </EmptyState>
+                    <>
+                        <SectionHeader actions={controls}>TV Shows</SectionHeader>
+                        <EmptyState className="py-12">
+                            <EmptyStateIcon>
+                                <Icon name="search" size={48} />
+                            </EmptyStateIcon>
+                            <EmptyStateHeading>No shows match</EmptyStateHeading>
+                            <EmptyStateDescription>
+                                Try a different status or genre, or reset the filters.
+                            </EmptyStateDescription>
+                        </EmptyState>
+                    </>
                 )}
             </div>
         </>

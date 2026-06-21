@@ -2,10 +2,12 @@
 export type IconName =
     | "book"
     | "calendar"
+    | "close"
     | "dining"
     | "movie"
     | "movie-camera"
     | "playback-play-button"
     | "pop-out"
     | "search"
+    | "sliders-vertical"
     | "tv";
