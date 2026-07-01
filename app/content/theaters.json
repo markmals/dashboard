@@ -10,16 +10,6 @@
         "poster": "https://image.tmdb.org/t/p/original/nm2ianYVp7OXElUZVeeAbNTqBLr.jpg"
     },
     {
-        "id": "disclosure-day",
-        "title": "Disclosure Day",
-        "link": "https://www.themoviedb.org/movie/1275779-disclosure-day",
-        "release": "2026-06-12",
-        "genre": "Sci-Fi, Thriller",
-        "runningTime": "2h 25m",
-        "trailer": "https://youtu.be/icDuEHSxE-w",
-        "poster": "https://image.tmdb.org/t/p/original/AnJ8IQJI23hNpYXVNaythu061Ru.jpg"
-    },
-    {
         "id": "toy-story-5",
         "title": "Toy Story 5",
         "link": "https://www.themoviedb.org/movie/1084244-toy-story-5",
@@ -28,16 +18,6 @@
         "runningTime": "1h 42m",
         "trailer": "https://youtu.be/QftAW9TTmuQ",
         "poster": "https://image.tmdb.org/t/p/original/7veGbEIL1nvtVXVwFlqCs62zsvc.jpg"
-    },
-    {
-        "id": "supergirl",
-        "title": "Supergirl",
-        "link": "https://www.themoviedb.org/movie/1081003-supergirl",
-        "release": "2026-06-26",
-        "genre": "Action, Adventure",
-        "runningTime": "1h 48m",
-        "trailer": "https://youtu.be/tzlY8XD1CGg",
-        "poster": "https://image.tmdb.org/t/p/original/niSvU02l2BONH9ivubV6K1a5QiK.jpg"
     },
     {
         "id": "the-odyssey",
