@@ -38,7 +38,11 @@ interface TmdbTv {
     genres: { id: number; name: string }[];
 }
 
-type Genre = "Comedy" | "Drama";
+type Genre = "Comedy" | "Drama" | "Documentary";
+
+// A show's genre may be a single label or a list of them. Multi-genre shows (e.g. dramedies
+// tagged both Comedy and Drama) are stored as an array; the field is preserved verbatim.
+type GenreField = Genre | Genre[];
 
 interface Derived {
     status: TvStatus;
@@ -50,7 +54,7 @@ interface Derived {
 interface TvShowFile {
     title: string;
     link: string;
-    genre?: Genre;
+    genre?: GenreField;
     status?: TvStatus;
     seasons?: number;
     premiere?: string;
@@ -150,12 +154,20 @@ for (let file of files) {
         );
     }
 
-    let next = `${JSON.stringify(updated, null, 4)}\n`;
+    // `JSON.stringify` with indentation expands arrays across multiple lines. Keep the short
+    // `genre` array inline (e.g. `["Comedy", "Drama"]`) to match the hand-authored convention
+    // and avoid gratuitous reformatting churn. Values are a closed set of simple labels, so a
+    // targeted collapse is safe; single-string genres have no `[` and are left untouched.
+    let next = `${JSON.stringify(updated, null, 4)}\n`.replace(
+        /("genre": )\[\n((?:\s+"[^"]+",?\n)+)\s+\]/,
+        (_, key, body) => `${key}[${(body.match(/"[^"]+"/g) ?? []).join(", ")}]`,
+    );
     if (next !== raw) changed++;
     await writeFile(path, next);
 
     let detail = premiere ? `premieres ${premiere}` : `${seasons} season(s)`;
-    console.log(`✓ ${file.padEnd(40)} ${genre.padEnd(7)} ${status.padEnd(10)} ${detail}`);
+    let genreLabel = Array.isArray(genre) ? genre.join("/") : genre;
+    console.log(`✓ ${file.padEnd(40)} ${genreLabel.padEnd(11)} ${status.padEnd(10)} ${detail}`);
 }
 
 console.log(`\n${files.length} files processed, ${changed} updated.`);
