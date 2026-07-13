@@ -5,5 +5,6 @@
     "status": "airing",
     "seasons": 1,
     "trailer": "https://youtu.be/FZ3sN5E-mBU",
-    "poster": "https://image.tmdb.org/t/p/original/wlwyFRwz2GXFZzaeMjKKNhhjrKG.jpg"
+    "poster": "https://image.tmdb.org/t/p/original/wlwyFRwz2GXFZzaeMjKKNhhjrKG.jpg",
+    "watching": true
 }
