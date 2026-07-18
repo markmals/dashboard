@@ -35,6 +35,11 @@ const THEATER_SORTS = {
     "release-desc": { label: "Release (latest)", criteria: [d => -releaseTime(d.release)] },
 } satisfies Record<string, SortOption<TheaterData>>;
 
+// How long a title stays under "In Theaters" after release before it ages off the page —
+// roughly the typical theatrical window. The data file itself is untouched; the entry just
+// stops rendering so the page doesn't feel out of date between manual data refreshes.
+const THEATRICAL_RUN_DAYS = 56;
+
 export async function ServerComponent() {
     let params = resolvePageParams();
     let sort = pickSort(THEATER_SORTS, params.get("sort"), "release-asc");
@@ -44,6 +49,8 @@ export async function ServerComponent() {
     let formatter = new Intl.DateTimeFormat("en", { dateStyle: "short" });
     let today = new Date();
     today.setHours(0, 0, 0, 0);
+    let leftTheaters = new Date(today);
+    leftTheaters.setDate(leftTheaters.getDate() - THEATRICAL_RUN_DAYS);
 
     // Only surface fully-hydrated entries; upcoming titles without a poster on TMDb yet are kept
     // in the data file but hidden until those fields can be filled in.
@@ -51,7 +58,10 @@ export async function ServerComponent() {
     let visible = complete.filter(movie => matchesGenre(movie.data.genre, genre));
 
     let inTheaters = sortEntries(
-        visible.filter(movie => new Date(`${movie.data.release}T00:00:00`) <= today),
+        visible.filter(movie => {
+            let release = new Date(`${movie.data.release}T00:00:00`);
+            return release <= today && release > leftTheaters;
+        }),
         THEATER_SORTS[sort],
     ).map(movie => ({
         ...movie,
