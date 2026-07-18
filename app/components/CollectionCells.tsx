@@ -24,7 +24,7 @@ const STATUS_BADGE = {
     upcoming: { label: "Upcoming", color: "amber" },
 } as const;
 
-function formatPremiere(iso: string) {
+function formatDate(iso: string) {
     // Parse as local-date parts to avoid the UTC-midnight off-by-one in toLocaleDateString.
     let [year, month, day] = iso.split("-").map(Number);
     return new Date(year, month - 1, day).toLocaleDateString("en-US", {
@@ -37,12 +37,15 @@ function formatPremiere(iso: string) {
 export function TVShowCell({ tvShow: { data } }: { tvShow: CollectionEntry<"television"> }) {
     let badge = STATUS_BADGE[data.status];
     // `upcoming` shows — new premieres and dated returning seasons alike — carry a premiere
-    // date; show it, otherwise fall back to the season count. Genre trails the line, matching
-    // the movie cell: "6/25/26 • Drama" / "5 seasons • Comedy".
-    let premiere = "premiere" in data ? data.premiere : undefined;
-    let statusText = premiere
-        ? formatPremiere(premiere)
-        : `${data.seasons} ${data.seasons === 1 ? "season" : "seasons"}`;
+    // date; `airing` shows carry the season finale date once TMDb has the full schedule. Show
+    // whichever applies, otherwise fall back to the season count. Genre trails the line, matching
+    // the movie cell: "6/25/26 • Drama" / "Ends 9/2/26 • Drama" / "5 seasons • Comedy".
+    let statusText =
+        data.status === "upcoming"
+            ? `Airs ${formatDate(data.premiere)}`
+            : data.status === "airing" && data.finale
+              ? `Ends ${formatDate(data.finale)}`
+              : `${data.seasons} ${data.seasons === 1 ? "season" : "seasons"}`;
     let detail = `${statusText} • ${Array.isArray(data.genre) ? data.genre.join("/") : data.genre}`;
 
     return (

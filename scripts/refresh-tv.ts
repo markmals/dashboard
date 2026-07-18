@@ -2,6 +2,8 @@
 //   - status   (ended | airing | returning | upcoming)
 //   - seasons  (number_of_seasons)
 //   - premiere (ISO date — the next premiere date; present only on `upcoming` shows)
+//   - finale   (ISO date — last scheduled episode of the current/next season; airing + upcoming
+//               shows only, and only once TMDb has the season's full schedule)
 //
 // Everything else (title, link, trailer, poster, watching) is preserved as-is,
 // including manually-added posters and the `watching` flag. Doubles as the
@@ -49,6 +51,9 @@ interface Derived {
     seasons: number;
     premiere?: string;
     genre: Genre;
+    // The season whose finale date should be looked up (the season now airing, or the one about
+    // to premiere). Absent for ended/returning shows, which have no season in flight.
+    finaleSeason?: number;
 }
 
 interface TvShowFile {
@@ -58,6 +63,7 @@ interface TvShowFile {
     status?: TvStatus;
     seasons?: number;
     premiere?: string;
+    finale?: string;
     trailer?: string;
     poster?: string;
     watching?: boolean;
@@ -88,14 +94,20 @@ function derive(tv: TmdbTv): Derived {
     // episode is in the SAME season. (A next episode in a later season is a future premiere,
     // handled below as `upcoming`.)
     if (last && next && last.season_number === next.season_number) {
-        return { status: "airing", seasons, genre };
+        return { status: "airing", seasons, genre, finaleSeason: next.season_number };
     }
     // Otherwise the show is brand-new (nothing aired yet) or between seasons. The next premiere
     // date is the first air date for a show that hasn't started, or the next episode's air date
     // for a returning one. With a known date it's `upcoming`; without one, `returning`.
     let premiere = last ? next?.air_date : firstAir;
     if (premiere) {
-        return { status: "upcoming", seasons, premiere, genre };
+        return {
+            status: "upcoming",
+            seasons,
+            premiere,
+            genre,
+            finaleSeason: next?.season_number ?? 1,
+        };
     }
     return { status: "returning", seasons, genre };
 }
@@ -106,6 +118,21 @@ function tmdbId(link: string | undefined): string {
     let match = TV_ID_RE.exec(link ?? "");
     if (!match) throw new Error(`Could not parse TMDb id from link: ${link}`);
     return match[1];
+}
+
+/**
+ * The air date of a season's last episode, or undefined while TMDb lacks the full schedule
+ * (season not yet listed, no episodes, or the closing episodes still undated).
+ */
+async function seasonFinale(id: string, season: number): Promise<string | undefined> {
+    let res = await fetch(
+        `https://api.themoviedb.org/3/tv/${id}/season/${season}?api_key=${API_KEY}`,
+    );
+    if (!res.ok) return undefined;
+    let { episodes } = (await res.json()) as { episodes?: TmdbEpisode[] };
+    if (!episodes || episodes.length === 0) return undefined;
+    let last = episodes.reduce((a, b) => (b.episode_number > a.episode_number ? b : a));
+    return last.air_date ?? undefined;
 }
 
 let files = (await readdir(TV_DIR)).filter(f => f.endsWith(".json")).sort();
@@ -122,14 +149,16 @@ for (let file of files) {
         console.error(`✗ ${file}: TMDb ${res.status}`);
         continue;
     }
-    let { status, seasons, premiere, genre: derivedGenre } = derive((await res.json()) as TmdbTv);
+    let derived = derive((await res.json()) as TmdbTv);
+    let { status, seasons, premiere, finaleSeason, genre: derivedGenre } = derived;
+    let finale = finaleSeason === undefined ? undefined : await seasonFinale(id, finaleSeason);
     // `genre` is preserve-when-present: an existing value (manual override or a prior backfill)
     // wins, otherwise we use the freshly-derived label. This makes genre sticky — once written
     // it is not re-derived on later refreshes. To re-derive, delete the field and re-run.
     let genre = existing.genre ?? derivedGenre;
 
     // Rebuild in a stable key order, preserving everything not derived here. This script writes
-    // status/seasons/premiere every run and backfills genre once; title/link/trailer/poster/
+    // status/seasons/premiere/finale every run and backfills genre once; title/link/trailer/poster/
     // watching are carried over from disk verbatim and are never sourced from TMDb. `poster` in
     // particular is hand-curated — see the invariant below.
     let updated: TvShowFile = {
@@ -139,6 +168,7 @@ for (let file of files) {
         status,
         seasons,
         ...(premiere ? { premiere } : {}),
+        ...(finale ? { finale } : {}),
         ...(existing.trailer ? { trailer: existing.trailer } : {}),
         ...(existing.poster ? { poster: existing.poster } : {}),
         ...(existing.watching !== undefined ? { watching: existing.watching } : {}),
@@ -165,7 +195,11 @@ for (let file of files) {
     if (next !== raw) changed++;
     await writeFile(path, next);
 
-    let detail = premiere ? `premieres ${premiere}` : `${seasons} season(s)`;
+    let detail = premiere
+        ? `premieres ${premiere}${finale ? ` (thru ${finale})` : ""}`
+        : finale
+          ? `finale ${finale}`
+          : `${seasons} season(s)`;
     let genreLabel = Array.isArray(genre) ? genre.join("/") : genre;
     console.log(`✓ ${file.padEnd(40)} ${genreLabel.padEnd(11)} ${status.padEnd(10)} ${detail}`);
 }

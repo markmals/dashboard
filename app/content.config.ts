@@ -38,9 +38,17 @@ let television = defineCollection({
     loader: glob({ pattern: "*.json", base: "app/content/television" }),
     schema: z.discriminatedUnion("status", [
         TvBase.extend({ status: z.literal("ended") }),
-        TvBase.extend({ status: z.literal("airing") }),
+        // `finale` is the last scheduled episode's air date for the season in progress (or the
+        // one about to premiere). Optional: TMDb only has it once the full schedule is released;
+        // until then a `mise run tv:refresh` later backfills it. The TV page uses these dates to
+        // shift statuses at request time (upcoming → airing → returning) without a data refresh.
+        TvBase.extend({ status: z.literal("airing"), finale: z.iso.date().optional() }),
         TvBase.extend({ status: z.literal("returning") }),
-        TvBase.extend({ status: z.literal("upcoming"), premiere: z.iso.date() }),
+        TvBase.extend({
+            status: z.literal("upcoming"),
+            premiere: z.iso.date(),
+            finale: z.iso.date().optional(),
+        }),
     ]),
 });
 
