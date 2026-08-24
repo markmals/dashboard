@@ -39,7 +39,7 @@ const NAV_ITEMS = [
     { label: "In Theaters", url: "/in-theaters", icon: "movie" },
     { label: "Activities", url: "/activities", icon: "calendar" },
     { label: "Restaurants", url: "/restaurants", icon: "dining" },
-    { label: "Recipes", url: "/recipes", icon: "book" },
+    // { label: "Recipes", url: "/recipes", icon: "book" },
     // { label: "Developer Education", url: "/dev-edu", icon: "code" },
 ] as const satisfies readonly { label: string; url: string; icon: IconName }[];
 
