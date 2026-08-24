@@ -10,5 +10,65 @@
         "title": "Play Pickleball",
         "link": "https://playsandypickle.com",
         "thumbnail": "https://playsandypickle.com/wp-content/uploads/2026/03/A7406789.webp"
+    },
+    {
+        "id": "frontiers-of-flight-museum",
+        "title": "Visit the Frontiers of Flight Museum",
+        "link": "https://flightmuseum.com/",
+        "thumbnail": "https://flightmuseum.com/wp-content/uploads/2024/02/aerial-shot.jpg"
+    },
+    {
+        "id": "dallas-comedy-club",
+        "title": "See Live Comedy at Dallas Comedy Club",
+        "link": "https://dallas-comedyclub.com/",
+        "thumbnail": "https://dallas-comedyclub.com/wp-content/uploads/2025/12/18-_MG_0314-1024x683.jpg"
+    },
+    {
+        "id": "texas-rangers",
+        "title": "Watch a Texas Rangers Game",
+        "link": "https://www.mlb.com/rangers",
+        "thumbnail": "https://globelifefield.com/wp-content/uploads/2022/10/20210203_Catch_GLF__RL_8513-800x480.jpg"
+    },
+    {
+        "id": "dallas-museum-of-art",
+        "title": "Visit the Dallas Museum of Art",
+        "link": "https://dma.org/",
+        "thumbnail": "https://files.dma.org/cms/production/2022-11/1425x760_1997_24-v02_o5_African%20Art.png"
+    },
+    {
+        "id": "meadows-museum",
+        "title": "Visit the Meadows Museum",
+        "link": "https://meadowsmuseumdallas.org/",
+        "thumbnail": "https://meadowsmuseumdallas.org/wp-content/uploads/2020/12/360_slider-1.jpg"
+    },
+    {
+        "id": "angelika-film-center",
+        "title": "See a Movie at the Angelika",
+        "link": "https://angelikafilmcenter.com/dallas",
+        "thumbnail": "https://d3m5h9jj1p6rbr.cloudfront.net/wpdata/images/1038-l.jpg"
+    },
+    {
+        "id": "stomping-ground-comedy",
+        "title": "See a Show at Stomping Ground Comedy",
+        "link": "https://stompinggroundcomedy.org/",
+        "thumbnail": "https://stompinggroundcomedy.org/wp-content/uploads/2021/08/Student-Showcase-001-1024x683.jpg"
+    },
+    {
+        "id": "texas-theatre",
+        "title": "See a Movie at the Texas Theatre",
+        "link": "https://thetexastheatre.com/",
+        "thumbnail": "https://thetexastheatre.com/sites/default/files/styles/wide/public/gallery-photos/TT-001_medium.jpg.webp?itok=CvXSlRix"
+    },
+    {
+        "id": "dallas-contemporary",
+        "title": "See an Exhibition at Dallas Contemporary",
+        "link": "https://www.dallascontemporary.org/",
+        "thumbnail": "https://images.squarespace-cdn.com/content/v1/5e013b5ea48f3b2a14f3943f/7eb6397d-6ce5-4625-8d50-18f87a720508/DC3_-351.jpg?format=1000w"
+    },
+    {
+        "id": "nasher-sculpture-center",
+        "title": "Visit the Nasher Sculpture Center",
+        "link": "https://www.nashersculpturecenter.org/",
+        "thumbnail": "https://www.nashersculpturecenter.org/portals/0/Users/099/99/99/homepage-garden-group-1110x450.jpg?ver=2022-04-18-200654-107"
     }
 ]
