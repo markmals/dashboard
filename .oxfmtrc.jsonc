@@ -13,8 +13,16 @@
             "value-internal",
             ["type-parent", "type-sibling", "type-index"],
             ["value-parent", "value-sibling", "value-index"],
-            "unknown",
+            "unknown"
         ],
-        "partitionByComment": true,
+        "partitionByComment": true
     },
+    "overrides": [
+        {
+            "files": ["**/*.jsonc"],
+            "options": {
+                "trailingComma": "none"
+            }
+        }
+    ]
 }

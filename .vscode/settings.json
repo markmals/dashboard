@@ -11,6 +11,10 @@
 
     "oxc.enable": true,
 
+    // Use this project's .oxfmtrc.jsonc; a global `oxc.fmt.configPath`
+    // would otherwise short-circuit workspace config discovery entirely.
+    "oxc.fmt.configPath": null,
+
     "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true,
 
