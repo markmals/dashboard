@@ -1,3 +1,4 @@
+import * as JSONC from "@std/jsonc";
 import { defineCollection } from "@withsprinkles/content-layer";
 import { file, glob } from "@withsprinkles/content-layer/loaders";
 import { z } from "zod";
@@ -62,7 +63,9 @@ let events = defineCollection({
 });
 
 let theaters = defineCollection({
-    loader: file("app/content/theaters.json"),
+    loader: file("app/content/theaters.jsonc", {
+        parser: text => JSONC.parse(text) as any,
+    }),
     schema: z.object({
         title: z.string(),
         link: z.url(),

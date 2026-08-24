@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@std/jsonc':
+        specifier: npm:@jsr/std__jsonc@^1.0.2
+        version: '@jsr/std__jsonc@1.0.2'
       '@withsprinkles/content-layer':
         specifier: ^0.1.9
         version: 0.1.9(vite@8.0.16(@types/node@24.10.15)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0))
