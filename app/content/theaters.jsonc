@@ -40,25 +40,6 @@
         "poster": "https://image.tmdb.org/t/p/original/ePWFnyCQQr4fvBOD1lgKtcvfnCd.jpg"
     },
     {
-        "id": "idiots",
-        "title": "Idiots",
-        "link": "https://www.themoviedb.org/movie/445466-idiots",
-        "release": "2026-08-28",
-        "genre": "Comedy, Crime",
-        "runningTime": "1h 40m",
-        "trailer": "https://youtu.be/SbmR9Jy0vRQ",
-        "poster": "https://image.tmdb.org/t/p/original/6GighAm1FOixgUuMQ1uEGxe3AKq.jpg"
-    },
-    {
-        "id": "how-to-rob-a-bank",
-        "title": "How to Rob a Bank",
-        "link": "https://www.themoviedb.org/movie/1437511-how-to-rob-a-bank",
-        "release": "2026-09-04",
-        "genre": "Crime, Thriller",
-        "trailer": "https://youtu.be/hoXld2b0TCs",
-        "poster": "https://image.tmdb.org/t/p/original/oUt2f6qHRZDnprG16ELimRhDGDV.jpg"
-    },
-    {
         "id": "onslaught",
         "title": "Onslaught",
         "link": "https://www.themoviedb.org/movie/1284046-onslaught",
@@ -109,7 +90,10 @@
         "title": "Your Mother Your Mother Your Mother",
         "link": "https://www.themoviedb.org/movie/1437396-your-mother-your-mother-your-mother",
         "release": "2026-09-25",
-        "genre": "Action"
+        "genre": "Action",
+        "trailer": "https://youtube.com/watch?v=hCXfh1oB3oc",
+        "poster": "https://image.tmdb.org/t/p/original/4KaPZSKnInnArErTTgy9Oy14leR.jpg",
+        "runningTime": "1h 52m"
     },
     {
         "id": "digger",
@@ -154,7 +138,18 @@
         "title": "Ebenezer: A Christmas Carol",
         "link": "https://www.themoviedb.org/movie/1567605-ebenezer-a-christmas-carol",
         "release": "2026-11-13",
-        "genre": "Fantasy, Drama"
+        "genre": "Fantasy, Drama",
+        "poster": "https://image.tmdb.org/t/p/original/wmuMZrelOQBAN2KlA30yOIeIUJl.jpg",
+        "trailer": "https://youtube.com/watch?v=A7lyvgnDuDE"
+    },
+    {
+        "id": "how-to-rob-a-bank",
+        "title": "How to Rob a Bank",
+        "link": "https://www.themoviedb.org/movie/1437511-how-to-rob-a-bank",
+        "release": "2026-11-13",
+        "genre": "Crime, Thriller",
+        "trailer": "https://youtu.be/hoXld2b0TCs",
+        "poster": "https://image.tmdb.org/t/p/original/oUt2f6qHRZDnprG16ELimRhDGDV.jpg"
     },
     {
         "id": "jimmy",
