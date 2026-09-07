@@ -1,15 +1,5 @@
 [
     {
-        "id": "the-rivals-of-amziah-king",
-        "title": "The Rivals of Amziah King",
-        "link": "https://www.themoviedb.org/movie/1124142-the-rivals-of-amziah-king",
-        "release": "2026-08-21",
-        "genre": "Crime, Drama",
-        "runningTime": "2h 10m",
-        "trailer": "https://youtu.be/GwSvAyaMGMo",
-        "poster": "https://image.tmdb.org/t/p/original/3iVDCDS1VwHIm95PjWEPwsfdhaf.jpg"
-    },
-    {
         "id": "mutiny",
         "title": "Mutiny",
         "link": "https://www.themoviedb.org/movie/1288445-mutiny",
@@ -28,16 +18,6 @@
         "runningTime": "1h 29m",
         "poster": "https://image.tmdb.org/t/p/original/x76Fsd65aUwS3W8S1L6NClpmhWP.jpg",
         "trailer": "https://youtube.com/watch?v=zFszhQLMNXU"
-    },
-    {
-        "id": "the-dog-stars",
-        "title": "The Dog Stars",
-        "link": "https://www.themoviedb.org/movie/1384216-the-dog-stars",
-        "release": "2026-08-28",
-        "genre": "Adventure, Sci-Fi",
-        "runningTime": "1h 40m",
-        "trailer": "https://youtu.be/sVCrTJdNtSs",
-        "poster": "https://image.tmdb.org/t/p/original/ePWFnyCQQr4fvBOD1lgKtcvfnCd.jpg"
     },
     {
         "id": "onslaught",
