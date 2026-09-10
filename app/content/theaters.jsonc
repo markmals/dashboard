@@ -1,25 +1,5 @@
 [
     {
-        "id": "mutiny",
-        "title": "Mutiny",
-        "link": "https://www.themoviedb.org/movie/1288445-mutiny",
-        "release": "2026-08-21",
-        "genre": "Action, Thriller",
-        "runningTime": "1h 35m",
-        "trailer": "https://youtu.be/FKSdXH89jbo",
-        "poster": "https://image.tmdb.org/t/p/original/aAnTt6KpmbbHbd6xH3FQFlppZjc.jpg"
-    },
-    {
-        "id": "it-ends",
-        "title": "It Ends",
-        "link": "https://www.themoviedb.org/movie/1422011-it-ends",
-        "release": "2026-08-28",
-        "genre": "Horror, Mystery",
-        "runningTime": "1h 29m",
-        "poster": "https://image.tmdb.org/t/p/original/x76Fsd65aUwS3W8S1L6NClpmhWP.jpg",
-        "trailer": "https://youtube.com/watch?v=zFszhQLMNXU"
-    },
-    {
         "id": "onslaught",
         "title": "Onslaught",
         "link": "https://www.themoviedb.org/movie/1284046-onslaught",
