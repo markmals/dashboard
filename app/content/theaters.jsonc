@@ -1,30 +1,13 @@
 [
     {
-        "id": "onslaught",
-        "title": "Onslaught",
-        "link": "https://www.themoviedb.org/movie/1284046-onslaught",
-        "release": "2026-09-04",
-        "genre": "Action, Horror",
-        "trailer": "https://youtu.be/06hhVL13HEw",
-        "poster": "https://image.tmdb.org/t/p/original/7z8u7dviOrmKVyZxXyIMNX8Q3JB.jpg"
-    },
-    {
-        "id": "by-any-means",
-        "title": "By Any Means",
-        "link": "https://www.themoviedb.org/movie/1380417-by-any-means",
-        "release": "2026-09-04",
-        "genre": "Drama, Thriller",
-        "trailer": "https://youtube.com/watch?v=ej8pjisr0Pc",
-        "poster": "https://image.tmdb.org/t/p/original/f4hdIed8vh10O8TkQ1CkHS8MQ3G.jpg"
-    },
-    {
-        "id": "the-uprising",
-        "title": "The Uprising",
-        "link": "https://www.themoviedb.org/movie/977942-the-uprising",
-        "release": "2026-09-11",
-        "genre": "Drama, History",
-        "poster": "https://image.tmdb.org/t/p/original/7TUl15TOsIvndKlgMWTtLgtEzZP.jpg",
-        "trailer": "https://youtube.com/watch?v=ZVkrhHebz1Q"
+        "id": "hope",
+        "title": "Hope",
+        "link": "https://www.themoviedb.org/movie/1058424",
+        "release": "2026-09-09",
+        "genre": "Sci-Fi, Mystery",
+        "runningTime": "2h 37m",
+        "trailer": "https://youtu.be/ODnHr2Emnf0",
+        "poster": "https://image.tmdb.org/t/p/original/bcK5naYzzfY0JBCgrPrsrbV6NO1.jpg"
     },
     {
         "id": "runner",
@@ -35,6 +18,16 @@
         "runningTime": "1h 37m",
         "trailer": "https://youtu.be/p9NnYb3E2Q8",
         "poster": "https://image.tmdb.org/t/p/original/yBKMAIj7clP42UkFejhGDBBoTpb.jpg"
+    },
+    {
+        "id": "primetime",
+        "title": "Primetime",
+        "link": "https://www.themoviedb.org/movie/1375441-primetime",
+        "release": "2026-09-25",
+        "genre": "Crime, Drama",
+        "runningTime": "1h 50m",
+        "trailer": "https://youtu.be/Yrfrf53ttYY",
+        "poster": "https://image.tmdb.org/t/p/original/lmrulvLbmaejTix1YaMxo1oGhH1.jpg"
     },
     {
         "id": "heart-of-the-beast",
@@ -73,6 +66,16 @@
         "genre": "Drama",
         "trailer": "https://youtu.be/gM4LkaXwGuY",
         "poster": "https://image.tmdb.org/t/p/original/jMDI0DQWQLnxtMwucdo0yFIVzEO.jpg"
+    },
+    {
+        "id": "breeder",
+        "title": "Breeder",
+        "link": "https://www.themoviedb.org/movie/1496696-breeder",
+        "release": "2026-10-16",
+        "genre": "Horror, Thriller",
+        "runningTime": "1h 37m",
+        "trailer": "https://youtu.be/9MeILB0M274",
+        "poster": "https://image.tmdb.org/t/p/original/ayB3PsXiftg6RPn5AaqSRjYOPm2.jpg"
     },
     {
         "id": "whalefall",
