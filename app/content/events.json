@@ -45,7 +45,7 @@
         "id": "angelika-film-center",
         "title": "See a Movie at the Angelika",
         "link": "https://angelikafilmcenter.com/dallas",
-        "thumbnail": "https://d3m5h9jj1p6rbr.cloudfront.net/wpdata/images/1038-l.jpg"
+        "thumbnail": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.boxofficepro.com%2Fwp-content%2Fuploads%2F2020%2F01%2FAngelikaDallas_ExteriorFinal.jpg&f=1&nofb=1&ipt=ff760cedc3d17415184200d274d7ca028da458792b0e25bd8ed0e4ddd7bc86c1"
     },
     {
         "id": "stomping-ground-comedy",
@@ -70,5 +70,11 @@
         "title": "Visit the Nasher Sculpture Center",
         "link": "https://www.nashersculpturecenter.org/",
         "thumbnail": "https://www.nashersculpturecenter.org/portals/0/Users/099/99/99/homepage-garden-group-1110x450.jpg?ver=2022-04-18-200654-107"
+    },
+    {
+        "id": "boomont-hotel",
+        "title": "Visit the Boomont Hotel",
+        "link": "https://theboomont.com",
+        "thumbnail": "https://theboomont.com/wp-content/uploads/2025/08/C291EB13-6098-4A08-B034-F836A0D46C6B-1536x2048.jpg"
     }
 ]
