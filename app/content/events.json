@@ -1,5 +1,11 @@
 [
     {
+        "id": "boomont-hotel",
+        "title": "Go to the Boomont Hotel",
+        "link": "https://theboomont.com",
+        "thumbnail": "https://theboomont.com/wp-content/uploads/2025/08/C291EB13-6098-4A08-B034-F836A0D46C6B-1536x2048.jpg"
+    },
+    {
         "id": "get-photos-developed",
         "title": "Get Photos Developed",
         "link": "https://prismafilmlab.com",
@@ -70,11 +76,5 @@
         "title": "Visit the Nasher Sculpture Center",
         "link": "https://www.nashersculpturecenter.org/",
         "thumbnail": "https://www.nashersculpturecenter.org/portals/0/Users/099/99/99/homepage-garden-group-1110x450.jpg?ver=2022-04-18-200654-107"
-    },
-    {
-        "id": "boomont-hotel",
-        "title": "Visit the Boomont Hotel",
-        "link": "https://theboomont.com",
-        "thumbnail": "https://theboomont.com/wp-content/uploads/2025/08/C291EB13-6098-4A08-B034-F836A0D46C6B-1536x2048.jpg"
     }
 ]
