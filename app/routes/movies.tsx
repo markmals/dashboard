@@ -36,7 +36,7 @@ const MOVIE_SORTS = {
 
 export async function ServerComponent() {
     let params = resolvePageParams();
-    let sort = pickSort(MOVIE_SORTS, params.get("sort"), "title");
+    let sort = pickSort(MOVIE_SORTS, params.get("sort"), "year-desc");
     let genre = params.get("genre") ?? "";
 
     let all = await getCollection("movies");
@@ -45,7 +45,7 @@ export async function ServerComponent() {
         MOVIE_SORTS[sort],
     );
 
-    let canReset = sort !== "title" || genre !== "";
+    let canReset = sort !== "year-desc" || genre !== "";
 
     return (
         <>

@@ -17,7 +17,7 @@ export type Prefs = Record<string, string>;
 // search string of each page's default state (must match the route's `pickSort` fallback) — when a
 // request lands on it, we treat that as "no preference" so Reset/return-to-default forgets the entry.
 const PREF_PAGES: Record<string, { names: readonly string[]; defaultSearch: string }> = {
-    "/movies": { names: ["sort", "genre"], defaultSearch: "sort=title" },
+    "/movies": { names: ["sort", "genre"], defaultSearch: "sort=year-desc" },
     "/tv": { names: ["sort", "status", "genre"], defaultSearch: "sort=status" },
     "/in-theaters": { names: ["sort", "genre"], defaultSearch: "sort=release-asc" },
 };
