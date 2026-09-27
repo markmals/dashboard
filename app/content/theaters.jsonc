@@ -1,25 +1,5 @@
 [
     {
-        "id": "hope",
-        "title": "Hope",
-        "link": "https://www.themoviedb.org/movie/1058424",
-        "release": "2026-09-09",
-        "genre": "Sci-Fi, Mystery",
-        "runningTime": "2h 37m",
-        "trailer": "https://youtu.be/ODnHr2Emnf0",
-        "poster": "https://image.tmdb.org/t/p/original/bcK5naYzzfY0JBCgrPrsrbV6NO1.jpg"
-    },
-    {
-        "id": "runner",
-        "title": "Runner",
-        "link": "https://www.themoviedb.org/movie/1377237-runner",
-        "release": "2026-09-11",
-        "genre": "Action, Drama",
-        "runningTime": "1h 37m",
-        "trailer": "https://youtu.be/p9NnYb3E2Q8",
-        "poster": "https://image.tmdb.org/t/p/original/yBKMAIj7clP42UkFejhGDBBoTpb.jpg"
-    },
-    {
         "id": "primetime",
         "title": "Primetime",
         "link": "https://www.themoviedb.org/movie/1375441-primetime",
@@ -28,15 +8,6 @@
         "runningTime": "1h 50m",
         "trailer": "https://youtu.be/Yrfrf53ttYY",
         "poster": "https://image.tmdb.org/t/p/original/lmrulvLbmaejTix1YaMxo1oGhH1.jpg"
-    },
-    {
-        "id": "heart-of-the-beast",
-        "title": "Heart of the Beast",
-        "link": "https://www.themoviedb.org/movie/1263337-heart-of-the-beast",
-        "release": "2026-09-25",
-        "genre": "Action, Adventure",
-        "trailer": "https://youtu.be/JFQcDFhNh4o",
-        "poster": "https://image.tmdb.org/t/p/original/1ApfSA8JTqeha3GTFEY8syV4auq.jpg"
     },
     {
         "id": "your-mother-your-mother-your-mother",
@@ -65,7 +36,17 @@
         "release": "2026-10-09",
         "genre": "Drama",
         "trailer": "https://youtu.be/gM4LkaXwGuY",
-        "poster": "https://image.tmdb.org/t/p/original/jMDI0DQWQLnxtMwucdo0yFIVzEO.jpg"
+        "poster": "https://image.tmdb.org/t/p/original/hDe0OryfBINwmZDRtQjnh6UKUJf.jpg"
+    },
+    {
+        "id": "you-can-see-everything",
+        "title": "You Can See Everything",
+        "link": "https://www.themoviedb.org/movie/1765072-you-can-see-everything",
+        "release": "2026-10-16",
+        "genre": "Documentary",
+        "runningTime": "2h 54m",
+        "trailer": "https://youtube.com/watch?v=HvW_N5p1q44",
+        "poster": "https://image.tmdb.org/t/p/original/eT5C3Wv8ZfRgBwwFn0a4VEWuCdG.jpg"
     },
     {
         "id": "breeder",
@@ -75,7 +56,7 @@
         "genre": "Horror, Thriller",
         "runningTime": "1h 37m",
         "trailer": "https://youtu.be/9MeILB0M274",
-        "poster": "https://image.tmdb.org/t/p/original/ayB3PsXiftg6RPn5AaqSRjYOPm2.jpg"
+        "poster": "https://image.tmdb.org/t/p/original/alsb3UC17kxIcytLWvwkmL0STgU.jpg"
     },
     {
         "id": "whalefall",
