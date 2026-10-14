@@ -10,33 +10,24 @@
         "poster": "https://image.tmdb.org/t/p/original/lmrulvLbmaejTix1YaMxo1oGhH1.jpg"
     },
     {
-        "id": "your-mother-your-mother-your-mother",
-        "title": "Your Mother Your Mother Your Mother",
-        "link": "https://www.themoviedb.org/movie/1437396-your-mother-your-mother-your-mother",
-        "release": "2026-09-25",
-        "genre": "Action",
-        "trailer": "https://youtube.com/watch?v=hCXfh1oB3oc",
-        "poster": "https://image.tmdb.org/t/p/original/4KaPZSKnInnArErTTgy9Oy14leR.jpg",
-        "runningTime": "1h 52m"
-    },
-    {
-        "id": "digger",
-        "title": "Digger",
-        "link": "https://www.themoviedb.org/movie/1248832-digger",
-        "release": "2026-10-02",
-        "genre": "Comedy, Drama",
-        "runningTime": "1h 46m",
-        "trailer": "https://youtu.be/Rd21PhsDHww",
-        "poster": "https://image.tmdb.org/t/p/original/1ATXKrIPJyKNwnJ6lcG088Sa6zi.jpg"
-    },
-    {
         "id": "the-social-reckoning",
         "title": "The Social Reckoning",
         "link": "https://www.themoviedb.org/movie/1281331-the-social-reckoning",
         "release": "2026-10-09",
         "genre": "Drama",
+        "runningTime": "1h 53m",
         "trailer": "https://youtu.be/gM4LkaXwGuY",
         "poster": "https://image.tmdb.org/t/p/original/hDe0OryfBINwmZDRtQjnh6UKUJf.jpg"
+    },
+    {
+        "id": "your-mother-your-mother-your-mother",
+        "title": "Your Mother Your Mother Your Mother",
+        "link": "https://www.themoviedb.org/movie/1437396-your-mother-your-mother-your-mother",
+        "release": "2026-10-16",
+        "genre": "Action",
+        "trailer": "https://youtube.com/watch?v=hCXfh1oB3oc",
+        "poster": "https://image.tmdb.org/t/p/original/4KaPZSKnInnArErTTgy9Oy14leR.jpg",
+        "runningTime": "1h 52m"
     },
     {
         "id": "you-can-see-everything",
@@ -74,8 +65,28 @@
         "link": "https://www.themoviedb.org/movie/858035-klara-and-the-sun",
         "release": "2026-10-23",
         "genre": "Sci-Fi, Drama",
+        "runningTime": "1h 57m",
         "poster": "https://www.themoviedb.org/t/p/w1280/xqovj2p6HRsgHxN81qYAYF4StgM.jpg",
         "trailer": "https://youtube.com/watch?v=wixzainceAE"
+    },
+    {
+        "id": "wild-horse-nine",
+        "title": "Wild Horse Nine",
+        "link": "https://www.themoviedb.org/movie/891621-wild-horse-nine",
+        "release": "2026-11-06",
+        "genre": "Comedy, Crime",
+        "runningTime": "1h 57m",
+        "trailer": "https://youtu.be/Haw_sznA5aQ",
+        "poster": "https://image.tmdb.org/t/p/original/bh4wFW0B7fVtUOT9xfeugJJYKWw.jpg"
+    },
+    {
+        "id": "ghost-soldier",
+        "title": "Ghost Soldier",
+        "link": "https://www.themoviedb.org/movie/1562642-ghost-soldier",
+        "release": "2026-11-11",
+        "genre": "Action, Thriller",
+        "trailer": "https://youtu.be/l0pTZqZWs-c",
+        "poster": "https://image.tmdb.org/t/p/original/h3N9bQbuDtswq6nNtREpyhUYyv9.jpg"
     },
     {
         "id": "ebenezer-a-christmas-carol",
@@ -83,6 +94,7 @@
         "link": "https://www.themoviedb.org/movie/1567605-ebenezer-a-christmas-carol",
         "release": "2026-11-13",
         "genre": "Fantasy, Drama",
+        "runningTime": "2h",
         "poster": "https://image.tmdb.org/t/p/original/wmuMZrelOQBAN2KlA30yOIeIUJl.jpg",
         "trailer": "https://youtube.com/watch?v=A7lyvgnDuDE"
     },
@@ -92,6 +104,7 @@
         "link": "https://www.themoviedb.org/movie/1437511-how-to-rob-a-bank",
         "release": "2026-11-13",
         "genre": "Crime, Thriller",
+        "runningTime": "2h 2m",
         "trailer": "https://youtu.be/hoXld2b0TCs",
         "poster": "https://image.tmdb.org/t/p/original/oUt2f6qHRZDnprG16ELimRhDGDV.jpg"
     },
@@ -105,12 +118,23 @@
         "poster": "https://image.tmdb.org/t/p/original/c3fWnsg5VEP5EhYZ4oY2NpFrrU1.jpg"
     },
     {
+        "id": "the-hunger-games",
+        "title": "The Hunger Games: Sunrise on the Reaping",
+        "link": "https://www.themoviedb.org/movie/1300968-the-hunger-games-sunrise-on-the-reaping",
+        "release": "2026-11-20",
+        "genre": "Sci-Fi, Action",
+        "runningTime": "2h 38m",
+        "trailer": "https://youtu.be/a0Ptnzz4jAw",
+        "poster": "https://image.tmdb.org/t/p/original/jNcZH8yplxttRlf0wwqfGGMKHxX.jpg"
+    },
+    {
         "id": "the-adventures-of-cliff-booth",
         "title": "The Adventures of Cliff Booth",
         "link": "https://www.themoviedb.org/movie/1457866-the-adventures-of-cliff-booth",
         "release": "2026-11-24",
         "genre": "Drama, Comedy",
-        "trailer": "https://youtu.be/ik0drfECnPo"
+        "trailer": "https://youtu.be/ik0drfECnPo",
+        "poster": "https://image.tmdb.org/t/p/original/7MVS7btgeVPmliDKG84aOiOyqO8.jpg"
     },
     {
         "id": "focker-in-law",
@@ -118,6 +142,7 @@
         "link": "https://www.themoviedb.org/movie/1400336-focker-in-law",
         "release": "2026-11-25",
         "genre": "Comedy, Romance",
+        "runningTime": "1h 45m",
         "trailer": "https://youtu.be/vyISuWUWcFs",
         "poster": "https://image.tmdb.org/t/p/original/gPdzdeehaoaYqxH2rA6yayEDSsS.jpg"
     },
@@ -127,15 +152,19 @@
         "link": "https://www.themoviedb.org/movie/1538497-hexed",
         "release": "2026-11-25",
         "genre": "Adventure, Animation",
+        "runningTime": "1h 50m",
         "trailer": "https://youtu.be/mtC4sjABZNw",
         "poster": "https://image.tmdb.org/t/p/original/g0f2mzRzwbIrzpieftY98W97muf.jpg"
     },
     {
-        "id": "the-man-with-the-bag",
-        "title": "The Man with the Bag",
-        "link": "https://www.themoviedb.org/movie/1137888-the-man-with-the-bag",
-        "release": "2026-12-02",
-        "genre": "Comedy, Family"
+        "id": "behemoth",
+        "title": "Behemoth!",
+        "link": "https://www.themoviedb.org/movie/1452168-behemoth",
+        "release": "2026-12-04",
+        "genre": "Music, Drama",
+        "runningTime": "2h 7m",
+        "trailer": "https://youtu.be/TrMGdrCJ5Ck",
+        "poster": "https://image.tmdb.org/t/p/original/6344dBKVwNZaKattWjneBl2nIqK.jpg"
     },
     {
         "id": "werwulf",
@@ -143,15 +172,7 @@
         "link": "https://www.themoviedb.org/movie/1421903-werwulf",
         "release": "2026-12-25",
         "genre": "Horror, Mystery",
-        "poster": "https://image.tmdb.org/t/p/original/imnkSt4PSQpxIuyiRpJCiLk3SZz.jpg",
-        "trailer": "https://youtube.com/watch?v=cmjpadVj-Vk"
+        "trailer": "https://youtube.com/watch?v=cmjpadVj-Vk",
+        "poster": "https://image.tmdb.org/t/p/original/imnkSt4PSQpxIuyiRpJCiLk3SZz.jpg"
     }
-    // {
-    //     "id": "wife-dog",
-    //     "title": "Wife & Dog",
-    //     "link": "https://www.themoviedb.org/movie/1290000-wife-dog",
-    //     "release": "2027-02-19",
-    //     "genre": "Drama, Thriller",
-    //     "poster": "https://image.tmdb.org/t/p/original/eoyLMVeP1cuQRTU74W5NAFJBvsu.jpg"
-    // }
 ]
