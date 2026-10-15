@@ -1,15 +1,5 @@
 [
     {
-        "id": "primetime",
-        "title": "Primetime",
-        "link": "https://www.themoviedb.org/movie/1375441-primetime",
-        "release": "2026-09-25",
-        "genre": "Crime, Drama",
-        "runningTime": "1h 50m",
-        "trailer": "https://youtu.be/Yrfrf53ttYY",
-        "poster": "https://image.tmdb.org/t/p/original/lmrulvLbmaejTix1YaMxo1oGhH1.jpg"
-    },
-    {
         "id": "the-social-reckoning",
         "title": "The Social Reckoning",
         "link": "https://www.themoviedb.org/movie/1281331-the-social-reckoning",
@@ -174,5 +164,14 @@
         "genre": "Horror, Mystery",
         "trailer": "https://youtube.com/watch?v=cmjpadVj-Vk",
         "poster": "https://image.tmdb.org/t/p/original/imnkSt4PSQpxIuyiRpJCiLk3SZz.jpg"
+    },
+    {
+        "id": "narnia",
+        "title": "Narnia: The Magician's Nephew",
+        "link": "https://www.themoviedb.org/movie/1147572-narnia-the-magician-s-nephew",
+        "release": "2027-02-12",
+        "genre": "Fantasy, Adventure",
+        "trailer": "https://youtu.be/gDJ-ini7fF0",
+        "poster": "https://image.tmdb.org/t/p/original/yrqR0qquy4JOfqZCsFJV7vJoOSh.jpg"
     }
 ]
