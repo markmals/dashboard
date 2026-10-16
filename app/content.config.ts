@@ -77,12 +77,44 @@ let theaters = defineCollection({
     }),
 });
 
+// One titled (or untitled) run of lines from a Mela multi-line field; Mela starts a new group at
+// each `#` line. Items keep Mela's inline Markdown (links, `*`, `**`).
+let RecipeGroup = z.object({
+    title: z.string().optional(),
+    items: z.array(z.string()).min(1),
+});
+
+let IngredientNames = z.array(z.string()).default([]);
+
+// The handful of ingredients that define the dish, grouped by kind; picked by the import script.
+let MainIngredients = z
+    .object({
+        protein: IngredientNames,
+        vegetable: IngredientNames,
+        starch: IngredientNames,
+        dairy: IngredientNames,
+        fruit: IngredientNames,
+    })
+    .prefault({});
+
 let recipes = defineCollection({
-    loader: glob({ pattern: "*.md", base: "app/content/recipes" }),
+    loader: glob({ pattern: "*.json", base: "app/content/recipes" }),
     schema: z.object({
         title: z.string(),
-        source: z.url(),
-        thumbnail: partialURL(),
+        description: z.string().optional(),
+        // Mela's `link`: usually the recipe's URL, but Mela accepts any text (e.g. "Grandma").
+        source: z.string().optional(),
+        image: partialURL().optional(),
+        yield: z.string().optional(),
+        prepTime: z.string().optional(),
+        cookTime: z.string().optional(),
+        totalTime: z.string().optional(),
+        categories: z.array(z.string()).default([]),
+        mainIngredients: MainIngredients,
+        ingredients: z.array(RecipeGroup).default([]),
+        instructions: z.array(RecipeGroup).default([]),
+        notes: z.array(RecipeGroup).default([]),
+        nutrition: z.array(RecipeGroup).default([]),
     }),
 });
 

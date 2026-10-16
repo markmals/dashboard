@@ -21,6 +21,7 @@ const ICONS = [
     "search",
     "sliders-vertical",
     "close",
+    "chevron-left",
 ];
 
 let repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");

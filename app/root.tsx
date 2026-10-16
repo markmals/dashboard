@@ -9,7 +9,7 @@ import {
     SidebarSection,
     StackedLayout,
 } from "@tailwindcss/ui/index.ts";
-import { Outlet } from "react-router";
+import { href, Outlet } from "react-router";
 
 import type { IconName } from "~/components/icon-names.ts";
 
@@ -39,7 +39,7 @@ const NAV_ITEMS = [
     { label: "In Theaters", url: "/in-theaters", icon: "movie" },
     { label: "Activities", url: "/activities", icon: "calendar" },
     { label: "Restaurants", url: "/restaurants", icon: "dining" },
-    // { label: "Recipes", url: "/recipes", icon: "book" },
+    { label: "Recipes", url: "/recipes", icon: "book" },
     // { label: "Developer Education", url: "/dev-edu", icon: "code" },
 ] as const satisfies readonly { label: string; url: string; icon: IconName }[];
 
@@ -50,7 +50,7 @@ const NAV_ITEMS = [
 // navigation preserves them (there's no restore-redirect anymore).
 export async function ServerLayout({ children }: { children: React.ReactNode }) {
     let navItems = await Promise.all(
-        NAV_ITEMS.map(async item => ({ ...item, href: await restoredHref(item.url) })),
+        NAV_ITEMS.map(async item => ({ ...item, href: await restoredHref(href(item.url)) })),
     );
 
     return (
@@ -60,8 +60,8 @@ export async function ServerLayout({ children }: { children: React.ReactNode }) 
                 <meta content="width=device-width, initial-scale=1" name="viewport" />
                 <link href={tailwind} rel="stylesheet" />
                 <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
-                <link href="favicon.svg" rel="icon" type="image/svg+xml" />
-                <link href="apple-touch-icon.png" rel="apple-touch-icon" />
+                <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+                <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
             </head>
             <body>
                 <StackedLayout

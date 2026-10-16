@@ -1,6 +1,6 @@
 import { sortBy } from "es-toolkit/array";
 import { cache } from "react";
-import { href, unstable_getRequest as getRequest } from "react-router";
+import { unstable_getRequest as getRequest } from "react-router";
 
 import { readPrefs } from "~/lib/prefs.ts";
 
@@ -56,12 +56,18 @@ export function resolvePageParams(): URLSearchParams {
     return requestUrl().searchParams;
 }
 
-// Type-safe `href()` that bakes in a collection page's remembered sort/filter params so in-app links
-// preserve them (bare URLs reset instead of redirect-restoring). The current page mirrors the live
-// URL so its own nav link never lags a render; every other page uses its stored prefs entry, falling
-// back to the plain path when nothing is remembered. Server-only (reads the request-scoped prefs).
-export async function restoredHref(...args: Parameters<typeof href>): Promise<string> {
-    let path = href(...args);
+// A site path as an absolute URL on the current request's origin, for metadata that link previews
+// fetch from outside the page (canonical URL, og:image).
+export function absoluteUrl(path: string): string {
+    return new URL(path, requestUrl()).href;
+}
+
+// Bakes a collection page's remembered sort/filter params into an in-app link (built with `href()`)
+// so it preserves them (bare URLs reset instead of redirect-restoring). The current page mirrors the
+// live URL so its own nav link never lags a render; every other page uses its stored prefs entry,
+// falling back to the plain path when nothing is remembered. Server-only (reads the request-scoped
+// prefs).
+export async function restoredHref(path: string): Promise<string> {
     let url = requestUrl();
     if (path === url.pathname) return `${path}${url.search}`;
     let prefs = await requestPrefs();

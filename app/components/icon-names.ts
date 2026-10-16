@@ -2,6 +2,7 @@
 export type IconName =
     | "book"
     | "calendar"
+    | "chevron-left"
     | "close"
     | "dining"
     | "movie"

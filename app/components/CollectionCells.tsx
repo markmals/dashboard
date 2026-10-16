@@ -2,11 +2,13 @@
 
 import type { ComponentType } from "react";
 
-import { Badge, Button } from "@tailwindcss/ui/index.ts";
+import { Badge, Button, Link } from "@tailwindcss/ui/index.ts";
+import { href } from "react-router";
 
 import type { CollectionEntry } from "~/lib/content-types.ts";
 
 import { Icon } from "~/components/Icon.tsx";
+import { InlineMarkdown } from "~/components/InlineMarkdown.tsx";
 
 function TrailerButton({ href }: { href: string }) {
     return (
@@ -270,34 +272,38 @@ export function RestaurantCell({
 
 export function RecipeCell({
     recipe: {
-        data: { title, source, thumbnail },
+        id,
+        data: { title, description, image },
     },
-    Content,
 }: {
     recipe: CollectionEntry<"recipes">;
-    Content: ComponentType;
 }) {
+    let permalink = href("/recipes/:slug", { slug: id });
+
     return (
         <li className="flex flex-col items-start gap-6 border-black/15 pt-10 pb-6 md:flex-row dark:border-white/15">
-            <div className="relative w-full md:w-auto">
+            <Link
+                aria-hidden="true"
+                className="relative w-full md:w-auto"
+                href={permalink}
+                tabIndex={-1}
+            >
                 <div className="aspect-w-3 aspect-h-2 block w-full overflow-hidden rounded-lg bg-black/10 md:w-72 dark:bg-white/10">
-                    <img className="object-cover" src={thumbnail} />
+                    {image && <img alt="" className="object-cover" loading="lazy" src={image} />}
                 </div>
-            </div>
+            </Link>
 
-            <div className="flex w-full flex-col justify-between gap-2 overflow-hidden">
-                <div className="flex flex-col gap-2">
-                    <div className="flex flex-col gap-1">
-                        <a href={source} rel="noopener" target="_blank">
-                            <h2 className="text-xl font-medium text-black/95 hover:text-blue-500 md:truncate dark:text-white/95 dark:hover:text-blue-400">
-                                {title}
-                            </h2>
-                        </a>
-                    </div>
-                    <div className="text-sm text-black/70 dark:text-white/70 [&>p]:m-0">
-                        <Content />
-                    </div>
-                </div>
+            <div className="flex w-full flex-col gap-2 overflow-hidden">
+                <Link href={permalink}>
+                    <h2 className="text-xl font-medium text-black/95 hover:text-blue-500 md:truncate dark:text-white/95 dark:hover:text-blue-400">
+                        {title}
+                    </h2>
+                </Link>
+                {description && (
+                    <p className="line-clamp-3 text-sm text-black/70 dark:text-white/70">
+                        <InlineMarkdown text={description} />
+                    </p>
+                )}
             </div>
         </li>
     );

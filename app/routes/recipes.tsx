@@ -5,7 +5,7 @@ import {
     EmptyStateIcon,
 } from "@tailwindcss/ui";
 import { sortBy } from "es-toolkit/array";
-import { getCollection, render } from "sprinkles:content";
+import { getCollection } from "sprinkles:content";
 
 import { RecipeCell } from "~/components/CollectionCells.tsx";
 import { Icon } from "~/components/Icon.tsx";
@@ -14,19 +14,13 @@ import { titleKey } from "~/lib/collections.ts";
 
 export async function ServerComponent() {
     let recipes = sortBy(await getCollection("recipes"), [recipe => titleKey(recipe.data.title)]);
-    let rendered = await Promise.all(
-        recipes.map(async recipe => ({
-            recipe,
-            Content: (await render(recipe)).Content,
-        })),
-    );
 
     return (
         <>
             <title>Recipes • Dashboard</title>
             <div className="flex flex-col">
                 <SectionHeader>Recipes</SectionHeader>
-                {rendered.length === 0 ? (
+                {recipes.length === 0 ? (
                     <EmptyState className="py-12">
                         <EmptyStateIcon>
                             <Icon name="book" size={48} />
@@ -38,12 +32,8 @@ export async function ServerComponent() {
                     </EmptyState>
                 ) : (
                     <ul className="flex flex-col border-black/15 *:border-b *:last:border-none dark:border-white/15">
-                        {rendered.map(({ recipe, Content }) => (
-                            <RecipeCell
-                                Content={Content}
-                                key={recipe.data.source}
-                                recipe={recipe}
-                            />
+                        {recipes.map(recipe => (
+                            <RecipeCell key={recipe.id} recipe={recipe} />
                         ))}
                     </ul>
                 )}
