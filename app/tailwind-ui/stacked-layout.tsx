@@ -2,8 +2,9 @@
 
 import type React from "react";
 
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Dialog, Modal, ModalOverlay } from "react-aria-components";
+import { useLocation } from "react-router";
 
 import { cx } from "~/styles/cva.ts";
 
@@ -67,6 +68,20 @@ export function StackedLayout({
     children,
 }: React.PropsWithChildren<{ navbar: React.ReactNode; sidebar: React.ReactNode }>) {
     let [showSidebar, setShowSidebar] = useState(false);
+    let scrollContainer = useRef<HTMLDivElement>(null);
+    let { pathname } = useLocation();
+    let scrolledPathname = useRef(pathname);
+
+    // Client-side navigation keeps the old scroll offset: the window's on small screens, the content
+    // card's on large ones (the card is the scroll container there). Start each new page at the top.
+    // Only the pathname counts, so changing a page's filters doesn't jump; the first render is
+    // skipped so a reload keeps the browser's restored position.
+    useLayoutEffect(() => {
+        if (scrolledPathname.current === pathname) return;
+        scrolledPathname.current = pathname;
+        scrollContainer.current?.scrollTo(0, 0);
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     return (
         <div className="relative isolate flex min-h-svh w-full flex-col lg:h-svh lg:max-h-svh">
@@ -90,7 +105,10 @@ export function StackedLayout({
                 true top edge instead of below its padding (which would let scrolled
                 content show in the padding band above a sticky header). */}
             <main className="flex flex-1 flex-col pb-2 lg:min-h-0 lg:px-2">
-                <div className="grow lg:overflow-y-auto lg:rounded-lg lg:bg-white lg:shadow-xs lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+                <div
+                    className="grow lg:overflow-y-auto lg:rounded-lg lg:bg-white lg:shadow-xs lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10"
+                    ref={scrollContainer}
+                >
                     <div className="p-6 lg:p-10">
                         <div className="mx-auto max-w-6xl">{children}</div>
                     </div>
