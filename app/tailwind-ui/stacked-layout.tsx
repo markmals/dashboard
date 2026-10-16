@@ -4,6 +4,7 @@ import type React from "react";
 
 import { useRef, useState } from "react";
 import { Dialog, Modal, ModalOverlay } from "react-aria-components";
+import { useLocation } from "react-router";
 
 import { useScrollRestoration } from "~/hooks/use-scroll-restoration.ts";
 import { cx } from "~/styles/cva.ts";
@@ -67,21 +68,29 @@ export function StackedLayout({
     sidebar,
     children,
 }: React.PropsWithChildren<{ navbar: React.ReactNode; sidebar: React.ReactNode }>) {
-    let [showSidebar, setShowSidebar] = useState(false);
+    // Remembers the history entry the mobile sidebar was opened on rather than a plain boolean, so it
+    // closes by itself once any navigation lands (a tapped item, or Back) and never covers the page
+    // that was just opened from it.
+    let { key: locationKey } = useLocation();
+    let [sidebarOpenedAt, setSidebarOpenedAt] = useState<string | null>(null);
+    let showSidebar = sidebarOpenedAt === locationKey;
     let scrollContainer = useRef<HTMLDivElement>(null);
     useScrollRestoration(scrollContainer);
 
     return (
         <div className="relative isolate flex min-h-svh w-full flex-col lg:h-svh lg:max-h-svh">
             {/* Sidebar on mobile */}
-            <MobileSidebar close={() => setShowSidebar(false)} open={showSidebar}>
+            <MobileSidebar close={() => setSidebarOpenedAt(null)} open={showSidebar}>
                 {sidebar}
             </MobileSidebar>
 
             {/* Navbar */}
             <header className="flex items-center px-4">
                 <div className="py-2.5 lg:hidden">
-                    <NavbarItem aria-label="Open navigation" onClick={() => setShowSidebar(true)}>
+                    <NavbarItem
+                        aria-label="Open navigation"
+                        onClick={() => setSidebarOpenedAt(locationKey)}
+                    >
                         <OpenMenuIcon />
                     </NavbarItem>
                 </div>
