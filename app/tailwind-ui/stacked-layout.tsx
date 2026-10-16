@@ -2,10 +2,10 @@
 
 import type React from "react";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Dialog, Modal, ModalOverlay } from "react-aria-components";
-import { useLocation } from "react-router";
 
+import { useScrollRestoration } from "~/hooks/use-scroll-restoration.ts";
 import { cx } from "~/styles/cva.ts";
 
 import { NavbarItem } from "./navbar.tsx";
@@ -69,19 +69,7 @@ export function StackedLayout({
 }: React.PropsWithChildren<{ navbar: React.ReactNode; sidebar: React.ReactNode }>) {
     let [showSidebar, setShowSidebar] = useState(false);
     let scrollContainer = useRef<HTMLDivElement>(null);
-    let { pathname } = useLocation();
-    let scrolledPathname = useRef(pathname);
-
-    // Client-side navigation keeps the old scroll offset: the window's on small screens, the content
-    // card's on large ones (the card is the scroll container there). Start each new page at the top.
-    // Only the pathname counts, so changing a page's filters doesn't jump; the first render is
-    // skipped so a reload keeps the browser's restored position.
-    useLayoutEffect(() => {
-        if (scrolledPathname.current === pathname) return;
-        scrolledPathname.current = pathname;
-        scrollContainer.current?.scrollTo(0, 0);
-        window.scrollTo(0, 0);
-    }, [pathname]);
+    useScrollRestoration(scrollContainer);
 
     return (
         <div className="relative isolate flex min-h-svh w-full flex-col lg:h-svh lg:max-h-svh">
