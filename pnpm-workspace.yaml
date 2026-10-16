@@ -4,3 +4,7 @@ onlyBuiltDependencies:
     - "@tailwindcss/oxide"
     - sharp
     - unrs-resolver
+# Pulled in by the OMP SDK (scripts/recipes); the import script never touches their native parts.
+ignoredBuiltDependencies:
+    - onnxruntime-node
+    - protobufjs

@@ -1,6 +1,8 @@
 [tools]
 node = "24"
 pnpm = "11"
+# Runs scripts/recipes/import.ts, which needs Bun for the OMP SDK.
+bun = "1"
 
 [env]
 _.path = ['{{config_root}}/node_modules/.bin']
@@ -65,6 +67,12 @@ run = "node scripts/build-icons.ts"
 [tasks."tv:refresh"]
 description = "Re-hydrate TV show airing status, season counts, and premiere dates from TMDb"
 run = "TMDB_API_KEY=$(op read 'op://Private/TMDb API Key/credential') node scripts/refresh-tv.ts"
+
+[tasks."recipes:import"]
+description = "Import Mela exports (.melarecipe files, .melarecipes archives, or folders of them) into the recipes collection"
+# Run from the caller's directory so relative paths resolve the way they were typed.
+dir = "{{cwd}}"
+run = "bun {{config_root}}/scripts/recipes/import.ts"
 
 [tasks."typegen:cloudflare"]
 description = "Generate types for Cloudflare bindings"
