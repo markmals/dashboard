@@ -24,11 +24,6 @@ export function RecipeBody({ recipe }: { recipe: Recipe }) {
                     </RecipeSection>
                 )}
             </div>
-            {recipe.notes.length > 0 && (
-                <RecipeSection title="Notes">
-                    <Paragraphs groups={recipe.notes} />
-                </RecipeSection>
-            )}
             {recipe.nutrition.length > 0 && (
                 <RecipeSection title="Nutrition">
                     <Paragraphs groups={recipe.nutrition} />

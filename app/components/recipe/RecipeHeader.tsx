@@ -1,5 +1,4 @@
 import {
-    Badge,
     Button,
     DescriptionDetails,
     DescriptionList,
@@ -42,16 +41,9 @@ export function RecipeHeader({ recipe }: { recipe: Recipe }) {
                     src={recipe.image}
                 />
             )}
-            <div className="flex flex-col gap-3 lg:col-start-1 lg:row-start-1">
-                <Heading className="text-balance sm:text-4xl/11">{recipe.title}</Heading>
-                {recipe.categories.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5">
-                        {recipe.categories.map(category => (
-                            <Badge key={category}>{category}</Badge>
-                        ))}
-                    </div>
-                )}
-            </div>
+            <Heading className="text-balance sm:text-4xl/11 lg:col-start-1 lg:row-start-1">
+                {recipe.title}
+            </Heading>
             <MainIngredients
                 className="lg:col-span-2 lg:row-start-3 lg:mt-6"
                 ingredients={recipe.mainIngredients}
