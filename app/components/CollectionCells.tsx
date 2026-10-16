@@ -9,6 +9,7 @@ import type { CollectionEntry } from "~/lib/content-types.ts";
 
 import { Icon } from "~/components/Icon.tsx";
 import { InlineMarkdown } from "~/components/InlineMarkdown.tsx";
+import { FROM_RECIPE_LIST } from "~/lib/recipe-navigation.ts";
 
 function TrailerButton({ href }: { href: string }) {
     return (
@@ -286,6 +287,7 @@ export function RecipeCell({
                 aria-hidden="true"
                 className="relative w-full md:w-auto"
                 href={permalink}
+                state={FROM_RECIPE_LIST}
                 tabIndex={-1}
             >
                 <div className="aspect-w-3 aspect-h-2 block w-full overflow-hidden rounded-lg bg-black/10 md:w-72 dark:bg-white/10">
@@ -294,7 +296,7 @@ export function RecipeCell({
             </Link>
 
             <div className="flex w-full flex-col gap-2 overflow-hidden">
-                <Link href={permalink}>
+                <Link href={permalink} state={FROM_RECIPE_LIST}>
                     <h2 className="text-xl font-medium text-black/95 hover:text-blue-500 md:truncate dark:text-white/95 dark:hover:text-blue-400">
                         {title}
                     </h2>

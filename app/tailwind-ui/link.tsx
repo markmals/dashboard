@@ -3,7 +3,7 @@
 import type React from "react";
 
 import { Link as RACLink } from "react-aria-components";
-import { Link as RRLink, NavLink as RRNavLink } from "react-router";
+import { type LinkProps, Link as RRLink, NavLink as RRNavLink } from "react-router";
 
 export const Link = function Link({
     ref,
@@ -13,7 +13,8 @@ export const Link = function Link({
 }: {
     href: string;
     ref?: React.Ref<HTMLAnchorElement>;
-} & React.ComponentPropsWithoutRef<"a">) {
+} & Pick<LinkProps, "state"> &
+    React.ComponentPropsWithoutRef<"a">) {
     return (
         <RACLink
             href={href}

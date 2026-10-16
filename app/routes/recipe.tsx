@@ -5,12 +5,12 @@ import {
     EmptyStateDescription,
     EmptyStateHeading,
     EmptyStateIcon,
-    Link,
 } from "@tailwindcss/ui";
 import { data, isRouteErrorResponse } from "react-router";
 import { getEntry } from "sprinkles:content";
 
 import { Icon } from "~/components/Icon.tsx";
+import { RecipeBackLink } from "~/components/recipe/RecipeBackLink.tsx";
 import { RecipeBody } from "~/components/recipe/RecipeBody.tsx";
 import { RecipeHeader } from "~/components/recipe/RecipeHeader.tsx";
 import { RecipeMetadata } from "~/components/recipe/RecipeMetadata.tsx";
@@ -29,13 +29,7 @@ export function ServerComponent({ loaderData: recipe }: Route.ServerComponentPro
         <>
             <RecipeMetadata recipe={recipe} />
             <article className="flex flex-col gap-10 lg:gap-12">
-                <Link
-                    className="-my-2 inline-flex items-center gap-1 self-start py-2 text-sm/6 font-medium text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white"
-                    href="/recipes"
-                >
-                    <Icon name="chevron-left" size={16} />
-                    Recipes
-                </Link>
+                <RecipeBackLink />
                 <RecipeHeader recipe={recipe.data} />
                 <RecipeBody recipe={recipe.data} />
             </article>
