@@ -1,0 +1,45 @@
+{
+    "title": "Chicken and Rice Soup",
+    "description": "If you want this take on classic chicken soup to have a similar consistency to congee, add 10–15 minutes to the cooking time so that it can become nice and thick.",
+    "source": "https://www.bonappetit.com/recipe/chicken-rice-soup",
+    "image": "/recipes/chicken-and-rice-soup.jpg",
+    "yield": "2–4 servings",
+    "categories": ["Healthy", "Simple"],
+    "mainIngredients": {
+        "protein": ["Chicken thighs"],
+        "vegetable": ["Sweet potatoes"],
+        "starch": ["Rice"]
+    },
+    "ingredients": [
+        {
+            "items": [
+                "¾ lb. skinless, boneless chicken thighs",
+                "⅓ cup jasmine rice, rinsed",
+                "4 garlic cloves, thinly sliced",
+                "1 2\" piece ginger, peeled, thinly sliced",
+                "Kosher salt",
+                "2 small sweet potatoes, unpeeled, cut into ½\"-thick rounds",
+                "2 Tbsp. fresh lemon juice",
+                "2 Tbsp. soy sauce",
+                "½ bunch cilantro, coarsely chopped",
+                "Freshly ground black pepper"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "items": [
+                "Bring chicken, rice, garlic, ginger, and 5 cups water to a boil in a large saucepan. Add a big pinch of salt. Reduce heat to medium-low and simmer, uncovered and stirring occasionally, until rice has swelled and chicken is firm, 10–12 minutes.",
+                "Add potatoes to pan and cook over medium-low heat, still uncovered and stirring occasionally, until soup is thickened and potatoes and rice are tender, 15–20 minutes longer. Transfer chicken to a bowl and shred with 2 forks, then return to pot. Stir in lemon juice and soy sauce; taste soup and season with salt if needed.",
+                "Divide soup among bowls. Top with cilantro and lots of black pepper"
+            ]
+        }
+    ],
+    "notes": [
+        {
+            "items": [
+                "**Do Ahead**: Soup (without cilantro) can be made 3 days ahead. Transfer to an airtight container and chill. Reheat over medium-low, adding water to thin as needed."
+            ]
+        }
+    ]
+}

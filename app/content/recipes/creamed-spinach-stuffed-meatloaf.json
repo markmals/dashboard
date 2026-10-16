@@ -1,0 +1,51 @@
+{
+    "title": "Creamed-Spinach-Stuffed Meatloaf",
+    "description": "Bursting with creamed spinach and cheese, and dressed with a glossy coat of ketchup, this is meatloaf 2.0.",
+    "source": "https://www.bonappetit.com/recipe/creamed-spinach-stuffed-meatloaf",
+    "image": "/recipes/creamed-spinach-stuffed-meatloaf.jpg",
+    "yield": "8 servings",
+    "mainIngredients": {
+        "protein": ["Ground beef", "Eggs"],
+        "vegetable": ["Spinach", "Red onion"],
+        "starch": ["Panko"],
+        "dairy": ["Cream cheese", "Cheddar cheese"]
+    },
+    "ingredients": [
+        {
+            "items": [
+                "2 Tbsp. extra-virgin olive oil",
+                "1 large red onion, cut into ½\" pieces",
+                "4 oz. chilled cream cheese, cut into pieces",
+                "2 tsp. Diamond Crystal or 1¼ tsp. Morton kosher salt",
+                "1½ tsp. garlic powder",
+                "1 large egg",
+                "⅔ cup panko",
+                "2 10-oz. packages frozen chopped spinach, thawed, squeezed dry",
+                "8 oz. extra-sharp cheddar, coarsely grated",
+                "⅓ cup chopped pickled cherry or other hot peppers",
+                "2 large eggs",
+                "1 cup low-sodium chicken broth",
+                "1 cup panko",
+                "¼ cup soy sauce, preferably low-sodium",
+                "2 tsp. Diamond Crystal or 1¼ tsp. Morton kosher salt",
+                "2 lb. ground beef (15–20% fat)",
+                "½ cup ketchup",
+                "Parsley leaves with tender stems (for serving)",
+                "Pickled Vegetables"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "items": [
+                "Heat 2 Tbsp. extra-virgin olive oil in a large skillet over medium-high. Cook 1 large red onion, cut into ½\" pieces, stirring occasionally, until softened and translucent, 5–7 minutes; transfer to a medium bowl. Add 4 oz. chilled cream cheese, cut into pieces, 2 tsp. Diamond Crystal or 1¼ tsp. Morton kosher salt, and 1½ tsp. garlic powder to bowl and mix to combine, then mix in 1 large egg and ⅔ cup panko. Add two 10-oz. packages frozen chopped spinach, thawed, squeezed dry, 8 oz. extra-sharp cheddar, coarsely grated, and ⅓ cup chopped pickled cherry or other hot peppers and mix again. Set filling aside.",
+                "Place a rack in middle of oven; preheat to 375°. Lightly whisk 2 large eggs in a large bowl. Using a wooden spoon or rubber spatula, stir in 1 cup low-sodium chicken broth, 1 cup panko, ¼ cup soy sauce, preferably low-sodium, and 2 tsp. Diamond Crystal or 1¼ tsp. Morton kosher salt. Let sit at least 15 minutes and up to 30 minutes (you want panko to hydrate).",
+                "Add 2 lb. ground beef (15–20% fat) to bowl with egg mixture and mix until fully incorporated (your hands are most efficient for this; there is no fear of overmixing).",
+                "Lay a few large pieces of plastic wrap on a slightly damp surface to create about a 15\" square. Transfer meat mixture to plastic wrap and pat into a ½\"-thick 13x9\" rectangle. Scatter spinach filling over meat mixture and pat into an even layer, leaving a ½\" border of meat mixture exposed on long sides. Starting from the long side closest to you, roll meat mixture into a log, enclosing filling (just as you would a jelly roll), using plastic wrap to lift and shape log. Using plastic wrap, squeeze ends of log closed to seal. Transfer log to a parchment-lined rimmed baking sheet. Carefully remove and discard plastic wrap. Gently reshape meatloaf as needed.",
+                "Bake meatloaf until golden brown and an instant-read thermometer inserted into center registers 140°, 30–40 minutes. Brush meatloaf with ¼ cup ketchup; bake until ketchup feels tacky, 10–12 minutes. Brush remaining ¼ cup ketchup on top and bake until surface is tacky and thermometer inserted into the center registers 155°, 8–10 minutes. Let meatloaf cool on baking sheet 15 minutes.",
+                "Transfer meatloaf to a platter; top with parsley leaves with tender stems. Place drained pickled vegetables in a small bowl and serve alongside.",
+                "Do ahead: Spinach mixture can be made up to 1 day ahead. Cover and chill."
+            ]
+        }
+    ]
+}

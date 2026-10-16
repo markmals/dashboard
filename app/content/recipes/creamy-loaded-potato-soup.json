@@ -1,0 +1,73 @@
+{
+    "title": "Creamy Loaded Potato Soup",
+    "description": "This Creamy Loaded Potato Soup is smooth, creamy, and delicious. It can only be described as serious comfort food in a bowl that's quick and easy to make. A simple recipe perfect for a cold day.",
+    "source": "https://www.jocooks.com/recipes/creamy-loaded-potato-soup/",
+    "image": "/recipes/creamy-loaded-potato-soup.jpg",
+    "yield": "8",
+    "prepTime": "15min",
+    "cookTime": "40min",
+    "totalTime": "55min",
+    "categories": ["Simple"],
+    "mainIngredients": {
+        "protein": ["Bacon"],
+        "starch": ["Potatoes"],
+        "dairy": ["Heavy cream", "Cheddar cheese"]
+    },
+    "ingredients": [
+        {
+            "items": [
+                "6 medium potatoes (cut into cubes and cooked)",
+                "8 slices bacon (thick cut)",
+                "1 onion (chopped)",
+                "4 cloves garlic (minced)",
+                "1 teaspoon basil (dried)",
+                "1 teaspoon oregano (dried)",
+                "1/2 teaspoon salt (or to taste)",
+                "1/2 teaspoon pepper (or to taste)",
+                "1/2 cup all-purpose flour",
+                "3 cups chicken broth (low sodium)",
+                "2 cups heavy cream"
+            ]
+        },
+        {
+            "title": "Toppings",
+            "items": ["cheddar cheese", "green onions"]
+        }
+    ],
+    "instructions": [
+        {
+            "items": [
+                "Cook the potatoes: Add the cubed potatoes to a pot of salted boiling water and cook until fork tender, about 15 minutes. You can alternatively bake them in the oven at 425 F degrees for about 45 minutes until fork tender.",
+                "Cook the bacon: Cook the bacon until crisp, then crumble into small pieces or cut it first into small pieces then fry. Transfer the bacon to a plate lined with paper towels. Reserve 2 tbsp of the rendered bacon fat and discard the rest.",
+                "Saute veggies: In a large Dutch Oven or soup pot add the bacon fat and onion; cook the onion until soft and translucent, should take about 5 minutes. Add the garlic and cook for another 30 seconds until aromatic. Stir in the dried basil, oregano, salt and pepper.",
+                "Make the soup: Sprinkle the flour over the veggies and stir. Cook for about one minute to get rid of the raw flour taste. Add the chicken broth a cup at a time, stirring to remove any of the lumps as necessary. Once all the broth has been added, add in all the heavy cream. Bring to a boil.",
+                "Finish the soup: Add the cooked potatoes and cook for another 10 minutes over medium-low heat, stirring occasionally. The soup should thicken nicely. Stir in half the bacon bits and reserve the other half for topping over the soup. Taste for seasoning and adjust as necessary.",
+                "Serve and add toppings: Spoon into bowls, top with remaining bacon and load it up with your favorite toppings."
+            ]
+        }
+    ],
+    "notes": [
+        {
+            "items": [
+                "Store leftover soup in airtight containers and refrigerate within two hours of cooking. It will last 3 to 4 days in the fridge or 4 to 6 months in the freezer.",
+                "Nutritional information does not include cheese. Please keep in mind that nutritional information is a rough estimate and can vary greatly based on products used."
+            ]
+        }
+    ],
+    "nutrition": [
+        {
+            "items": [
+                "**Serving size** 1 serving",
+                "**Calories** 422 kcal",
+                "**Fat** 32 g",
+                "**Saturated fat** 17 g",
+                "**Cholesterol** 96 mg",
+                "**Sodium** 354 mg",
+                "**Carbohydrates** 27 g",
+                "**Fiber** 4 g",
+                "**Sugar** 1 g",
+                "**Protein** 10 g"
+            ]
+        }
+    ]
+}

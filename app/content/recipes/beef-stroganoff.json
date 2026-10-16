@@ -1,0 +1,73 @@
+{
+    "title": "Beef Stroganoff",
+    "description": "One Pot Beef Stroganoff is a simple weeknight meal. With mushrooms and beef in a creamy rich sauce with egg noodles, this dreamy dish is packed full of flavor and yumminess.",
+    "source": "https://www.jocooks.com/recipes/one-pot-beef-stroganoff/",
+    "image": "/recipes/beef-stroganoff.jpg",
+    "yield": "6",
+    "prepTime": "15min",
+    "cookTime": "30min",
+    "totalTime": "45min",
+    "categories": ["Simple"],
+    "mainIngredients": {
+        "protein": ["Ground beef"],
+        "vegetable": ["Mushrooms"],
+        "starch": ["Egg noodles"],
+        "dairy": ["Sour cream"]
+    },
+    "ingredients": [
+        {
+            "items": [
+                "1 tablespoon olive oil",
+                "8 ounce mushrooms (stems trimmed and sliced, such as cremini or white mushrooms)",
+                "2 tablespoon butter (unsalted)",
+                "1 medium onion (chopped)",
+                "2 cloves garlic (minced)",
+                "1 pound ground beef",
+                "3 tablespoon all-purpose flour",
+                "1 teaspoon paprika",
+                "¼ cup white wine (dry)",
+                "4 cups beef broth (low sodium)",
+                "¼ teaspoon salt (or tot aste)",
+                "½ teaspoon pepper (or to taste)",
+                "8 ounce egg noodles (or other dry pasta)",
+                "¾ cup sour cream",
+                "1 tablespoon parsley (chopped)"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "items": [
+                "Cook the mushrooms: Heat the olive oil in a large heavy-bottomed pot or Dutch oven over medium-high heat. Add the mushrooms, season with salt and pepper, and cook, stirring occasionally until browned. Transfer to a plate and set aside.",
+                "Cook the beef: Add the butter to the same pan then the ground beef. Brown the beef till it is no longer pink, about 5 to 6 minutes. If using regular ground beef, drain the excess fat.",
+                "Create the sauce: Add the onions and garlic and cook till soft with some salt and pepper. Sprinkle in the flour and paprika, stir and cook for about 1 minute until the raw flavor has cooked off the flour. Add the wine and cook, scraping up any browned bits that have accumulated on the bottom of the pot, until almost evaporated. Add the broth and stir to combine. Increase the heat to medium high and bring to a simmer.",
+                "Finish the Stroganoff: Add the noodles and mushrooms along with their juices and stir to combine. Reduce the heat to medium low and simmer covered, stirring occasionally, until the noodles are al dente. Remove from heat and stir in the sour cream. Garnish with parsley and serve!"
+            ]
+        }
+    ],
+    "notes": [
+        {
+            "items": [
+                "If you find that the noodles aren’t cooked through but there’s no more liquid in the pot, add a bit more beef broth or water.",
+                "Stroganoff can be stored in the fridge in an airtight container for 3 – 4 days. This recipe can be frozen quite well, just be sure it’s completely cooled before placing in a shallow container and frozen for up to 3 months. When ready to eat, just allow to thaw in the fridge overnight before heating up on the stove.",
+                "Please keep in mind that nutritional information is a rough estimate and can vary greatly based on products used."
+            ]
+        }
+    ],
+    "nutrition": [
+        {
+            "items": [
+                "**Serving size** 1 serving",
+                "**Calories** 438 kcal",
+                "**Fat** 21 g",
+                "**Saturated fat** 9 g",
+                "**Cholesterol** 106 mg",
+                "**Sodium** 475 mg",
+                "**Carbohydrates** 34 g",
+                "**Fiber** 2 g",
+                "**Sugar** 3 g",
+                "**Protein** 25 g"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "title": "Chicken Bryan",
+    "description": "Chicken Bryan. Grilled chicken with a basil lemon butter sauce topped with sundried tomatoes and creamy goat cheese. A Carrabba's favorite!",
+    "source": "https://www.modernhoney.com/chicken-bryan/#webpage",
+    "image": "/recipes/chicken-bryan.jpg",
+    "yield": "4",
+    "prepTime": "10min",
+    "cookTime": "25min",
+    "totalTime": "35min",
+    "categories": ["Simple", "Tanner’s Faves"],
+    "mainIngredients": {
+        "protein": ["Chicken breasts"],
+        "vegetable": ["Sundried tomatoes"],
+        "dairy": ["Goat cheese", "Butter"]
+    },
+    "ingredients": [
+        {
+            "title": "Basil Lemon Butter Sauce",
+            "items": [
+                "1/2 cup Salted Butter",
+                "3 cloves Garlic ((minced))",
+                "1 Tablespoon Lemon Juice",
+                "1/2 cup Heavy Cream",
+                "6 fresh Basil Leaves ((cut into ribbons))"
+            ]
+        },
+        {
+            "title": "Chicken",
+            "items": [
+                "4 Chicken Breasts ((flattened with a mallet))",
+                "4 Tablespoons Extra-Virgin Olive Oil ((may use less or more))",
+                "Salt and Pepper",
+                "1/3 cup Marinated Sundried Tomatoes ((in jar))",
+                "4 slices Goat Cheese ((if you don't like goat cheese, may use cream cheese))"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "title": "To make Basil Lemon Butter Sauce",
+            "items": [
+                "In a saucepan, saute butter and garlic for 1 minute. Be careful not to cook too long as garlic can burn and become bitter very quickly. Add the lemon juice and cook for 5 minutes. Reduce heat to LOW and add the heavy cream. This needs to cook on LOW or the cream and lemon juice will curdle together."
+            ]
+        },
+        {
+            "title": "To Cook the Chicken",
+            "items": [
+                "While the sauce is cooking, it is time to cook the chicken. If you are grilling the chicken, preheat the grill. Rub each chicken breast with extra-virgin olive oil and generously sprinkle with salt and pepper. The oil helps to keep the chicken from sticking to the grill and also infuses flavor. If time is on your side, marinate the chicken in the oil and seasonings for at least 30 minutes. Grill the chicken for about 4-5 minutes per side, depending on thickness. It needs to reach at least 165 degrees.",
+                "If you are cooking the chicken in a skillet, rub each chicken breast with oil, salt, and pepper. Add to a skillet heated to medium-high. Cook the chicken for about 4-5 minutes per side, depending on thickness. It needs to reach at least 165 degrees.",
+                "Top the warm chicken with the goat cheese (may substitute cream cheese), marinated chopped sundried tomatoes, a generous amount of sauce, and fresh basil ribbons. Serve with extra sauce."
+            ]
+        }
+    ]
+}

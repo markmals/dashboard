@@ -1,0 +1,47 @@
+{
+    "title": "White Bean and Chorizo Chili",
+    "description": "This comforting chorizo chili uses dried beans for maximum texture and bean-y flavor. Get the sour cream, chopped onions, and cheese ready to top.",
+    "source": "https://www.bonappetit.com/recipe/white-bean-and-chorizo-chili",
+    "image": "/recipes/white-bean-and-chorizo-chili.jpg",
+    "yield": "Makes about 12 cups",
+    "mainIngredients": {
+        "protein": ["Chorizo sausage", "Cannellini beans"],
+        "vegetable": ["Tomatoes"],
+        "dairy": ["Sour cream", "Cheddar cheese"]
+    },
+    "ingredients": [
+        {
+            "items": [
+                "1 16-ounce bag dried cannellini beans, covered in 2 inches of cold water, soaked overnight",
+                "1 head of garlic",
+                "2 medium red onions",
+                "2 tablespoons extra-virgin olive oil",
+                "2 pounds fresh chorizo sausage",
+                "2 teaspoons chili powder",
+                "2 teaspoons ground cumin",
+                "1 28-ounce can whole peeled tomatoes",
+                "Kosher salt",
+                "Freshly ground black pepper",
+                "1 pint sour cream",
+                "Shredded cheddar cheese (for serving)"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "items": [
+                "Preheat oven to 300°. Drain 16 oz. beans and return to bowl used for soaking; set aside.",
+                "→ Forgot to soak your beans? No sweat. Here's everything you need to know about cooking with dried beans.",
+                "Time to get your knife work out of the way. Without separating or peeling the cloves, cut entire head of garlic in half through the “equator” (it’s fine if some of the cloves become detached). Peel 2 red onions and cut in half through root end. Set aside one half for later (you’re going to finely chop it and use as a topping). Coarsely chop remaining onions.",
+                "Heat 2 Tbsp. oil in a large Dutch oven over medium-high. Cut a slit in each sausage link and remove meat from casings; discard casings. Add sausage to pot and cook, using a wooden spoon to break up into small pieces and stirring occasionally, until sausage is browned all over, 5–8 minutes (it doesn’t have to be completely cooked through).",
+                "→ Wait, what is chorizo, anyway?",
+                "Using a spider or slotted spoon, transfer sausage to a medium bowl, leaving fat in pot. Add garlic and onion to pot and cook, stirring often to dissolve any browned bits on bottom of pot, until onion is translucent, about 5 minutes.",
+                "Stir in 2 tsp. chili powder and 2 tsp. cumin and cook until spices coat onion bits and start to stick to bottom of pot, about 2 minutes.",
+                "Break up 28 oz. tomatoes with your hands and add to pot along with their liquid (beware of squirting tomato juice), then stir well to loosen any stuck-on spices.",
+                "Add drained beans, reserved sausage, 1 Tbsp. kosher salt, a generous amount of freshly ground black pepper, and 6 cups water and stir to combine. Bring to a simmer, then transfer pot to oven. Bake chili, peeking in oven and stirring a few times, until beans are creamy and tender, 1½–2 hours. Some beans will split and burst before others are tender, which is fine. Keep baking until all beans are creamy. If water level drops to the point where it no longer covers sausage and beans, add more water just to cover.",
+                "Remove pot from oven and carefully use back of wooden spoon to mash a few beans against side of pot. This will release their starch and help thicken the chili. Let chili rest about 10 minutes, then taste and adjust seasoning with more salt and pepper, if desired. Fish out and discard papery garlic skin, if desired.",
+                "Finely chop remaining onion half. Divide chili among bowls, then top with sour cream, cheese, and chopped onion."
+            ]
+        }
+    ]
+}

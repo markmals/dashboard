@@ -1,0 +1,75 @@
+{
+    "title": "Hamburger Helper",
+    "description": "Who needs the box when you can have this homemade Instant Pot Hamburger Helper on your table in less than 25 minutes! Easy, delicious comfort food made entirely in one pot.",
+    "source": "https://www.jocooks.com/recipes/instant-pot-hamburger-helper/",
+    "image": "/recipes/hamburger-helper.jpg",
+    "yield": "6",
+    "prepTime": "15min",
+    "cookTime": "8min",
+    "totalTime": "23min",
+    "categories": ["Simple"],
+    "mainIngredients": {
+        "protein": ["Ground beef"],
+        "starch": ["Elbow macaroni"],
+        "dairy": ["Cheddar cheese"]
+    },
+    "ingredients": [
+        {
+            "items": [
+                "1 tablespoon olive oil",
+                "1 large onion (chopped)",
+                "1 pound ground beef (extra lean)",
+                "3 cloves garlic (minced)",
+                "1 teaspoon oregano",
+                "1 tablespoon chili powder",
+                "½ teaspoon salt (or to taste)",
+                "½ teaspoon pepper (or to taste)",
+                "1 tablespoon Worcestershire sauce",
+                "4 cups beef broth",
+                "1 cup milk",
+                "1 pound elbow macaroni",
+                "3 cups cheddar cheese (shredded)",
+                "2 tablespoon fresh parsley (chopped)"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "items": [
+                "Prep Instant Pot: Turn your Instant Pot to the saute setting. (See your manufacturer’s guide for detailed instructions on how to use your instant pot.)",
+                "Cook Beef: Add the olive oil to the instant pot and heat. Add the ground beef, onion and garlic and break up the beef with a wooden spoon. Cook for about 3 minutes or until the meat is no longer pink.",
+                "Add Ingredients: Add the oregano, chili powder, salt, pepper, Worcestershire sauce, broth, milk and elbow macaroni. Stir well, scraping the bottom to remove any stuck bits. Close the lid. Cook on high pressure (Manual setting) for 5 minutes.",
+                "Finish and Serve: Once the Instant Pot cycle is complete, quick release the pressure and stir well. Stir in the cheese and garnish with parsley. Serve."
+            ]
+        }
+    ],
+    "notes": [
+        {
+            "items": [
+                "Make sure to always check your manufacturer’s guide for detailed instructions on how to use your instant pot.",
+                "Just because the boxed version has multiple variations, doesn’t mean I don’t! Check out my Three Cheese Hamburger Helper, Cheeseburger Hamburger Helper, or One Pot Hamburger Helper Lasagna for some more inspiration.",
+                "Make sure when you’re adding the ingredients to scrape the brown bits in the bottom of the instant pot, they add delicious flavor!",
+                "Play around with cheeses, spices etc to make this dish your own. There are a ton of variations you can make with this base recipe.",
+                "This instant pot hamburger helper is just as delicious the next day! Store leftovers in an airtight container in the fridge for up to3 – 4 days.",
+                "If you want to freeze your leftovers, let them cool completely then freeze in an airtight container. Your instant pot hamburger helper will stay fresh for up to 3 months if stored properly."
+            ]
+        }
+    ],
+    "nutrition": [
+        {
+            "items": [
+                "**Serving size** 1 serving",
+                "**Calories** 717 kcal",
+                "**Fat** 31 g",
+                "**Saturated fat** 16 g",
+                "**Trans fat** 1 g",
+                "**Cholesterol** 113 mg",
+                "**Sodium** 962 mg",
+                "**Carbohydrates** 64 g",
+                "**Fiber** 4 g",
+                "**Sugar** 6 g",
+                "**Protein** 44 g"
+            ]
+        }
+    ]
+}

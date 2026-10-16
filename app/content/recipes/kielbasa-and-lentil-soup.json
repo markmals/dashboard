@@ -1,0 +1,53 @@
+{
+    "title": "Kielbasa and Lentil Soup",
+    "description": "Exactly the kind of hearty-but-not-*too*-hearty soup you want on a rainy spring day.",
+    "source": "https://www.bonappetit.com/recipe/kielbasa-and-lentil-soup-with-lots-of-basil",
+    "image": "/recipes/kielbasa-and-lentil-soup.jpg",
+    "yield": "4 servings",
+    "categories": ["Healthy", "Simple"],
+    "mainIngredients": {
+        "protein": ["Kielbasa", "Lentils"],
+        "vegetable": ["Onions", "Celery", "Fennel"],
+        "dairy": ["Greek yogurt"]
+    },
+    "ingredients": [
+        {
+            "items": [
+                "2 medium onions",
+                "2 celery stalks",
+                "1 fennel bulb",
+                "6 garlic cloves",
+                "12 oz. kielbasa",
+                "¼ cup extra-virgin olive oil, plus more for drizzling",
+                "½ tsp. crushed red pepper flakes",
+                "Kosher salt",
+                "2 Tbsp. tomato paste",
+                "1¼ cups lentils",
+                "2 cups basil leaves",
+                "½ cup whole-milk Greek yogurt"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "items": [
+                "Prep the mirepoix (a.k.a. the aromatic base of your soup). Peel 2 medium onions and finely chop. Transfer to a large bowl. If there are any pale, tender leaves attached to the heart of your bunch of celery, pluck off about ¼ cup to reserve for serving. Take 2 celery stalks and cut in half lengthwise, then cut crosswise into ½\" pieces; add to bowl with onion. Cut off stems and dark green parts from 1 fennel bulb; discard or save for another use. Cut bulb in half through the core, then finely chop. Add to bowl with onion. Lightly smash 6 garlic cloves to release skins. Peel, then smash forcefully with the side of your knife to break them down into smaller bits. Add to bowl with onion.",
+                "Slice 12 oz. kielbasa crosswise into ¼\"-thick coins.",
+                "Heat a large heavy pot over medium. Add ¼ cup extra-virgin olive oil and swirl to coat. Cook kielbasa in a single layer (it’s okay if it’s not a perfect one), undisturbed, until golden brown underneath, about 3 minutes. Turn pieces with a wooden spoon and cook, stirring occasionally, until mostly browned on both sides, 1–2 minutes longer.",
+                "Reduce heat to medium-low. Add onion mixture, ½ tsp. crushed red pepper flakes, and 1 tsp. salt and cook, stirring often, until vegetables are softened and onion is translucent, 8–10 minutes.",
+                "Add 2 Tbsp. tomato paste and cook, stirring often, until it darkens in color, 1–2 minutes longer.",
+                "Add 1¼ cups lentils, 1 tsp. salt, and 4½ cups water and stir to combine. Increase heat to medium-high and bring to a simmer. Once simmering, reduce heat to medium-low, cover pot, and cook, peeking occasionally to ensure soup is at a bare simmer, until lentils are tender but not falling apart, 20–45 minutes (depending on what kind of lentils you're working with).",
+                "Remove from heat. Add 2 cups basil, stirring to wilt. Taste and adjust seasoning for salt.",
+                "Divide soup between bowls. Dollop with ½ cup whole-milk Greek yogurt and drizzle with more olive oil. Garnish with reserved celery leaves if you have them."
+            ]
+        }
+    ],
+    "notes": [
+        {
+            "items": [
+                "Kielbasa brings to this hearty soup, but if you can’t find it, any smoked and/or fully cooked sausage will work just as well.",
+                "**About those lentils**: You can use whatever you'd like here, but you'll end up with a slightly different dish. Lens-shaped green (pictured here), brown, and red lentils tend to fall apart as they soften, yielding a soup that is thick and porridge-like. By contrast, French green (a.k.a. lentilles du Puy) and black beluga lentils are sturdier and maintain their shape when cooked, resulting in a brothier situation. Different vibes, same great flavor."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "title": "Chicken with Creamy Mushroom Sauce",
+    "description": "This Chicken with Creamy Mushroom Sauce is a simple yet very elegant dish featuring boneless skinless chicken breasts in a delicious creamy mushroom sauce made with white wine and cream.",
+    "source": "https://www.jocooks.com/recipes/chicken-in-white-wine-sauce-with-mushrooms/",
+    "image": "/recipes/chicken-with-creamy-mushroom-sauce.jpg",
+    "yield": "4",
+    "prepTime": "10min",
+    "cookTime": "20min",
+    "totalTime": "30min",
+    "categories": ["Simple"],
+    "mainIngredients": {
+        "protein": ["Chicken breasts"],
+        "vegetable": ["Mushrooms"],
+        "dairy": ["Heavy cream"]
+    },
+    "ingredients": [
+        {
+            "items": [
+                "2 tablespoon butter (unsalted)",
+                "1 pound chicken breasts (boneless and skinless, cut in half lengthwise)",
+                "salt and pepper to taste",
+                "1 medium onion (chopped)",
+                "3 cloves garlic (minced)",
+                "12 ounce white mushrooms (sliced)",
+                "1 tablespoon all-purpose flour",
+                "¼ cup white wine",
+                "1 ½ cups heavy cream (or heavy cream)",
+                "1 tablespoon parsley (for garnish)"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "items": [
+                "Heat the Skillet: Add the butter to a large skillet and melt over medium high heat.",
+                "Cook the Chicken: Season chicken breasts on both sides with salt and pepper. Place chicken breasts in skillet and cook on both sides, about 3 to 5 min per side or until no longer pink inside, time depends on thickness of your breasts. Since the breast is fairly thin, it should cook faster. Transfer the chicken to a plate.",
+                "Cook the Mushrooms: Add the onion and garlic to the skillet and cook for a couple minutes until onion is translucent and soft. Add the mushrooms and stir. Season mushrooms generously with salt and pepper. Let them cook for about 5 minutes, stirring occasionally. When they are cooked to your liking, add the wine and deglaze the pan by scraping the bottom of the skillet. All those brown bits are flavor!",
+                "Finish the Sauce: Sprinkle the flour over the mushrooms and stir for another minute just to remove the raw flour taste. Next, add the cream, stir and cook for 3 minutes, stirring occasionally or until sauce reduces a bit and thickens. Taste for seasoning and adjust with salt and pepper as needed. Add the chicken back to the skillet and spoon sauce over the chicken.",
+                "Finish and Serve: Garnish with parsley and serve hot."
+            ]
+        }
+    ],
+    "notes": [
+        {
+            "items": [
+                "This chicken and mushroom dish could be served over noodles or rice, or just enjoyed on its own with a nice crusty bread.",
+                "This chicken with the mushroom sauce will last in the fridge up to 3 days if wrapped well or stored in an airtight container. To extend the shelf life, I recommend freezing it, wrapped well or in an airtight container, and it will last anywhere from 4 – 6 months."
+            ]
+        }
+    ],
+    "nutrition": [
+        {
+            "items": [
+                "**Serving size** 1 serving",
+                "**Calories** 541 kcal",
+                "**Fat** 42 g",
+                "**Saturated fat** 25 g",
+                "**Cholesterol** 210 mg",
+                "**Sodium** 173 mg",
+                "**Carbohydrates** 10 g",
+                "**Fiber** 1 g",
+                "**Sugar** 3 g",
+                "**Protein** 29 g"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+{
+    "title": "Corn Risotto",
+    "description": "This creamy, pale yellow risotto is studded with chewy fresh corn kernels, making for a nice mix of textures. Making your own corn stock deepens the flavor of this dish, but if you don’t have the time, chicken stock will work. The dish is also pleasingly light, for risotto — finishing the dish by folding in airy whipped cream adds richness without also adding heft. Add the cream quickly and carefully right before serving. If it sits in the hot risotto it will melt — which wouldn’t be the end of the world, of course, since you’ll still have a wonderfully creamy risotto. Emily Weinstein",
+    "source": "https://cooking.nytimes.com/recipes/1016753-corn-risotto?unlocked_article_code=1.4FA.Z-dt.UnicFa0HPMce&smid=ck-recipe-iOS-share",
+    "image": "/recipes/corn-risotto.jpg",
+    "yield": "4 servings",
+    "totalTime": "1h 45min",
+    "categories": ["Tanner’s Faves"],
+    "mainIngredients": {
+        "vegetable": ["Corn", "Leek"],
+        "starch": ["Arborio rice"],
+        "dairy": ["Parmesan cheese", "Heavy cream"]
+    },
+    "ingredients": [
+        {
+            "items": [
+                "6 cups corn stock (see recipe below) or chicken stock",
+                "2 tablespoons unsalted butter",
+                "1 leek, white and light green parts only, finely chopped",
+                "1 teaspoon kosher salt",
+                "¼ teaspoon black pepper",
+                "1 cup arborio rice",
+                "½ cup dry white wine",
+                "1 ½ cups raw corn kernels (from about 2 ears corn)",
+                "1 cup grated Parmesan cheese",
+                "¼ cup heavy cream",
+                "2 tablespoons minced chives (optional)"
+            ]
+        },
+        {
+            "title": "Stock",
+            "items": [
+                "2 corn cobs (kernels removed and reserved for risotto)",
+                "1 onion, cut into quarters",
+                "1 carrot, cut into 1-inch pieces",
+                "1 celery rib, cut crosswise into 1-inch pieces",
+                "Dark green leaves from 1 leek (reserve white and light green parts for risotto)",
+                "2 cloves garlic, smashed",
+                "1 teaspoon salt",
+                "1 teaspoon whole black peppercorns"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "title": "FOR THE RISOTTO",
+            "items": [
+                "Bring the corn stock or chicken stock to a simmer in a saucepan and keep it simmering as you prepare the risotto.",
+                "Melt 1 tablespoon butter in a wide, high-sided sauté pan over medium-low heat. Add leek and cook, stirring occasionally, until softened but not browned, about 6 minutes. Season with salt and pepper. Add rice and cook, stirring, until grains look slightly translucent.",
+                "Pour in wine and cook, stirring, until it has all been absorbed, about 1 to 2 minutes.",
+                "Add a ladleful of hot corn stock to the rice mixture and cook, stirring constantly, until rice has absorbed all of the stock. Continue cooking, adding ladlefuls of stock whenever rice mixture looks dry and stirring continuously. When half the stock has been added, stir in corn. Continue cooking until all of the stock is incorporated, corn is tender and rice is creamy and tender, about 30 to 40 minutes total.",
+                "Remove risotto from heat and stir in Parmesan and remaining tablespoon of butter. Cover and let stand for 5 minutes.",
+                "In an electric mixer fitted with the whisk attachment, beat cream at high speed until it holds stiff peaks. Uncover risotto, stir vigorously and season to taste with salt and pepper. Immediately before serving, stir in the chives, if using, then gently fold in cream."
+            ]
+        }
+    ],
+    "nutrition": [
+        {
+            "items": [
+                "**Calories** 723.5",
+                "**Fat** 26.6 grams",
+                "**Saturated fat** 14 grams",
+                "**Unsaturated fat** 2.1 grams",
+                "**Trans fat** 0.2 grams",
+                "**Cholesterol** 68.2 milligrams",
+                "**Sodium** 1599 milligrams",
+                "**Carbohydrates** 87.3 grams",
+                "**Fiber** 5.7 grams",
+                "**Sugar** 14.6 grams",
+                "**Protein** 30.9 grams"
+            ]
+        }
+    ]
+}

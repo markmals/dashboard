@@ -1,0 +1,88 @@
+{
+    "title": "Saucy Chicken and Sausage over Creamy Parmesan Polenta",
+    "description": "A true comfort meal if there ever was one. Delicious chicken and sausage in a spicy tomato sauce served over a creamy and cheesy polenta.",
+    "source": "https://www.jocooks.com/recipes/saucy-chicken-and-sausage-over-creamy-parmesan-polenta/",
+    "image": "/recipes/saucy-chicken-and-sausage-over-creamy-parmesan-polenta.jpg",
+    "yield": "4",
+    "prepTime": "10min",
+    "cookTime": "50min",
+    "totalTime": "60min",
+    "categories": ["Simple"],
+    "mainIngredients": {
+        "protein": ["Chicken breast", "Italian sausage"],
+        "starch": ["Polenta"],
+        "dairy": ["Parmesan cheese"]
+    },
+    "ingredients": [
+        {
+            "title": "For Saucy Chicken and Sausage",
+            "items": [
+                "1 tablespoon olive oil",
+                "1 small onion (chopped)",
+                "3 cloves garlic (minced)",
+                "6 ounce chicken breast (boneless and skinless, cut into small bite size pieces (about 1 breast))",
+                "2 links Italian sausage (cut into 1 inch pieces)",
+                "salt and pepper to taste",
+                "1 teaspoon dry oregano",
+                "1/2 cup chicken broth (low sodium or dry white wine)",
+                "1 cup tomato sauce",
+                "1 tablespoon hot sauce ((I used Frank’s))",
+                "2 tablespoon butter (unsalted)",
+                "2 tablespoon fresh parsley (chopped for garnish)"
+            ]
+        },
+        {
+            "title": "For Creamy Parmesan Polenta",
+            "items": [
+                "1 cup cornmeal",
+                "4 to 4 1/2 cups water",
+                "1 cup Parmesan cheese (grated)",
+                "3 tablespoon butter (unsalted)",
+                "1/4 teaspoon black pepper"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "title": "For Saucy Chicken and Sausage",
+            "items": [
+                "In a saucepan or a Dutch oven heat the olive oil over medium heat. Add onion and garlic and cook for 2 minutes until the onion is soft and has become translucent. Add the chicken and sausage to the skillet, season with salt, pepper and oregano. Cook for about 10 minutes or until the chicken and sausage starts to brown.",
+                "Stir in the chicken broth or white wine and scrape up all the brown bits from the bottom of the pan. Cook for 2 minutes then add the tomato sauce and hot sauce. Stir in the butter and taste for seasoning. Adjust as necessary.",
+                "Cook for 5 more minutes, remove from heat and garnish with chopped parsley."
+            ]
+        },
+        {
+            "title": "For Creamy Parmesan Polenta",
+            "items": [
+                "Add the cornmeal and 1 cup of water to a cast iron pot. Place the pot over medium to low heat and whisk. This will ensure there will be no lumps. Let the mixture come to a boil and you'll notice it will start to thicken as the cornmeal absorbs the water. Add another cup of water at a time, whisk and wait until the water has been absorbed. Repeat until you've used 4 to 4 1/2 cups of water and the cornmeal is cooked and doesn't taste raw. You will need to whisk occasionally but there's no need to hover over the pot while it's cooking.",
+                "Once the cornmeal is cooked through, remove from heat and stir in the remaining ingredients.",
+                "Serve by plating polenta, then topping it with the chicken and sausage stew."
+            ]
+        }
+    ],
+    "notes": [
+        {
+            "items": [
+                "Refrigerate leftovers in an airtight container in for 3 to 5 days.",
+                "Freeze in an airtight container for 1 to 2 months. Allow the dish to thaw in the fridge over night when ready to feast.",
+                "Please keep in mind that nutritional information is a rough estimate and can vary greatly based on products used."
+            ]
+        }
+    ],
+    "nutrition": [
+        {
+            "items": [
+                "**Serving size** 1 serving",
+                "**Calories** 682 kcal",
+                "**Fat** 46 g",
+                "**Saturated fat** 21 g",
+                "**Cholesterol** 124 mg",
+                "**Sodium** 1295 mg",
+                "**Carbohydrates** 37 g",
+                "**Fiber** 5 g",
+                "**Sugar** 4 g",
+                "**Protein** 32 g"
+            ]
+        }
+    ]
+}

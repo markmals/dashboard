@@ -1,0 +1,66 @@
+{
+    "title": "Pineapple Fried Rice",
+    "description": "“It’s a whole balanced meal inside a tropical fruit,” writes Pepper Teigen about this pineapple fried rice recipe in her book “The Pepper Thai Cookbook” (Clarkson Potter, 2021). This is fried rice, which means in place of the bacon and chicken, you can use shrimp, beef or whatever vegetables you have languishing in your crisper drawer. The one thing you shouldn’t skip are the assertive seasonings, which merit a party: The full 2 tablespoons of curry powder and 1 teaspoon of ground white pepper are what make this dish tingle and trot with a hot, addictive savoriness.",
+    "source": "https://cooking.nytimes.com/recipes/1023812-pineapple-fried-rice",
+    "image": "/recipes/pineapple-fried-rice.jpg",
+    "yield": "4 servings",
+    "totalTime": "30min",
+    "categories": ["Healthy"],
+    "mainIngredients": {
+        "protein": ["Chicken thighs", "Bacon"],
+        "vegetable": ["Peas", "Onion"],
+        "starch": ["Jasmine rice"],
+        "fruit": ["Pineapple"]
+    },
+    "ingredients": [
+        {
+            "items": [
+                "1 large pineapple or 1 cup drained canned tidbits",
+                "½ cup salted roasted whole cashews",
+                "6 ounces bacon (about 6 slices), diced",
+                "1 tablespoon unsalted butter",
+                "2 tablespoons minced garlic",
+                "¾ pound boneless, skinless chicken thighs, cut into bite-size pieces",
+                "1 medium yellow onion, diced",
+                "2 tablespoons curry powder",
+                "2 teaspoons granulated sugar",
+                "½ teaspoon Thai chile powder (see Tip)",
+                "1 cup frozen green peas",
+                "3 tablespoons fish sauce, plus more to taste",
+                "4 cups cooked jasmine rice (from 1 ⅓ cups uncooked rice)",
+                "¼ cup golden raisins",
+                "2 fresh red chiles, such as Fresnos, or mini bell peppers, thinly sliced",
+                "3 scallions, thinly sliced",
+                "1 teaspoon ground white pepper",
+                "Chopped and whole cilantro leaves and lime wedges, for serving"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "items": [
+                "If using fresh pineapple, slice the pineapple and stem in half lengthwise. (If you’re using canned pineapple, skip this whole step.) Use a paring knife to cut around the perimeter of the pineapple meat to form a bowl shape, leaving a ½-inch rim, then slice into the pineapple crosswise (taking care not to go through the skin on the bottom). To form the bowl, use a spoon to scoop out the slices, carefully carving out any remaining bits left behind and discarding the hard core. Cut the pineapple meat into ½-inch pieces. Measure out 1 cup and set aside. Save the leftover pineapple half for a late-night snack, or hollow it out, as well, reserving the meat for another time.",
+                "In a dry wok or large skillet over medium heat, toast the cashews, stirring frequently, until lightly browned and fragrant, 3 to 5 minutes. Remove the cashews and set aside.",
+                "Increase the heat to medium-high, add the bacon and cook, stirring occasionally, for 2 to 3 minutes to render the bacon fat and crisp the bacon. Add the butter and let it melt, then stir in the garlic until fragrant, just a few seconds.",
+                "Add the chicken and cook, stirring occasionally, until the chicken is seared on the outside, about 3 minutes. Add the onion and stir until softened, about 2 minutes.",
+                "Stir in the curry powder, sugar and chile powder, then the peas and fish sauce, tossing to distribute the curry powder. Then, immediately add the rice, reserved pineapple, raisins and red chiles. Cook for about 2 minutes, stirring and tossing often until any liquid has evaporated and the rice starts to brown.",
+                "To finish, add the scallions, toasted cashews, white pepper and as much chopped cilantro as you’d like, tossing to combine. Taste and season with more fish sauce, if needed. Transfer some of the mixture to the pineapple bowl (if using), and transfer the rest to a serving platter. Garnish with whole cilantro leaves and serve with lime wedges."
+            ]
+        }
+    ],
+    "nutrition": [
+        {
+            "items": [
+                "**Fat** 34 grams",
+                "**Saturated fat** 10 grams",
+                "**Unsaturated fat** 20 grams",
+                "**Trans fat** 0 grams",
+                "**Sodium** 1507 milligrams",
+                "**Carbohydrates** 126 grams",
+                "**Fiber** 16 grams",
+                "**Sugar** 45 grams",
+                "**Protein** 38 grams"
+            ]
+        }
+    ]
+}

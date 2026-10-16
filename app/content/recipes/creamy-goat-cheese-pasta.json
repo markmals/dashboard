@@ -1,0 +1,68 @@
+{
+    "title": "Creamy Goat Cheese Pasta",
+    "description": "This Creamy Goat Cheese Pasta, made in one pot, will be ready to devour in less than 30 minutes! Creamy goat cheese, parsley and basil for greens; this is the easiest way to marry homemade and gourmet. You'll be saying \"I DO!\".",
+    "source": "https://www.jocooks.com/recipes/creamy-goat-cheese-pasta/",
+    "image": "/recipes/creamy-goat-cheese-pasta.jpg",
+    "yield": "4",
+    "prepTime": "5min",
+    "cookTime": "20min",
+    "totalTime": "25min",
+    "categories": ["Simple"],
+    "mainIngredients": {
+        "starch": ["Penne"],
+        "dairy": ["Goat cheese", "Parmesan cheese", "Half and half"]
+    },
+    "ingredients": [
+        {
+            "items": [
+                "12 ounce penne (dry)",
+                "2 tablespoon butter (unsalted)",
+                "2 cloves garlic (minced)",
+                "6 ounce goat cheese (soft)",
+                "1 cup half and half cream",
+                "¼ cup fresh basil (sliced chiffonade*)",
+                "¼ teaspoon salt (or to taste)",
+                "½ teaspoon pepper (or to taste)",
+                "2 tablespoon lemon juice (from 1 lemon)",
+                "lemon zest (from 1 lemon)",
+                "1 cup Parmesan cheese (grated)",
+                "2 tablespoon fresh parsley (chopped)"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "items": [
+                "Cook pasta: Cook the pasta al dente according to package instructions. Reserve 1 cup of the pasta cooking water.",
+                "Make sauce: Heat the butter in a skillet over medium-high heat. Add the garlic and sauté for 30 seconds to 1 minute, just until the garlic becomes aromatic. Add the goat cheese, half and half and stir. Whisk until smooth.",
+                "Add pasta: Reduce the heat to medium. Add the cooked penne and 1/2 cup of the reserved pasta water to the skillet. Stir well to coat the pasta and let it bubble in the sauce for 1-2 minutes.",
+                "Finish: If you'd like a thinner sauce, add more of the pasta water as needed. Mix in the basil, then season with salt and pepper to taste. Add the lemon juice and zest and more pasta water if needed. Turn off the heat and stir in the Parmesan cheese.",
+                "Garnish and serve: Garnish with parsley and serve."
+            ]
+        }
+    ],
+    "notes": [
+        {
+            "items": [
+                "*Chiffonade: Stack your basil leaves, starting with the largest on the top up to the smallest. Roll the leaves tightly lengthwise. Starting from the pointy end, cut 1/4″ slices all the way down the roll.",
+                "Transfer your leftover goat cheese pasta to an airtight container and keep in the fridge for 2-3 days. Reheat either in the microwave, or on the stovetop over medium heat. Stir often and add a splash of water or cream if you find the sauce is too thick."
+            ]
+        }
+    ],
+    "nutrition": [
+        {
+            "items": [
+                "**Serving size** 1 serving",
+                "**Calories** 661 kcal",
+                "**Fat** 29 g",
+                "**Saturated fat** 19 g",
+                "**Cholesterol** 74 mg",
+                "**Sodium** 735 mg",
+                "**Carbohydrates** 68 g",
+                "**Fiber** 3 g",
+                "**Sugar** 3 g",
+                "**Protein** 30 g"
+            ]
+        }
+    ]
+}

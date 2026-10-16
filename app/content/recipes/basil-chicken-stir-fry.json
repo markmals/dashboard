@@ -1,0 +1,42 @@
+{
+    "title": "Basil Chicken Stir-Fry",
+    "description": "A savory, spicy explosion of flavor that takes less than 30 minutes to make. Plus, a game-changing technique to make lean ground meat juicy and tender.",
+    "source": "https://www.bonappetit.com/recipe/basil-chicken-stir-fry",
+    "image": "/recipes/basil-chicken-stir-fry.jpg",
+    "yield": "4 servings",
+    "totalTime": "25 minutes",
+    "categories": ["Healthy", "Simple", "Tanner’s Faves"],
+    "mainIngredients": {
+        "protein": ["Ground chicken"],
+        "vegetable": ["Shallots", "Basil"],
+        "starch": ["Rice"]
+    },
+    "ingredients": [
+        {
+            "items": [
+                "1 lb. ground chicken",
+                "4 Tbsp. vegetable oil, divided",
+                "1 tsp. Diamond Crystal or ½ tsp. Morton kosher salt, divided",
+                "½ tsp. baking soda",
+                "¼ cup oyster sauce",
+                "3 Tbsp. hot chili paste (such as sambal oelek)",
+                "1 Tbsp. fish sauce",
+                "2 tsp. light or dark brown sugar",
+                "3 large shallots, thinly sliced",
+                "6 oz. holy basil or sweet basil leaves",
+                "Steamed rice and lime wedges (for serving)"
+            ]
+        }
+    ],
+    "instructions": [
+        {
+            "items": [
+                "Vigorously stir 1 lb. ground chicken, 1 Tbsp. vegetable oil, ½ tsp. Diamond Crystal or ¼ tsp. Morton kosher salt, ½ tsp. baking soda, and 2 Tbsp. water in a medium bowl until mixture is smooth and beginning to stick to sides of bowl; set chicken mixture aside.",
+                "Stir ¼ cup oyster sauce, 3 Tbsp. hot chili paste (such as sambal oelek), 1 Tbsp. fish sauce, 2 tsp. light or dark brown sugar, and remaining ½ tsp. Diamond Crystal or ¼ tsp. Morton salt in a small bowl and set aside.",
+                "Heat remaining 3 Tbsp. vegetable oil in a large cast-iron or nonstick skillet over medium-high. Cook 3 large shallots, thinly sliced, stirring occasionally with a wooden spoon or heatproof rubber spatula, until softened and golden in spots, about 4 minutes. Add reserved ground chicken mixture and spread into an even layer. Cook, undisturbed, until beginning to set, about 4 minutes. Break up meat with spoon into small pieces. Pour reserved oyster sauce mixture over and cook, stirring often, until most of the liquid is evaporated and sauce is clinging to meat.",
+                "Add 6 oz. holy basil or sweet basil leaves to pan (it will seem like a lot) and let wilt slightly. Remove pan from heat and toss until basil is completely wilted.",
+                "Serve stir-fry with steamed rice and lime wedges for squeezing over."
+            ]
+        }
+    ]
+}
