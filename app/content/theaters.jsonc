@@ -1,25 +1,5 @@
 [
     {
-        "id": "you-can-see-everything",
-        "title": "You Can See Everything",
-        "link": "https://www.themoviedb.org/movie/1765072-you-can-see-everything",
-        "release": "2026-10-16",
-        "genre": "Documentary",
-        "runningTime": "2h 54m",
-        "trailer": "https://youtube.com/watch?v=HvW_N5p1q44",
-        "poster": "https://image.tmdb.org/t/p/original/eT5C3Wv8ZfRgBwwFn0a4VEWuCdG.jpg"
-    },
-    {
-        "id": "breeder",
-        "title": "Breeder",
-        "link": "https://www.themoviedb.org/movie/1496696-breeder",
-        "release": "2026-10-16",
-        "genre": "Horror, Thriller",
-        "runningTime": "1h 37m",
-        "trailer": "https://youtu.be/9MeILB0M274",
-        "poster": "https://image.tmdb.org/t/p/original/alsb3UC17kxIcytLWvwkmL0STgU.jpg"
-    },
-    {
         "id": "whalefall",
         "title": "Whalefall",
         "link": "https://www.themoviedb.org/movie/1255833-whalefall",
@@ -40,6 +20,26 @@
         "trailer": "https://youtube.com/watch?v=wixzainceAE"
     },
     {
+        "id": "breeder",
+        "title": "Breeder",
+        "link": "https://www.themoviedb.org/movie/1496696-breeder",
+        "release": "2026-10-28",
+        "genre": "Horror, Thriller",
+        "runningTime": "1h 37m",
+        "trailer": "https://youtu.be/9MeILB0M274",
+        "poster": "https://image.tmdb.org/t/p/original/alsb3UC17kxIcytLWvwkmL0STgU.jpg"
+    },
+    {
+        "id": "club-kid",
+        "title": "Club Kid",
+        "link": "https://www.themoviedb.org/movie/1585239-club-kid",
+        "release": "2026-11-06",
+        "genre": "Comedy, Drama",
+        "runningTime": "2h 6m",
+        "trailer": "https://youtu.be/guKEdb_iRXw",
+        "poster": "https://image.tmdb.org/t/p/original/3CdM37GtEDMAp7fGlRn9MCpFjn1.jpg"
+    },
+    {
         "id": "wild-horse-nine",
         "title": "Wild Horse Nine",
         "link": "https://www.themoviedb.org/movie/891621-wild-horse-nine",
@@ -48,6 +48,15 @@
         "runningTime": "1h 57m",
         "trailer": "https://youtu.be/Haw_sznA5aQ",
         "poster": "https://image.tmdb.org/t/p/original/bh4wFW0B7fVtUOT9xfeugJJYKWw.jpg"
+    },
+    {
+        "id": "jimmy",
+        "title": "Jimmy",
+        "link": "https://www.themoviedb.org/movie/1241478-jimmy",
+        "release": "2026-11-06",
+        "genre": "Drama, History",
+        "trailer": "https://youtu.be/EURriesRel0",
+        "poster": "https://image.tmdb.org/t/p/original/c3fWnsg5VEP5EhYZ4oY2NpFrrU1.jpg"
     },
     {
         "id": "ghost-soldier",
@@ -79,15 +88,6 @@
         "poster": "https://image.tmdb.org/t/p/original/oUt2f6qHRZDnprG16ELimRhDGDV.jpg"
     },
     {
-        "id": "jimmy",
-        "title": "Jimmy",
-        "link": "https://www.themoviedb.org/movie/1241478-jimmy",
-        "release": "2026-11-20",
-        "genre": "Drama, History",
-        "trailer": "https://youtu.be/EURriesRel0",
-        "poster": "https://image.tmdb.org/t/p/original/c3fWnsg5VEP5EhYZ4oY2NpFrrU1.jpg"
-    },
-    {
         "id": "the-hunger-games",
         "title": "The Hunger Games: Sunrise on the Reaping",
         "link": "https://www.themoviedb.org/movie/1300968-the-hunger-games-sunrise-on-the-reaping",
@@ -98,10 +98,10 @@
         "poster": "https://image.tmdb.org/t/p/original/jNcZH8yplxttRlf0wwqfGGMKHxX.jpg"
     },
     {
-        "id": "the-adventures-of-cliff-booth",
-        "title": "The Adventures of Cliff Booth",
+        "id": "the-further-mis-adventures-of-cliff-booth",
+        "title": "The Further Mis-Adventures Of Cliff Booth",
         "link": "https://www.themoviedb.org/movie/1457866-the-adventures-of-cliff-booth",
-        "release": "2026-11-24",
+        "release": "2026-11-25",
         "genre": "Drama, Comedy",
         "trailer": "https://youtu.be/ik0drfECnPo",
         "poster": "https://image.tmdb.org/t/p/original/7MVS7btgeVPmliDKG84aOiOyqO8.jpg"
@@ -137,13 +137,34 @@
         "poster": "https://image.tmdb.org/t/p/original/6344dBKVwNZaKattWjneBl2nIqK.jpg"
     },
     {
+        "id": "the-debut",
+        "title": "The Debut",
+        "link": "https://www.themoviedb.org/movie/1391239-the-debut",
+        "release": "2026-12-11",
+        "genre": "Comedy, Drama",
+        "runningTime": "1h 45m",
+        "trailer": "https://youtu.be/clyzHmBx43E",
+        "poster": "https://image.tmdb.org/t/p/original/5CZdxLiBpYMBXwo0rur6YzZTVP4.jpg"
+    },
+    {
         "id": "werwulf",
         "title": "Werwulf",
         "link": "https://www.themoviedb.org/movie/1421903-werwulf",
         "release": "2026-12-25",
         "genre": "Horror, Mystery",
+        "runningTime": "2h",
         "trailer": "https://youtube.com/watch?v=cmjpadVj-Vk",
         "poster": "https://image.tmdb.org/t/p/original/imnkSt4PSQpxIuyiRpJCiLk3SZz.jpg"
+    },
+    {
+        "id": "artificial",
+        "title": "Artificial",
+        "link": "https://www.themoviedb.org/movie/1492198-artificial",
+        "release": "2026-12-25",
+        "genre": "Comedy, Drama",
+        "runningTime": "2h 20m",
+        "trailer": "https://youtu.be/rDZplZFnbOk",
+        "poster": "https://image.tmdb.org/t/p/original/2bz0HPE8OFOqnyvl8sCdVDIg1KX.jpg"
     },
     {
         "id": "narnia",
