@@ -54,7 +54,13 @@ export async function ServerLayout({ children }: { children: React.ReactNode }) 
     );
 
     return (
-        <html className="bg-white lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950" lang="en">
+        // Extensions like Dark Reader add attributes to <html> before hydration. This only silences
+        // attribute mismatches on <html> itself; descendants are still checked.
+        <html
+            className="bg-white lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950"
+            lang="en"
+            suppressHydrationWarning
+        >
             <head>
                 <meta charSet="utf-8" />
                 <meta content="width=device-width, initial-scale=1" name="viewport" />
