@@ -50,24 +50,6 @@
         "poster": "https://image.tmdb.org/t/p/original/bh4wFW0B7fVtUOT9xfeugJJYKWw.jpg"
     },
     {
-        "id": "jimmy",
-        "title": "Jimmy",
-        "link": "https://www.themoviedb.org/movie/1241478-jimmy",
-        "release": "2026-11-06",
-        "genre": "Drama, History",
-        "trailer": "https://youtu.be/EURriesRel0",
-        "poster": "https://image.tmdb.org/t/p/original/c3fWnsg5VEP5EhYZ4oY2NpFrrU1.jpg"
-    },
-    {
-        "id": "ghost-soldier",
-        "title": "Ghost Soldier",
-        "link": "https://www.themoviedb.org/movie/1562642-ghost-soldier",
-        "release": "2026-11-11",
-        "genre": "Action, Thriller",
-        "trailer": "https://youtu.be/l0pTZqZWs-c",
-        "poster": "https://image.tmdb.org/t/p/original/h3N9bQbuDtswq6nNtREpyhUYyv9.jpg"
-    },
-    {
         "id": "ebenezer-a-christmas-carol",
         "title": "Ebenezer: A Christmas Carol",
         "link": "https://www.themoviedb.org/movie/1567605-ebenezer-a-christmas-carol",
@@ -103,7 +85,7 @@
         "link": "https://www.themoviedb.org/movie/1457866-the-adventures-of-cliff-booth",
         "release": "2026-11-25",
         "genre": "Drama, Comedy",
-        "trailer": "https://youtu.be/ik0drfECnPo",
+        "trailer": "https://youtube.com/watch?v=RjEZaUBbUvU",
         "poster": "https://image.tmdb.org/t/p/original/7MVS7btgeVPmliDKG84aOiOyqO8.jpg"
     },
     {
@@ -125,6 +107,16 @@
         "runningTime": "1h 50m",
         "trailer": "https://youtu.be/mtC4sjABZNw",
         "poster": "https://image.tmdb.org/t/p/original/g0f2mzRzwbIrzpieftY98W97muf.jpg"
+    },
+    {
+        "id": "november-1963",
+        "title": "November 1963",
+        "link": "https://www.themoviedb.org/movie/1287520-november-1963",
+        "release": "2026-12-04",
+        "genre": "History, Crime",
+        "runningTime": "2h",
+        "trailer": "https://youtu.be/8N9e-skJ3hw",
+        "poster": "https://image.tmdb.org/t/p/original/k5qNgwnnAjKGFN9N5v7KHYjev9R.jpg"
     },
     {
         "id": "behemoth",
@@ -165,6 +157,15 @@
         "runningTime": "2h 20m",
         "trailer": "https://youtu.be/rDZplZFnbOk",
         "poster": "https://image.tmdb.org/t/p/original/2bz0HPE8OFOqnyvl8sCdVDIg1KX.jpg"
+    },
+    {
+        "id": "remain",
+        "title": "Remain",
+        "link": "https://www.themoviedb.org/movie/1425859-remain",
+        "release": "2027-02-05",
+        "genre": "Romance, Horror",
+        "trailer": "https://youtu.be/h969bLwxgKc",
+        "poster": "https://image.tmdb.org/t/p/original/5hPNq5h2y8Ux6nPBRMEwZ8npVTp.jpg"
     },
     {
         "id": "narnia",
